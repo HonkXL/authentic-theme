@@ -1,3 +1,7 @@
+body_cputype1=$5, $8 teras
+settings_right_logos_title=Logo tema boleh ditetapkan dengan mudah di sini, untuk kedua-duanya, pengguna yang disahkan dan tidak disahkan. Saiz logo yang disyorkan ialah <em>180x90</em> piksel.
+settings_right_logos_error=Fail yang dimuat naik bukan imej
+
 settings_right_hotkey_custom_options_description=Pautan tersuai membolehkan anda menggunakan digit daripada <code>1</code> hingga <code>9</code> untuk mengakses pantas mana-mana panel <code>URL yang sah.</code> <code>URL</code> boleh diekstrak dari halaman yang sedang dibuka. Contohnya, untuk beralih pantas kepada modul Apache, tetapkan <code>apache</code> kepada medan <code>Pautan tersuai 1</code>. Jika kunci pengubah suai lalai ditetapkan kepada <code>Alt,</code> mengklik <code>Alt + 1</code>, akan membuka modul Apache anda.
 
 settings_right_reload=Muatkan halaman lalai pada suis tab
@@ -20,6 +24,36 @@ settings_hotkey_toggle_slider=Togol keterlihatan peluncur sisi
 theme_xhred_sysinfo_wmdocs=Dokumentasi webmin
 theme_xhred_sysinfo_vmdocs=dokumentasi Virtualmin
 theme_xhred_sysinfo_cmdocs=Dokumentasi Cloudmin
+
+theme_xhred_filemanager_setting_permissions=Menetapkan kebenaran kepada <tt>%value</tt> pada fail yang dipilih.
+theme_xhred_filemanager_changing_ownership=Menukar pemilikan kepada <tt>%value</tt> pada fail yang dipilih.
+theme_xhred_filemanager_bookmark_success=Direktori <tt>%value</tt> telah berjaya ditambahkan pada penanda halaman anda.
+theme_xhred_filemanager_searching=Mencari <tt>%value</tt> padanan nama fail /directories.
+
+theme_xhred_filemanager_successful_directory_creation=Direktori <tt>%value</tt> berjaya dibuat.
+theme_xhred_filemanager_successful_file_creation=Fail <tt>%value</tt> berjaya dibuat.
+
+theme_xhred_filemanager_unbookmark_success=Direktori <tt>%value</tt> telah berjaya dialih keluar daripada penanda halaman anda.
+
+theme_xhred_database_object_selected_delete2=Jatuhkan jadual yang dipilih
+theme_xhred_database_objects_selected_delete2=Gugurkan jadual yang dipilih
+
+filemanager_create_object_exists=$3 <tt>$1</tt> sudah wujud dalam <tt>$2</tt>
+filemanager_create_object_denied=Tidak boleh membuat $3 <tt>$1</tt> dalam <tt>$2</tt> - kebenaran ditolak : $4.
+
+filemanager_rename_exists=$3 dengan nama <tt>$1</tt> sudah wujud dalam <tt>$2</tt>
+
+theme_xhred_filemanager_successful_rename=Menamakan semula <tt>%from</tt> <tt>%to</tt> berjaya.
+
+theme_xhred_filemanager_searching_matching=Mencari <tt>%value</tt> padanan nama fail /directories, mengandungi <tt>%text</tt>.
+theme_xhred_filemanager_searching_replacing=Menggantikan padanan <tt>%text</tt> dengan <tt>%replace</tt> dalam fail dengan nama yang mengandungi <tt>%value</tt>.
+
+theme_xhred_filemanager_successful_compression_bg=Pemampatan telah berjaya diselesaikan. Fail termampat <tt>%file</tt> terletak dalam direktori <tt>%path</tt>.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Pemampatan telah selesai dengan ralat. Fail yang dimampatkan <tt>%file</tt> hendaklah terletak dalam direktori <tt>%path</tt>.
+
+theme_xhred_filemanager_changing_attributes=Menetapkan atribut kepada <tt>%value</tt> pada fail yang dipilih.
+
+theme_xhred_filemanager_changing_secontext=Menukar konteks keselamatan kepada <tt>%value</tt> pada fail yang dipilih.
 
 #18.40
 settings_hotkey_toggle_key_night_mode=Togol palet warna
@@ -157,8 +191,6 @@ theme_xhred_nice_size_GB=GB
 theme_xhred_nice_size_MB=MB
 theme_xhred_nice_size_kB=kB
 theme_xhred_nice_size_b=bait
-settings_sysinfo_real_time_status_disk=Dayakan untuk cakera
-settings_sysinfo_real_time_status_disk_description=Mungkin berguna untuk melumpuhkan pemantauan masa nyata untuk cakera pada sistem fail lambat/besar
 theme_xhred_title_locale_non_ui_config=Format tarikh pelayan dihasilkan
 
 #19.20
@@ -251,7 +283,7 @@ theme_xhred_mail_search_has_attach=Mempunyai lampiran
 
 theme_xhred_settings_right_theme_bgs=Latar belakang tema
 theme_xhred_settings_right_theme_bgs_title=Latar Belakang Tema
-settings_right_bgs_title=Latar belakang tema untuk halaman masuk boleh ditetapkan di sini. Satu-satunya format yang disokong ialah <kbd>.png</kbd>, untuk memberikan ketelusan alpha.
+settings_right_bgs_title=Latar belakang tema untuk halaman log masuk boleh ditetapkan di sini.
 settings_right_bg_unauthenticated_users=Latar belakang untuk pengguna yang tidak disahkan
 settings_right_theme_left_background_title=Kawalan Latar Belakang Tema
 
@@ -330,7 +362,7 @@ theme_xhred_shell_aborted=Operasi dibatalkan
 #19.32
 theme_xhred_connection_reboot=But semula
 theme_xhred_connection_reboot_details=Pelayan sedang dihidupkan semula. Sila tunggu ..
-settings_leftmenu_custom_links_description=Ada kemungkinan pautan tambahan yang disuntikkan ke menu navigasi. <br><br> Kekunci <em>title</em>, <em>link</em> dan <em>icon</em> diperlukan; secara pilihan, anda dapat menentukan mod masuk mana pautan akan ditampilkan, dengan menentukan kunci <em>level</em>, dengan nilai, dalam senarai yang dipisahkan dengan koma, yang berisi: <br><br> <em>0</ / em > - log masuk pentadbir; <br><em> 1 </em>- log masuk pengecer;<br> <em>2</em> - log masuk pemilik pelayan; <br><em> 3 </em>- log masuk pengguna;<br> <em>4</em> - log masuk pemilik sistem. <br><br> Ia memerlukan anda meneruskan objek JSON yang sah sebagai rentetan, seperti dalam contoh di bawah. <hr><pre> {"extra": [{ "title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, { "title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": " sampul surat "," port ":" 20000 "," target ":" _blank "}]} </pre>
+settings_leftmenu_custom_links_description=Adalah mungkin untuk mempunyai pautan tambahan tersuai yang disuntik ke dalam menu navigasi. <br><br> Kekunci <em>tajuk</em>, <em>pautan</em> dan <em>ikon</em> diperlukan; secara pilihan, anda boleh menentukan pada mod log masuk mana pautan akan dipaparkan, dengan menentukan kunci <em>level</em>, dengan nilai, dalam senarai dipisahkan koma, mengandungi: <br><br> <em>0</em > - log masuk pentadbir; <br><em>1</em> - log masuk penjual semula;<br><em>2</em> - log masuk pemilik pelayan;<br><em>3</em> - log masuk pengguna;<br><em>4</em>- log masuk pemilik sistem.<br><br> Ia memerlukan anda menghantar objek JSON yang sah sebagai rentetan, seperti dalam contoh di bawah.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=Edit Kegemaran
 left_favorites_edit_desc=Halaman ini dapat digunakan untuk mengedit file pengguna kegemaran tema secara manual. Ini harus dilakukan dengan berhati-hati, kerana tidak ada sintaks atau pemeriksaan kesahan lain yang akan dilakukan pada perubahan anda.
 theme_xhred_filemanager_records_for_server_pagination=Bilangan item lalai dalam direktori untuk memulakan penomboran pelayan
@@ -457,10 +489,6 @@ theme_xhred_global_today=Hari ini
 theme_xhred_global_tomorrow=Esok
 theme_xhred_mail_composer_scheduled=Hantar %1 pada %2
 theme_global_core=Teras
-settings_sysinfo_real_time_stored=Dayakan sejarah statistik
-settings_sysinfo_real_time_stored_description=Sekiranya diaktifkan, statistik yang dikumpulkan sebelumnya akan disimpan, dan dipaparkan dalam grafik di Dashboard
-settings_sysinfo_real_time_stored_length=Tempoh sejarah statistik
-settings_sysinfo_real_time_stored_length_description=Masa di mana sejarah statistik disimpan
 theme_dashboard_accordion_live_stats=Sejarah Statistik
 theme_xhred_live_stats_cpu=CPU
 theme_xhred_live_stats_mem=Ingatan
@@ -555,7 +583,7 @@ theme_xhred_connection_error_details_ssl=Periksa amaran <a>sijil SSL yang ditand
 #19.71
 settings_sysinfo_hidden_panels_user=Akordeon tersembunyi
 theme_xhred_tooltip_dashboard_panels_disable=Sembunyikan panel $1 
-theme_xhred_dashboard_panels_disabled_explain=Panel tersembunyi dapat diaktifkan semula menggunakan halaman konfigurasi tema.
+theme_xhred_dashboard_panels_disabled_explain=Panel tersembunyi boleh didayakan semula menggunakan <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
 settings_right_sysinfo_page_options=Papan pemuka dan pemantauan masa nyata
 settings_right_navigation_menu_options=Menu navigasi
 settings_right_notification_slider_options=Gelangsar sisi
@@ -577,10 +605,7 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=Fungsi ini memerlukan sist
 theme_xhred_global_module_preferences=Keutamaan modul
 
 #19.74
-settings_sysinfo_real_time_status_forced=Ya, terpaksa
-settings_sysinfo_real_time_status_forced_warn=Mengaktifkan pemantauan masa nyata dalam mod kekuatan tidak digalakkan kerana pengumpulan latar belakang akan dilakukan walaupun tab penyemak imbas tidak difokuskan, berpotensi menyebabkan pelayan berlebihan dengan banyak tab dibuka
 theme_xhred_theme_update_available=Versi baru Tema Autentik dipasang
-
 settings_right_page_keep=Muatkan halaman yang sama pada pertukaran domain
 settings_right_page_keep_description=Pilihan ini akan cuba memuatkan halaman yang sama setelah pilih domain, apabila diubah dari daftar turun menu navigasi
 
@@ -783,3 +808,50 @@ theme_xhred_columns_layout_variation_cannot_horizontal=Reka letak mendatar tidak
 settings_auto_open_panels_on_proximity=Auto buka panel tertutup pada jarak dekat
 
 theme_xhred_config_portable_module_xterm_render_addon=Dayakan tambahan pemaparan WebGL
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=Tapis dan eksport kandungan
+
+#21.10
+settings_hotkey_logout_dbl=Log keluar
+theme_xhred_hotkey_emsg=Kekunci sengkang ke belakang tidak boleh digunakan sebagai kekunci pintas
+settings_embed_product_splash_privileged=Paparkan skrin percikan penjenamaan selepas log masuk
+dashboard_status_running=Berlari
+dashboard_status_stopped=Berhenti
+
+#21.11
+theme_xhred_global_watching=Menonton
+theme_xhred_global_connected=Bersambung
+theme_xhred_global_disconnected=Terputus sambungan
+theme_xhred_global_connecting=Menyambung
+index_mods_missing=Modul Perl <tt>$1</tt> tiada.
+index_noadmin_eaccess=Akses ditolak kepada pentadbir bukan induk!
+theme_xhred_body_os=Sistem operasi
+theme_xhred_theme_version=Versi tema tulen
+
+theme_xhred_body_updates=Kemas kini pakej
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Tukar tema
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Muat naik berjaya
+theme_xhred_filemanager_upload_status_err=Muatnaik gagal:
+theme_xhred_filemanager_download_status_err=Muat turun gagal:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Baca
+theme_xhred_dashboard_chart_disk_write=tulis
+theme_xhred_dashboard_chart_net_read=Dalam
+theme_xhred_dashboard_chart_net_write=keluar
+theme_xhred_tooltip_dashboard_live_stats_offline=Statistik langsung tidak tersedia apabila sistem diakses dalam mod proksi; hanya statistik yang dikumpul sebelum ini akan dipaparkan, dan hanya jika tersedia, dan halaman perlu dimuat semula untuk mengemas kini statistik ini
+settings_sysinfo_real_time_status_history1=Ya, dan menyimpan statistik untuk
+settings_sysinfo_real_time_status_history2=Ya, tanpa menyimpan statistik
+settings_sysinfo_real_time_status_history_duration1=20 minit
+settings_sysinfo_real_time_status_history_duration2=1 jam
+settings_sysinfo_real_time_status_history_duration3=3 jam
+settings_sysinfo_real_time_status_history_duration4=6 jam
+settings_sysinfo_real_time_status_history_duration5=12 jam
+settings_sysinfo_real_time_status_history_duration6=18 jam
+settings_sysinfo_real_time_status_history_duration7=24 jam
+theme_xhred_license_purchase=Beli lesen

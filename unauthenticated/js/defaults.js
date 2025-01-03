@@ -11,6 +11,7 @@ var
     settings_cm_editor_palette = 'monokai',
     settings_global_palette_unauthenticated = 'light',
     settings_theme_config_admins_only_privileged = false,
+    settings_embed_product_splash_privileged = false,
 
     // Dashboard and real-time monitoring
     settings_sysinfo_easypie_charts = true,
@@ -19,9 +20,6 @@ var
     settings_sysinfo_easypie_charts_scale = 10,
     settings_sysinfo_max_servers = 10,
     settings_sysinfo_real_time_status = 1,
-    settings_sysinfo_real_time_status_disk = true,
-    settings_sysinfo_real_time_stored = true,
-    settings_sysinfo_real_time_stored_length = 600,
 
     // Navigation menu options defaults
     settings_navigation_color = 'blue',
@@ -64,7 +62,7 @@ var
     settings_right_table_links_type = 2,
     settings_right_table_animate_icons = false,
     settings_right_table_grayscaled_icons = true,
-    settings_right_table_layout_control = true,
+    settings_right_table_layout_control = false,
 
     // Hotkeys options defaults
     settings_hotkeys_active = true,
@@ -85,6 +83,7 @@ var
     settings_hotkey_navigation = 'a',
     settings_hotkey_slider = 'e',
     settings_hotkey_toggle_key_night_mode = 'l',
+    settings_hotkey_logout_dbl = '[',
 
     // Custom links hotkeys options defaults
     settings_hotkey_custom_1_user = '',
@@ -98,6 +97,7 @@ var
     settings_hotkey_custom_9_user = '',
 
     // Theme updates options defaults
+    settings_upgrade_allowed = false,
     settings_sysinfo_theme_updates = false,
     settings_cache_interval = 86400,
     settings_sysinfo_theme_updates_for_usermin = true,
@@ -130,6 +130,7 @@ var
     config_portable_module_filemanager_checksum_limit = 1024000,
     config_portable_module_filemanager_move_to_trash = false,
     config_portable_module_filemanager_show_dot_files = true,
+    config_portable_module_filemanager_datetime_from_locale = false,
 
     // Locale defaults
     config_portable_theme_locale_format_full = 'LLLL',
@@ -143,7 +144,7 @@ var
     //
     // Options that are not presented on UI but could be controlled manually,
     // E.g. to change options below, you would need to open browser's console,
-    // change an option boolean value and call `theme.config.save()` function.
+    // change an option value and call `theme.config.save()` function.
     //
     settings_table_init_datatables = 20000,
     settings_right_page_hide_persistent_vscroll = true,
@@ -157,7 +158,9 @@ var
     settings_mailbox_slash_delimiter = true,
     settings_leftmenu_vm_cm_dropdown_icons = true,
     settings_perform_content_scrolling = true,
-    settings_sysinfo_query_timeout = 1000,
+    settings_sysinfo_real_time_run_rate = 1000, // 1 second tick rate (the higher the less CPU intensive it is)
+    settings_sysinfo_real_time_stored_duration = 1200, // 20 minutes of stored stats data (max: 3600; min: 300)
+    settings_sysinfo_real_time_shutdown_on_last = false,
     settings_sysinfo_cache_timeout = 86400,
     settings_sysinfo_cpu_fans_base_rpm = 1000,
     settings_sysinfo_cpu_and_fans_side_slider_always_show = false,
@@ -184,6 +187,7 @@ var
     // Terminal related custom options
     config_portable_module_xterm_options = '{}',
     config_portable_module_xterm_render_addon = true,
+    config_portable_module_xterm_font_size = 12,
 
     // Custom password generator options
     config_portable_funcs_password_complexity_meter = '{}',
@@ -210,9 +214,6 @@ var
     
     // Multiselect on click
     settings_multiselect_on_click = false,
-
-    // Show splash screen upon login
-    settings_embed_product_branding_privileged = true,
 
     // This option associates extra names for a given module/page to be searchable in autocomplete dropdown
     settings_autocomplete_extra_associations_privileged = {
@@ -257,10 +258,15 @@ var
                     ['migrate_form', 'cpanel ensim plesk lxadmin directadmin'],
                     ['cert_form', 'lets encrypt let\'s encrypt'],
                     ['edit_newdynip', 'DynDNS'],
+                    ['list_scripts', 'script scripts install script install scripts'],
+                    ['edit_newscripts', 'script scripts install script install scripts'],
                 ]
             }
         ]
-    };
+    },
+
+    // Deprecated options
+    settings_embed_product_branding_privileged = settings_embed_product_splash_privileged;
 //
 //
 //

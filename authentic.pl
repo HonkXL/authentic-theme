@@ -13,6 +13,8 @@ our ($get_user_level,
      %gconfig,
      %tconfig,
      %text,
+     %in,
+     $scriptname,
      $basic_virtualmin_domain,
      $basic_virtualmin_menu,
      $cb,
@@ -120,7 +122,16 @@ sub theme_header
                 my $cprog =
                   $user_module_config_directory ? "uconfig.cgi" :
                   "config.cgi";
-                print "<a href=\"$theme_webprefix/$cprog?", &get_module_name() . "\">", $text{'header_config'}, "</a><br>\n";
+                my $params = "";
+                foreach my $k (keys %in) {
+                    foreach my $v (split(/\0/, $in{$k})) {
+                        $params .= "&_cparam_".
+                        &urlize($k)."=".&urlize($v);
+                    }
+                }
+                $params .= "&_cscript=".&urlize($scriptname);
+                $params .= $_[3] eq '1' ? "" : $_[3];
+                print "<a href=\"$theme_webprefix/$cprog?module=", &get_module_name().$params . "\">", $text{'header_config'}, "</a><br>\n";
             }
         }
         print "</div>\n";
@@ -154,11 +165,18 @@ sub theme_header
 
 sub theme_footer
 {
-    return if (fetch_content());
-    if (get_env('script_name') =~ /password_change\.cgi$/) {
-        print "</body>";
-        return;
+    my $script_name = $ENV{'SCRIPT_NAME'};
+    if (index($script_name, 'session_login.cgi') != -1 ||
+        index($script_name, 'pam_login.cgi') != -1 ||
+        index($script_name, 'password_change.cgi') != -1)
+    {
+        print "</div>\n";
+        embed_js_scripts();
+        print "</body>\n";
+        print "</html>\n";
     }
+
+    return if (fetch_content());
     ((!$miniserv::theme_header_captured && !$miniserv::page_capture) && return);
     my %this_module_info = &get_module_info(&get_module_name());
     for (my $i = 0; $i + 1 < @_; $i += 2) {
@@ -172,7 +190,7 @@ sub theme_footer
                 $url = "/" . &get_module_name() . "/$url";
             }
             $url = "$theme_webprefix$url" if ($url =~ /^\//);
-            $url = $url . "/"             if ($url =~ /[^\/]$/ && $url !~ /.cgi/ && $url !~ /javascript:history/);
+            $url = $url . "/"             if ($url =~ /[^\/]$/ && $url !~ /.cgi/ && $url !~ /javascript:history/ && $url !~ /[&?]/);
             print
 "&nbsp;<a style='margin-bottom: 15px;' class='btn btn-primary btn-lg page_footer_submit' href=\"$url\"><i class='fa fa-fw fa-arrow-left'>&nbsp;</i> <span>",
               &text('main_return', $_[$i + 1]), "</span></a>\n";
@@ -197,12 +215,6 @@ sub theme_footer
                  $_[0]
     ) if (!http_x_request());
     embed_pm_scripts();
-
-    if (get_env('script_name') eq '/session_login.cgi' ||
-        get_env('script_name') eq '/pam_login.cgi')
-    {
-        embed_js_scripts();
-    }
 
     if ($theme_config{'settings_hide_top_loader'} ne 'true' &&
         get_env('script_name') ne '/session_login.cgi' &&
@@ -659,14 +671,16 @@ sub theme_ui_form_end
 
 sub theme_ui_textbox
 {
-    my ($name, $value, $size, $dis, $max, $tags) = @_;
+    my ($name, $value, $size, $dis, $max, $tags, $class, $nostyle) = @_;
     my $rv;
 
     my $ids;
     $ids = "_i_$main::ui_textbox_tcalled" if ($main::ui_textbox_tcalled++);
-
+    $class = $class ? " $class" : "";
+    my $style = ' style="display: inline; width: auto; max-width: 100%; height: 28px; padding-top: 0; padding-bottom: 2px; vertical-align: middle"';
+    $style = '' if ($nostyle);
     $rv .=
-'<input style="display: inline; width: auto; max-width: 100%; height: 28px; padding-top: 0; padding-bottom: 2px; vertical-align: middle" class="form-control ui_textbox" type="text" ';
+"<input$style class=\"form-control ui_textbox$class\" type=\"text\" ";
     $rv .= 'id="' . &quote_escape($name . $ids) . '" ';
     $rv .= 'name="' . &quote_escape($name) . '" ';
     $rv .= 'value="' . &quote_escape($value) . '" ';
@@ -884,12 +898,18 @@ sub theme_ui_submit
     if ($label) {
         $nbsp = "&nbsp;";
     }
-
+    # Form attr has to be passed directly to input
+    my $form_value = "";
+    if ($tags && $tags =~ /form=/) {
+        if ($tags =~ s/(form='([^']*)')//) {
+            $form_value = " $1";
+        }
+    }
     return "<button class=\"btn btn-$class ui_submit ui_form_end_submit $btn_class_extra\" type=\"button\"" .
       ($name ne '' ? " name=\"" . &quote_escape($name) . "\""      : "") .
       ($name ne '' ? " id=\"" . &quote_escape($name . $ids) . "\"" : "") .
       ($dis        ? " disabled=true" : "") . ($tags ? " " . $tags : "") . ">" . $icon . "$nbsp<span data-entry=\"$keys\">" .
-      &html_escape($label) . "$nbsp</span></button>\n" . "<input class=\"hidden\" type=\"submit\""
+      &html_escape($label) . "$nbsp</span></button>\n" . "<input$form_value class=\"hidden\" type=\"submit\""
       .
       ( $name ne '' ? " name=\"" . &quote_escape($name) . "\" value=\"" . &quote_escape($label) . "\"" :
           ""
@@ -965,11 +985,11 @@ sub theme_ui_tabs_start
         if ($t->[0] eq $sel) {
             $rv .=
               '<li class="active"><a data-toggle="tab" onclick="return tab_action(\'' .
-              $name . '\', \'' . $t->[0] . '\')" href="#att_' . $t->[0] . '">' . $t->[1] . '</a></li>' . "\n";
+              $name . '\', \'' . $t->[0] . '\', this, event)" href="#att_' . $t->[0] . '">' . $t->[1] . '</a></li>' . "\n";
         } else {
             $rv .=
               '<li><a data-toggle="tab" onclick="return tab_action(\'' .
-              $name . '\', \'' . $t->[0] . '\')" href="#att_' . $t->[0] . '">' . $t->[1] . '</a></li>' . "\n";
+              $name . '\', \'' . $t->[0] . '\', this, event)" href="#att_' . $t->[0] . '">' . $t->[1] . '</a></li>' . "\n";
         }
     }
     $rv .= '</ul>' . "\n";
@@ -1124,14 +1144,21 @@ sub theme_ui_table_row
         $rv .= "</tr>\n";
         $main::ui_table_pos = 0;
     }
+    # Only allow data-* attributes as other,
+    # like width, can have negative effects
+    my ($tds1, $tds2);
+    $tds1 = $tds->[0] if (ref($tds) && $tds->[0] =~ /^data-/);
+    $tds2 = $tds->[1] if (ref($tds) && $tds->[1] =~ /^data-/);
     my $trtags_attrs = ref($trs) eq 'ARRAY' && $trs->[0] ? " $trs->[0]" : "";
     $trtags_attrs .= " data-row-type='ui-table' data-cell-colspan='$cols'";
+    $trtags_attrs .= ' data-column-span="all" data-column-locked="1"'
+      if ($cols == 2 && !length($label));
     my $trtags_class = ref($trs) eq 'ARRAY' && $trs->[1] ? " class='$trs->[1]'" : "";
     $rv .= "<tr$trtags_class$trtags_attrs>\n"
       if ($main::ui_table_pos % $main::ui_table_cols == 0);
-    $rv .= "<td class='col_label'><b>$label</b></td>\n"
+    $rv .= "<td $tds1 class='col_label'><b>$label</b></td>\n"
       if (defined($label));
-    $rv .= '<td colspan="' . $cols . '" class="col_value' . (!length($label) && ' col_header') . '">' . $value . '</td>';
+    $rv .= '<td ' . $tds2 . ' colspan="' . $cols . '" class="col_value' . (!length($label) && ' col_header') . '">' . $value . '</td>';
     $main::ui_table_pos += $cols + (defined($label) ? 1 : 0);
     if ($main::ui_table_pos % $main::ui_table_cols == 0) {
         $rv .= "</tr>\n";
@@ -1147,16 +1174,17 @@ sub theme_ui_table_hr
         $rv .= "</tr>\n";
         $main::ui_table_pos = 0;
     }
-    $rv .= "<tr> " . "<td colspan=$main::ui_table_cols class='no-border'><hr></td></tr>\n";
+    $rv .= "<tr> " . "<td colspan=$main::ui_table_cols class='no-border'><hr data-row-separator></td></tr>\n";
     return $rv;
 }
 
 sub theme_ui_opt_textbox
 {
-    my ($name, $value, $size, $opt1, $opt2, $dis, $extra, $max, $tags) = @_;
+    my ($name, $value, $size, $opt1, $opt2, $dis, $extra, $max, $tags, $type) = @_;
     my $dis1 = &js_disable_inputs([$name, (defined($extra) ? @$extra : ())], []);
-    my $dis2 = &js_disable_inputs([],                                        [$name, (defined($extra) ? @$extra : ())]);
+    my $dis2 = &js_disable_inputs([], [$name, (defined($extra) ? @$extra : ())]);
     my $rv;
+    $type ||= 'text';
     $size = &ui_max_text_width($size);
     $rv .= &ui_radio($name . "_def",
                      $value eq '' ? 1 : 0,
@@ -1164,7 +1192,7 @@ sub theme_ui_opt_textbox
       "\n";
     my $min_width = $size ? '' : ' min-width: 15%;';
     $rv .=
-"<span><input class='ui_opt_textbox form-control' style='display: inline; width: auto; height: 28px; padding-top: 0; padding-bottom: 2px;$min_width' type='text' name=\""
+"<span><input class='ui_opt_textbox form-control' style='display: inline; width: auto; height: 28px; padding-top: 0; padding-bottom: 2px;$min_width' type='$type' name=\""
       . &quote_escape($name)
       . "\" " . "size=$size value=\"" .
       &quote_escape($value) . "\"" . ($dis ? " disabled=true" : "") . ($max ? " maxlength=$max" : "") .
@@ -1313,7 +1341,7 @@ sub theme_ui_buttons_end
 sub theme_ui_radio_table
 {
     my ($name, $sel, $rows, $nobold) = @_;
-    return "" if (!@$rows);
+    return "" if (!$rows || !@$rows);
     my $rv = "<table data-radio-table=\"$name\" class='ui_radio_table'>\n";
     foreach my $r (@$rows) {
         $rv .= "<tr>\n";
@@ -1328,6 +1356,13 @@ sub theme_ui_radio_table
     }
     $rv .= "</table>\n";
     return $rv;
+}
+
+sub theme_ui_make_date
+{
+    my ($date, $ts) = @_;
+    return $date if ($main::webmin_script_type ne 'web');
+    return "<span data-filesize-bytes='$ts'>$date</span>";
 }
 
 sub theme_make_date
@@ -1348,24 +1383,26 @@ sub theme_get_webprefix
 
 sub theme_redirect
 {
-    if ($ENV{'REQUEST_URI'} =~ /noredirect=1/) {
+    my $request_uri = navigation_link_clean($ENV{'REQUEST_URI'});
+    if ($request_uri =~ /noredirect=1/) {
         head();
         return;
     }
 
     my $origin   = $ENV{'HTTP_ORIGIN'};
-    my $referer  = $ENV{'HTTP_REFERER'};
+    my $referer  = navigation_link_clean($ENV{'HTTP_REFERER'});
     my $prefix   = $theme_webprefix;
     my $noredir  = $gconfig{'webprefixnoredir'};
     my $relredir = $gconfig{'relative_redir'};
-    my ($arg1, $arg2) = ($_[0], $_[1]);
+    my ($arg1, $arg2) = (navigation_link_clean($_[0]),
+                         navigation_link_clean($_[1]));
 
     # Clean redirected links query string if requested
-    if ($ENV{'REQUEST_URI'} =~ /no-query=string/) {
+    if ($request_uri =~ /no-query=string/) {
         my $nocache = "no-cache=1";
         $arg1 =~ s/\.cgi.*/.cgi/;
         $arg2 =~ s/\.cgi.*/.cgi/;
-        if ($ENV{'REQUEST_URI'} =~ /\Q$nocache\E/) {
+        if ($request_uri =~ /\Q$nocache\E/) {
             $arg1 .= "?" . $nocache;
             $arg2 .= "?" . $nocache;
         }
@@ -1375,7 +1412,7 @@ sub theme_redirect
     my ($url)  = $arg2;
 
     if (!$relredir) {
-        ($url) = $arg2 =~ /\/\/\S+?(\/\S*)/;
+        ($url) = $arg2 =~ /\/\/\S+?(\/.*)/;
     }
     $url = "$prefix$url" if ($url && $noredir);
     theme_redirect_url_alterer(\$url);
@@ -1492,21 +1529,13 @@ sub theme_js_redirect
     my ($url, $window) = @_;
     $window ||= "window";
     if ($url =~ /^\//) {
-        $url = $theme_webprefix . $url;
-    }
-    if ($url eq "/" || $url eq "$theme_webprefix/") {
-        eval "use File::Basename";
-        my $module = dirname(get_env('script_name'));
-        if ($module ne '/') {
-            $url = "$theme_webprefix$module";
-        } else {
-            $url = "$theme_webprefix/sysinfo.cgi";
-        }
+        # If the URL is like /foo , add webprefix
+        $url = &get_webprefix().$url;
     }
     return
-"$theme_text{'theme_xhred_global_redirecting'} <span class=\"loading-dots\"></span> <script type='text/javascript'>var v___theme_postponed_fetcher = setTimeout(function(){ plugins.pjax.page.link.get('"
+"<span class=\"loading-dots\"></span><script type='text/javascript'>var v___theme_postponed_fetcher = setTimeout(function(){ location.href = '"
       . quote_escape($url)
-      . "');}, 3000);</script>\n";
+      . "';}, 2000);</script>\n";
 }
 
 sub theme_post_save_domain
@@ -1535,6 +1564,14 @@ sub theme_post_save_server
         print 'theme_post_save=' . ($s->{'id'} ? $s->{'id'} : '-1') . '', "\n";
         print "</script>\n";
     }
+}
+
+sub theme_select_domain
+{
+    my ($s) = @_;
+    print '<script>';
+    print 'theme_select_server=' . ($s->{'id'} ? $s->{'id'} : '') . '', "\n";
+    print "</script>\n";
 }
 
 sub theme_select_server
@@ -1638,6 +1675,15 @@ sub theme_ui_page_refresh
 return "page_refresh()";
 }
 
+sub theme_fonts
+{
+    return embed_css_fonts(1);
+}
+
+sub theme_css_inline
+{
+    return get_css_inline(@_);
+}
 
 $main::cloudmin_no_create_links = 1;
 $main::cloudmin_no_edit_buttons = 1;

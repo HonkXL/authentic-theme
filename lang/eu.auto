@@ -3,6 +3,7 @@ body_cpu=PUZaren karga-batez bestekoak
 body_cpuinfo=Prozesadoreari buruzko informazioa
 body_cputemps=CPU tenperaturak
 body_cputype=$5, $8 nukleoak
+body_cputype1=$5, $8 core
 body_disk=Tokian tokiko diskoa
 body_driveerr=$1 akatsak!
 body_drivefailed=SMART egiaztapenak huts egin du!
@@ -99,9 +100,10 @@ settings_right_extensions_title=Gaiaren diseinu zabala, interfaze zati zuzenekoe
 
 theme_xhred_settings_right_theme_logos=Gaiaren logotipoak
 theme_xhred_settings_right_theme_logos_title=Gaiaren logotipoak
-settings_right_logos_title=Gaiaren logotipoak erraz ezar daitezke hemen, egiaztatutako eta baimendu gabeko erabiltzaileentzat. Gomendatutako logotipoaren tamaina <kbd>180x90</kbd> pixel da eta onartzen den formatu bakarra <kbd>.png</kbd>, alfa gardentasuna emateko.
+settings_right_logos_title=Gaien logotipoak erraz ezar daitezke hemen, bai erabiltzaile autentifikatuentzat bai autentifikatu gabekoentzat. Gomendatutako logotipoaren tamaina <em>180x90</em> pixelekoa da.
 settings_right_logo_authenticated_users=Egiaztatutako erabiltzaileentzako logotipoa
 settings_right_logo_unauthenticated_users=Baimendu gabeko erabiltzaileentzako logotipoa
+settings_right_logos_error=Kargatutako fitxategia ez da irudi bat
 
 settings_right_current_theme=Egungo gaia
 settings_right_title=Orrialde honek <a href="https://github.com/authentic-theme/authentic-theme" target="_blank">Authentic Theme</a> aukerak aukeratzeko aukera ematen du. Ezarpenak gaia eguneratzean gordeko dira.
@@ -208,15 +210,15 @@ theme_xhred_filemanager_renaming_selected=Hautatutako izena aldatzen du.
 theme_xhred_filemanager_creating_directory=Direktorioa sortzen
 theme_xhred_filemanager_creating_file=Fitxategia sortzen
 theme_xhred_filemanager_downloading_from=Noiz deskargatzen
-theme_xhred_filemanager_setting_permissions=Baimenak aukeratutako <strong><em>%value</em></strong> fitxategietan <strong><em>%value</em></strong> zehaztea.
-theme_xhred_filemanager_changing_ownership=Jabetza aldatzea <strong><em>%value</em></strong> hautatutako fitxategi (k )etan.
+theme_xhred_filemanager_setting_permissions=Aukeratutako fitxategietan <tt>%value</tt> -n baimenak ezartzen.
+theme_xhred_filemanager_changing_ownership=Jabetza <tt>%value</tt> ra aldatzen hautatutako fitxategietan.
 theme_xhred_filemanager_compressing_selected=Hautatutako atzeko planoan konprimitzea.
 theme_xhred_filemanager_refreshing=Direktorioaren edukia freskatzea.
 theme_xhred_filemanager_copying_successful=Kopiatu arbelean arrakastaz.
 theme_xhred_filemanager_cutting_successful=Moztu arbelean arrakastaz.
 theme_xhred_filemanager_pasting_successful=Arbeletik itsatsi da arrakasta.
-theme_xhred_filemanager_bookmark_success=<strong><em>%value</em></strong> zure laster-marketan gehitu da.
-theme_xhred_filemanager_searching=Fitxategien/direktorioen izenekin bat datozen `<em>%value</em>` bilatzen ari da.
+theme_xhred_filemanager_bookmark_success=Directory <tt>%value</tt> behar bezala gehitu da zure laster-marketan.
+theme_xhred_filemanager_searching=/directories. fitxategien bat datozen <tt>%value</tt> izenak bilatzen.
 theme_xhred_filemanager_search_founds=<strong>%value</strong> datoz.
 theme_xhred_filemanager_search_found=Aurkitu </strong>1</strong> ko partida.
 theme_xhred_filemanager_search_no_matches=Ez da emaitzarik aurkitu
@@ -234,8 +236,8 @@ theme_xhred_filemanager_successful_deletion=Ezabatzea arrakastatsua izan zen.
 theme_xhred_filemanager_successful_permissions=Baimenak behar bezala aldatu dira.
 theme_xhred_filemanager_successful_ownership=Jabetza ondo aldatu da.
 theme_xhred_filemanager_successful_compression=Konpresioa ondo amaitu da.
-theme_xhred_filemanager_successful_directory_creation=Directory `<strong>%value</strong>` arrakastaz sortu da.
-theme_xhred_filemanager_successful_file_creation=file `<strong>%value</strong>` arrakastaz sortu da.
+theme_xhred_filemanager_successful_directory_creation=Direktorioa <tt>%value</tt> behar bezala sortu da.
+theme_xhred_filemanager_successful_file_creation=<tt>%value</tt> fitxategia behar bezala sortu da.
 
 theme_xhred_notifications_packages_updates=Paketeak eguneratzea
 theme_xhred_notifications_theme_update=Gaiaren eguneratzea
@@ -346,7 +348,7 @@ theme_xhred_global_warning=Abisua
 theme_xhred_global_close=Itxi
 
 theme_xhred_filemanager__no_bookmarks=Ez dago gordetako laster-markarik
-theme_xhred_filemanager_unbookmark_success=<strong><em>%value</em></strong> zure laster-marketatik kendu da.
+theme_xhred_filemanager_unbookmark_success=<tt>%value</tt> direktorioa behar bezala kendu da zure laster-marketatik.
 theme_xhred_filemanager_bookmark=Markaren uneko direktorioa
 theme_xhred_filemanager_unbookmark=Desmarkatu uneko direktorio
 theme_xhred_filemanager_move_into_self=Ezin duzu direktorio bat mugitu berez! Helmuga direktorioa iturburu-direktorioaren barruan dago.
@@ -399,6 +401,8 @@ theme_xhred_database_delete_selected_field=Ezabatu hautatutako eremua
 theme_xhred_database_delete_selected_fields=Ezabatu hautatutako eremuak
 theme_xhred_database_object_selected_delete=Hautatutako objektua ezabatu
 theme_xhred_database_objects_selected_delete=Ezabatu hautatutako objektuak
+theme_xhred_database_object_selected_delete2=Jaregin hautatutako taula
+theme_xhred_database_objects_selected_delete2=Jaregin hautatutako taulak
 theme_xhred_database_db_selected_drop=Hautatu datu-basea
 theme_xhred_database_dbs_selected_drop=Hautatu datu-baseak
 theme_xhred_database_edit_but_not_saved=Tauletako datuak editatu dira, baina ez dira gorde.
@@ -426,17 +430,17 @@ theme_xhred_datatable_no_search_results=<span class="h5">Ez da emaitzarik aurkit
 
 theme_xhred_filemanager_buffer_error=Ezin izan da fitxategiak bufferrean itsatsi. Baimena ukatu da.
 
-filemanager_create_object_exists=$3 `<strong><em>$1</em></strong>` dagoeneko badago `<strong><tt>$2</tt></strong>`
-filemanager_create_object_denied=Ezin da $3 sortu `<strong><em>$1</em></strong>` in `<strong><tt>$2</tt></strong>` - Baimena ukatu : $4.
+filemanager_create_object_exists=$3 <tt>$1</tt> dagoeneko existitzen da <tt>$2</tt>
+filemanager_create_object_denied=Ezin da $3 <tt>$1</tt> sortu <tt>$2</tt> -n - baimena ukatua: $4.
 
 theme_xhred_filemanager_paste_warning=Huts egin du helburuak (k) itsatsiz. Litekeena da eskatutako objektu (e) k <em>i izena aldatzea, lekuz aldatzea</em> edo <em>ezabatu</em> izatea itsatsi aurretik /. Beste arrazoi posible bat da helmuga ezin dela idatzi. Objektuen atributuak egiaztatzea merezi du.
 
 theme_xhred_filemanager_delete_warning=Ezabatzea ondo amaitu da, baina ez objektu guztientzat. Litekeena da eskatutako objektu (e) k <em>eko izena aldatu edo</em> ren izena aldatu izana edo ezabatzea aurretik ezabatzea. Mugatutako baimenak (atributuak) beste arrazoi posible bat da. Errore mezua:
 
-filemanager_rename_exists=$3 izenarekin `<strong><em>$1</em></strong>` dagoeneko badago `<strong><tt>$2</tt></strong>`
+filemanager_rename_exists=<tt>$1</tt> izena duen $3 dagoeneko existitzen da <tt>$2</tt>
 filemanager_rename_denied=Ezin da $3 izenarekin aldatu. Hori gerta liteke $3 iturria kendu egin delako edo baimen murriztuak direla eta.
 
-theme_xhred_filemanager_successful_rename=Izena aldatzen `<strong><em><s>%from</s></em></strong>` to `<strong><em>%to</em></strong>` arrakasta izan zuen.
+theme_xhred_filemanager_successful_rename=Arrakasta <tt>%to</tt> da <tt>%from</tt> izena aldatzea.
 
 filemanager_global_info_total1=Guztira: $1 fitxategia eta $2 direktorioa
 filemanager_global_info_total2=Guztira: $1 fitxategiak eta $2 direktorioa
@@ -452,8 +456,8 @@ theme_xhred_filemanager_search_replace=Ordeztu emaitzetan
 theme_xhred_global_find=Aurki
 theme_xhred_global_replace=Ordezkatu
 
-theme_xhred_filemanager_searching_matching=Fitxategien/direktorioen izenekin bat datozen `<em>%value</em>` bilatzen ari `<em>%value</em>`, `<em>%text</em>` testua dutenak.
-theme_xhred_filemanager_searching_replacing=`<em>%text</em>` `<em>%replace</em>` `<em>%value</em>` duten izenak `<em>%replace</em>` ditu.
+theme_xhred_filemanager_searching_matching=<tt>%text</tt> testua duten /directories, fitxategien bat datozen <tt>%value</tt> izenak bilatzen.
+theme_xhred_filemanager_searching_replacing=<tt>%text</tt> ekin ordezkatuz <tt>%value</tt> duten izenak dituzten fitxategietan <tt>%replace</tt>.
 
 theme_xhred_filemanager_search_replaced_multi=<strong>%value</strong> fitxategietan aurkitu eta ordezkatu da.
 theme_xhred_filemanager_search_replaced=Aurkitu </strong>da eta ordezkatu</strong> fitxategian.
@@ -464,8 +468,8 @@ theme_xhred_filemanager_successful_ownership_with_errors=Jabetza ez da behar bez
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=Jabetza ezin da aldatu ondorengo akatsengatik:
 
 theme_xhred_filemanager_successful_compression_with_errors=Konpresioa akats hauekin amaitu da:
-theme_xhred_filemanager_successful_compression_bg=Konpresioa ondo amaitu da. Konprimitutako `<strong>%file</strong>` `<strong>%path</strong>` direktorioan dago.
-theme_xhred_filemanager_successful_compression_bg_with_errors=Konpresioa akatsekin amaitu da. Konprimatutako `<strong>%file</strong>` `<strong>%path</strong>` direktorioaren barruan kokatu beharko litzateke.
+theme_xhred_filemanager_successful_compression_bg=Konpresioa behar bezala amaitu da. <tt>%file</tt> file fitxategi konprimitua <tt>%path</tt> direktorioan dago.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Konpresioa akatsekin amaitu da. Konprimitutako fitxategia <tt>%file</tt> <tt>%path</tt> direktorioan kokatu behar da.
 
 theme_xhred_filemanager_settings_notification_type=Bistaratzeko jakinarazpen mota
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=Informazioak, abisuak eta akatsak
@@ -526,12 +530,12 @@ settings_leftmenu_netdata=Erakutsi Netdata denbora errealeko jarraipen esteka
 settings_leftmenu_netdata_link=Netdata zerbitzariaren esteka hobetsi
 
 theme_xhred_filemanager_context_chattr=Aldatu atributuak
-theme_xhred_filemanager_changing_attributes=Hautatutako fitxategi (k) fitxategietan <strong><em>%value</em></strong> ezartzea.
+theme_xhred_filemanager_changing_attributes=Atributuak <tt>%value</tt> ra ezartzen hautatutako fitxategietan.
 theme_xhred_filemanager_successful_attributes_with_errors=Atributuak ez dira objektu guztientzako ezarri
 theme_xhred_filemanager_successful_attributes=Emaitzak ongi finkatu dira.
 
 theme_xhred_filemanager_context_chcon=Segurtasun testuingurua aldatu
-theme_xhred_filemanager_changing_secontext=Segurtasun testuingurua aldatzea <strong><em>%value</em></strong> hautatutako fitxategi (k )etan.
+theme_xhred_filemanager_changing_secontext=Segurtasun-testuingurua <tt>%value</tt> -ra aldatzen hautatutako fitxategietan.
 theme_xhred_filemanager_successful_secontext_with_errors=Segurtasun testuingurua ez da behar bezala aldatu objektu guztientzat:
 theme_xhred_filemanager_successful_secontext=Segurtasun testuingurua aldatu da.
 
@@ -749,8 +753,6 @@ theme_xhred_nice_size_GB=GB
 theme_xhred_nice_size_MB=MB
 theme_xhred_nice_size_kB=kB
 theme_xhred_nice_size_b=byte
-settings_sysinfo_real_time_status_disk=Gaitu diskoetarako
-settings_sysinfo_real_time_status_disk_description=Baliteke baliagarria izan daitekeela fitxategi-sistema geldo edo handietako diskoetarako denbora errealeko jarraipena desgaitzea
 theme_xhred_title_locale_non_ui_config=Zerbitzariak sortutako data formatua
 
 #19.20
@@ -843,7 +845,7 @@ theme_xhred_mail_search_has_attach=Eranskina du
 
 theme_xhred_settings_right_theme_bgs=Gaiaren aurrekariak
 theme_xhred_settings_right_theme_bgs_title=Gaiaren aurrekariak
-settings_right_bgs_title=Saioa hasierako orrialdearen gaia atzeko planoan hemen ezar daiteke. Onartutako formatu bakarra <kbd>.png</kbd>, alfa gardentasuna emateko.
+settings_right_bgs_title=Saioa hasteko orrirako gaiaren atzeko planoa hemen ezar daiteke.
 settings_right_bg_unauthenticated_users=Baimendu gabeko erabiltzaileentzako aurrekariak
 settings_right_theme_left_background_title=Gaiaren atzeko planoaren kontrola
 
@@ -922,7 +924,7 @@ theme_xhred_shell_aborted=Eragiketa bertan behera geratu da
 #19.32
 theme_xhred_connection_reboot=berrabiarazten
 theme_xhred_connection_reboot_details=Zerbitzaria berrabiarazten ari da. Itxaron mesedez ..
-settings_leftmenu_custom_links_description=Baliteke nabigazio menuan injektatutako esteka estra pertsonalizatuak izatea. <br><br> Gakoak <em>izenburua</em>, <em>lotu</em> eta <em>ikonoa</em> behar dira; aukeran, zehaztu dezakezu zein egoeratan sartuko den esteka bat, <em>emanda</em> tekla zehaztuz, baloreekin, komaz bereizitako zerrendan, hau da: <settings_leftmenu_custom_links_description=It is possible to have custom, extra links injected into navigation menu. <br><br> The keys <em>title</em>, <em>link</em> and <em>icon</em> are required; optionally, you can define at which login mode a link would be displayed, by specifying <em>level</em> key, with values, in comma separated list, containing: <br><br> <em>0</em> - administrator login; <br><em>1</em> - reseller login;<br><em>2</em> - server owner login;<br> <em>3</em> - user login;<br> <em>4</em> - system owner login.<br><br> It will require you to pass valid JSON object as a string, as in the example below.<hr><pre>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
+settings_leftmenu_custom_links_description=Posible da nabigazio menuan esteka pertsonalizatu eta gehigarriak sartzea. <br><br> <em>izenburua</em>, <em>esteka</em> eta <em>ikonoa</em> teklak beharrezkoak dira; aukeran, esteka bat saio-hasiera zein modutan bistaratuko den defini dezakezu, <em>maila</em> gakoa, balioekin, komaz bereizitako zerrendan zehaztuta, honako hauek dituena: <br><br> <em>0</em> > - administratzailearen saioa; <br><em>1</em> - saltzaileen saioa;<br><em>2</em> - zerbitzariaren jabearen saioa;<br><em>3</em> - erabiltzaileen saioa;<br><em>4</em>- sistemaren jabearen saioa.<br><br> Baliozko JSON objektua kate gisa pasatzea eskatuko dizu, beheko adibidean bezala.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=Editatu Gogokoak
 left_favorites_edit_desc=Orrialde hau gai gogokoen erabiltzaile fitxategia eskuz editatzeko erabil daiteke. Hori kontu handiz egin beharko da, ez baita sintaxirik edo beste baliozkotasun egiaztapenik egingo zure aldaketetan.
 theme_xhred_filemanager_records_for_server_pagination=Lehenetsitako direktorioko elementu kopurua zerbitzarian pagina hasteko
@@ -1049,10 +1051,6 @@ theme_xhred_global_today=gaur
 theme_xhred_global_tomorrow=Bihar
 theme_xhred_mail_composer_scheduled=Bidali %1 %2
 theme_global_core=Core
-settings_sysinfo_real_time_stored=Gaitu estatistiken historia
-settings_sysinfo_real_time_stored_description=Gaituta badago, aurrez bildutako estatistikak gordeko dira eta arbeleko grafikoan bistaratuko dira
-settings_sysinfo_real_time_stored_length=Estatistiken historiaren iraupena
-settings_sysinfo_real_time_stored_length_description=Estatistikak historia gordetzen den denbora
 theme_dashboard_accordion_live_stats=Estatistikak Historia
 theme_xhred_live_stats_cpu=CPU
 theme_xhred_live_stats_mem=Memoria
@@ -1147,7 +1145,7 @@ theme_xhred_connection_error_details_ssl=Begiratu <a>norberak sinatutako SSL ziu
 #19.71
 settings_sysinfo_hidden_panels_user=Ezkutuko akordeoiak
 theme_xhred_tooltip_dashboard_panels_disable=Ezkutatu $1 panela
-theme_xhred_dashboard_panels_disabled_explain=Ezkutuko panela berriro gaitu daiteke gaiaren konfigurazio orria erabiliz.
+theme_xhred_dashboard_panels_disabled_explain=Ezkutuko panela berriro gaitu daiteke <tt>Theme Configuration: Dashboard and real-time monitoring</tt> orria erabiliz.
 settings_right_sysinfo_page_options=Arbel eta denbora errealeko monitorizazioa
 settings_right_navigation_menu_options=Nabigazio menua
 settings_right_notification_slider_options=Alboko graduatzailea
@@ -1169,8 +1167,6 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=Eginbide honek fitxategi s
 theme_xhred_global_module_preferences=Moduluaren hobespenak
 
 #19.74
-settings_sysinfo_real_time_status_forced=Bai, behartuta
-settings_sysinfo_real_time_status_forced_warn=Denbora errealeko monitorizazioa indarrean moduan gaitzea ez da gomendagarria atzeko planoko bilketa egingo baita arakatzailearen fitxa bideratuta ez dagoenean, eta horrek zerbitzariaren gainkarga sor dezake fitxa anitz irekita daudelarik.
 theme_xhred_theme_update_available=Benetako Gaiaren bertsio berria instalatuta dago
 settings_right_page_keep=Kargatu orri bera domeinu-aldatzailean
 settings_right_page_keep_description=Aukera hau orri bera kargatzen saiatuko da domeinua hautatzean, nabigazio menuko goitibeherako zerrendatik aldatzen denean
@@ -1374,3 +1370,49 @@ theme_xhred_columns_layout_variation_cannot_horizontal=Diseinu horizontala ezin 
 settings_auto_open_panels_on_proximity=Hurbiltasunean automatikoki irekitzen diren panel itxiak
 
 theme_xhred_config_portable_module_xterm_render_addon=Gaitu WebGL errendatze gehigarria
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=Iragazi eta esportatu edukia
+
+#21.10
+settings_hotkey_logout_dbl=Saioa amaitu
+theme_xhred_hotkey_emsg=Atzeko barra-tekla ezin da laster-tekla gisa erabili
+settings_embed_product_splash_privileged=Erakutsi marka-pantaila bat saioa hasi ondoren
+dashboard_status_running=Korrika
+dashboard_status_stopped=Gelditu
+
+#21.11
+theme_xhred_global_watching=Begira
+theme_xhred_global_connected=Konektatuta
+theme_xhred_global_disconnected=Deskonektatuta
+theme_xhred_global_connecting=Konektatzen
+index_mods_missing=<tt>$1</tt> Perl modulua falta da.
+index_noadmin_eaccess=Sarbidea ukatu zaie maisu ez diren administratzaileei!
+theme_xhred_body_os=Sistema eragilea
+theme_xhred_theme_version=Benetako gaiaren bertsioa
+theme_xhred_body_updates=Paketeen eguneraketak
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Aldatu gaia
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Kargatu ondo
+theme_xhred_filemanager_upload_status_err=Ezin izan da kargatu:
+theme_xhred_filemanager_download_status_err=Deskargatu huts egin du:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Irakurri
+theme_xhred_dashboard_chart_disk_write=Idatzi
+theme_xhred_dashboard_chart_net_read=In
+theme_xhred_dashboard_chart_net_write=Kanpoan
+theme_xhred_tooltip_dashboard_live_stats_offline=Zuzeneko estatistikak ez daude erabilgarri sistemara proxy moduan sartzen denean; aldez aurretik bildutako estatistikak soilik bistaratuko dira, eta eskuragarri egonez gero, eta orria berriro kargatu beharko da estatistikak eguneratzeko
+settings_sysinfo_real_time_status_history1=Bai, eta gordetzeko estatistikak
+settings_sysinfo_real_time_status_history2=Bai, estatistikak gorde gabe
+settings_sysinfo_real_time_status_history_duration1=20 minutu
+settings_sysinfo_real_time_status_history_duration2=1 ordu
+settings_sysinfo_real_time_status_history_duration3=3 ordu
+settings_sysinfo_real_time_status_history_duration4=6 ordu
+settings_sysinfo_real_time_status_history_duration5=12 ordu
+settings_sysinfo_real_time_status_history_duration6=18 ordu
+settings_sysinfo_real_time_status_history_duration7=24 ordu
+theme_xhred_license_purchase=Lizentzia bat erosi

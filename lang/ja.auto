@@ -1,8 +1,12 @@
+body_cputype1=$5、$8コア
 theme_xhred_login_pass=パスワード
 theme_xhred_login_token=トークン
 theme_xhred_login_user=ユーザー名
 
 theme_xhred_session_failed=ログインに失敗しました。もう一度お試しください。
+
+settings_right_logos_title=認証されたユーザーと認証されていないユーザーの両方に対して、テーマのロゴをここで簡単に設定できます。推奨されるロゴのサイズは <em>180x90</em> ピクセルです。
+settings_right_logos_error=アップロードされたファイルは画像ではありません
 
 settings_right_hotkey_custom_options_description=カスタム リンクを使用すると、<code>1</code> から <code>9</code> までの数字を使用して、有効なパネルの <code>URL</code> にすばやくアクセスできます。<code>URL</code> は、現在開いているページから抽出できます。たとえば、Apache モジュールにすばやく切り替えるには、<code>apache</code> を <code>Custom link 1</code> フィールドに設定します。デフォルトの修飾キーが <code>Alt</code> に設定されている場合、<code>Alt + 1</code> をクリックすると、Apache モジュールが開きます。
 
@@ -29,6 +33,36 @@ theme_xhred_sysinfo_wmdocs=Webmin ドキュメント
 theme_xhred_sysinfo_vmdocs=Virtualmin のドキュメント
 theme_xhred_sysinfo_cmdocs=クラウドミンのドキュメント
 
+theme_xhred_filemanager_setting_permissions=選択したファイルの権限を<tt>%value</tt>に設定しています。
+theme_xhred_filemanager_changing_ownership=選択したファイルの所有権を<tt>%value</tt>に変更しています。
+theme_xhred_filemanager_bookmark_success=ディレクトリ<tt>%value</tt>ブックマークに正常に追加されました。
+theme_xhred_filemanager_searching=ファイル名「/directories」に一致する<tt>%value</tt>を検索しています/directories.
+
+theme_xhred_filemanager_successful_directory_creation=ディレクトリ<tt>%value</tt>正常に作成されました。
+theme_xhred_filemanager_successful_file_creation=ファイル<tt>%value</tt>正常に作成されました。
+
+theme_xhred_filemanager_unbookmark_success=ディレクトリ<tt>%value</tt>ブックマークから正常に削除されました。
+
+theme_xhred_database_object_selected_delete2=選択したテーブルを削除
+theme_xhred_database_objects_selected_delete2=選択したテーブルを削除
+
+filemanager_create_object_exists=$3 <tt>$1</tt> <tt>$2</tt>に既に存在します
+filemanager_create_object_denied=<tt>$2</tt>に$3 <tt>$1</tt>を作成できません - 権限が拒否されました: $4 。
+
+filemanager_rename_exists=名前が<tt>$1</tt>の$3 <tt>$2</tt>に既に存在します
+
+theme_xhred_filemanager_successful_rename=<tt>%from</tt> <tt>%to</tt>の名前変更が成功しました。
+
+theme_xhred_filemanager_searching_matching=<tt>%text</tt>テキストを含むファイル/directories, の名前に一致する<tt>%value</tt>を検索しています。
+theme_xhred_filemanager_searching_replacing=置換は、名前に<tt>%value</tt>が含まれるファイル内の<tt>%text</tt>を<tt>%replace</tt>に一致させます。
+
+theme_xhred_filemanager_successful_compression_bg=圧縮が正常に終了しました。圧縮ファイル<tt>%file</tt> <tt>%path</tt>ディレクトリにあります。
+theme_xhred_filemanager_successful_compression_bg_with_errors=圧縮はエラーで終了しました。圧縮ファイル<tt>%file</tt> <tt>%path</tt>ディレクトリに配置する必要があります。
+
+theme_xhred_filemanager_changing_attributes=選択したファイルの属性を<tt>%value</tt>に設定しています。
+
+theme_xhred_filemanager_changing_secontext=選択したファイルのセキュリティ コンテキストを<tt>%value</tt>に変更しています。
+
 #18.40
 settings_hotkey_toggle_key_night_mode=カラー パレットの切り替え
 
@@ -48,9 +82,14 @@ extensions_mail_flag_tls_on=標準暗号化（TLS）
 extensions_mail_flag_tls_off=暗号化されていないメール
 extensions_mail_flag_tls_none=暗号化ステータスが不明です
 
+settings_right_bgs_title=ログインページのテーマの背景をここで設定できます。
+
 settings_hotkey_navigation=ナビゲーション メニューの状態を切り替える
 
 settings_hotkey_slider=サイドスライダーの状態を切り替え
+
+#19.32
+settings_leftmenu_custom_links_description=ナビゲーション メニューにカスタムの追加リンクを挿入することができます。<br><br> キー <em>title</em>、<em>link</em>、および <em>icon</em> は必須です。オプションで、<em>level</em> キーと、コンマ区切りのリストで次の値を指定して、どのログイン モードでリンクを表示するかを定義できます。<br><br> <em>0</em> - 管理者ログイン。 <br><em>1</em> - 再販業者ログイン。<br><em>2</em> - サーバー所有者ログイン。<br><em>3</em> - ユーザーログイン。<br><em>4</em> - システム所有者ログイン。<br><br> 以下の例のように、有効な JSON オブジェクトを文字列として渡す必要があります。<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 
 theme_xhred_filemanager_mass_selected_for_delete=%1 ディレクトリ内のすべてのアイテム
 
@@ -112,7 +151,7 @@ theme_xhred_connection_error_details_ssl=<a>自己署名SSL証明書</a>の警�
 #19.71
 settings_sysinfo_hidden_panels_user=隠されたアコーディオン
 theme_xhred_tooltip_dashboard_panels_disable=$1パネルを非表示
-theme_xhred_dashboard_panels_disabled_explain=非表示のパネルは、テーマ構成ページを使用して再度有効にすることができます。
+theme_xhred_dashboard_panels_disabled_explain=非表示のパネルは<tt>Theme Configuration: Dashboard and real-time monitoring</tt>ページを使用して再度有効にすることができます。
 settings_right_sysinfo_page_options=ダッシュボードとリアルタイムの監視
 settings_right_navigation_menu_options=ナビゲーションメニュー
 settings_right_notification_slider_options=サイドスライダー
@@ -134,10 +173,7 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=この機能を使用す�
 theme_xhred_global_module_preferences=モジュール設定
 
 #19.74
-settings_sysinfo_real_time_status_forced=はい、強制
-settings_sysinfo_real_time_status_forced_warn=強制モードでリアルタイム監視を有効にすることはお勧めしません。ブラウザのタブがフォーカスされていない場合でもバックグラウンド収集が実行され、複数のタブが開いた状態でサーバーが過負荷になる可能性があるためです。
 theme_xhred_theme_update_available=AuthenticThemeの新しいバージョンがインストールされます
-
 settings_right_page_keep=ドメインスイッチに同じページを読み込む
 settings_right_page_keep_description=このオプションは、ナビゲーションメニューのドロップダウンリストから変更すると、ドメインの選択時に同じページを読み込もうとします。
 
@@ -340,3 +376,50 @@ theme_xhred_columns_layout_variation_cannot_horizontal=モバイルモード、�
 settings_auto_open_panels_on_proximity=閉じたパネルが近づくと自動的に開きます
 
 theme_xhred_config_portable_module_xterm_render_addon=WebGL レンダリング アドオンを有効にする
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=コンテンツのフィルタリングとエクスポート
+
+#21.10
+settings_hotkey_logout_dbl=ログアウト
+theme_xhred_hotkey_emsg=バックスラッシュ キーはホットキーとして使用できません
+settings_embed_product_splash_privileged=ログイン後にブランドのスプラッシュ画面を表示する
+dashboard_status_running=ランニング
+dashboard_status_stopped=停止
+
+#21.11
+theme_xhred_global_watching=見ている
+theme_xhred_global_connected=接続
+theme_xhred_global_disconnected=切断
+theme_xhred_global_connecting=接続中
+index_mods_missing=Perl モジュール <tt>$1</tt> がありません。
+index_noadmin_eaccess=マスター管理者以外のアクセスは拒否されました。
+theme_xhred_body_os=オペレーティング·システム
+theme_xhred_theme_version=本格テーマバージョン
+
+theme_xhred_body_updates=パッケージの更新
+
+# 21.20
+theme_xhred_hotkey_switch_theme=テーマを切り替える
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=アップロードに成功しました
+theme_xhred_filemanager_upload_status_err=アップロードに失敗しました:
+theme_xhred_filemanager_download_status_err=ダウンロードに失敗しました：
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=読む
+theme_xhred_dashboard_chart_disk_write=書く
+theme_xhred_dashboard_chart_net_read=で
+theme_xhred_dashboard_chart_net_write=外
+theme_xhred_tooltip_dashboard_live_stats_offline=プロキシモードでシステムにアクセスした場合、ライブ統計は利用できません。以前に収集された統計のみが利用可能である場合のみ表示され、これらの統計を更新するにはページを再読み込みする必要があります。
+settings_sysinfo_real_time_status_history1=はい、そして統計を保存します
+settings_sysinfo_real_time_status_history2=はい、統計を保存せずに
+settings_sysinfo_real_time_status_history_duration1=20分
+settings_sysinfo_real_time_status_history_duration2=1時間
+settings_sysinfo_real_time_status_history_duration3=3時間
+settings_sysinfo_real_time_status_history_duration4=6時間
+settings_sysinfo_real_time_status_history_duration5=12時間
+settings_sysinfo_real_time_status_history_duration6=18時間
+settings_sysinfo_real_time_status_history_duration7=24時間
+theme_xhred_license_purchase=ライセンスを購入する

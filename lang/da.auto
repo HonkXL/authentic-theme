@@ -1,3 +1,4 @@
+body_cputype1=$5, $8 kerne
 settings_right_options=Muligheder
 settings_right_restore_defaults=Gendanne standardindstillingerne
 settings_right_restored=Restaureret
@@ -12,9 +13,10 @@ settings_right_extensions_title=Tema omfattende design, gør det nemt for dig at
 
 theme_xhred_settings_right_theme_logos=Temalogoer
 theme_xhred_settings_right_theme_logos_title=Temalogoer
-settings_right_logos_title=Temalogoer kan let indstilles her for både godkendte og ikke-godkendte brugere. Den anbefalede <kbd>180x90</kbd> er <kbd>180x90</kbd> pixels, og det eneste understøttede format er <kbd>.png</kbd> at give alfa-gennemsigtighed.
+settings_right_logos_title=Temalogoer kan nemt indstilles her, for både godkendte og ikke-godkendte brugere. Den anbefalede logostørrelse er <em>180x90</em> pixels.
 settings_right_logo_authenticated_users=Logo til godkendte brugere
 settings_right_logo_unauthenticated_users=Logo til ikke-godkendte brugere
+settings_right_logos_error=Den uploadede fil er ikke et billede
 
 settings_right_current_theme=Nuværende tema
 settings_right_title=Denne side giver dig mulighed for at konfigurere indstillinger for <a href="https://github.com/authentic-theme/authentic-theme" target="_blank">Autentisk tema</a>. Indstillinger gemmes ved temaopdatering.
@@ -121,15 +123,15 @@ theme_xhred_filemanager_renaming_selected=Omdøb valgt.
 theme_xhred_filemanager_creating_directory=Opretter mappe
 theme_xhred_filemanager_creating_file=Opretter fil
 theme_xhred_filemanager_downloading_from=Download fra
-theme_xhred_filemanager_setting_permissions=Indstilling af tilladelser til <strong><em>%value</em></strong> på valgte (n) fil (er).
-theme_xhred_filemanager_changing_ownership=Ændring af ejerskab til <strong><em>%value</em></strong> på valgte fil (er).
+theme_xhred_filemanager_setting_permissions=Indstilling af tilladelser til <tt>%value</tt> på valgte fil(er).
+theme_xhred_filemanager_changing_ownership=Ændring af ejerskab til <tt>%value</tt> på valgte fil(er).
 theme_xhred_filemanager_compressing_selected=Komprimering valgt i baggrunden.
 theme_xhred_filemanager_refreshing=Forfriskende katalogindhold.
 theme_xhred_filemanager_copying_successful=Kopiering til udklipsholder er vellykket.
 theme_xhred_filemanager_cutting_successful=Klip til udklipsholder succes.
 theme_xhred_filemanager_pasting_successful=Indsæt fra udklipsholder var vellykket.
-theme_xhred_filemanager_bookmark_success=Directory <strong><em>%value</em></strong> blev tilføjet til dine bogmærker.
-theme_xhred_filemanager_searching=Søger efter `<em>%value</em>` matcher navnene på filer/mapper.
+theme_xhred_filemanager_bookmark_success=Directory <tt>%value</tt> blev tilføjet til dine bogmærker.
+theme_xhred_filemanager_searching=Søger efter <tt>%value</tt>, der matcher navnene på filerne /directories.
 theme_xhred_filemanager_search_founds=Fundne <strong>%value</strong> matchninger.
 theme_xhred_filemanager_search_found=Fundet <strong>1</strong> match.
 theme_xhred_filemanager_search_no_matches=Ingen match fundet.
@@ -147,8 +149,8 @@ theme_xhred_filemanager_successful_deletion=Sletningen var vellykket.
 theme_xhred_filemanager_successful_permissions=Tilladelser er ændret med succes.
 theme_xhred_filemanager_successful_ownership=Ejerskab er ændret med succes.
 theme_xhred_filemanager_successful_compression=Kompression er afsluttet.
-theme_xhred_filemanager_successful_directory_creation=Vejviser `<strong>%value</strong>` blev oprettet med succes.
-theme_xhred_filemanager_successful_file_creation=Fil `<strong>%value</strong>` blev oprettet med succes.
+theme_xhred_filemanager_successful_directory_creation=Directory <tt>%value</tt> blev oprettet.
+theme_xhred_filemanager_successful_file_creation=Filen <tt>%value</tt> blev oprettet.
 
 theme_xhred_notifications_packages_updates=Opdatering af pakker
 theme_xhred_notifications_theme_update=Temaopdatering
@@ -259,7 +261,7 @@ theme_xhred_global_warning=Advarsel
 theme_xhred_global_close=Tæt
 
 theme_xhred_filemanager__no_bookmarks=Ingen gemte bogmærker
-theme_xhred_filemanager_unbookmark_success=Directory <strong><em>%value</em></strong> blev fjernet fra dine bogmærker.
+theme_xhred_filemanager_unbookmark_success=Directory <tt>%value</tt> blev fjernet fra dine bogmærker.
 theme_xhred_filemanager_bookmark=Bogmærke den aktuelle mappe
 theme_xhred_filemanager_unbookmark=Fjern bogmærke for det aktuelle bibliotek
 theme_xhred_filemanager_move_into_self=Du kan ikke flytte et bibliotek ind i sig selv! Destinationskataloget er inde i kildekataloget.
@@ -312,6 +314,8 @@ theme_xhred_database_delete_selected_field=Slet valgt felt
 theme_xhred_database_delete_selected_fields=Slet valgte felter
 theme_xhred_database_object_selected_delete=Slet det valgte objekt
 theme_xhred_database_objects_selected_delete=Slet valgte objekter
+theme_xhred_database_object_selected_delete2=Slip den valgte tabel
+theme_xhred_database_objects_selected_delete2=Slip valgte tabeller
 theme_xhred_database_db_selected_drop=Slip den valgte database
 theme_xhred_database_dbs_selected_drop=Slip valgte databaser
 theme_xhred_database_edit_but_not_saved=Tabeldata er redigeret, men ikke gemt.
@@ -339,17 +343,17 @@ theme_xhred_datatable_no_search_results=<span class="h5">Ingen resultater fundet
 
 theme_xhred_filemanager_buffer_error=Kunne ikke indsætte filer i bufferen - tilladelse afvist.
 
-filemanager_create_object_exists=$3 `<strong><em>$1</em></strong>` findes allerede i `<strong><tt>$2</tt></strong>`
-filemanager_create_object_denied=Kan ikke oprette $3 `<strong><em>$1</em></strong>` i `<strong><tt>$2</tt></strong>` - adgang nægtet : $4.
+filemanager_create_object_exists=$3 <tt>$1</tt> findes allerede i <tt>$2</tt>
+filemanager_create_object_denied=Kan ikke oprette $3 <tt>$1</tt> i <tt>$2</tt> - tilladelse nægtet : $4.
 
 theme_xhred_filemanager_paste_warning=Kunne indsætte mål (er). Det er muligt, at de eller de anmodede objekter kunne have været <em>omdøbt, flyttet</em> eller <em>slettet</em> mens/før du indsætter. En anden mulig årsag er, at destinationen ikke kan skrives. Det er værd at kontrollere objekternes attributter.
 
 theme_xhred_filemanager_delete_warning=Sletningen er afsluttet med succes, men ikke for alle objekter. Det er muligt, at de eller de anmodede objekter kunne have været <em>omdøbt</em> eller <em>flyttet</em> før sletning. Begrænsede tilladelser (attributter) er en anden mulig årsag. Fejl besked:
 
-filemanager_rename_exists=$3 med navn `<strong><em>$1</em></strong>` findes allerede i `<strong><tt>$2</tt></strong>`
+filemanager_rename_exists=$3 med navnet <tt>$1</tt> findes allerede i <tt>$2</tt>
 filemanager_rename_denied=Kan ikke omdøbe $3. Dette kan ske, fordi kilden $3 er blevet fjernet eller på grund af begrænsede tilladelser.
 
-theme_xhred_filemanager_successful_rename=Omdøbning `<strong><em><s>%from</s></em></strong>` til `<strong><em>%to</em></strong>` havde succes.
+theme_xhred_filemanager_successful_rename=Det lykkedes at omdøbe <tt>%from</tt> til <tt>%to</tt>.
 
 filemanager_global_info_total1=I alt: $1 fil og $2 katalog
 filemanager_global_info_total2=I alt: $1 filer og $2 bibliotek
@@ -365,8 +369,8 @@ theme_xhred_filemanager_search_replace=Erstat i resultater
 theme_xhred_global_find=Finde
 theme_xhred_global_replace=Erstatte
 
-theme_xhred_filemanager_searching_matching=Søger efter `<em>%value</em>` matchende navne på filer/mapper, der indeholder `<em>%text</em>` tekst.
-theme_xhred_filemanager_searching_replacing=`<em>%replace</em>` matcher `<em>%text</em>` med `<em>%replace</em>` i filer med navne der indeholder `<em>%value</em>`.
+theme_xhred_filemanager_searching_matching=Søger efter <tt>%value</tt>, der matcher navnene på filerne /directories, der indeholder <tt>%text</tt>.
+theme_xhred_filemanager_searching_replacing=Udskiftning af matcher <tt>%text</tt> med <tt>%replace</tt> i filer med navne, der indeholder <tt>%value</tt>.
 
 theme_xhred_filemanager_search_replaced_multi=Fundet og erstattet i <strong>%value</strong> værdifiler.
 theme_xhred_filemanager_search_replaced=Fundet og erstattet i <strong>1</strong> fil.
@@ -377,8 +381,8 @@ theme_xhred_filemanager_successful_ownership_with_errors=Ejerskab er ikke ændre
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=Ejerskab kan ikke ændres på grund af følgende fejl:
 
 theme_xhred_filemanager_successful_compression_with_errors=Komprimering er afsluttet med følgende fejl:
-theme_xhred_filemanager_successful_compression_bg=Kompression er afsluttet. Komprimeret fil `<strong>%file</strong>` er placeret i `<strong>%path</strong>` bibliotek.
-theme_xhred_filemanager_successful_compression_bg_with_errors=Komprimering er afsluttet med fejl. Komprimeret fil `<strong>%file</strong>` skal være placeret i mappen til `<strong>%path</strong>`.
+theme_xhred_filemanager_successful_compression_bg=Komprimeringen er afsluttet. Den komprimerede fil <tt>%file</tt> er placeret i mappen <tt>%path</tt>.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Komprimeringen er afsluttet med fejl. Den komprimerede fil <tt>%file</tt> skal være placeret i mappen <tt>%path</tt>.
 
 theme_xhred_filemanager_settings_notification_type=Type meddelelser, der skal vises
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=Oplysninger, advarsler og fejl
@@ -439,12 +443,12 @@ settings_leftmenu_netdata=Vis netdata-overvågningslink i realtid
 settings_leftmenu_netdata_link=Netdata-server foretrukket link
 
 theme_xhred_filemanager_context_chattr=Skift attributter
-theme_xhred_filemanager_changing_attributes=Indstilling af attributter til <strong><em>%value</em></strong> på valgte fil (er).
+theme_xhred_filemanager_changing_attributes=Indstilling af attributter til <tt>%value</tt> på valgte fil(er).
 theme_xhred_filemanager_successful_attributes_with_errors=Attributter er ikke blevet sat med succes for alle objekter:
 theme_xhred_filemanager_successful_attributes=Attributter er indstillet med succes.
 
 theme_xhred_filemanager_context_chcon=Skift sikkerhedskontekst
-theme_xhred_filemanager_changing_secontext=Ændring af sikkerhedskontekst til <strong><em>%value</em></strong> på valgte fil (er).
+theme_xhred_filemanager_changing_secontext=Ændring af sikkerhedskontekst til <tt>%value</tt> på valgte fil(er).
 theme_xhred_filemanager_successful_secontext_with_errors=Sikkerhedskontekst er ikke ændret med succes for alle objekter:
 theme_xhred_filemanager_successful_secontext=Sikkerhedskonteksten er blevet ændret med succes.
 
@@ -661,8 +665,6 @@ theme_xhred_nice_size_GB=DK
 theme_xhred_nice_size_MB=MB
 theme_xhred_nice_size_kB=kB
 theme_xhred_nice_size_b=bytes
-settings_sysinfo_real_time_status_disk=Aktivér til diske
-settings_sysinfo_real_time_status_disk_description=Det kan være nyttigt at deaktivere overvågning i realtid for diske på langsomme/store filsystemer
 theme_xhred_title_locale_non_ui_config=Servergenereret datoformat
 
 #19.20
@@ -755,7 +757,7 @@ theme_xhred_mail_search_has_attach=Har vedhæftning
 
 theme_xhred_settings_right_theme_bgs=Tema baggrunde
 theme_xhred_settings_right_theme_bgs_title=Tema baggrunde
-settings_right_bgs_title=Tema baggrund for login side kan indstilles her. Det eneste understøttede format er <kbd>.png</kbd> at give alfa-gennemsigtighed.
+settings_right_bgs_title=Temabaggrund for login-side kan indstilles her.
 settings_right_bg_unauthenticated_users=Baggrund for ikke-godkendte brugere
 settings_right_theme_left_background_title=Tema Baggrundskontrol
 
@@ -834,7 +836,7 @@ theme_xhred_shell_aborted=Funktion afbrudt
 #19.32
 theme_xhred_connection_reboot=genstart
 theme_xhred_connection_reboot_details=Serveren genstartes. Vent venligst ..
-settings_leftmenu_custom_links_description=Det er muligt at få tilpassede, ekstra links indsprøjtet i navigationsmenuen. <br><br> Tasterne <em>titel</em>, <em>link</em> og <em>ikon</em> er påkrævet; valgfrit kan du definere, i hvilken login-tilstand et link vises, ved at specificere <em>niveau</em> -tasten med værdier i en kommasepareret liste, der indeholder: <br><br> <em>0</em> > - administrator login; <br><em> 1 </em>- login til forhandler;<br> <em>2</em> - login til serverejeren; <br><em> 3 </em>- bruger login;<br> <em>4</em> - login af systemejer. <br><br> Det kræver, at du videregiver et gyldigt JSON-objekt som en streng, som i eksemplet nedenfor. <hr><pre> {"ekstra": [{ "title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, { "title": "BIND DNS-server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": " konvolut "," port ":" 20000 "," target ":" _blank "}]} </pre>
+settings_leftmenu_custom_links_description=Det er muligt at få indsat brugerdefinerede, ekstra links i navigationsmenuen. <br><br> Nøglerne <em>titel</em>, <em>link</em> og <em>ikon</em> er påkrævet; valgfrit kan du definere, i hvilken login-tilstand et link vil blive vist, ved at angive <em>niveau</em>-nøgle med værdier i en kommasepareret liste, der indeholder: <br><br> <em>0</em > - administrator login; <br><em>1</em> - forhandler login;<br><em>2</em> - server ejer login;<br><em>3</em> - bruger login;<br><em>4</em>- systemejer login.<br><br> Det kræver, at du sender et gyldigt JSON-objekt som en streng, som i eksemplet nedenfor.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=Rediger favoritter
 left_favorites_edit_desc=Denne side kan bruges til manuelt at redigere brugerfilen til temafavoritter. Dette skal udføres omhyggeligt, da der ikke udføres nogen syntaks eller anden gyldighedskontrol på dine ændringer.
 theme_xhred_filemanager_records_for_server_pagination=Standard antal elementer i biblioteket for at starte serverpagination
@@ -961,10 +963,6 @@ theme_xhred_global_today=I dag
 theme_xhred_global_tomorrow=I morgen
 theme_xhred_mail_composer_scheduled=Send %1 ved %2
 theme_global_core=Core
-settings_sysinfo_real_time_stored=Aktivér statistikhistorik
-settings_sysinfo_real_time_stored_description=Hvis det er aktiveret, gemmes tidligere indsamlede statistikker og vises i en graf på Dashboard
-settings_sysinfo_real_time_stored_length=Statistikens varighed
-settings_sysinfo_real_time_stored_length_description=Den tid, hvor statistikhistorikken gemmes
 theme_dashboard_accordion_live_stats=Statistikhistorie
 theme_xhred_live_stats_cpu=CPU
 theme_xhred_live_stats_mem=Hukommelse
@@ -1059,7 +1057,7 @@ theme_xhred_connection_error_details_ssl=Tjek advarslen <a>selvsigneret SSL-cert
 #19.71
 settings_sysinfo_hidden_panels_user=Skjulte harmonikaer
 theme_xhred_tooltip_dashboard_panels_disable=Skjul $1 -panelet
-theme_xhred_dashboard_panels_disabled_explain=Skjult panel kan genaktiveres ved hjælp af temakonfigurationssiden.
+theme_xhred_dashboard_panels_disabled_explain=Skjult panel kan genaktiveres ved hjælp af <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
 settings_right_sysinfo_page_options=Dashboard og overvågning i realtid
 settings_right_navigation_menu_options=Navigationsmenu
 settings_right_notification_slider_options=Sideskyder
@@ -1081,8 +1079,6 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=Denne funktion kræver, at
 theme_xhred_global_module_preferences=Modulindstillinger
 
 #19.74
-settings_sysinfo_real_time_status_forced=Ja tvunget
-settings_sysinfo_real_time_status_forced_warn=Aktivering af realtidsovervågning i krafttilstand frarådes, fordi baggrundssamling udføres, selv når browserfanen ikke er fokuseret, hvilket potentielt kan forårsage serveroverbelastning med flere åbne faner
 theme_xhred_theme_update_available=En ny version af Authentic Theme er installeret
 settings_right_page_keep=Indlæs samme side på domæneswitch
 settings_right_page_keep_description=Denne mulighed forsøger at indlæse den samme side ved valg af domæne, når den ændres fra rullemenuen til navigationsmenuen
@@ -1286,3 +1282,49 @@ theme_xhred_columns_layout_variation_cannot_horizontal=Vandret layout kan ikke b
 settings_auto_open_panels_on_proximity=Åbn automatisk lukkede paneler i nærheden
 
 theme_xhred_config_portable_module_xterm_render_addon=Aktiver WebGL-gengivelsestilføjelse
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=Filtrer og eksporter indhold
+
+#21.10
+settings_hotkey_logout_dbl=Log ud
+theme_xhred_hotkey_emsg=Omvendt skråstreg-tasten kan ikke bruges som en genvejstast
+settings_embed_product_splash_privileged=Vis en branding-splash-skærm efter login
+dashboard_status_running=Løb
+dashboard_status_stopped=Holdt op
+
+#21.11
+theme_xhred_global_watching=Ser på
+theme_xhred_global_connected=Forbundet
+theme_xhred_global_disconnected=Afbrudt
+theme_xhred_global_connecting=Tilslutning
+index_mods_missing=Perl-modulet <tt>$1</tt> mangler.
+index_noadmin_eaccess=Adgang nægtet for ikke-masteradministratorer!
+theme_xhred_body_os=Operativ system
+theme_xhred_theme_version=Autentisk temaversion
+theme_xhred_body_updates=Pakkeopdateringer
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Skift tema
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Upload gennemført
+theme_xhred_filemanager_upload_status_err=Upload fejlede:
+theme_xhred_filemanager_download_status_err=Download fejlede:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Læse
+theme_xhred_dashboard_chart_disk_write=Skrive
+theme_xhred_dashboard_chart_net_read=I
+theme_xhred_dashboard_chart_net_write=Ud
+theme_xhred_tooltip_dashboard_live_stats_offline=Live-statistikker er ikke tilgængelige, når systemet er tilgået i proxy-tilstand; kun tidligere indsamlede statistikker vil blive vist, og kun hvis de er tilgængelige, og siden skal genindlæses for at opdatere disse statistikker
+settings_sysinfo_real_time_status_history1=Ja, og butiksstatistik for
+settings_sysinfo_real_time_status_history2=Ja, uden at gemme statistik
+settings_sysinfo_real_time_status_history_duration1=20 minutter
+settings_sysinfo_real_time_status_history_duration2=1 time
+settings_sysinfo_real_time_status_history_duration3=3 timer
+settings_sysinfo_real_time_status_history_duration4=6 timer
+settings_sysinfo_real_time_status_history_duration5=12 timer
+settings_sysinfo_real_time_status_history_duration6=18 timer
+settings_sysinfo_real_time_status_history_duration7=24 timer
+theme_xhred_license_purchase=Køb en licens

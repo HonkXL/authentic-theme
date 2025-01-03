@@ -99,7 +99,6 @@ settings_right_extensions_title=Theme extensive design, gör det lätt för dig 
 
 theme_xhred_settings_right_theme_logos=Temalogotyper
 theme_xhred_settings_right_theme_logos_title=Temalogotyper
-settings_right_logos_title=Temalogotyper sätter du enkelt här, för både, behöriga och obehöriga användare. Rekommenderas logotypstorlek är<kbd>180x90</kbd> pixlar och bildformatet måste vara <kbd>.png</kbd>, för att förse alfagenomskinlighet.
 settings_right_logo_authenticated_users=Logotyper för autentiserade användare
 settings_right_logo_unauthenticated_users=Logotyper för obehöriga användare
 
@@ -190,15 +189,11 @@ theme_xhred_filemanager_renaming_selected=Döper om markerade.
 theme_xhred_filemanager_creating_directory=Skapar katalog
 theme_xhred_filemanager_creating_file=Skapar fil
 theme_xhred_filemanager_downloading_from=Laddar ner från
-theme_xhred_filemanager_setting_permissions=Sätter behörigheterna till <strong><em>%value</em></strong> på markerad(e) fil(er).
-theme_xhred_filemanager_changing_ownership=Ändrar ägare till <strong><em>%value</em></strong> på markerad(e) fil(er).
 theme_xhred_filemanager_compressing_selected=Komprimmerar markerade i bakgrunden.
 theme_xhred_filemanager_refreshing=Uppdaterar innehållet i katalogen.
 theme_xhred_filemanager_copying_successful=Kopieringen till urklippet lyckades.
 theme_xhred_filemanager_cutting_successful=Klippa ut till urklippet lyckades.
 theme_xhred_filemanager_pasting_successful=Klistra in från urklippet lyckades.
-theme_xhred_filemanager_bookmark_success=Katalogen <strong><em>%value</em></strong> har lagts till dina bokmärken.
-theme_xhred_filemanager_searching=Sökresultatet för <em>`%value`</em> matchade namnet på filer/kataloger.
 theme_xhred_filemanager_search_founds=Hittade <samp>%value</samp> träffar.
 theme_xhred_filemanager_search_found=Hittade <samp>1</samp> träff.
 theme_xhred_filemanager_search_no_matches=Inga träffar hittades.
@@ -216,8 +211,6 @@ theme_xhred_filemanager_successful_deletion=Borttagningen lyckades.
 theme_xhred_filemanager_successful_permissions=Behörigheten har blivit ändrad.
 theme_xhred_filemanager_successful_ownership=Ägaren har blivit ändrad.
 theme_xhred_filemanager_successful_compression=Komprimeringen slutfördes.
-theme_xhred_filemanager_successful_directory_creation=Katalogen `<samp>%value</samp>` har skapats.
-theme_xhred_filemanager_successful_file_creation=Filen `<samp>%value</samp>` har skapats.
 
 theme_xhred_notifications_packages_updates=Paketuppdatering
 theme_xhred_notifications_theme_update=Temauppdatering
@@ -328,7 +321,6 @@ theme_xhred_global_warning=Varning
 theme_xhred_global_close=Stäng
 
 theme_xhred_filemanager__no_bookmarks=Inga sparade bokmärken
-theme_xhred_filemanager_unbookmark_success=Katalogen <samp><em>%value</em></samp> har tagits bort från dina bokmärken.
 theme_xhred_filemanager_bookmark=Bokmarkera nuvarande katalog
 theme_xhred_filemanager_unbookmark=Ta bort bokmärket för nuvarande katalog
 theme_xhred_filemanager_move_into_self=Du kan inte flytta en katalog till sig själv! Destinationskatalogen är inne i källkatalogen.
@@ -408,17 +400,11 @@ theme_xhred_datatable_no_search_results=<span class="h5">Hittade inga träffar</
 
 theme_xhred_filemanager_buffer_error=Det gick inte att klistra in filer till bufferten - åtkomst nekad.
 
-filemanager_create_object_exists=$3 `<samp><em>$1</em></samp>` finns redan i `<samp><tt>$2</tt></samp>`
-filemanager_create_object_denied=Kan inte skapa $3 `<samp><em>$1</em></samp>` i `<samp><tt>$2</tt></samp>` - åtkomst nekad : $4.
-
 theme_xhred_filemanager_paste_warning=Det gick inte att klistra in mål(en). Det är möjligt att de begärda objekten har blivit <em>omdöpta, flyttade</em> eller <em>borttagna</em> medan/innan du klistrade in. En annan möjlig orsak är att destinationen är skrivskyddad.  Det är värt att ta en titt på objektens attribut.
 
 theme_xhred_filemanager_delete_warning=Borttagning av filer är utförda men inte för alla objekten. Det är möjligt att de begärda objekten har blivit <em>omdöpta</em> eller <em>flyttade</em> innan borttagningen. Begränsad behörighet (attribut) är en annan möjlig orsak.  Felmeddelande:
 
-filemanager_rename_exists=$3 med namnet `<samp><em>$1</em></samp>` finns redan i `<samp><tt>$2</tt></samp>`
 filemanager_rename_denied=Can not rename the $3. This might happen because the source $3 has been removed or due to restricted permissions.
-
-theme_xhred_filemanager_successful_rename=Döper om `<samp><em><s>%from</s></em></samp>` till `<samp><em>%to</em></samp>` utan problem.
 
 filemanager_global_info_total1=Totalt: $1 fil och $2 katalog
 filemanager_global_info_total2=Totalt: $1 filer och $2 katalog
@@ -434,9 +420,6 @@ theme_xhred_filemanager_search_replace=Ersätt i resultatet
 theme_xhred_global_find=Sök
 theme_xhred_global_replace=Ersätt
 
-theme_xhred_filemanager_searching_matching=Söker efter <em>`%value`</em> som matchar namnet i filer/kataloger, som innehåller texten <em>`%text`</em>.
-theme_xhred_filemanager_searching_replacing=Ersätter Replacing träffar <em>`%text`</em> med <em>`%replace`</em> i filer med namn som innehåller <em>`%value`</em>.
-
 theme_xhred_filemanager_search_replaced_multi=Hittat och ersatt i <samp>%value</samp> filer.
 theme_xhred_filemanager_search_replaced=Hittat och ersatt i <samp>1</samp> fil.
 
@@ -446,8 +429,6 @@ theme_xhred_filemanager_successful_ownership_with_errors=Äganderätten har änd
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=Äganderätten kan inte ändras på grund av följande fel:
 
 theme_xhred_filemanager_successful_compression_with_errors=Komprimeringen har slutförs med följande fel:
-theme_xhred_filemanager_successful_compression_bg=Komprimering har är klar. Komprimerad fil <samp>`%file`</samp> finns i katalogen <samp>`%path`</samp>.
-theme_xhred_filemanager_successful_compression_bg_with_errors=Komprimering är klar med fel. Komprimerad fil <samp>`%file`</samp> borde finnas i katalogen <samp>`%path`</samp>.
 
 theme_xhred_filemanager_settings_notification_type=Vad för typ av aviseringar ska visas
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=Information, varningar och fel
@@ -508,12 +489,10 @@ settings_leftmenu_netdata=Visa Netdata realtidsövervakningslänk
 settings_leftmenu_netdata_link=Netdata serverbestämd länk
 
 theme_xhred_filemanager_context_chattr=Ändra attribut
-theme_xhred_filemanager_changing_attributes=Ändrar attributen till <samp><em>%value</em></samp> på vald(a) file(r).
 theme_xhred_filemanager_successful_attributes_with_errors=Attributen har inte ändrats på alla objekten:
 theme_xhred_filemanager_successful_attributes=Attributen har ändrats.
 
 theme_xhred_filemanager_context_chcon=Ändra security context
-theme_xhred_filemanager_changing_secontext=Ändrar security context till <samp><em>%value</em></samp> på markerad(e) fil(er).
 theme_xhred_filemanager_successful_secontext_with_errors=Security context har inte ändrats på alla objekten:
 theme_xhred_filemanager_successful_secontext=Security context har ändrats.
 
@@ -730,8 +709,6 @@ theme_xhred_nice_size_GB=GB
 theme_xhred_nice_size_MB=MB
 theme_xhred_nice_size_kB=kB
 theme_xhred_nice_size_b=bytes
-settings_sysinfo_real_time_status_disk=Aktiverad för diskar
-settings_sysinfo_real_time_status_disk_description=Det kan vara lönt att inaktivera realtidsövervakning för diskar på långsamma/stora filsystem
 theme_xhred_title_locale_non_ui_config=Icke-UI-format (som i automatiserade e-postmeddelanden och exporterade filer)
 
 #19.20
@@ -824,7 +801,6 @@ theme_xhred_mail_search_has_attach=Har bifogade filer
 
 theme_xhred_settings_right_theme_bgs=Temabakgrunder
 theme_xhred_settings_right_theme_bgs_title=Temabakgrunder
-settings_right_bgs_title=Temabakgrunden för inloggningssidan kan anges här. Det enda formatet som stöder alfagenomskinlighet är <kbd>.png</kbd>.
 settings_right_bg_unauthenticated_users=Bakgrund för oautentiserade användare
 settings_right_theme_left_background_title=Kontroll av temabakgrund
 
@@ -900,7 +876,6 @@ theme_xhred_shell_aborted=Operationen avbruten
 #19.32
 theme_xhred_connection_reboot=Startar om
 theme_xhred_connection_reboot_details=Servern startas om, vänta...
-settings_leftmenu_custom_links_description=Det är möjligt att ha anpassade, extra länkar injicerade i navigeringsmenyn. <br><br> Nycklarna <em>title</em>, <em>link</em> och <em>icon</em> krävs; valfritt kan du definiera vid vilket inloggningsläge en länk ska visas, genom att ange <em>level</em>-nyckel, med värden, i kommaseparerad lista, som innehåller: <br><br> <em>0</em> - administratörsinloggning; <br><em>1</em> - återförsäljareinloggning;<br><em>2</em> - serverägarinloggning;<br> <em>3</em> - användarinloggning;<br> <em>4</em> - systemägarinloggning.<br><br> Det kommer att kräva att du skickar ett giltigt JSON-objekt som en sträng, som i exemplet nedan.<hr><pre>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=Redigera favoriter
 left_favorites_edit_desc=Den här sidan kan användas för att manuellt redigera användarfilens temafavoriter. Detta bör göras med försiktighet, eftersom ingen syntax eller annan validitetskontroll kommer att utföras på dina ändringar.
 theme_xhred_filemanager_records_for_server_pagination=Antalet objekt i en katalog för att påbörja sidnumrering
@@ -1027,10 +1002,6 @@ theme_xhred_global_today=Idag
 theme_xhred_global_tomorrow=Imorgon
 theme_xhred_mail_composer_scheduled=Skicka %1 vid %2
 theme_global_core=Kärna
-settings_sysinfo_real_time_stored=Aktivera statistikhistorik
-settings_sysinfo_real_time_stored_description=Om aktiverad kommer tidigare samlad statistik att lagras och visas i en graf på översiktssidan
-settings_sysinfo_real_time_stored_length=Statistikens historikvaraktighet
-settings_sysinfo_real_time_stored_length_description=Tiden under vilken statistikhistoriken lagras
 theme_dashboard_accordion_live_stats=Statistikhistorik
 theme_xhred_live_stats_cpu=CPU
 theme_xhred_live_stats_mem=Minne
@@ -1124,7 +1095,6 @@ theme_xhred_connection_error_details_ssl=Kontrollera <a>självsignerat SSL-certi
 #19.71
 settings_sysinfo_hidden_panels_user=Dolda menyrader
 theme_xhred_tooltip_dashboard_panels_disable=Dölj panelen $1
-theme_xhred_dashboard_panels_disabled_explain=Dold panel kan aktiveras igen med hjälp av temakonfigurationssidan.
 settings_right_sysinfo_page_options=Instrumentpanel och realtidsövervakning
 settings_right_navigation_menu_options=Navigeringsmeny
 settings_right_notification_slider_options=Sidoreglage
@@ -1146,8 +1116,6 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=Denna funktion kräver att
 theme_xhred_global_module_preferences=Modulinställningar
 
 #19.74
-settings_sysinfo_real_time_status_forced=Ja, tvingad
-settings_sysinfo_real_time_status_forced_warn=Aktivera realtidsövervakning i kraftläge avskräckas eftersom bakgrundssamling kommer att utföras även när webbläsarfliken inte är fokuserad, vilket kan orsaka serveröverbelastning med flera flikar öppnade
 theme_xhred_theme_update_available=En ny version av Authentic Theme är installerad
 settings_right_page_keep=Ladda samma sida på domänbytaren
 settings_right_page_keep_description=Det här alternativet försöker ladda samma sida när domänen väljs, när den ändras från rullgardinsmenyn för navigeringsmenyn

@@ -3,6 +3,7 @@ body_cpu=Prosessorin kuorman keskiarvot
 body_cpuinfo=Prosessorin tiedot
 body_cputemps=Prosessorin lämpötilat
 body_cputype=$5, $8 ytimet
+body_cputype1=$5, $8 ydin
 body_disk=Paikallinen levytila
 body_driveerr=$1 virheet!
 body_drivefailed=SMART-tarkistus epäonnistui!
@@ -99,9 +100,10 @@ settings_right_extensions_title=Teeman laaja suunnittelu antaa sinun käsitellä
 
 theme_xhred_settings_right_theme_logos=Teemalogot
 theme_xhred_settings_right_theme_logos_title=Teeman logot
-settings_right_logos_title=Teemalogot voidaan asettaa täällä helposti sekä todennetulle että todentamattomalle käyttäjälle. Suositeltu logon koko on <kbd>180x90</kbd> pikseliä ja ainoa tuettu muoto on <kbd>.png</kbd> alfa-läpinäkyvyyden aikaansaamiseksi.
+settings_right_logos_title=Teeman logot voidaan asettaa helposti tähän sekä todennetuille että todentamattomille käyttäjille. Logon suositeltu koko on <em>180 x 90</em> pikseliä.
 settings_right_logo_authenticated_users=Tunnistettujen käyttäjien logo
 settings_right_logo_unauthenticated_users=Tunnistamattomien käyttäjien logo
+settings_right_logos_error=Ladattu tiedosto ei ole kuva
 
 settings_right_current_theme=Nykyinen teema
 settings_right_title=Tällä sivulla voit määrittää <a href="https://github.com/authentic-theme/authentic-theme" target="_blank">Aito teema</a> -vaihtoehtoja. Asetukset tallennetaan teemapäivityksen yhteydessä.
@@ -208,15 +210,15 @@ theme_xhred_filemanager_renaming_selected=Nimeä uudelleen valittuna.
 theme_xhred_filemanager_creating_directory=Luominen hakemisto
 theme_xhred_filemanager_creating_file=Luodaan tiedostoa
 theme_xhred_filemanager_downloading_from=Ladataan
-theme_xhred_filemanager_setting_permissions=Asetus oikeuksien <strong><em>%value</em></strong> valituissa tiedostoissa.
-theme_xhred_filemanager_changing_ownership=Omistajuuden muuttaminen valittujen tiedostojen <strong><em>%value</em></strong>.
+theme_xhred_filemanager_setting_permissions=Asetetaan käyttöoikeudet <tt>%value</tt> valituille tiedostoille.
+theme_xhred_filemanager_changing_ownership=Muutetaan valitun tiedoston omistajuus arvoon <tt>%value</tt>.
 theme_xhred_filemanager_compressing_selected=Pakkataan valitut taustalla.
 theme_xhred_filemanager_refreshing=Päivitetään hakemistosisältöä.
 theme_xhred_filemanager_copying_successful=Kopiointi leikepöydälle onnistui.
 theme_xhred_filemanager_cutting_successful=Leikkaus leikepöydälle onnistui.
 theme_xhred_filemanager_pasting_successful=Liittäminen leikepöydältä onnistui.
-theme_xhred_filemanager_bookmark_success=Hakemisto <strong><em>%value</em></strong> on lisätty kirjanmerkkeihisi onnistuneesti.
-theme_xhred_filemanager_searching=Etsitään `<em>%value</em>` vastaavia tiedostojen/hakemistojen nimiä.
+theme_xhred_filemanager_bookmark_success=Hakemisto <tt>%value</tt> lisättiin onnistuneesti kirjanmerkkeihisi.
+theme_xhred_filemanager_searching=Haetaan <tt>%value</tt> vastaavia nimiä tiedostoista /directories.
 theme_xhred_filemanager_search_founds=Löydetty <strong>%value</strong> vastaa.
 theme_xhred_filemanager_search_found=Löytyi vahva 1 </strong> haku.
 theme_xhred_filemanager_search_no_matches=Hakutuloksia ei löytynyt.
@@ -234,8 +236,8 @@ theme_xhred_filemanager_successful_deletion=Poistaminen onnistui.
 theme_xhred_filemanager_successful_permissions=Käyttöoikeuksia on muutettu onnistuneesti.
 theme_xhred_filemanager_successful_ownership=Omistus on vaihdettu onnistuneesti.
 theme_xhred_filemanager_successful_compression=Pakkaus on onnistunut.
-theme_xhred_filemanager_successful_directory_creation=hakemisto `<strong>%value</strong>` luotiin onnistuneesti.
-theme_xhred_filemanager_successful_file_creation=tiedosto `<strong>%value</strong>` luotiin onnistuneesti.
+theme_xhred_filemanager_successful_directory_creation=Hakemisto <tt>%value</tt> luotiin onnistuneesti.
+theme_xhred_filemanager_successful_file_creation=Tiedoston <tt>%value</tt> luominen onnistui.
 
 theme_xhred_notifications_packages_updates=Pakettien päivitys
 theme_xhred_notifications_theme_update=Teeman päivitys
@@ -346,7 +348,7 @@ theme_xhred_global_warning=Varoitus
 theme_xhred_global_close=kiinni
 
 theme_xhred_filemanager__no_bookmarks=Ei tallennettuja kirjanmerkkejä
-theme_xhred_filemanager_unbookmark_success=Hakemiston <strong><em>%value</em></strong> on poistettu onnistuneesti kirjanmerkeistäsi.
+theme_xhred_filemanager_unbookmark_success=Hakemisto <tt>%value</tt> poistettiin onnistuneesti kirjanmerkeistäsi.
 theme_xhred_filemanager_bookmark=Lisää nykyinen hakemisto kirjanmerkkeihin
 theme_xhred_filemanager_unbookmark=Poista nykyisen hakemiston kirjanmerkki
 theme_xhred_filemanager_move_into_self=Et voi siirtää hakemistoa itsensä sisään! Kohdehakemisto on lähdehakemiston sisällä.
@@ -399,6 +401,8 @@ theme_xhred_database_delete_selected_field=Poista valittu kenttä
 theme_xhred_database_delete_selected_fields=Poista valitut kentät
 theme_xhred_database_object_selected_delete=Poista valittu objekti
 theme_xhred_database_objects_selected_delete=Poista valitut objektit
+theme_xhred_database_object_selected_delete2=Pudota valittu taulukko
+theme_xhred_database_objects_selected_delete2=Pudota valitut taulukot
 theme_xhred_database_db_selected_drop=Pudota valittu tietokanta
 theme_xhred_database_dbs_selected_drop=Pudota valitut tietokannat
 theme_xhred_database_edit_but_not_saved=Taulukkotietoja on muokattu, mutta niitä ei ole tallennettu.
@@ -426,17 +430,17 @@ theme_xhred_datatable_no_search_results=<span class="h5">Tuloksia ei löytynyt</
 
 theme_xhred_filemanager_buffer_error=Tiedostojen liittäminen puskuriin epäonnistui - käyttöoikeus evätty.
 
-filemanager_create_object_exists=$3 `<strong><em>$1</em></strong>` on jo olemassa `<strong><tt>$2</tt></strong>`
-filemanager_create_object_denied=Ei voi luoda $3 `<strong><em>$1</em></strong>` sisään `<strong><tt>$2</tt></strong>` - lupa kielletty : $4.
+filemanager_create_object_exists=$3 <tt>$1</tt> on jo olemassa <tt>$2</tt> ssa
+filemanager_create_object_denied=Ei voi luoda $3 <tt>$1</tt> in <tt>$2</tt> - lupa estetty: $4.
 
 theme_xhred_filemanager_paste_warning=Kohteiden liittäminen epäonnistui. On mahdollista, että pyydetyt esineet olisi voitu <em>nimetä uudelleen, siirtää</em> tai <em>poistaa</em> ennen/ennen liittämistä. Toinen mahdollinen syy on, että määränpäätä ei voida kirjoittaa. Kohteiden ominaisuuksien tarkistaminen on syytä.
 
 theme_xhred_filemanager_delete_warning=Poisto on suoritettu onnistuneesti, mutta ei kaikilta objekteilta. On mahdollista, että pyydetyt esineet olisi voitu <em>nimetä uudelleen</em> tai <em>siirtää</em> ennen poistamista. Rajoitetut käyttöoikeudet (määritteet) on toinen mahdollinen syy. Virheviesti:
 
-filemanager_rename_exists=$3 nimellä `<strong><em>$1</em></strong>` on jo olemassa `<strong><tt>$2</tt></strong>`
+filemanager_rename_exists=$3 nimellä <tt>$1</tt> on jo olemassa <tt>$2</tt> ssa
 filemanager_rename_denied=$3 ei voida nimetä uudelleen. Tämä voi tapahtua, koska lähde $3 on poistettu tai johtuen rajoitetuista käyttöoikeuksista.
 
-theme_xhred_filemanager_successful_rename=uudelleennimeäminen `<strong><em><s>%from</s></em></strong>` että `<strong><em>%to</em></strong>` oli onnistunut.
+theme_xhred_filemanager_successful_rename=<tt>%from</tt> <tt>%to</tt> onnistui.
 
 filemanager_global_info_total1=Yhteensä: $1 tiedosto ja $2 hakemisto
 filemanager_global_info_total2=Yhteensä: $1 tiedostot ja $2 hakemisto
@@ -452,8 +456,8 @@ theme_xhred_filemanager_search_replace=Korvaa tulokset
 theme_xhred_global_find=löytö
 theme_xhred_global_replace=Korvata
 
-theme_xhred_filemanager_searching_matching=Etsitään `<em>%value</em>` vastaavia tiedostojen/hakemistojen nimiä, jotka sisältävät `<em>%text</em>` tekstiä.
-theme_xhred_filemanager_searching_replacing=Korvaa vastaavat `<em>%text</em>` `<em>%replace</em>` tiedostoissa, joiden nimi sisältää `<em>%value</em>`.
+theme_xhred_filemanager_searching_matching=Haetaan <tt>%value</tt> vastaavia nimiä tiedostoille /directories, jotka sisältävät <tt>%text</tt> tekstiä.
+theme_xhred_filemanager_searching_replacing=Korvaaminen vastaa <tt>%text</tt> <tt>%replace</tt> tiedostoissa, joiden nimet sisältävät <tt>%value</tt>.
 
 theme_xhred_filemanager_search_replaced_multi=Löydetty ja korvattu <strong>%value</strong> tiedostoina
 theme_xhred_filemanager_search_replaced=Löydetty ja korvattu <strong> 1-tiedostoon.
@@ -464,8 +468,8 @@ theme_xhred_filemanager_successful_ownership_with_errors=Kaikkien kohteiden omis
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=Omistusta ei voi muuttaa seuraavien virheiden takia:
 
 theme_xhred_filemanager_successful_compression_with_errors=Pakkaus on päättynyt seuraaviin virheisiin:
-theme_xhred_filemanager_successful_compression_bg=Pakkaus on onnistunut. Pakattu tiedosto `<strong>%file</strong>` sijaitsee `<strong>%path</strong>`.
-theme_xhred_filemanager_successful_compression_bg_with_errors=Pakkaus on päättynyt virheisiin. Pakatun tiedoston `<strong>%file</strong>` pitäisi sijaita hakemistossa `<strong>%path</strong>`.
+theme_xhred_filemanager_successful_compression_bg=Pakkaus on onnistuneesti päättynyt. Pakattu tiedosto <tt>%file</tt> sijaitsee <tt>%path</tt> hakemistossa.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Pakkaus on päättynyt virheiden kanssa. Pakatun tiedoston <tt>%file</tt> tulee sijaita <tt>%path</tt> hakemistossa.
 
 theme_xhred_filemanager_settings_notification_type=Näytettävien ilmoitusten tyyppi
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=Tiedot, varoitukset ja virheet
@@ -526,12 +530,12 @@ settings_leftmenu_netdata=Näytä Netdatan reaaliaikainen tarkkailulinkki
 settings_leftmenu_netdata_link=Netdata-palvelimen ensisijainen linkki
 
 theme_xhred_filemanager_context_chattr=Vaihda määritteet
-theme_xhred_filemanager_changing_attributes=Asetusten määrittäminen valittujen tiedostojen <strong><em>%value</em></strong>.
+theme_xhred_filemanager_changing_attributes=Asetetaan määritteet <tt>%value</tt> valituissa tiedostoissa.
 theme_xhred_filemanager_successful_attributes_with_errors=Kaikkien objektien ominaisuuksia ei ole määritetty onnistuneesti:
 theme_xhred_filemanager_successful_attributes=Attribuutit on asetettu onnistuneesti.
 
 theme_xhred_filemanager_context_chcon=Muuta tietoturvakonteksti
-theme_xhred_filemanager_changing_secontext=Suojauskontekstin muuttaminen valittujen tiedostojen <strong><em>%value</em></strong>.
+theme_xhred_filemanager_changing_secontext=Muutetaan suojauskonteksti <tt>%value</tt> valituissa tiedostoissa.
 theme_xhred_filemanager_successful_secontext_with_errors=Kaikkien objektien suojauskontekstia ei ole muutettu onnistuneesti:
 theme_xhred_filemanager_successful_secontext=Suojauskonteksti on muutettu onnistuneesti.
 
@@ -749,8 +753,6 @@ theme_xhred_nice_size_GB=GB
 theme_xhred_nice_size_MB=MB
 theme_xhred_nice_size_kB=kB
 theme_xhred_nice_size_b=tavua
-settings_sysinfo_real_time_status_disk=Ota käyttöön levyille
-settings_sysinfo_real_time_status_disk_description=Voi olla hyödyllistä poistaa reaaliaikainen tarkkailu levyiltä hitaissa/suurissa tiedostojärjestelmissä
 theme_xhred_title_locale_non_ui_config=Palvelimen luoma päivämäärämuoto
 
 #19.20
@@ -843,7 +845,7 @@ theme_xhred_mail_search_has_attach=On liitetiedosto
 
 theme_xhred_settings_right_theme_bgs=Teeman taustat
 theme_xhred_settings_right_theme_bgs_title=Teeman taustat
-settings_right_bgs_title=Kirjautumissivun teematausta voidaan asettaa täältä. Ainoa tuettu muoto on <kbd>.png</kbd>, jotta saadaan aikaan alfa-läpinäkyvyys.
+settings_right_bgs_title=Kirjautumissivun teeman tausta voidaan asettaa tästä.
 settings_right_bg_unauthenticated_users=Tausta todentamattomille käyttäjille
 settings_right_theme_left_background_title=Teeman taustaohjaus
 
@@ -922,7 +924,7 @@ theme_xhred_shell_aborted=Operaatio peruttu
 #19.32
 theme_xhred_connection_reboot=uudelleenkäynnistystä
 theme_xhred_connection_reboot_details=Palvelinta käynnistetään uudelleen. Odota ..
-settings_leftmenu_custom_links_description=Navigointivalikkoon voidaan lisätä mukautettuja ylimääräisiä linkkejä. <br><br> Avaimet <em>otsikko</em>, <em>link</em> ja <em>kuvake</em> vaaditaan; valinnaisesti voit määrittää missä sisäänkirjautumismuodossa linkki näytetään määrittelemällä <em>taso</em> -näppäin arvoineen pilkuilla erotetussa luettelossa, joka sisältää: <br><br> <em>0</ em > - järjestelmänvalvojan sisäänkirjautuminen; <br><em> 1 </em>- jälleenmyyjän sisäänkirjautuminen;<br> <em>2</em> - palvelimen omistajan sisäänkirjautuminen; <br><em> 3 </em>- käyttäjän sisäänkirjautuminen;<br> <em>4</em> - järjestelmän omistajan sisäänkirjautuminen. <br><br> Se edellyttää, että lähetä kelvollinen JSON-objekti merkkijonona, kuten alla olevassa esimerkissä. <hr><pre> {"extra": [{ "title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, { "title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": " kirjekuori "," portti ":" 20000 "," kohde ":" _blank "}]} </pre>
+settings_leftmenu_custom_links_description=Navigointivalikkoon on mahdollista lisätä mukautettuja lisälinkkejä. <br><br> Näppäimet <em>otsikko</em>, <em>linkki</em> ja <em>kuvake</em> ovat pakollisia. valinnaisesti voit määrittää, missä kirjautumistilassa linkki näytetään, määrittämällä <em>taso</em>-avaimen arvoineen pilkuilla erotetussa luettelossa, joka sisältää: <br><br> <em>0</em> > - järjestelmänvalvojan kirjautuminen; <br><em>1</em> - jälleenmyyjän kirjautuminen;<br><em>2</em> - palvelimen omistajan kirjautuminen;<br><em>3</em> - käyttäjän kirjautuminen;<br><em>4</em>– järjestelmän omistajan kirjautuminen.<br><br> Se edellyttää kelvollisen JSON-objektin välittämistä merkkijonona, kuten alla olevassa esimerkissä.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=Muokkaa suosikkeja
 left_favorites_edit_desc=Tätä sivua voidaan käyttää teeman suosikkien käyttäjän tiedoston manuaaliseen muokkaamiseen. Tämä on tehtävä huolellisesti, koska muutoksille ei suoriteta syntaksia tai muuta voimassaolon tarkistusta.
 theme_xhred_filemanager_records_for_server_pagination=Hakemistossa olevien alkioiden oletusmäärä palvelimen sivun aloittamiseksi
@@ -1049,10 +1051,6 @@ theme_xhred_global_today=Tänään
 theme_xhred_global_tomorrow=Huomenna
 theme_xhred_mail_composer_scheduled=Lähetä %1 %2
 theme_global_core=Ydin
-settings_sysinfo_real_time_stored=Ota tilastotiedot käyttöön
-settings_sysinfo_real_time_stored_description=Jos tämä on käytössä, aiemmin kerätyt tilastot tallennetaan ja näytetään kaaviona hallintapaneelissa
-settings_sysinfo_real_time_stored_length=Tilastot historian kestosta
-settings_sysinfo_real_time_stored_length_description=Aika, jonka ajan tilastotiedot tallennetaan
 theme_dashboard_accordion_live_stats=Tilastohistoria
 theme_xhred_live_stats_cpu=prosessori
 theme_xhred_live_stats_mem=Muisti
@@ -1147,7 +1145,7 @@ theme_xhred_connection_error_details_ssl=Tarkista <a>itse allekirjoittama SSL-va
 #19.71
 settings_sysinfo_hidden_panels_user=Piilotetut harmonikat
 theme_xhred_tooltip_dashboard_panels_disable=Piilota $1 paneeli
-theme_xhred_dashboard_panels_disabled_explain=Piilotettu paneeli voidaan ottaa uudelleen käyttöön teeman määrityssivulla.
+theme_xhred_dashboard_panels_disabled_explain=Piilotettu paneeli voidaan ottaa uudelleen käyttöön käyttämällä <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
 settings_right_sysinfo_page_options=Kojelauta ja reaaliaikainen seuranta
 settings_right_navigation_menu_options=Navigointivalikko
 settings_right_notification_slider_options=Sivuliukusäädin
@@ -1169,8 +1167,6 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=Tämä ominaisuus edellytt
 theme_xhred_global_module_preferences=Moduulin asetukset
 
 #19.74
-settings_sysinfo_real_time_status_forced=Kyllä, pakko
-settings_sysinfo_real_time_status_forced_warn=Reaaliaikaisen valvonnan käyttöönottoa pakotustilassa ei suositella, koska taustakokoelma suoritetaan myös silloin, kun selaimen välilehti ei ole kohdistettu, mikä voi aiheuttaa palvelimen ylikuormituksen, kun useita välilehtiä on avattu
 theme_xhred_theme_update_available=Uusi versio Authentic Theme -asennuksesta on asennettu
 settings_right_page_keep=Lataa sama sivu verkkotunnuskytkimelle
 settings_right_page_keep_description=Tämä vaihtoehto yrittää ladata saman sivun verkkotunnuksen valinnan yhteydessä, kun se muutetaan navigointivalikon avattavasta luettelosta
@@ -1374,3 +1370,49 @@ theme_xhred_columns_layout_variation_cannot_horizontal=Vaakasuuntaista asettelua
 settings_auto_open_panels_on_proximity=Avaa automaattisesti suljetut paneelit lähellä
 
 theme_xhred_config_portable_module_xterm_render_addon=Ota WebGL-renderöintilisäosa käyttöön
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=Suodata ja vie sisältöä
+
+#21.10
+settings_hotkey_logout_dbl=Kirjautua ulos
+theme_xhred_hotkey_emsg=Kenoviivanäppäintä ei voi käyttää pikanäppäimenä
+settings_embed_product_splash_privileged=Näytä brändäyksen aloitusnäyttö kirjautumisen jälkeen
+dashboard_status_running=Juoksemassa
+dashboard_status_stopped=Pysähtynyt
+
+#21.11
+theme_xhred_global_watching=Katsomassa
+theme_xhred_global_connected=Yhdistetty
+theme_xhred_global_disconnected=Yhteys katkaistu
+theme_xhred_global_connecting=Yhdistetään
+index_mods_missing=Perl-moduuli <tt>$1</tt> puuttuu.
+index_noadmin_eaccess=Pääsy kielletty muille kuin pääjärjestelmänvalvojille!
+theme_xhred_body_os=Käyttöjärjestelmä
+theme_xhred_theme_version=Aito teemaversio
+theme_xhred_body_updates=Paketin päivitykset
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Vaihda teemaa
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Lataus onnistui
+theme_xhred_filemanager_upload_status_err=Lataus epäonnistui:
+theme_xhred_filemanager_download_status_err=Lataus epäonnistui:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Lukea
+theme_xhred_dashboard_chart_disk_write=Kirjoittaa
+theme_xhred_dashboard_chart_net_read=sisään
+theme_xhred_dashboard_chart_net_write=Ulos
+theme_xhred_tooltip_dashboard_live_stats_offline=Live-tilastot eivät ole saatavilla, kun järjestelmää käytetään välityspalvelintilassa; vain aiemmin kerätyt tilastot näytetään, ja vain jos niitä on saatavilla, ja sivu on ladattava uudelleen näiden tilastojen päivittämiseksi
+settings_sysinfo_real_time_status_history1=Kyllä, ja tallenna tilastot
+settings_sysinfo_real_time_status_history2=Kyllä, tallentamatta tilastoja
+settings_sysinfo_real_time_status_history_duration1=20 minuuttia
+settings_sysinfo_real_time_status_history_duration2=1 tunti
+settings_sysinfo_real_time_status_history_duration3=3 tuntia
+settings_sysinfo_real_time_status_history_duration4=6 tuntia
+settings_sysinfo_real_time_status_history_duration5=12 tuntia
+settings_sysinfo_real_time_status_history_duration6=18 tuntia
+settings_sysinfo_real_time_status_history_duration7=24 tuntia
+theme_xhred_license_purchase=Osta lisenssi

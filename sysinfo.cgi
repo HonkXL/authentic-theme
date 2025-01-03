@@ -27,6 +27,7 @@ our (%in,
 $trust_unknown_referers = 1;
 
 do($ENV{'THEME_ROOT'} . "/authentic-lib.pl");
+do($ENV{'THEME_ROOT'} . "/stats-lib-funcs.pl");
 
 header($title, 'stripped');
 
@@ -64,15 +65,7 @@ my ($cpu_percent,
 ) = get_sysinfo_vars(\@info);
 
 if ($get_user_level ne '3') {
-    print_sysstats_panel_start(\@info);
-
-    # Easypie charts
-    if ($theme_config{'settings_sysinfo_easypie_charts'} ne 'false') {
-        print_easypie_charts($cpu_percent, $mem_percent, $virt_percent, $disk_percent);
-    }
-
-    print '<table class="table table-hover margined-top-25"><tbody>' . "\n";
-
+    my $sysinfo = grep { $_->{'id'} eq 'sysinfo' } @info;
     my @table_data;
 
     # Hostname
@@ -181,29 +174,62 @@ if ($get_user_level ne '3') {
         push @table_data, [$theme_text{'body_updates'}, $package_message, 'sysinfo_package_message'];
     }
 
-    while (scalar(@table_data) > 0) {
-        my $left  = shift(@table_data);
-        my $right = shift(@table_data);
-        print_table_row_responsive(@$left, @$right);
+    # Pre-load history data
+    print '<script type="text/javascript">vars.stats.history = ' .
+        convert_to_json(get_stats_history()) . ';</script>' . "\n"
+            if ($sysinfo && webmin_user_is_admin());
+
+    # Print system info table
+    if (@table_data) {
+        # Print sysinfo panel start
+        print_sysstats_panel_start(\@info) 
+            if ($sysinfo);
+
+        # Easypie charts
+        if ($sysinfo && $theme_config{'settings_sysinfo_easypie_charts'} ne 'false') {
+            print_easypie_charts($cpu_percent, $mem_percent, $virt_percent, $disk_percent);
+        }
+
+        print '<table class="table table-hover margined-top-25"><tbody>' . "\n";
+        while (scalar(@table_data) > 0) {
+            my $left  = shift(@table_data);
+            my $right = shift(@table_data);
+            print_table_row_responsive(@$left, @$right);
+        }
+        print '</tbody></table>' . "\n";
+    
+        # Print System Warning
+        print get_sysinfo_warning(\@info) if ($sysinfo);
+
+        # Print sysinfo panel end
+        print_sysstats_panel_end() if ($sysinfo);
     }
 
-    print '</tbody></table>' . "\n";
-
-    # Print System Warning
-    print get_sysinfo_warning(\@info);
-
-    print_sysstats_panel_end();
 
     print get_extended_sysinfo(\@info, '-1');
+    print '<script type="text/javascript">typeof stats === "object" && stats.sys.preRender();</script>' . "\n" if ($sysinfo);
 
 } else {
 
     my @mailbox = grep {$_->{'module'} eq 'mailbox'} @info;
     my @quota   = grep {$_->{'module'} eq 'quota'} @info;
-    my $prod    = &get_product_name();
-
+    # Handle theme link if allowed
+    if (!defined($gconfig{'ui_show'}) || $gconfig{'ui_show'} =~ /\btver\b/) {
+        my $link =
+            { desc  => $theme_text{theme_version}, value => get_theme_user_link() };
+        foreach my $item (@mailbox) {
+            for (my $i = 0; $i < @{$item->{'table'}}; $i++) {
+                if ($item->{'table'}->[$i]->{'type'} =~ /^(version|time)$/) {
+                    splice(@{$item->{'table'}}, $i + ($1 eq 'time' ? -1 : 1), 0, $link);
+                    undef($link);
+                    last;
+                }
+            }
+        }
+        push(@{$mailbox[0]->{'table'}}, $link) if ($link);
+    }
     print_sysstats_panel_start();
-    print_sysstats_table(\@mailbox, \@quota, $prod);
+    print_sysstats_table(\@mailbox, \@quota);
     print_sysstats_panel_end();
 
     # Common modules

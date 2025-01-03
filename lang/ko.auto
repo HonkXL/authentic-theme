@@ -3,6 +3,7 @@ body_cpu=CPU로드 평균
 body_cpuinfo=프로세서 정보
 body_cputemps=CPU 온도
 body_cputype=$5, $8 코어
+body_cputype1=$5, $8 코어
 body_disk=로컬 디스크 공간
 body_driveerr=1 달러 오류!
 body_drivefailed=스마트 검사에 실패했습니다!
@@ -99,9 +100,10 @@ settings_right_extensions_title=테마가 광범위한 디자인으로 인터페
 
 theme_xhred_settings_right_theme_logos=테마 로고
 theme_xhred_settings_right_theme_logos_title=테마 로고
-settings_right_logos_title=인증 된 사용자와 인증되지 않은 사용자 모두에게 테마 로고를 쉽게 설정할 수 있습니다. 알파 투명도를 제공하기 위해 권장되는 로고 크기는 <kbd>180x90</kbd> 픽셀이고 유일하게 지원되는 형식은 <kbd>.png</kbd> 입니다.
+settings_right_logos_title=인증된 사용자와 인증되지 않은 사용자 모두 여기에서 테마 로고를 쉽게 설정할 수 있습니다. 권장되는 로고 크기는 <em>180x90</em>픽셀입니다.
 settings_right_logo_authenticated_users=인증 된 사용자를위한 로고
 settings_right_logo_unauthenticated_users=인증되지 않은 사용자를위한 로고
+settings_right_logos_error=업로드한 파일은 이미지가 아닙니다
 
 settings_right_current_theme=현재 테마
 settings_right_title=이 페이지에서 <a href="https://github.com/authentic-theme/authentic-theme" target="_blank">Authentic Theme</a>에 대한 옵션을 구성 할 수 있습니다. 테마 업데이트시 설정이 저장됩니다.
@@ -208,15 +210,15 @@ theme_xhred_filemanager_renaming_selected=이름 바꾸기가 선택되었습니
 theme_xhred_filemanager_creating_directory=디렉토리 만들기
 theme_xhred_filemanager_creating_file=파일 만들기
 theme_xhred_filemanager_downloading_from=에서 다운로드
-theme_xhred_filemanager_setting_permissions=선택한 파일에 대한 권한을 <strong><em>%value</em></strong> (으)로 설정
-theme_xhred_filemanager_changing_ownership=선택한 파일에서 소유권을 <strong><em>%value</em></strong> 변경
+theme_xhred_filemanager_setting_permissions=선택한 파일에 대한 권한을 <tt>%value</tt> 로 설정합니다.
+theme_xhred_filemanager_changing_ownership=선택한 파일의 소유권을 <tt>%value</tt> (으)로 변경합니다.
 theme_xhred_filemanager_compressing_selected=백그라운드에서 압축을 선택했습니다.
 theme_xhred_filemanager_refreshing=디렉토리 내용을 새로 고칩니다.
 theme_xhred_filemanager_copying_successful=클립 보드에 복사했습니다.
 theme_xhred_filemanager_cutting_successful=클립 보드로 잘라 내기
 theme_xhred_filemanager_pasting_successful=클립 보드에서 붙여 넣기에 성공했습니다.
-theme_xhred_filemanager_bookmark_success=디렉토리 <strong><em>%value</em></strong> 이 (가) 책갈피에 추가되었습니다.
-theme_xhred_filemanager_searching=파일/디렉토리의 `<em>%value</em>` 일치 이름을 검색 중입니다.
+theme_xhred_filemanager_bookmark_success=<tt>%value</tt> 디렉토리가 북마크에 성공적으로 추가되었습니다.
+theme_xhred_filemanager_searching=/directories. 파일의 이름과 일치하는 <tt>%value</tt> 검색합니다.
 theme_xhred_filemanager_search_founds=일치하는 <strong>%value</strong> 있습니다.
 theme_xhred_filemanager_search_found=<strong>1</strong> 일치를 찾았습니다.
 theme_xhred_filemanager_search_no_matches=검색 결과가 없습니다.
@@ -234,8 +236,8 @@ theme_xhred_filemanager_successful_deletion=삭제가 성공했습니다.
 theme_xhred_filemanager_successful_permissions=권한이 성공적으로 변경되었습니다.
 theme_xhred_filemanager_successful_ownership=소유권이 성공적으로 변경되었습니다.
 theme_xhred_filemanager_successful_compression=압축이 완료되었습니다.
-theme_xhred_filemanager_successful_directory_creation=예배 규칙서 `<strong>%value</strong>` 성공적으로 만들어졌습니다.
-theme_xhred_filemanager_successful_file_creation=파일 `<strong>%value</strong>` 성공적으로 만들어졌습니다.
+theme_xhred_filemanager_successful_directory_creation=<tt>%value</tt> 디렉터리가 성공적으로 생성되었습니다.
+theme_xhred_filemanager_successful_file_creation=<tt>%value</tt> 파일이 성공적으로 생성되었습니다.
 
 theme_xhred_notifications_packages_updates=패키지 업데이트
 theme_xhred_notifications_theme_update=테마 업데이트
@@ -346,7 +348,7 @@ theme_xhred_global_warning=경고
 theme_xhred_global_close=닫기
 
 theme_xhred_filemanager__no_bookmarks=저장된 북마크가 없습니다.
-theme_xhred_filemanager_unbookmark_success=북마크에서 디렉토리 <strong><em>%value</em></strong> 이 (가) 제거되었습니다.
+theme_xhred_filemanager_unbookmark_success=<tt>%value</tt> 디렉터리가 북마크에서 성공적으로 제거되었습니다.
 theme_xhred_filemanager_bookmark=현재 디렉토리 북마크
 theme_xhred_filemanager_unbookmark=현재 디렉토리의 북마크 해제
 theme_xhred_filemanager_move_into_self=디렉토리 자체로 이동할 수 없습니다! 대상 디렉토리는 소스 디렉토리 안에 있습니다.
@@ -399,6 +401,8 @@ theme_xhred_database_delete_selected_field=선택된 필드 삭제
 theme_xhred_database_delete_selected_fields=선택된 필드 삭제
 theme_xhred_database_object_selected_delete=선택된 객체 삭제
 theme_xhred_database_objects_selected_delete=선택된 객체 삭제
+theme_xhred_database_object_selected_delete2=선택한 테이블 삭제
+theme_xhred_database_objects_selected_delete2=선택한 테이블 삭제
 theme_xhred_database_db_selected_drop=선택된 데이터베이스 삭제
 theme_xhred_database_dbs_selected_drop=선택된 데이터베이스 삭제
 theme_xhred_database_edit_but_not_saved=테이블 데이터가 편집되었지만 저장되지 않았습니다.
@@ -426,17 +430,17 @@ theme_xhred_datatable_no_search_results=<span class="h5">결과가 없습니다<
 
 theme_xhred_filemanager_buffer_error=파일을 버퍼에 붙여 넣지 못했습니다. 권한이 거부되었습니다.
 
-filemanager_create_object_exists=$3 `<strong><em>$1</em></strong>` 이미 존재합니다 `<strong><tt>$2</tt></strong>`
-filemanager_create_object_denied=$3 만들 수 없습니다 `<strong><em>$1</em></strong>` 에 `<strong><tt>$2</tt></strong>` -권한이 거부되었습니다 : $4.
+filemanager_create_object_exists=$3 <tt>$1</tt> <tt>$2</tt> 에 이미 존재합니다
+filemanager_create_object_denied=<tt>$2</tt> 에서 $3 <tt>$1</tt> 생성할 수 없습니다. 권한이 거부되었습니다: $4.
 
 theme_xhred_filemanager_paste_warning=대상을 붙여 넣지 못했습니다. 붙여 넣기 도중/요청하기 전에 요청한 개체가 <em>이름 바꾸기, 이동</em> 또는 <em>삭제</em>되었을 수 있습니다. 또 다른 가능한 원인은 대상이 쓰기 가능하지 않기 때문입니다. 객체의 속성을 확인할 가치가 있습니다.
 
 theme_xhred_filemanager_delete_warning=삭제가 성공적으로 완료되었지만 모든 객체에 대한 것은 아닙니다. 삭제하기 전에 요청한 객체가 <em>이름 변경</em> 또는 <em>이동</em>되었을 수 있습니다. 제한된 권한 (속성)이 또 다른 가능한 원인입니다. 에러 메시지:
 
-filemanager_rename_exists=이름이 $3 `<strong><em>$1</em></strong>` 이미 존재합니다 `<strong><tt>$2</tt></strong>`
+filemanager_rename_exists=이름이 <tt>$1</tt> 인 $3 이(가 <tt>$2</tt> 에 이미 존재합니다
 filemanager_rename_denied=$3의 이름을 바꿀 수 없습니다. 소스 $3이 (가) 제거되었거나 권한이 제한되어서 발생할 수 있습니다.
 
-theme_xhred_filemanager_successful_rename=이름 바꾸기 `<strong><em><s>%from</s></em></strong>` 에 `<strong><em>%to</em></strong>` 성공적이었다.
+theme_xhred_filemanager_successful_rename=<tt>%from</tt> 이름을 <tt>%to</tt> 변경했습니다.
 
 filemanager_global_info_total1=전체 : $1 파일 및 $2 디렉토리
 filemanager_global_info_total2=전체 : $1 파일 및 $2 디렉토리
@@ -452,8 +456,8 @@ theme_xhred_filemanager_search_replace=결과 대체
 theme_xhred_global_find=찾기
 theme_xhred_global_replace=바꾸다
 
-theme_xhred_filemanager_searching_matching=`<em>%text</em>` 텍스트를 포함하는 파일/디렉토리의 `<em>%value</em>` 일치하는 이름을 검색합니다.
-theme_xhred_filemanager_searching_replacing=이름이 `<em>%value</em>` 포함하는 파일에서 `<em>%text</em>` 를 `<em>%replace</em>` 와 일치 `<em>%value</em>`.
+theme_xhred_filemanager_searching_matching=<tt>%text</tt> 텍스트를 포함하는 /directories, 파일의 이름과 일치하는 <tt>%value</tt> 검색하는 중입니다.
+theme_xhred_filemanager_searching_replacing=바꾸기는 이름에 <tt>%value</tt> 포함된 파일에서 <tt>%text</tt> <tt>%replace</tt> 와 일치시킵니다.
 
 theme_xhred_filemanager_search_replaced_multi=<strong>%value</strong> 파일에서 찾아서 바 꾸었습니다.
 theme_xhred_filemanager_search_replaced=<strong>1</strong> 파일에서 찾아서 바꿨습니다.
@@ -464,8 +468,8 @@ theme_xhred_filemanager_successful_ownership_with_errors=모든 객체의 소유
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=다음 오류로 인해 소유권을 변경할 수 없습니다.
 
 theme_xhred_filemanager_successful_compression_with_errors=다음 오류로 압축이 완료되었습니다.
-theme_xhred_filemanager_successful_compression_bg=압축이 완료되었습니다. 압축 파일 `<strong>%file</strong>` 은 `<strong>%path</strong>` 디렉토리에 있습니다.
-theme_xhred_filemanager_successful_compression_bg_with_errors=압축이 오류로 완료되었습니다. 압축 파일 `<strong>%file</strong>` 은 `<strong>%path</strong>` 디렉토리에 있어야합니다.
+theme_xhred_filemanager_successful_compression_bg=압축이 성공적으로 완료되었습니다. 압축된 파일 <tt>%file</tt> <tt>%path</tt> 디렉터리에 있습니다.
+theme_xhred_filemanager_successful_compression_bg_with_errors=오류가 발생하면서 압축이 완료되었습니다. 압축된 파일 <tt>%file</tt> <tt>%path</tt> 디렉터리에 위치해야 합니다.
 
 theme_xhred_filemanager_settings_notification_type=표시 할 알림 유형
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=정보, 경고 및 오류
@@ -526,12 +530,12 @@ settings_leftmenu_netdata=Netdata 실시간 모니터링 링크 표시
 settings_leftmenu_netdata_link=넷 데이터 서버 선호 링크
 
 theme_xhred_filemanager_context_chattr=속성 변경
-theme_xhred_filemanager_changing_attributes=선택한 파일에서 속성을 <strong><em>%value</em></strong> (으)로 설정
+theme_xhred_filemanager_changing_attributes=선택한 파일의 <tt>%value</tt> 으로 속성을 설정합니다.
 theme_xhred_filemanager_successful_attributes_with_errors=모든 객체에 대한 속성이 설정되지 않았습니다 :
 theme_xhred_filemanager_successful_attributes=속성이 설정되었습니다.
 
 theme_xhred_filemanager_context_chcon=보안 컨텍스트 변경
-theme_xhred_filemanager_changing_secontext=선택한 파일에서 보안 컨텍스트를 <strong><em>%value</em></strong> (으)로 변경
+theme_xhred_filemanager_changing_secontext=선택한 파일의 보안 컨텍스트를 <tt>%value</tt> 으로 변경합니다.
 theme_xhred_filemanager_successful_secontext_with_errors=모든 개체에 대한 보안 컨텍스트가 성공적으로 변경되지 않았습니다.
 theme_xhred_filemanager_successful_secontext=보안 컨텍스트가 성공적으로 변경되었습니다.
 
@@ -749,8 +753,6 @@ theme_xhred_nice_size_GB=GB
 theme_xhred_nice_size_MB=MB
 theme_xhred_nice_size_kB=kB
 theme_xhred_nice_size_b=바이트
-settings_sysinfo_real_time_status_disk=디스크 활성화
-settings_sysinfo_real_time_status_disk_description=느리거나 큰 파일 시스템에서 디스크에 대한 실시간 모니터링을 비활성화하는 것이 유용 할 수 있습니다
 theme_xhred_title_locale_non_ui_config=서버 생성 날짜 형식
 
 #19.20
@@ -843,7 +845,7 @@ theme_xhred_mail_search_has_attach=첨부 파일 있음
 
 theme_xhred_settings_right_theme_bgs=테마 배경
 theme_xhred_settings_right_theme_bgs_title=테마 배경
-settings_right_bgs_title=로그인 페이지의 테마 배경을 여기에서 설정할 수 있습니다. 알파 투명성을 제공하기 위해 유일하게 지원되는 형식은 <kbd>.png</kbd> 입니다.
+settings_right_bgs_title=로그인 페이지의 테마 배경을 여기에서 설정할 수 있습니다.
 settings_right_bg_unauthenticated_users=인증되지 않은 사용자를위한 배경
 settings_right_theme_left_background_title=테마 배경 컨트롤
 
@@ -922,7 +924,7 @@ theme_xhred_shell_aborted=작업이 중단되었습니다
 #19.32
 theme_xhred_connection_reboot=재부팅
 theme_xhred_connection_reboot_details=서버가 재부팅 중입니다. 기다려주세요 ..
-settings_leftmenu_custom_links_description=탐색 메뉴에 사용자 정의 된 추가 링크를 삽입 할 수 있습니다. <br><br> <em>제목</em>, <em>링크</em> 및 <em>아이콘</em> 키가 필요합니다. 선택적으로 <em>level</em> 키를 쉼표로 구분 된 목록에 <br><br> <em>0</ em으로 지정하여 링크가 표시되는 로그인 모드를 정의 할 수 있습니다. >-관리자 로그인; <br><em> 1 </em>-리셀러 로그인;<br> <em>2</em>-서버 소유자 로그인; <br><em> 3 </em>-사용자 로그인;<br> <em>4</em>-시스템 소유자 로그인. <br><br> 아래 예와 같이 유효한 JSON 객체를 문자열로 전달해야합니다. <hr><pre> { "extra": [{ "title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, { "title": "BIND DNS 서버", "link": "/bind8", "icon": "server"}, { "title": "Usermin", "link": "/", "icon": " envelope ","port ":"20000 ","target ":"_blank "}]} </pre>
+settings_leftmenu_custom_links_description=탐색 메뉴에 사용자 지정 추가 링크를 삽입할 수 있습니다. <br><br> <em>제목</em>, <em>링크</em> 및 <em>아이콘</em> 키가 필요합니다. 선택적으로 <em>level</em> 키를 지정하고 값을 쉼표로 구분된 목록으로 지정하여 링크가 표시되는 로그인 모드를 정의할 수 있습니다. <br><br> <em>0</em > - 관리자 로그인; <br><em>1</em> - 리셀러 로그인,<br><em>2</em> - 서버 소유자 로그인,<br><em>3</em> - 사용자 로그인,<br><em>4</em>- 시스템 소유자 로그인.<br><br> 아래 예와 같이 유효한 JSON 개체를 문자열로 전달해야 합니다.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=즐겨 찾기 편집
 left_favorites_edit_desc=이 페이지는 테마 즐겨 찾기 사용자 파일을 수동으로 편집하는 데 사용할 수 있습니다. 변경 사항에 대해 구문 또는 기타 유효성 검사가 수행되지 않으므로 신중하게 수행해야합니다.
 theme_xhred_filemanager_records_for_server_pagination=서버 페이지 매김을 시작하기위한 디렉토리의 기본 항목 수
@@ -1049,10 +1051,6 @@ theme_xhred_global_today=오늘
 theme_xhred_global_tomorrow=내일
 theme_xhred_mail_composer_scheduled=%2 에서 %1 를) 보내십시오
 theme_global_core=핵심
-settings_sysinfo_real_time_stored=통계 기록 사용
-settings_sysinfo_real_time_stored_description=활성화하면 이전에 수집 한 통계가 저장되고 대시 보드의 그래프에 표시됩니다
-settings_sysinfo_real_time_stored_length=통계 기록 기간
-settings_sysinfo_real_time_stored_length_description=통계 기록이 저장되는 시간
 theme_dashboard_accordion_live_stats=통계 기록
 theme_xhred_live_stats_cpu=CPU
 theme_xhred_live_stats_mem=기억
@@ -1147,7 +1145,7 @@ theme_xhred_connection_error_details_ssl=<a>자체 서명 된 SSL 인증서</a> 
 #19.71
 settings_sysinfo_hidden_panels_user=숨겨진 아코디언
 theme_xhred_tooltip_dashboard_panels_disable=$1 패널 숨기기
-theme_xhred_dashboard_panels_disabled_explain=숨겨진 패널은 테마 구성 페이지를 사용하여 다시 활성화 할 수 있습니다.
+theme_xhred_dashboard_panels_disabled_explain=숨겨진 패널은 <tt>Theme Configuration: Dashboard and real-time monitoring</tt> 페이지를 통해 다시 활성화할 수 있습니다.
 settings_right_sysinfo_page_options=대시 보드 및 실시간 모니터링
 settings_right_navigation_menu_options=탐색 메뉴
 settings_right_notification_slider_options=사이드 슬라이더
@@ -1169,8 +1167,6 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=이 기능을 사용하려
 theme_xhred_global_module_preferences=모듈 환경 설정
 
 #19.74
-settings_sysinfo_real_time_status_forced=예, 강제
-settings_sysinfo_real_time_status_forced_warn=강제 모드에서 실시간 모니터링을 활성화하는 것은 권장되지 않습니다. 브라우저 탭에 초점이 맞춰져 있지 않은 경우에도 백그라운드 수집이 수행되어 여러 탭이 열린 상태에서 서버 과부하가 발생할 수 있기 때문입니다.
 theme_xhred_theme_update_available=새로운 버전의 Authentic Theme가 설치되었습니다.
 settings_right_page_keep=도메인 스위치에 동일한 페이지로드
 settings_right_page_keep_description=이 옵션은 탐색 메뉴 드롭 다운 목록에서 변경할 때 도메인 선택시 동일한 페이지를로드하려고합니다.
@@ -1374,3 +1370,49 @@ theme_xhred_columns_layout_variation_cannot_horizontal=모바일 모드, 특히 
 settings_auto_open_panels_on_proximity=근접 시 닫힌 패널 자동 열기
 
 theme_xhred_config_portable_module_xterm_render_addon=WebGL 렌더링 애드온 활성화
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=콘텐츠 필터링 및 내보내기
+
+#21.10
+settings_hotkey_logout_dbl=로그 아웃
+theme_xhred_hotkey_emsg=백슬래시 키는 단축키로 사용할 수 없습니다
+settings_embed_product_splash_privileged=로그인 후 브랜딩 스플래시 화면 표시
+dashboard_status_running=달리기
+dashboard_status_stopped=중지됨
+
+#21.11
+theme_xhred_global_watching=보고 있다
+theme_xhred_global_connected=연결됨
+theme_xhred_global_disconnected=연결이 끊김
+theme_xhred_global_connecting=연결 중
+index_mods_missing=Perl 모듈 <tt>$1</tt>이(가) 없습니다.
+index_noadmin_eaccess=마스터 관리자가 아닌 사용자의 접근이 거부되었습니다!
+theme_xhred_body_os=운영 체제
+theme_xhred_theme_version=정통 테마 버전
+theme_xhred_body_updates=패키지 업데이트
+
+# 21.20
+theme_xhred_hotkey_switch_theme=테마 전환
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=업로드 성공
+theme_xhred_filemanager_upload_status_err=업로드 실패:
+theme_xhred_filemanager_download_status_err=다운로드 실패:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=읽다
+theme_xhred_dashboard_chart_disk_write=쓰다
+theme_xhred_dashboard_chart_net_read=~ 안에
+theme_xhred_dashboard_chart_net_write=밖으로
+theme_xhred_tooltip_dashboard_live_stats_offline=프록시 모드에서 시스템에 액세스하는 경우 라이브 통계를 사용할 수 없습니다. 이전에 수집된 통계만 표시되며 사용 가능한 경우에만 표시되며 이러한 통계를 업데이트하려면 페이지를 다시 로드해야 합니다
+settings_sysinfo_real_time_status_history1=네, 그리고 통계를 저장합니다
+settings_sysinfo_real_time_status_history2=네, 통계를 저장하지 않고
+settings_sysinfo_real_time_status_history_duration1=20분
+settings_sysinfo_real_time_status_history_duration2=1시간
+settings_sysinfo_real_time_status_history_duration3=3시간
+settings_sysinfo_real_time_status_history_duration4=6시간
+settings_sysinfo_real_time_status_history_duration5=12시간
+settings_sysinfo_real_time_status_history_duration6=18시간
+settings_sysinfo_real_time_status_history_duration7=24시간
+theme_xhred_license_purchase=라이센스 구매

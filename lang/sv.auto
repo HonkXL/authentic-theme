@@ -1,3 +1,7 @@
+body_cputype1=$5, $8 kärna
+settings_right_logos_title=Temalogotyper kan enkelt ställas in här, för både autentiserade och oautentiserade användare. Rekommenderad logotypstorlek är <em>180x90</em> pixlar.
+settings_right_logos_error=Uppladdad fil är inte en bild
+
 settings_right_hotkey_custom_options_description=Anpassade länkar gör att du kan använda siffror från <code>1</code> till <code>9</code> för att snabbt komma åt alla giltiga <code>URL-adresser</code> <code>URL</code>. code> kan extraheras från den för närvarande öppnade sidan. Till exempel, för att snabbt växla till Apache-modul, ställ in <code>apache</code> till <code>Anpassad länk 1</code>-fält. Om standardnyckeln är inställd på <code>Alt,</code> öppnas din Apache-modul genom att klicka på <code>Alt + 1</code>.
 
 settings_hotkeys_active=Gör det möjligt
@@ -19,15 +23,53 @@ theme_xhred_sysinfo_wmdocs=Webmin dokumentation
 theme_xhred_sysinfo_vmdocs=Virtualmin dokumentation
 theme_xhred_sysinfo_cmdocs=Cloudmin dokumentation
 
+theme_xhred_filemanager_setting_permissions=Ställer in behörigheter till <tt>%value</tt> för valda fil(er).
+theme_xhred_filemanager_changing_ownership=Ändra ägande till <tt>%value</tt> på valda fil(er).
+theme_xhred_filemanager_bookmark_success=Katalogen <tt>%value</tt> har lagts till i dina bokmärken.
+theme_xhred_filemanager_searching=Söker efter <tt>%value</tt> som matchar namnen på filerna /directories.
+
+theme_xhred_filemanager_successful_directory_creation=Katalogen <tt>%value</tt> skapades framgångsrikt.
+theme_xhred_filemanager_successful_file_creation=Fil <tt>%value</tt> skapades framgångsrikt.
+
+theme_xhred_filemanager_unbookmark_success=Katalogen <tt>%value</tt> har tagits bort från dina bokmärken.
+
+theme_xhred_database_object_selected_delete2=Släpp vald tabell
+theme_xhred_database_objects_selected_delete2=Släpp valda tabeller
+
+filemanager_create_object_exists=$3 <tt>$1</tt> finns redan i <tt>$2</tt>
+filemanager_create_object_denied=Kan inte skapa $3 <tt>$1</tt> i <tt>$2</tt> - permission nekad: $4.
+
+filemanager_rename_exists=$3 med namnet <tt>$1</tt> finns redan i <tt>$2</tt>
+
+theme_xhred_filemanager_successful_rename=Att byta namn på <tt>%from</tt> till <tt>%to</tt> lyckades.
+
+theme_xhred_filemanager_searching_matching=Söker efter <tt>%value</tt> som matchar namn på filer /directories, som innehåller <tt>%text</tt>.
+theme_xhred_filemanager_searching_replacing=Ersätter matchar <tt>%text</tt> med <tt>%replace</tt> i filer med namn som innehåller <tt>%value</tt>.
+
+theme_xhred_filemanager_successful_compression_bg=Komprimeringen har slutförts. Den komprimerade filen <tt>%file</tt> finns i katalogen <tt>%path</tt>.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Komprimeringen har slutförts med fel. Den komprimerade filen <tt>%file</tt> bör finnas i <tt>%path</tt> katalogen.
+
+theme_xhred_filemanager_changing_attributes=Ställer in attribut till <tt>%value</tt> på valda fil(er).
+
+theme_xhred_filemanager_changing_secontext=Ändra säkerhetskontext till <tt>%value</tt> på valda fil(er).
+
 #18.40
 settings_hotkey_toggle_key_night_mode=Växla färgpalett
+
+settings_right_bgs_title=Temabakgrund för inloggningssida kan ställas in här.
 
 settings_hotkey_navigation=Växla tillstånd för navigeringsmeny
 
 settings_hotkey_slider=Växla sidoreglagets tillstånd
 
+#19.32
+settings_leftmenu_custom_links_description=Det är möjligt att få anpassade, extra länkar injicerade i navigeringsmenyn. <br><br> Nycklarna <em>titel</em>, <em>länk</em> och <em>ikon</em> krävs; valfritt kan du definiera i vilket inloggningsläge en länk ska visas, genom att ange <em>nivå</em> nyckel, med värden, i kommaseparerad lista, innehållande: <br><br> <em>0</em > - administratörsinloggning; <br><em>1</em> - återförsäljarinloggning;<br><em>2</em> - inloggning till serverägare;<br><em>3</em> - användarinloggning;<br><em>4</em>- inloggning för systemägare.<br><br> Det kräver att du skickar ett giltigt JSON-objekt som en sträng, som i exemplet nedan.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
+
 #19.61
 settings_hotkey_shell2=Öppna kommandoskalet
+
+#19.71
+theme_xhred_dashboard_panels_disabled_explain=Dold panel kan återaktiveras med hjälp av <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
 
 #19.85
 theme_xhred_sysinfo_vmforum=Virtualmin Community
@@ -110,3 +152,50 @@ theme_xhred_columns_layout_variation_cannot_horizontal=Horisontell layout kan in
 settings_auto_open_panels_on_proximity=Öppna stängda paneler automatiskt i närheten
 
 theme_xhred_config_portable_module_xterm_render_addon=Aktivera WebGL-renderingstillägg
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=Filtrera och exportera innehåll
+
+#21.10
+settings_hotkey_logout_dbl=Logga ut
+theme_xhred_hotkey_emsg=Omvänt snedstreckstangent kan inte användas som en snabbtangent
+settings_embed_product_splash_privileged=Visa en startskärm för varumärke efter inloggning
+dashboard_status_running=Löpning
+dashboard_status_stopped=Slutade
+
+#21.11
+theme_xhred_global_watching=Tittar på
+theme_xhred_global_connected=Ansluten
+theme_xhred_global_disconnected=Osammanhängande
+theme_xhred_global_connecting=Ansluter
+index_mods_missing=Perl-modulen <tt>$1</tt> saknas.
+index_noadmin_eaccess=Åtkomst nekad för icke-masteradministratörer!
+theme_xhred_body_os=Operativ system
+theme_xhred_theme_version=Autentisk temaversion
+
+theme_xhred_body_updates=Paketuppdateringar
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Byt tema
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Uppladdningen lyckades
+theme_xhred_filemanager_upload_status_err=Uppladdningen misslyckades:
+theme_xhred_filemanager_download_status_err=Nedladdning misslyckad:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Läsa
+theme_xhred_dashboard_chart_disk_write=Skriva
+theme_xhred_dashboard_chart_net_read=I
+theme_xhred_dashboard_chart_net_write=Ut
+theme_xhred_tooltip_dashboard_live_stats_offline=Livestatistik är inte tillgänglig när systemet nås i proxyläge; endast tidigare insamlad statistik kommer att visas, och endast om tillgänglig, och sidan kommer att behöva laddas om för att uppdatera denna statistik
+settings_sysinfo_real_time_status_history1=Ja, och butiksstatistik för
+settings_sysinfo_real_time_status_history2=Ja, utan att lagra statistik
+settings_sysinfo_real_time_status_history_duration1=20 minuter
+settings_sysinfo_real_time_status_history_duration2=1 timme
+settings_sysinfo_real_time_status_history_duration3=3 timmar
+settings_sysinfo_real_time_status_history_duration4=6 timmar
+settings_sysinfo_real_time_status_history_duration5=12 timmar
+settings_sysinfo_real_time_status_history_duration6=18 timmar
+settings_sysinfo_real_time_status_history_duration7=24 timmar
+theme_xhred_license_purchase=Köp en licens

@@ -1016,7 +1016,7 @@ const mail = (function() {
                     cmodule = _.variable.module.name(),
                     prefix = `${path}/${cmodule}`;
 
-                xtarget.getSize = `${path}/index.cgi/?xhr-get_size=1&xhr-get_size_nodir=1&xhr-get_size_path=`;
+                xtarget.getSize = `${path}/xhr.cgi?xhr-get_size=1&xhr-get_size_nodir=1&xhr-get_size_path=`;
                 xtarget.delete = `${prefix}/delete_mail.cgi?confirm=1&delete=1&noredirect=1`;
                 xtarget.schedule = `${path}/schedule/save.cgi`;
                 xtarget.addressBook = `${prefix}/export.cgi?fmt=csv&dup=0&incgr=1`;
@@ -1059,7 +1059,7 @@ const mail = (function() {
                             form_data = $form.serialize(),
                             $form_textarea = $(rs).find('textarea[name="body"]'),
                             toolbar_mode = $form_textarea.data('html-mode'),
-                            signature = $.trim(_.plugin.quote_escape(_.plugin.html_strip($form_textarea.text())));
+                            signature = $.trim(_.plugin.quote_escape($form_textarea.text()));
 
                         if  (config.d.u.html_edit == 2 && signature) {
                             signature = `${$$.$.template.html.tags.br.repeat(2) + signature}`;
@@ -3472,7 +3472,7 @@ const mail = (function() {
                         toggleEffect: false,
                     },
                     scroll: {
-                        axis: 'xy',
+                        axis: 'x',
                         theme: 'minimal',
                         keyboard: false,
                         scrollInertia: 300,
@@ -3603,10 +3603,9 @@ const mail = (function() {
             key = key ? ('?key=' + key.replace(/&/g, '%26')) : String();
             $.post(_.path.extensions + '/mail/folders.cgi' + key + '', function(source) {
                 if (!!key) {
-                    tree.reload(source)
+                    tree.reload(source);
                 } else {
-                    tree.init(source)
-                    mail.messages.events()
+                    tree.init(source);
                 }
             });
         }

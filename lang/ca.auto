@@ -1,3 +1,7 @@
+body_cputype1=$5, $8 nucli
+settings_right_logos_title=Els logotips temàtics es poden configurar fàcilment aquí, tant per als usuaris autenticats com per als no autenticats. La mida recomanada del logotip és de <em>180 x 90</em> píxels.
+settings_right_logos_error=El fitxer penjat no és una imatge
+
 settings_right_hotkey_custom_options_description=Els enllaços personalitzats us permeten utilitzar els dígits de <code>1</code> a <code>9</code> per accedir ràpidament a qualsevol <code>URL del panell vàlid.</code> L'<code>URL</code> codi> es pot extreure de la pàgina oberta actualment. Per exemple, per canviar ràpidament al mòdul Apache, configureu <code>apache</code> al camp <code>Enllaç personalitzat 1</code>. Si la tecla modificadora predeterminada s'estableix en <code>Alt</code>, fent clic a <code>Alt + 1</code>, s'obrirà el mòdul Apache.
 
 settings_right_reload=Carregueu la pàgina predeterminada al commutador de pestanyes
@@ -20,6 +24,36 @@ settings_hotkey_toggle_slider=Commuta la visibilitat del control lliscant latera
 theme_xhred_sysinfo_wmdocs=Documentació de Webmin
 theme_xhred_sysinfo_vmdocs=Documentació de Virtualmin
 theme_xhred_sysinfo_cmdocs=Documentació de Cloudmin
+
+theme_xhred_filemanager_setting_permissions=Configurant els permisos a <tt>%value</tt> als fitxers seleccionats.
+theme_xhred_filemanager_changing_ownership=S'està canviant la propietat a <tt>%value</tt> als fitxers seleccionats.
+theme_xhred_filemanager_bookmark_success=El directori <tt>%value</tt> s'ha afegit correctament als vostres marcadors.
+theme_xhred_filemanager_searching=S'estan cercant noms coincidents <tt>%value</tt> dels fitxers /directories.
+
+theme_xhred_filemanager_successful_directory_creation=El directori <tt>%value</tt> s'ha creat correctament.
+theme_xhred_filemanager_successful_file_creation=El fitxer <tt>%value</tt> s'ha creat correctament.
+
+theme_xhred_filemanager_unbookmark_success=El directori <tt>%value</tt> s'ha eliminat correctament de les vostres adreces d'interès.
+
+theme_xhred_database_object_selected_delete2=Deixa anar la taula seleccionada
+theme_xhred_database_objects_selected_delete2=Elimina les taules seleccionades
+
+filemanager_create_object_exists=$3 <tt>$1</tt> ja existeix a <tt>$2</tt>
+filemanager_create_object_denied=No es pot crear $3 <tt>$1</tt> a <tt>$2</tt> - permís denegat: $4.
+
+filemanager_rename_exists=$3 amb el nom <tt>$1</tt> ja existeix a <tt>$2</tt>
+
+theme_xhred_filemanager_successful_rename=S'ha canviat el nom <tt>%from</tt> a <tt>%to</tt>.
+
+theme_xhred_filemanager_searching_matching=S'estan cercant noms coincidents <tt>%value</tt> dels fitxers /directories, que contenen <tt>%text</tt>.
+theme_xhred_filemanager_searching_replacing=La substitució de les coincidències <tt>%text</tt> per <tt>%replace</tt> als fitxers amb noms que continguin <tt>%value</tt>.
+
+theme_xhred_filemanager_successful_compression_bg=La compressió s'ha acabat correctament. El fitxer comprimit <tt>%file</tt> es troba al directori <tt>%path</tt>.
+theme_xhred_filemanager_successful_compression_bg_with_errors=La compressió ha acabat amb errors. El fitxer comprimit <tt>%file</tt> s'ha d'ubicar al directori <tt>%path</tt>.
+
+theme_xhred_filemanager_changing_attributes=Configurant els atributs a <tt>%value</tt> als fitxers seleccionats.
+
+theme_xhred_filemanager_changing_secontext=S'està canviant el context de seguretat a <tt>%value</tt> als fitxers seleccionats.
 
 #18.40
 settings_hotkey_toggle_key_night_mode=Canvia la paleta de colors
@@ -88,8 +122,6 @@ theme_xhred_nice_size_GB=GB
 theme_xhred_nice_size_MB=MB
 theme_xhred_nice_size_kB=kB
 theme_xhred_nice_size_b=bytes
-settings_sysinfo_real_time_status_disk=Habilita per a discos
-settings_sysinfo_real_time_status_disk_description=Pot ser útil desactivar la supervisió en temps real dels discos dels sistemes de fitxers lents/grans
 theme_xhred_title_locale_non_ui_config=Format de data generat pel servidor
 
 #19.20
@@ -182,7 +214,7 @@ theme_xhred_mail_search_has_attach=Té adjunt
 
 theme_xhred_settings_right_theme_bgs=Fons de tema
 theme_xhred_settings_right_theme_bgs_title=Fons de tema
-settings_right_bgs_title=El fons del tema per a la pàgina d’inici de sessió es pot configurar aquí. L’únic format compatible és <kbd>.png</kbd> per proporcionar transparència alfa.
+settings_right_bgs_title=El fons del tema per a la pàgina d'inici de sessió es pot configurar aquí.
 settings_right_bg_unauthenticated_users=Antecedents d’usuaris no autentificats
 settings_right_theme_left_background_title=Tema Control de fons
 
@@ -261,7 +293,7 @@ theme_xhred_shell_aborted=L'operació s'ha desactivat
 #19.32
 theme_xhred_connection_reboot=Reiniciar
 theme_xhred_connection_reboot_details=El servidor es reinicia. Espereu ..
-settings_leftmenu_custom_links_description=It is possible to have custom, extra links injected into navigation menu. <br><br> The keys <em>title</em>, <em>link</em> and <em>icon</em> are required; optionally, you can define at which login mode a link would be displayed, by specifying <em>level</em> key, with values, in comma separated list, containing: <br><br> <em>0</em> - administrator login; <br><em>1</em> - reseller login;<br><em>2</em> - server owner login;<br> <em>3</em> - user login;<br> <em>4</em> - system owner login.<br><br> It will require you to pass valid JSON object as a string, as in the example below.<hr><pre>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
+settings_leftmenu_custom_links_description=És possible injectar enllaços addicionals personalitzats al menú de navegació. <br><br> Les claus <em>títol</em>, <em>enllaç</em> i <em>icona</em> són necessàries; opcionalment, podeu definir en quin mode d'inici de sessió es mostrarà un enllaç, especificant la clau de <em>nivell</em>, amb valors, en una llista separada per comes, que contingui: <br><br> <em>0</em> > - inici de sessió de l'administrador; <br><em>1</em> - inici de sessió del distribuïdor;<br><em>2</em> - inici de sessió del propietari del servidor;<br><em>3</em> - inici de sessió de l'usuari;<br><em>4</em>- inici de sessió del propietari del sistema.<br><br> Caldrà que passis un objecte JSON vàlid com a cadena, com a l'exemple següent.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=Edita Favorits
 left_favorites_edit_desc=Aquesta pàgina es pot utilitzar per editar manualment el fitxer d’usuaris favorits del tema. Això s'ha de fer acuradament, ja que no es farà cap sintaxi o qualsevol altra comprovació de la validesa en els vostres canvis.
 theme_xhred_filemanager_records_for_server_pagination=Número predeterminat d’elements del directori per iniciar la paginació del servidor
@@ -388,10 +420,6 @@ theme_xhred_global_today=Avui
 theme_xhred_global_tomorrow=Demà
 theme_xhred_mail_composer_scheduled=Envia %1 a %2
 theme_global_core=Nucli
-settings_sysinfo_real_time_stored=Activa l'historial de estadístiques
-settings_sysinfo_real_time_stored_description=Si està activat, les estadístiques recollides prèviament s’emmagatzemaran i es mostraran en un gràfic al Tauler de control
-settings_sysinfo_real_time_stored_length=Història durada de la història
-settings_sysinfo_real_time_stored_length_description=El temps durant el qual s’emmagatzema l’historial d’estadístiques
 theme_dashboard_accordion_live_stats=Estadístiques Història
 theme_xhred_live_stats_cpu=CPU
 theme_xhred_live_stats_mem=Memòria
@@ -486,7 +514,7 @@ theme_xhred_connection_error_details_ssl=Comproveu l'advertiment <a>certificat S
 #19.71
 settings_sysinfo_hidden_panels_user=Acordions ocults
 theme_xhred_tooltip_dashboard_panels_disable=Amaga el tauler $1 
-theme_xhred_dashboard_panels_disabled_explain=El tauler ocult es pot tornar a activar mitjançant la pàgina de configuració del tema.
+theme_xhred_dashboard_panels_disabled_explain=El tauler ocult es pot tornar a activar mitjançant <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
 settings_right_sysinfo_page_options=Tauler de control i monitorització en temps real
 settings_right_navigation_menu_options=Menú de navegació
 settings_right_notification_slider_options=Lliscador lateral
@@ -508,10 +536,7 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=Aquesta característica re
 theme_xhred_global_module_preferences=Preferències del mòdul
 
 #19.74
-settings_sysinfo_real_time_status_forced=Sí, forçat
-settings_sysinfo_real_time_status_forced_warn=Es desaconsella habilitar la supervisió en temps real en mode de força perquè la recopilació de fons es realitzarà fins i tot quan la pestanya del navegador no estigui enfocada, cosa que pot provocar una sobrecàrrega del servidor amb diverses pestanyes obertes.
 theme_xhred_theme_update_available=S'instal·la una nova versió d'Autentic Theme
-
 settings_right_page_keep=Carregueu la mateixa pàgina al commutador de domini
 settings_right_page_keep_description=Aquesta opció intentarà carregar la mateixa pàgina en seleccionar el domini, quan es canviï de la llista desplegable del menú de navegació
 
@@ -714,3 +739,50 @@ theme_xhred_columns_layout_variation_cannot_horizontal=El disseny horitzontal no
 settings_auto_open_panels_on_proximity=Panells tancats oberts automàticament a proximitat
 
 theme_xhred_config_portable_module_xterm_render_addon=Activa el complement de representació de WebGL
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=Filtrar i exportar contingut
+
+#21.10
+settings_hotkey_logout_dbl=Tancar sessió
+theme_xhred_hotkey_emsg=La tecla de barra invertida no es pot utilitzar com a tecla d'accés ràpid
+settings_embed_product_splash_privileged=Mostra una pantalla de presentació de marca després de l'inici de sessió
+dashboard_status_running=Córrer
+dashboard_status_stopped=Parat
+
+#21.11
+theme_xhred_global_watching=Mirant
+theme_xhred_global_connected=Connectat
+theme_xhred_global_disconnected=Desconnectat
+theme_xhred_global_connecting=Connectant
+index_mods_missing=Falta el mòdul Perl <tt>$1</tt>.
+index_noadmin_eaccess=Accés denegat a administradors no mestres!
+theme_xhred_body_os=Sistema operatiu
+theme_xhred_theme_version=Versió temàtica autèntica
+
+theme_xhred_body_updates=Actualitzacions de paquets
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Canvia el tema
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Pujada correctament
+theme_xhred_filemanager_upload_status_err=La càrrega ha fallat:
+theme_xhred_filemanager_download_status_err=La baixada ha fallat:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Llegeix
+theme_xhred_dashboard_chart_disk_write=Escriu
+theme_xhred_dashboard_chart_net_read=En
+theme_xhred_dashboard_chart_net_write=Fora
+theme_xhred_tooltip_dashboard_live_stats_offline=Les estadístiques en directe no estan disponibles quan s'accedeix al sistema en mode proxy; només es mostraran les estadístiques recopilades anteriorment, i només si estan disponibles, i caldrà tornar a carregar la pàgina per actualitzar aquestes estadístiques
+settings_sysinfo_real_time_status_history1=Sí, i emmagatzema estadístiques per
+settings_sysinfo_real_time_status_history2=Sí, sense emmagatzemar estadístiques
+settings_sysinfo_real_time_status_history_duration1=20 minuts
+settings_sysinfo_real_time_status_history_duration2=1 hora
+settings_sysinfo_real_time_status_history_duration3=3 hores
+settings_sysinfo_real_time_status_history_duration4=6 hores
+settings_sysinfo_real_time_status_history_duration5=12 hores
+settings_sysinfo_real_time_status_history_duration6=18 hores
+settings_sysinfo_real_time_status_history_duration7=24 hores
+theme_xhred_license_purchase=Compra una llicència

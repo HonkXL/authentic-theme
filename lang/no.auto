@@ -1,3 +1,7 @@
+body_cputype1=$5, $8 kjerne
+settings_right_logos_title=Temalogoer kan enkelt settes her, for både autentiserte og uautentiserte brukere. Anbefalt logostørrelse er <em>180x90</em> piksler.
+settings_right_logos_error=Den opplastede filen er ikke et bilde
+
 settings_right_hotkey_custom_options_description=Egendefinerte lenker lar deg bruke sifre fra <code>1</code> til <code>9</code> for å få rask tilgang til alle gyldige panel-<code>URL.</code> <code>URL</code> kode> kan trekkes ut fra siden som er åpnet. For å raskt bytte til Apache-modul, sett for eksempel <code>apache</code> til <code>Egendefinert lenke 1</code>-feltet. Hvis standard modifikasjonsnøkkel er satt til <code>Alt,</code>, åpnes Apache-modulen ved å klikke <code>Alt + 1</code>.
 
 settings_right_reload=Last inn standardsiden på fanebryteren
@@ -21,6 +25,36 @@ theme_xhred_sysinfo_wmdocs=Webmin dokumentasjon
 theme_xhred_sysinfo_vmdocs=Virtualmin dokumentasjon
 theme_xhred_sysinfo_cmdocs=Cloudmin dokumentasjon
 
+theme_xhred_filemanager_setting_permissions=Setter tillatelser til <tt>%value</tt> på valgte fil(er).
+theme_xhred_filemanager_changing_ownership=Endre eierskap til <tt>%value</tt> på valgte fil(er).
+theme_xhred_filemanager_bookmark_success=Katalog <tt>%value</tt> ble lagt til bokmerkene dine.
+theme_xhred_filemanager_searching=Søker etter <tt>%value</tt> som samsvarer med navnene på filene /directories.
+
+theme_xhred_filemanager_successful_directory_creation=Katalog <tt>%value</tt> ble opprettet.
+theme_xhred_filemanager_successful_file_creation=Fil <tt>%value</tt> ble opprettet.
+
+theme_xhred_filemanager_unbookmark_success=Katalog <tt>%value</tt> ble fjernet fra bokmerkene dine.
+
+theme_xhred_database_object_selected_delete2=Slipp valgt tabell
+theme_xhred_database_objects_selected_delete2=Slipp valgte tabeller
+
+filemanager_create_object_exists=$3 <tt>$1</tt> eksisterer allerede i <tt>$2</tt>
+filemanager_create_object_denied=Kan ikke opprette $3 <tt>$1</tt> i <tt>$2</tt> - tillatelse nektet: $4.
+
+filemanager_rename_exists=$3 med navnet <tt>$1</tt> finnes allerede i <tt>$2</tt>
+
+theme_xhred_filemanager_successful_rename=Gi nytt navn <tt>%from</tt> til <tt>%to</tt> var vellykket.
+
+theme_xhred_filemanager_searching_matching=Søker etter <tt>%value</tt> som samsvarer med navnene på filene /directories, som inneholder <tt>%text</tt>.
+theme_xhred_filemanager_searching_replacing=Erstatte samsvarer <tt>%text</tt> med <tt>%replace</tt> i filer med navn som inneholder <tt>%value</tt>.
+
+theme_xhred_filemanager_successful_compression_bg=Komprimeringen er fullført. Den komprimerte filen <tt>%file</tt> ligger i <tt>%path</tt> katalogen.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Komprimeringen er fullført med feil. Den komprimerte filen <tt>%file</tt> skal ligge i <tt>%path</tt> -katalogen.
+
+theme_xhred_filemanager_changing_attributes=Sette attributter til <tt>%value</tt> på valgte fil(er).
+
+theme_xhred_filemanager_changing_secontext=Endring av sikkerhetskontekst til <tt>%value</tt> på valgte fil(er).
+
 #18.40
 settings_hotkey_toggle_key_night_mode=Bytt fargepalett
 
@@ -33,9 +67,14 @@ settings_webmin_default_module=Standardside for Webmin
 #19.09
 theme_git_patch_incompatible_message_desc=Det kan være inkompatible endringer som kan stoppe temaet fra å fungere som det er designet. Det er ikke mulig å fortsette oppgraderingen med brukergrensesnittet.
 
+settings_right_bgs_title=Temabakgrunn for påloggingssiden kan settes her.
+
 settings_hotkey_navigation=Veksle navigasjonsmenystatus
 
 settings_hotkey_slider=Veksle på sideskyvetilstand
+
+#19.32
+settings_leftmenu_custom_links_description=Det er mulig å få tilpassede, ekstra lenker injisert i navigasjonsmenyen. <br><br> Nøklene <em>tittel</em>, <em>link</em> og <em>ikon</em> kreves; eventuelt kan du definere i hvilken påloggingsmodus en kobling skal vises, ved å spesifisere <em>nivå</em>-nøkkel, med verdier, i kommadelt liste, som inneholder: <br><br> <em>0</em > - administratorinnlogging; <br><em>1</em> - forhandlerpålogging;<br><em>2</em> - pålogging til servereier;<br><em>3</em> - brukerpålogging;<br><em>4</em>- systemeier pålogging.<br><br> Det vil kreve at du sender gyldig JSON-objekt som en streng, som i eksemplet nedenfor.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 
 theme_xhred_filemanager_mass_selected_for_delete=Alle elementer i katalogen %1
 
@@ -73,7 +112,7 @@ theme_xhred_connection_error_details_ssl=Sjekk <a>selvsignert SSL-sertifikat</a>
 #19.71
 settings_sysinfo_hidden_panels_user=Skjulte trekkspill
 theme_xhred_tooltip_dashboard_panels_disable=Skjul $1 -panelet
-theme_xhred_dashboard_panels_disabled_explain=Skjult panel kan aktiveres på nytt ved hjelp av temakonfigurasjonssiden.
+theme_xhred_dashboard_panels_disabled_explain=Skjult panel kan aktiveres på nytt ved å bruke <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
 settings_right_sysinfo_page_options=Dashbord og sanntidsovervåking
 settings_right_navigation_menu_options=Navigasjonsmeny
 settings_right_notification_slider_options=Sideskyve
@@ -95,10 +134,7 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=Denne funksjonen krever at
 theme_xhred_global_module_preferences=Modulinnstillinger
 
 #19.74
-settings_sysinfo_real_time_status_forced=Ja, tvunget
-settings_sysinfo_real_time_status_forced_warn=Aktivering av sanntidsovervåking i kraftmodus frarådes fordi bakgrunnsinnsamling vil utføres selv når nettleserfanen ikke er fokusert, noe som potensielt kan forårsake serveroverbelastning med flere åpne faner
 theme_xhred_theme_update_available=En ny versjon av Authentic Theme er installert
-
 settings_right_page_keep=Last inn samme side på domenebryteren
 settings_right_page_keep_description=Dette alternativet vil prøve å laste inn den samme siden ved valg av domene, når den endres fra rullegardinlisten til navigasjonsmenyen
 
@@ -301,3 +337,50 @@ theme_xhred_columns_layout_variation_cannot_horizontal=Horisontal layout kan ikk
 settings_auto_open_panels_on_proximity=Automatisk åpne lukkede paneler i nærheten
 
 theme_xhred_config_portable_module_xterm_render_addon=Aktiver WebGL-gjengivelsestillegg
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=Filtrer og eksporter innhold
+
+#21.10
+settings_hotkey_logout_dbl=Logg ut
+theme_xhred_hotkey_emsg=Omvendt skråstrek-tasten kan ikke brukes som en hurtigtast
+settings_embed_product_splash_privileged=Vis en splash-skjerm for merkevarebygging etter pålogging
+dashboard_status_running=Løping
+dashboard_status_stopped=Stoppet
+
+#21.11
+theme_xhred_global_watching=Ser på
+theme_xhred_global_connected=Tilkoblet
+theme_xhred_global_disconnected=Koblet fra
+theme_xhred_global_connecting=Kobler til
+index_mods_missing=Perl-modulen <tt>$1</tt> mangler.
+index_noadmin_eaccess=Tilgang nektet for ikke-masteradministratorer!
+theme_xhred_body_os=Operativsystem
+theme_xhred_theme_version=Autentisk temaversjon
+
+theme_xhred_body_updates=Pakkeoppdateringer
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Bytt tema
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Opplastingen var vellykket
+theme_xhred_filemanager_upload_status_err=Opplasting mislyktes:
+theme_xhred_filemanager_download_status_err=Nedlasting mislyktes:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Lese
+theme_xhred_dashboard_chart_disk_write=Skrive
+theme_xhred_dashboard_chart_net_read=I
+theme_xhred_dashboard_chart_net_write=Ute
+theme_xhred_tooltip_dashboard_live_stats_offline=Live-statistikk er ikke tilgjengelig når systemet er tilgjengelig i proxy-modus; bare tidligere innsamlet statistikk vil bli vist, og bare hvis tilgjengelig, og siden må lastes inn på nytt for å oppdatere denne statistikken
+settings_sysinfo_real_time_status_history1=Ja, og butikkstatistikk for
+settings_sysinfo_real_time_status_history2=Ja, uten å lagre statistikk
+settings_sysinfo_real_time_status_history_duration1=20 minutter
+settings_sysinfo_real_time_status_history_duration2=1 time
+settings_sysinfo_real_time_status_history_duration3=3 timer
+settings_sysinfo_real_time_status_history_duration4=6 timer
+settings_sysinfo_real_time_status_history_duration5=12 timer
+settings_sysinfo_real_time_status_history_duration6=18 timer
+settings_sysinfo_real_time_status_history_duration7=24 timer
+theme_xhred_license_purchase=Kjøp en lisens

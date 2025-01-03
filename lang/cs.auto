@@ -1,3 +1,7 @@
+body_cputype1=$5, $8 jádra
+settings_right_logos_title=Loga motivů lze zde snadno nastavit pro ověřené i neověřené uživatele. Doporučená velikost loga je <em>180 x 90</em> pixelů.
+settings_right_logos_error=Nahraný soubor není obrázek
+
 settings_right_hotkey_custom_options_description=Vlastní odkazy vám umožňují používat číslice od <code>1</code> do <code>9</code> za účelem rychlého přístupu k libovolné platné <code>URL panelu</code> <code>URL</code> kód> lze extrahovat z aktuálně otevřené stránky. Chcete-li například rychle přepnout na modul Apache, nastavte <code>apache</code> na pole <code>Vlastní odkaz 1</code>. Pokud je výchozí modifikační klíč nastaven na <code>Alt</code>, kliknutím na <code>Alt + 1</code> se otevře modul Apache.
 
 settings_loader_top=V horní části obrazovky povolte zavaděč průběhu stránky
@@ -66,15 +70,15 @@ theme_xhred_filemanager_renaming_selected=Přejmenováno vybrané.
 theme_xhred_filemanager_creating_directory=Vytváření adresáře
 theme_xhred_filemanager_creating_file=Vytváření souboru
 theme_xhred_filemanager_downloading_from=Stahování z
-theme_xhred_filemanager_setting_permissions=Nastavení oprávnění na <strong><em>%value</em></strong> u vybraných souborů.
-theme_xhred_filemanager_changing_ownership=Změna vlastnictví na <strong><em>%value</em></strong> u vybraných souborů.
+theme_xhred_filemanager_setting_permissions=Nastavení oprávnění na <tt>%value</tt> u vybraných souborů.
+theme_xhred_filemanager_changing_ownership=Změna vlastnictví na <tt>%value</tt> u vybraných souborů.
 theme_xhred_filemanager_compressing_selected=Komprese vybraná na pozadí.
 theme_xhred_filemanager_refreshing=Aktualizace obsahu adresáře.
 theme_xhred_filemanager_copying_successful=Kopírování do schránky bylo úspěšné.
 theme_xhred_filemanager_cutting_successful=Střih do schránky úspěšný.
 theme_xhred_filemanager_pasting_successful=Vložit ze schránky bylo úspěšné.
-theme_xhred_filemanager_bookmark_success=Do vašich záložek byla úspěšně přidána <strong><em>%value</em></strong> adresáře.
-theme_xhred_filemanager_searching=Hledání `<em>%value</em>` odpovídajících názvům souborů/adresářů.
+theme_xhred_filemanager_bookmark_success=Adresář <tt>%value</tt> byl úspěšně přidán do vašich záložek.
+theme_xhred_filemanager_searching=Hledání <tt>%value</tt> odpovídajících názvů souborů /directories.
 theme_xhred_filemanager_search_founds=Nalezené <strong>%value</strong> odpovídají.
 theme_xhred_filemanager_search_found=Nalezeno <strong>1</strong> match.
 theme_xhred_filemanager_search_no_matches=Nebyly nalezeny žádné zápasy.
@@ -92,8 +96,8 @@ theme_xhred_filemanager_successful_deletion=Odstranění proběhlo úspěšně.
 theme_xhred_filemanager_successful_permissions=Oprávnění byla úspěšně změněna.
 theme_xhred_filemanager_successful_ownership=Vlastnictví bylo úspěšně změněno.
 theme_xhred_filemanager_successful_compression=Komprese byla úspěšně dokončena.
-theme_xhred_filemanager_successful_directory_creation=Adresář `<strong>%value</strong>` byl úspěšně vytvořen.
-theme_xhred_filemanager_successful_file_creation=Soubor `<strong>%value</strong>` byl úspěšně vytvořen.
+theme_xhred_filemanager_successful_directory_creation=Adresář <tt>%value</tt> byl úspěšně vytvořen.
+theme_xhred_filemanager_successful_file_creation=Soubor <tt>%value</tt> byl úspěšně vytvořen.
 
 theme_xhred_notifications_packages_updates=Aktualizace balíčků
 theme_xhred_notifications_theme_update=Aktualizace motivu
@@ -204,7 +208,7 @@ theme_xhred_global_warning=Varování
 theme_xhred_global_close=Zavřít
 
 theme_xhred_filemanager__no_bookmarks=Žádné uložené záložky
-theme_xhred_filemanager_unbookmark_success=<strong><em>%value</em></strong> adresáře byla úspěšně odstraněna z vašich záložek.
+theme_xhred_filemanager_unbookmark_success=Adresář <tt>%value</tt> byl úspěšně odstraněn z vašich záložek.
 theme_xhred_filemanager_bookmark=Uložit aktuální adresář do záložek
 theme_xhred_filemanager_unbookmark=Zrušit označení aktuálního adresáře
 theme_xhred_filemanager_move_into_self=Nemůžete přesunout adresář do sebe! Cílový adresář je uvnitř zdrojového adresáře.
@@ -257,6 +261,8 @@ theme_xhred_database_delete_selected_field=Odstranit vybrané pole
 theme_xhred_database_delete_selected_fields=Odstranit vybraná pole
 theme_xhred_database_object_selected_delete=Odstranit vybraný objekt
 theme_xhred_database_objects_selected_delete=Odstranit vybrané objekty
+theme_xhred_database_object_selected_delete2=Přetáhněte vybranou tabulku
+theme_xhred_database_objects_selected_delete2=Zrušte vybrané tabulky
 theme_xhred_database_db_selected_drop=Přetažení vybrané databáze
 theme_xhred_database_dbs_selected_drop=Přetáhněte vybrané databáze
 theme_xhred_database_edit_but_not_saved=Data tabulky byla upravena, ale nebyla uložena.
@@ -284,17 +290,17 @@ theme_xhred_datatable_no_search_results=<span class="h5">Nebyly nalezeny žádn�
 
 theme_xhred_filemanager_buffer_error=Nepodařilo se vložit soubory do vyrovnávací paměti - oprávnění odepřeno.
 
-filemanager_create_object_exists=$3 `<strong><em>$1</em></strong>` již existuje v `<strong><tt>$2</tt></strong>`
-filemanager_create_object_denied=Nelze vytvořit $3 `<strong><em>$1</em></strong>` v `<strong><tt>$2</tt></strong>` - přístup odepřen : $4.
+filemanager_create_object_exists=$3 <tt>$1</tt> již existuje v <tt>$2</tt>
+filemanager_create_object_denied=Nelze vytvořit $3 <tt>$1</tt> v <tt>$2</tt> - povolení odepřeno : $4.
 
 theme_xhred_filemanager_paste_warning=Vložení cílů se nezdařilo. Je možné, že požadované objekty mohly být během/před vložením <em>přejmenovány, přesunuty</em> nebo <em>odstraněny</em>. Další možnou příčinou je, že cíl nelze zapisovat. Stojí za to zkontrolovat atributy objektů.
 
 theme_xhred_filemanager_delete_warning=Odstranění bylo úspěšně dokončeno, ale ne u všech objektů. Je možné, že požadované objekty mohly být před vymazáním <em>přejmenovány</em> nebo <em>přesunuty</em>. Omezená oprávnění (atributy) jsou další možnou příčinou. Chybové hlášení:
 
-filemanager_rename_exists=$3 se jménem `<strong><em>$1</em></strong>` již existuje v `<strong><tt>$2</tt></strong>`
+filemanager_rename_exists=$3 s názvem <tt>$1</tt> již existuje v <tt>$2</tt>
 filemanager_rename_denied=Nelze přejmenovat $3. K tomu může dojít, protože zdroj $3 byl odstraněn nebo kvůli omezeným oprávněním.
 
-theme_xhred_filemanager_successful_rename=Přejmenování `<strong><em><s>%from</s></em></strong>` na `<strong><em>%to</em></strong>` byl úspěšný.
+theme_xhred_filemanager_successful_rename=Přejmenování <tt>%from</tt> na <tt>%to</tt> bylo úspěšné.
 
 filemanager_global_info_total1=Celkem: $1 soubor a adresář $2
 filemanager_global_info_total2=Celkem: $1 soubory a adresář $2
@@ -310,8 +316,8 @@ theme_xhred_filemanager_search_replace=Nahraďte výsledky
 theme_xhred_global_find=Nalézt
 theme_xhred_global_replace=Nahradit
 
-theme_xhred_filemanager_searching_matching=Hledání `<em>%value</em>` odpovídajících názvům souborů/adresářů obsahujících `<em>%text</em>` text.
-theme_xhred_filemanager_searching_replacing=Nahrazení shody `<em>%text</em>` za `<em>%replace</em>` v souborech s názvy obsahujícími `<em>%value</em>`.
+theme_xhred_filemanager_searching_matching=Hledání <tt>%value</tt> odpovídajících názvů souborů /directories, obsahujících <tt>%text</tt> text.
+theme_xhred_filemanager_searching_replacing=Nahrazení odpovídá <tt>%text</tt> <tt>%replace</tt> v souborech s názvy obsahujícími <tt>%value</tt>.
 
 theme_xhred_filemanager_search_replaced_multi=Nalezen a nahrazen v souborech s <strong>%value</strong>.
 theme_xhred_filemanager_search_replaced=Nalezen a nahrazen v <strong>1</strong> souboru.
@@ -322,8 +328,8 @@ theme_xhred_filemanager_successful_ownership_with_errors=Vlastnictví nebylo u v
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=Vlastnictví nelze změnit z důvodu následujících chyb:
 
 theme_xhred_filemanager_successful_compression_with_errors=Komprese skončila s následujícími chybami:
-theme_xhred_filemanager_successful_compression_bg=Komprese byla úspěšně dokončena. Komprimovaný soubor `<strong>%file</strong>` je umístěn v adresáři `<strong>%path</strong>`.
-theme_xhred_filemanager_successful_compression_bg_with_errors=Komprese skončila s chybami. Komprimovaný soubor `<strong>%file</strong>` by měl být umístěn v adresáři `<strong>%path</strong>`.
+theme_xhred_filemanager_successful_compression_bg=Komprese byla úspěšně dokončena. Komprimovaný soubor <tt>%file</tt> se nachází v adresáři <tt>%path</tt>.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Komprese skončila s chybami. Komprimovaný soubor <tt>%file</tt> by měl být umístěn v adresáři <tt>%path</tt>.
 
 theme_xhred_filemanager_settings_notification_type=Typ oznámení, která se mají zobrazit
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=Informace, varování a chyby
@@ -384,12 +390,12 @@ settings_leftmenu_netdata=Zobrazit odkaz na sledování Netdata v reálném čas
 settings_leftmenu_netdata_link=Upřednostňovaný odkaz na server Netdata
 
 theme_xhred_filemanager_context_chattr=Změnit atributy
-theme_xhred_filemanager_changing_attributes=Nastavení atributů na <strong><em>%value</em></strong> u vybraných souborů.
+theme_xhred_filemanager_changing_attributes=Nastavení atributů na <tt>%value</tt> u vybraných souborů.
 theme_xhred_filemanager_successful_attributes_with_errors=Atributy nebyly úspěšně nastaveny pro všechny objekty:
 theme_xhred_filemanager_successful_attributes=Atributy byly úspěšně nastaveny.
 
 theme_xhred_filemanager_context_chcon=Změnit bezpečnostní kontext
-theme_xhred_filemanager_changing_secontext=Změna kontextu zabezpečení na <strong><em>%value</em></strong> u vybraných souborů.
+theme_xhred_filemanager_changing_secontext=Změna kontextu zabezpečení na <tt>%value</tt> u vybraných souborů.
 theme_xhred_filemanager_successful_secontext_with_errors=Kontext zabezpečení nebyl u všech objektů úspěšně změněn:
 theme_xhred_filemanager_successful_secontext=Kontext zabezpečení byl úspěšně změněn.
 
@@ -606,8 +612,6 @@ theme_xhred_nice_size_GB=GB
 theme_xhred_nice_size_MB=MB
 theme_xhred_nice_size_kB=kB
 theme_xhred_nice_size_b=bajtů
-settings_sysinfo_real_time_status_disk=Povolit pro disky
-settings_sysinfo_real_time_status_disk_description=Může být užitečné zakázat monitorování v reálném čase u disků v systémech s pomalým/velkým souborem
 theme_xhred_title_locale_non_ui_config=Serverem generovaný formát data
 
 #19.20
@@ -700,7 +704,7 @@ theme_xhred_mail_search_has_attach=Má připoutání
 
 theme_xhred_settings_right_theme_bgs=Pozadí motivu
 theme_xhred_settings_right_theme_bgs_title=Pozadí motivu
-settings_right_bgs_title=Pozadí motivu pro přihlašovací stránku lze nastavit zde. Jediným podporovaným formátem je <kbd>.png</kbd>, který zajišťuje průhlednost alfa.
+settings_right_bgs_title=Zde lze nastavit pozadí motivu pro přihlašovací stránku.
 settings_right_bg_unauthenticated_users=Zázemí pro neověřené uživatele
 settings_right_theme_left_background_title=Ovládání pozadí motivu
 
@@ -779,7 +783,7 @@ theme_xhred_shell_aborted=Operace byla přerušena
 #19.32
 theme_xhred_connection_reboot=Restartování
 theme_xhred_connection_reboot_details=Server se restartuje. Prosím, čekejte ..
-settings_leftmenu_custom_links_description=Do navigační nabídky je možné vložit vlastní další odkazy. <br><br> Vyžadují se klávesy <em>title</em>, <em>link</em> a <em>ikona</em>; volitelně můžete definovat, v jakém režimu přihlášení se bude odkaz zobrazovat, zadáním klávesy <em>level</em> s hodnotami v seznamu oddělených čárkami, který obsahuje: <br><br> <em>0</ em > - přihlášení správce; <br><em> 1 </em>- přihlášení distributora;<br> <em>2</em> - přihlášení vlastníka serveru; <br><em> 3 </em>- přihlášení uživatele;<br> <em>4</em> - přihlášení vlastníka systému. <br><br> Bude vyžadovat, abyste předali platný objekt JSON jako řetězec, jako v příkladu níže. <hr><pre> {"extra": [{ "title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, { "title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": " obálka "," port ":" 20000 "," target ":" _blank "}]} </pre>
+settings_leftmenu_custom_links_description=Do navigační nabídky je možné vložit vlastní, extra odkazy. <br><br> Klíče <em>title</em>, <em>link</em> a <em>icon</em> jsou povinné; volitelně můžete definovat, v jakém přihlašovacím režimu se bude odkaz zobrazovat, zadáním klíče <em>úroveň</em> s hodnotami v seznamu odděleném čárkami obsahující: <br><br> <em>0</em > - přihlášení správce; <br><em>1</em> – přihlášení prodejce;<br><em>2</em> – přihlášení vlastníka serveru;<br><em>3</em> – přihlášení uživatele;<br><em>4</em>– přihlášení vlastníka systému.<br><br> Bude to vyžadovat, abyste předali platný objekt JSON jako řetězec, jako v příkladu níže.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=Upravit oblíbené položky
 left_favorites_edit_desc=Tuto stránku lze použít k ruční úpravě uživatelského souboru oblíbených motivů. To by mělo být provedeno opatrně, protože u vašich změn nebude provedena žádná syntaxe ani jiná kontrola platnosti.
 theme_xhred_filemanager_records_for_server_pagination=Výchozí počet položek v adresáři pro inicializaci stránkování serveru
@@ -906,10 +910,6 @@ theme_xhred_global_today=Dnes
 theme_xhred_global_tomorrow=Zítra
 theme_xhred_mail_composer_scheduled=Odeslat %1 na %2
 theme_global_core=Jádro
-settings_sysinfo_real_time_stored=Povolit historii statistik
-settings_sysinfo_real_time_stored_description=Pokud je tato možnost povolena, budou dříve shromážděné statistiky uloženy a zobrazeny v grafu na hlavním panelu
-settings_sysinfo_real_time_stored_length=Statistiky trvání historie
-settings_sysinfo_real_time_stored_length_description=Čas, během kterého se ukládá historie statistik
 theme_dashboard_accordion_live_stats=Statistiky historie
 theme_xhred_live_stats_cpu=procesor
 theme_xhred_live_stats_mem=Paměť
@@ -1004,7 +1004,7 @@ theme_xhred_connection_error_details_ssl=Zkontrolujte <a>certifikát SSL podepsa
 #19.71
 settings_sysinfo_hidden_panels_user=Skryté akordeony
 theme_xhred_tooltip_dashboard_panels_disable=Skrýt panel $1 
-theme_xhred_dashboard_panels_disabled_explain=Skrytý panel lze znovu povolit pomocí konfigurační stránky motivu.
+theme_xhred_dashboard_panels_disabled_explain=Skrytý panel lze znovu povolit pomocí <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
 settings_right_sysinfo_page_options=Dashboard a monitorování v reálném čase
 settings_right_navigation_menu_options=Navigační nabídka
 settings_right_notification_slider_options=Boční posuvník
@@ -1026,8 +1026,6 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=Tato funkce vyžaduje při
 theme_xhred_global_module_preferences=Předvolby modulu
 
 #19.74
-settings_sysinfo_real_time_status_forced=Ano, vynucený
-settings_sysinfo_real_time_status_forced_warn=Povolení monitorování v reálném čase v režimu vynucení se nedoporučuje, protože sběr pozadí bude proveden, i když karta prohlížeče není zaměřena, což může způsobit přetížení serveru při otevření více karet
 theme_xhred_theme_update_available=Je nainstalována nová verze Authentic Theme
 settings_right_page_keep=Načtěte stejnou stránku do přepínače domény
 settings_right_page_keep_description=Tato možnost se pokusí načíst stejnou stránku při výběru domény, když se změní z rozevíracího seznamu navigační nabídky
@@ -1231,3 +1229,49 @@ theme_xhred_columns_layout_variation_cannot_horizontal=Horizontální rozložen�
 settings_auto_open_panels_on_proximity=Automatické otevírání uzavřených panelů při blízkosti
 
 theme_xhred_config_portable_module_xterm_render_addon=Povolit doplněk pro vykreslování WebGL
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=Filtrujte a exportujte obsah
+
+#21.10
+settings_hotkey_logout_dbl=Odhlásit se
+theme_xhred_hotkey_emsg=Klávesu zpětného lomítka nelze použít jako klávesovou zkratku
+settings_embed_product_splash_privileged=Po přihlášení zobrazit úvodní obrazovku značky
+dashboard_status_running=Běh
+dashboard_status_stopped=Zastavil
+
+#21.11
+theme_xhred_global_watching=Sledování
+theme_xhred_global_connected=Připojeno
+theme_xhred_global_disconnected=Odpojeno
+theme_xhred_global_connecting=Spojovací
+index_mods_missing=Chybí modul Perl <tt>$1</tt>.
+index_noadmin_eaccess=Přístup odepřen správcům, kteří nejsou hlavními administrátory!
+theme_xhred_body_os=Operační systém
+theme_xhred_theme_version=Autentická verze motivu
+theme_xhred_body_updates=Aktualizace balíčků
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Přepnout téma
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Nahrání proběhlo úspěšně
+theme_xhred_filemanager_upload_status_err=Nahrávání selhalo:
+theme_xhred_filemanager_download_status_err=Stažení se nezdařilo:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Číst
+theme_xhred_dashboard_chart_disk_write=Napsat
+theme_xhred_dashboard_chart_net_read=V
+theme_xhred_dashboard_chart_net_write=Ven
+theme_xhred_tooltip_dashboard_live_stats_offline=Živé statistiky nejsou dostupné, když je systém přístupný v režimu proxy; zobrazí se pouze dříve shromážděné statistiky a pouze pokud jsou k dispozici, a pro aktualizaci těchto statistik bude nutné stránku znovu načíst
+settings_sysinfo_real_time_status_history1=Ano a ukládat statistiky pro
+settings_sysinfo_real_time_status_history2=Ano, bez ukládání statistik
+settings_sysinfo_real_time_status_history_duration1=20 minut
+settings_sysinfo_real_time_status_history_duration2=1 hodina
+settings_sysinfo_real_time_status_history_duration3=3 hodiny
+settings_sysinfo_real_time_status_history_duration4=6 hodin
+settings_sysinfo_real_time_status_history_duration5=12 hodin
+settings_sysinfo_real_time_status_history_duration6=18 hodin
+settings_sysinfo_real_time_status_history_duration7=24 hodin
+theme_xhred_license_purchase=Kupte si licenci

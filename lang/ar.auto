@@ -3,6 +3,7 @@ body_cpu=متوسطات حمل وحدة المعالجة المركزية
 body_cpuinfo=معلومات المعالج
 body_cputemps=درجات حرارة وحدة المعالجة المركزية
 body_cputype=$5 دولارات ، $8 دولارات
+body_cputype1=$5، $8 نواة
 body_disk=مساحة القرص المحلية
 body_driveerr=أخطاء $1!
 body_drivefailed=فشل فحص SMART!
@@ -99,9 +100,10 @@ settings_right_extensions_title=يتيح لك التصميم المكثف للم
 
 theme_xhred_settings_right_theme_logos=شعارات الموضوع
 theme_xhred_settings_right_theme_logos_title=شعارات الموضوع
-settings_right_logos_title=يمكن تعيين شعارات السمة هنا بسهولة لكل من المستخدمين المصادق عليهم وغير المصادقين. حجم الشعار الموصى به هو <kbd>180x90</kbd> × <kbd>180x90</kbd> بكسل <kbd>180x90</kbd> المدعوم الوحيد هو <kbd>.png</kbd> ، لتوفير شفافية ألفا.
+settings_right_logos_title=يمكن تعيين شعارات السمات بسهولة هنا، لكل من المستخدمين المصادق عليهم وغير المصادقين. حجم الشعار الموصى به هو <em>180×90</em> بكسل.
 settings_right_logo_authenticated_users=شعار للمستخدمين المصادق عليهم
 settings_right_logo_unauthenticated_users=شعار للمستخدمين الذين لم تتم مصادقتهم
+settings_right_logos_error=الملف الذي تم تحميله ليس صورة
 
 settings_right_current_theme=الموضوع الحالي
 settings_right_title=تتيح لك هذه الصفحة تكوين خيارات <a href="https://github.com/authentic-theme/authentic-theme" target="_blank">Authentic Theme</a>. سيتم تخزين الإعدادات عند تحديث السمة.
@@ -208,15 +210,15 @@ theme_xhred_filemanager_renaming_selected=تم تحديد إعادة التسم�
 theme_xhred_filemanager_creating_directory=إنشاء دليل
 theme_xhred_filemanager_creating_file=إنشاء ملف
 theme_xhred_filemanager_downloading_from=جارٍ التنزيل من
-theme_xhred_filemanager_setting_permissions=تعيين أذونات لـ <strong><em>%value</em></strong> على الملفات المحددة.
-theme_xhred_filemanager_changing_ownership=تغيير الملكية إلى <strong><em>%value</em></strong> على الملفات المحددة.
+theme_xhred_filemanager_setting_permissions=تعيين الأذونات على <tt>%value</tt> للملف (الملفات) المحددة.
+theme_xhred_filemanager_changing_ownership=تغيير الملكية إلى <tt>%value</tt> في الملف (الملفات) المحددة.
 theme_xhred_filemanager_compressing_selected=الضغط المحدد في الخلفية.
 theme_xhred_filemanager_refreshing=تحديث محتوى الدليل.
 theme_xhred_filemanager_copying_successful=تم النسخ إلى الحافظة بنجاح.
 theme_xhred_filemanager_cutting_successful=تم القص إلى الحافظة بنجاح.
 theme_xhred_filemanager_pasting_successful=نجح اللصق من الحافظة.
-theme_xhred_filemanager_bookmark_success=تمت إضافة <strong><em>%value</em></strong> الدليل بنجاح إلى إشاراتك المرجعية.
-theme_xhred_filemanager_searching=جاري البحث عن `<em>%value</em>` تطابق أسماء الملفات/الدلائل.
+theme_xhred_filemanager_bookmark_success=تمت إضافة <tt>%value</tt> بنجاح إلى إشاراتك المرجعية.
+theme_xhred_filemanager_searching=البحث عن أسماء مطابقة <tt>%value</tt> للملفات /directories.
 theme_xhred_filemanager_search_founds=تم العثور على <strong>%value</strong> متطابقات.
 theme_xhred_filemanager_search_found=تم العثور على تطابق <strong>1</strong>.
 theme_xhred_filemanager_search_no_matches=لم يتم العثور على تطابق.
@@ -234,8 +236,8 @@ theme_xhred_filemanager_successful_deletion=تم الحذف بنجاح.
 theme_xhred_filemanager_successful_permissions=تم تغيير الأذونات بنجاح.
 theme_xhred_filemanager_successful_ownership=تم تغيير الملكية بنجاح.
 theme_xhred_filemanager_successful_compression=تم الضغط بنجاح.
-theme_xhred_filemanager_successful_directory_creation=الدليل `<strong>%value</strong>` تم إنشاؤه بنجاح.
-theme_xhred_filemanager_successful_file_creation=ملف `<strong>%value</strong>` تم إنشاؤه بنجاح.
+theme_xhred_filemanager_successful_directory_creation=تم إنشاء <tt>%value</tt> بنجاح.
+theme_xhred_filemanager_successful_file_creation=تم إنشاء الملف <tt>%value</tt> بنجاح.
 
 theme_xhred_notifications_packages_updates=تحديث الحزم
 theme_xhred_notifications_theme_update=تحديث الموضوع
@@ -346,7 +348,7 @@ theme_xhred_global_warning=تحذير
 theme_xhred_global_close=قريب
 
 theme_xhred_filemanager__no_bookmarks=لا توجد إشارات مرجعية محفوظة
-theme_xhred_filemanager_unbookmark_success=تمت إزالة <strong><em>%value</em></strong> الدليل بنجاح من إشاراتك المرجعية.
+theme_xhred_filemanager_unbookmark_success=تمت إزالة <tt>%value</tt> بنجاح من إشاراتك المرجعية.
 theme_xhred_filemanager_bookmark=وضع إشارة على الدليل الحالي
 theme_xhred_filemanager_unbookmark=الدليل الحالي غير مرجعي
 theme_xhred_filemanager_move_into_self=لا يمكنك نقل دليل إلى نفسه! يوجد دليل الوجهة داخل الدليل المصدر.
@@ -399,6 +401,8 @@ theme_xhred_database_delete_selected_field=حذف الحقل المحدد
 theme_xhred_database_delete_selected_fields=حذف الحقول المحددة
 theme_xhred_database_object_selected_delete=حذف الكائن المحدد
 theme_xhred_database_objects_selected_delete=حذف الكائنات المحددة
+theme_xhred_database_object_selected_delete2=إسقاط الجدول المحدد
+theme_xhred_database_objects_selected_delete2=إسقاط الجداول المحددة
 theme_xhred_database_db_selected_drop=إسقاط قاعدة البيانات المحددة
 theme_xhred_database_dbs_selected_drop=إسقاط قواعد البيانات المحددة
 theme_xhred_database_edit_but_not_saved=تم تعديل بيانات الجدول ولكن لم يتم حفظها.
@@ -426,17 +430,17 @@ theme_xhred_datatable_no_search_results=<span class="h5">لم يتم العثو�
 
 theme_xhred_filemanager_buffer_error=فشل لصق الملفات في المخزن المؤقت - تم رفض الإذن.
 
-filemanager_create_object_exists=3 دولارات `<strong><em>$1</em></strong>` موجود بالفعل في `<strong><tt>$2</tt></strong>`
-filemanager_create_object_denied=لا يمكن إنشاء $3 `<strong><em>$1</em></strong>` في `<strong><tt>$2</tt></strong>` - طلب الاذن مرفوض : $4.
+filemanager_create_object_exists=$3 <tt>$1</tt> موجود بالفعل في <tt>$2</tt>
+filemanager_create_object_denied=لا يمكن إنشاء $3 <tt>$1</tt> في <tt>$2</tt> - تم رفض الإذن: $4.
 
 theme_xhred_filemanager_paste_warning=فشل لصق الهدف (الأهداف). من الممكن أن تتم إعادة تسمية الكائن/الكائنات المطلوبة أو نقلها </em>أو<em> </em> أثناء/قبل اللصق. سبب آخر محتمل هو أن الوجهة غير قابلة للكتابة. يجدر التحقق من سمات الكائنات.
 
 theme_xhred_filemanager_delete_warning=تم الحذف بنجاح ولكن ليس لجميع الكائنات. من الممكن أن تتم إعادة تسمية الكائن (الكائنات) المطلوب <em></em> أو <em></em> قبل الحذف. الأذونات المقيدة (السمات) هي سبب آخر محتمل. رسالة خطأ:
 
-filemanager_rename_exists=$3 بالاسم `<strong><em>$1</em></strong>` موجود بالفعل في `<strong><tt>$2</tt></strong>`
+filemanager_rename_exists=$3 بالاسم <tt>$1</tt> موجود بالفعل في <tt>$2</tt>
 filemanager_rename_denied=لا يمكن إعادة تسمية $3. قد يحدث هذا لأنه تمت إزالة المصدر $3 أو بسبب أذونات مقيدة.
 
-theme_xhred_filemanager_successful_rename=إعادة التسمية `<strong><em><s>%from</s></em></strong>` إلى `<strong><em>%to</em></strong>` كانت ناجحة.
+theme_xhred_filemanager_successful_rename=تمت إعادة تسمية <tt>%from</tt> إلى <tt>%to</tt> بنجاح.
 
 filemanager_global_info_total1=الإجمالي: $1 وملف $2
 filemanager_global_info_total2=الإجمالي: $1 وملفات $2
@@ -452,8 +456,8 @@ theme_xhred_filemanager_search_replace=الاستبدال في النتائج
 theme_xhred_global_find=تجد
 theme_xhred_global_replace=يحل محل
 
-theme_xhred_filemanager_searching_matching=البحث عن `<em>%value</em>` تطابق أسماء الملفات/الدلائل التي تحتوي على `<em>%text</em>` text.
-theme_xhred_filemanager_searching_replacing=استبدال التطابقات `<em>%text</em>` بـ `<em>%replace</em>` في الملفات التي تحتوي على `<em>%value</em>`.
+theme_xhred_filemanager_searching_matching=البحث عن أسماء مطابقة <tt>%value</tt> للملفات /directories, التي تحتوي على <tt>%text</tt> text.
+theme_xhred_filemanager_searching_replacing=استبدال المطابقات <tt>%text</tt> بـ <tt>%replace</tt> في الملفات ذات الأسماء التي تحتوي على <tt>%value</tt>.
 
 theme_xhred_filemanager_search_replaced_multi=تم العثور عليه واستبداله في <strong>%value</strong> ملفات.
 theme_xhred_filemanager_search_replaced=تم العثور عليها واستبدالها في ملف <strong>1</strong>.
@@ -464,8 +468,8 @@ theme_xhred_filemanager_successful_ownership_with_errors=لم يتم تغيير 
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=لا يمكن تغيير الملكية بسبب الأخطاء التالية:
 
 theme_xhred_filemanager_successful_compression_with_errors=انتهى الضغط بالأخطاء التالية:
-theme_xhred_filemanager_successful_compression_bg=تم الضغط بنجاح. يوجد ملف مضغوط `<strong>%file</strong>` في دليل `<strong>%path</strong>`.
-theme_xhred_filemanager_successful_compression_bg_with_errors=انتهى الضغط مع وجود أخطاء. يجب وضع الملف المضغوط `<strong>%file</strong>` في دليل `<strong>%path</strong>`.
+theme_xhred_filemanager_successful_compression_bg=لقد انتهى الضغط بنجاح. الملف المضغوط <tt>%file</tt> موجود في دليل <tt>%path</tt>.
+theme_xhred_filemanager_successful_compression_bg_with_errors=انتهى الضغط مع وجود أخطاء. يجب أن يكون الملف المضغوط <tt>%file</tt> موجودًا في دليل <tt>%path</tt>.
 
 theme_xhred_filemanager_settings_notification_type=نوع الإخطارات المراد عرضها
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=المعلومات والتحذيرات والأخطاء
@@ -526,12 +530,12 @@ settings_leftmenu_netdata=عرض رابط مراقبة Netdata في الوقت �
 settings_leftmenu_netdata_link=الرابط المفضل لخادم Netdata
 
 theme_xhred_filemanager_context_chattr=تغيير السمات
-theme_xhred_filemanager_changing_attributes=تعيين السمات إلى <strong><em>%value</em></strong> على الملف (الملفات) المحددة.
+theme_xhred_filemanager_changing_attributes=تعيين السمات إلى <tt>%value</tt> في الملف (الملفات) المحددة.
 theme_xhred_filemanager_successful_attributes_with_errors=لم يتم تعيين السمات بنجاح لجميع الكائنات:
 theme_xhred_filemanager_successful_attributes=تم تعيين السمات بنجاح.
 
 theme_xhred_filemanager_context_chcon=تغيير سياق الأمان
-theme_xhred_filemanager_changing_secontext=تغيير سياق الأمان إلى <strong><em>%value</em></strong> على الملف (الملفات) المحددة.
+theme_xhred_filemanager_changing_secontext=تغيير سياق الأمان إلى <tt>%value</tt> في الملف (الملفات) المحددة.
 theme_xhred_filemanager_successful_secontext_with_errors=لم يتم تغيير سياق الأمان بنجاح لجميع الكائنات:
 theme_xhred_filemanager_successful_secontext=تم تغيير سياق الأمان بنجاح.
 
@@ -749,8 +753,6 @@ theme_xhred_nice_size_GB=غيغابايت
 theme_xhred_nice_size_MB=ميغابايت
 theme_xhred_nice_size_kB=كيلو بايت
 theme_xhred_nice_size_b=بايت
-settings_sysinfo_real_time_status_disk=تمكين للأقراص
-settings_sysinfo_real_time_status_disk_description=قد يكون من المفيد تعطيل المراقبة في الوقت الحقيقي للأقراص على أنظمة الملفات البطيئة/الكبيرة
 theme_xhred_title_locale_non_ui_config=تنسيق التاريخ الذي أنشأه الخادم
 
 #19.20
@@ -843,7 +845,7 @@ theme_xhred_mail_search_has_attach=لديها مرفق
 
 theme_xhred_settings_right_theme_bgs=خلفيات الموضوع
 theme_xhred_settings_right_theme_bgs_title=خلفيات الموضوع
-settings_right_bgs_title=يمكن تعيين خلفية موضوع لصفحة تسجيل الدخول هنا. التنسيق الوحيد المدعوم هو <kbd>.png</kbd> ، لتوفير شفافية ألفا.
+settings_right_bgs_title=يمكن تعيين خلفية الموضوع لصفحة تسجيل الدخول هنا.
 settings_right_bg_unauthenticated_users=خلفية للمستخدمين الذين لم تتم مصادقتهم
 settings_right_theme_left_background_title=التحكم في خلفية الموضوع
 
@@ -922,7 +924,7 @@ theme_xhred_shell_aborted=تم إحباط العملية
 #19.32
 theme_xhred_connection_reboot=إعادة التشغيل
 theme_xhred_connection_reboot_details=تتم إعادة تشغيل الخادم. ارجوك انتظر ..
-settings_leftmenu_custom_links_description=من الممكن إدخال روابط مخصصة وإضافية في قائمة التنقل. <br><br> المفاتيح <em>title</em> و <em>link</em> و <em>icon</em> مطلوبة ؛ اختياريًا ، يمكنك تحديد وضع تسجيل الدخول الذي سيتم عرض الارتباط به ، وذلك بتحديد مفتاح <em>level</em> ، مع القيم ، في قائمة مفصولة بفواصل ، تحتوي على: <br><br> <em>0</ em > - تسجيل دخول المسؤول ؛ <br><em> 1 </em>- تسجيل دخول المورّد ؛<br> <em>2</em> - تسجيل دخول مالك الخادم ؛ <br><em> 3 </em>- تسجيل دخول المستخدم ؛<br> <em>4</em> - تسجيل دخول مالك النظام. <br><br> سيتطلب منك تمرير كائن JSON صالح كسلسلة ، كما في المثال أدناه. <hr><pre> {"extra": [{ "title": "Google Mail"، "link": "https://gmail.com/"، "icon": "google"، "level": "0،1،2،3،4"}، { "title": "BIND DNS Server"، "link": "/bind8"، "icon": "server"}، {"title": "Usermin"، "link": "/"، "icon": " envelope "،" port ":" 20000 "،" target ":" _blank "}]} </pre>
+settings_leftmenu_custom_links_description=من الممكن أن يتم إدخال روابط مخصصة إضافية في قائمة التنقل. <br><br> المفاتيح <em>العنوان</em> و<em>الرابط</em> و<em>الأيقونة</em> مطلوبة؛ اختياريًا، يمكنك تحديد وضع تسجيل الدخول الذي سيتم عرض الرابط فيه، عن طريق تحديد مفتاح <em>المستوى</em>، مع القيم، في قائمة مفصولة بفواصل، والتي تحتوي على: <br><br> <em>0</em > - تسجيل دخول المسؤول؛ <br><em>1</em> - تسجيل دخول البائع؛<br><em>2</em> - تسجيل دخول مالك الخادم؛<br><em>3</em> - تسجيل دخول المستخدم؛<br><em>4</em>- تسجيل دخول مالك النظام.<br><br> سيتطلب منك تمرير كائن JSON صالح كسلسلة، كما في المثال أدناه.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=تحرير المفضلة
 left_favorites_edit_desc=يمكن استخدام هذه الصفحة لتحرير ملف المستخدم الخاص بالموضوع يدويًا. يجب أن يتم ذلك بعناية ، حيث لن يتم تنفيذ أي بنية أو أي تدقيق آخر على التغييرات.
 theme_xhred_filemanager_records_for_server_pagination=العدد الافتراضي للعناصر في الدليل لبدء ترقيم الصفحات على الخادم
@@ -1049,10 +1051,6 @@ theme_xhred_global_today=اليوم
 theme_xhred_global_tomorrow=غدا
 theme_xhred_mail_composer_scheduled=قم بإرسال %1 إلى %2
 theme_global_core=النواة
-settings_sysinfo_real_time_stored=تمكين سجل الإحصائيات
-settings_sysinfo_real_time_stored_description=في حالة التمكين ، سيتم تخزين الإحصائيات التي تم جمعها مسبقًا وعرضها في رسم بياني على لوحة البيانات
-settings_sysinfo_real_time_stored_length=مدة سجل الإحصائيات
-settings_sysinfo_real_time_stored_length_description=الوقت الذي يتم فيه تخزين محفوظات الإحصائيات
 theme_dashboard_accordion_live_stats=تاريخ الإحصائيات
 theme_xhred_live_stats_cpu=وحدة المعالجة المركزية
 theme_xhred_live_stats_mem=ذاكرة
@@ -1147,7 +1145,7 @@ theme_xhred_connection_error_details_ssl=تحقق من تحذير <a>شهادة 
 #19.71
 settings_sysinfo_hidden_panels_user=الأكورديون المخفية
 theme_xhred_tooltip_dashboard_panels_disable=إخفاء لوحة$1
-theme_xhred_dashboard_panels_disabled_explain=يمكن إعادة تمكين اللوحة المخفية باستخدام صفحة تكوين السمة.
+theme_xhred_dashboard_panels_disabled_explain=يمكن إعادة تمكين اللوحة المخفية باستخدام <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
 settings_right_sysinfo_page_options=لوحة القيادة والمراقبة في الوقت الحقيقي
 settings_right_navigation_menu_options=قائمة الإبحار
 settings_right_notification_slider_options=المنزلق الجانبي
@@ -1169,8 +1167,6 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=تتطلب هذه المي
 theme_xhred_global_module_preferences=تفضيلات الوحدة
 
 #19.74
-settings_sysinfo_real_time_status_forced=نعم ، قسري
-settings_sysinfo_real_time_status_forced_warn=لا يُنصح بتمكين المراقبة في الوقت الفعلي في وضع القوة لأنه سيتم تنفيذ مجموعة الخلفية حتى عندما لا تكون علامة تبويب المتصفح مركزة ، مما قد يتسبب في تحميل زائد للخادم مع فتح علامات تبويب متعددة
 theme_xhred_theme_update_available=تم تثبيت إصدار جديد من Authentic Theme
 settings_right_page_keep=تحميل نفس الصفحة على تبديل المجال
 settings_right_page_keep_description=سيحاول هذا الخيار تحميل نفس الصفحة عند تحديد المجال ، عند التغيير من القائمة المنسدلة لقائمة التنقل
@@ -1374,3 +1370,49 @@ theme_xhred_columns_layout_variation_cannot_horizontal=لا يمكن استخد�
 settings_auto_open_panels_on_proximity=فتح لوحات مغلقة تلقائيًا على مقربة
 
 theme_xhred_config_portable_module_xterm_render_addon=تمكين ملحق عرض WebGL
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=تصفية وتصدير المحتوى
+
+#21.10
+settings_hotkey_logout_dbl=تسجيل خروج
+theme_xhred_hotkey_emsg=لا يمكن استخدام مفتاح الخط المائل العكسي كمفتاح تشغيل سريع
+settings_embed_product_splash_privileged=عرض شاشة البداية للعلامة التجارية بعد تسجيل الدخول
+dashboard_status_running=جري
+dashboard_status_stopped=توقفت
+
+#21.11
+theme_xhred_global_watching=مشاهدة
+theme_xhred_global_connected=متصل
+theme_xhred_global_disconnected=انقطع الاتصال
+theme_xhred_global_connecting=توصيل
+index_mods_missing=وحدة Perl <tt>$1</tt> مفقودة.
+index_noadmin_eaccess=تم رفض الوصول للمسؤولين غير الرئيسيين!
+theme_xhred_body_os=نظام التشغيل
+theme_xhred_theme_version=نسخة موضوع أصيلة
+theme_xhred_body_updates=تحديثات الحزمة
+
+# 21.20
+theme_xhred_hotkey_switch_theme=تبديل الموضوع
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=تحميل ناجح
+theme_xhred_filemanager_upload_status_err=التحميل فشل:
+theme_xhred_filemanager_download_status_err=التحميل فشل:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=يقرأ
+theme_xhred_dashboard_chart_disk_write=يكتب
+theme_xhred_dashboard_chart_net_read=في
+theme_xhred_dashboard_chart_net_write=خارج
+theme_xhred_tooltip_dashboard_live_stats_offline=لا تتوفر الإحصائيات المباشرة عند الوصول إلى النظام في وضع الوكيل؛ سيتم عرض الإحصائيات التي تم جمعها مسبقًا فقط، وفقط إذا كانت متوفرة، وسيتعين إعادة تحميل الصفحة لتحديث هذه الإحصائيات
+settings_sysinfo_real_time_status_history1=نعم، وتخزين الإحصائيات لـ
+settings_sysinfo_real_time_status_history2=نعم، بدون تخزين الإحصائيات
+settings_sysinfo_real_time_status_history_duration1=20 دقيقة
+settings_sysinfo_real_time_status_history_duration2=1 ساعة
+settings_sysinfo_real_time_status_history_duration3=3 ساعات
+settings_sysinfo_real_time_status_history_duration4=6 ساعات
+settings_sysinfo_real_time_status_history_duration5=12 ساعة
+settings_sysinfo_real_time_status_history_duration6=18 ساعة
+settings_sysinfo_real_time_status_history_duration7=24 ساعة
+theme_xhred_license_purchase=شراء ترخيص

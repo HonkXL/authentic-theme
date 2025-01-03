@@ -1,4 +1,8 @@
+body_cputype1=$5, $8 miez
 theme_xhred_session_failed=Autentificare esuata. Vă rugăm să încercați din nou.
+
+settings_right_logos_title=Siglele temei pot fi setate cu ușurință aici, atât pentru utilizatorii autentificați, cât și pentru cei neautentificați. Dimensiunea recomandată a siglei este de <em>180x90</em> pixeli.
+settings_right_logos_error=Fișierul încărcat nu este o imagine
 
 settings_right_hotkey_custom_options_description=Linkurile personalizate vă permit să utilizați cifre de la <code>1</code> la <code>9</code> pentru a accesa rapid orice <code>URL valid din panou.</code> <code>URL</code>. code> poate fi extras din pagina deschisă curent. De exemplu, pentru a comuta rapid la modulul Apache, setați câmpul <code>apache</code> la <code>Legătură personalizată 1</code>. Dacă tasta modificatoare implicită este setată la <code>Alt</code>, făcând clic pe <code>Alt + 1</code>, se va deschide modulul Apache.
 
@@ -23,6 +27,36 @@ theme_xhred_sysinfo_wmdocs=Documentație Webmin
 theme_xhred_sysinfo_vmdocs=Documentația Virtualmin
 theme_xhred_sysinfo_cmdocs=Documentația Cloudmin
 
+theme_xhred_filemanager_setting_permissions=Setarea permisiunilor la <tt>%value</tt> pentru fișierele selectate.
+theme_xhred_filemanager_changing_ownership=Se schimbă proprietatea în <tt>%value</tt> pentru fișierele selectate.
+theme_xhred_filemanager_bookmark_success=Directorul <tt>%value</tt> a fost adăugat cu succes la marcajele dvs.
+theme_xhred_filemanager_searching=Se caută nume de fișiere /directories. care corespund <tt>%value</tt>.
+
+theme_xhred_filemanager_successful_directory_creation=Directorul <tt>%value</tt> a fost creat cu succes.
+theme_xhred_filemanager_successful_file_creation=Fișierul <tt>%value</tt> a fost creat cu succes.
+
+theme_xhred_filemanager_unbookmark_success=Directorul <tt>%value</tt> a fost eliminat cu succes din marcajele dvs.
+
+theme_xhred_database_object_selected_delete2=Aruncă tabelul selectat
+theme_xhred_database_objects_selected_delete2=Aruncă tabelele selectate
+
+filemanager_create_object_exists=$3 <tt>$1</tt> există deja în <tt>$2</tt>
+filemanager_create_object_denied=Nu se poate crea $3 <tt>$1</tt> în <tt>$2</tt> - permisiunea refuzată: $4.
+
+filemanager_rename_exists=$3 cu numele <tt>$1</tt> există deja în <tt>$2</tt>
+
+theme_xhred_filemanager_successful_rename=Redenumirea <tt>%from</tt> la <tt>%to</tt> a avut succes.
+
+theme_xhred_filemanager_searching_matching=Se caută nume <tt>%value</tt> care se potrivesc ale fișierelor /directories, care conțin <tt>%text</tt> text.
+theme_xhred_filemanager_searching_replacing=Înlocuirea potrivirilor <tt>%text</tt> cu <tt>%replace</tt> în fișierele cu nume care conțin <tt>%value</tt>.
+
+theme_xhred_filemanager_successful_compression_bg=Compresia s-a încheiat cu succes. Fișierul comprimat <tt>%file</tt> se află în directorul <tt>%path</tt>.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Compresia s-a terminat cu erori. Fișierul comprimat <tt>%file</tt> ar trebui să fie localizat în directorul <tt>%path</tt>.
+
+theme_xhred_filemanager_changing_attributes=Setarea atributelor la <tt>%value</tt> pentru fișierele selectate.
+
+theme_xhred_filemanager_changing_secontext=Schimbarea contextului de securitate la <tt>%value</tt> pentru fișierele selectate.
+
 #18.40
 settings_hotkey_toggle_key_night_mode=Comutați paleta de culori
 
@@ -42,9 +76,14 @@ extensions_mail_flag_tls_on=Criptare standard (TLS)
 extensions_mail_flag_tls_off=E-mail necriptat
 extensions_mail_flag_tls_none=Nu se cunoaște starea de criptare
 
+settings_right_bgs_title=Fundalul temei pentru pagina de conectare poate fi setat aici.
+
 settings_hotkey_navigation=Comutați starea meniului de navigare
 
 settings_hotkey_slider=Comutați starea glisorului lateral
+
+#19.32
+settings_leftmenu_custom_links_description=Este posibil să aveți legături personalizate, suplimentare injectate în meniul de navigare. <br><br> Tastele <em>titlu</em>, <em>link</em> și <em>pictograma</em> sunt necesare; opțional, puteți defini în ce mod de conectare va fi afișat un link, specificând cheia <em>nivel</em>, cu valori, în listă separată prin virgulă, care conține: <br><br> <em>0</em > - autentificare administrator; <br><em>1</em> - autentificare reseller;<br><em>2</em> - autentificare proprietar de server;<br><em>3</em> - autentificare utilizator;<br><em>4</em>- autentificarea proprietarului sistemului.<br><br> Vă va cere să transmiteți obiect JSON valid ca șir, ca în exemplul de mai jos.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 
 theme_xhred_filemanager_mass_selected_for_delete=Toate articolele din directorul %1
 
@@ -79,10 +118,6 @@ theme_xhred_global_today=Astăzi
 theme_xhred_global_tomorrow=Mâine
 theme_xhred_mail_composer_scheduled=Trimiteți %1 la %2
 theme_global_core=miez
-settings_sysinfo_real_time_stored=Activați istoricul statisticilor
-settings_sysinfo_real_time_stored_description=Dacă este activat, statisticile adunate anterior vor fi stocate și afișate într-un grafic pe tabloul de bord
-settings_sysinfo_real_time_stored_length=Statistici durata istoriei
-settings_sysinfo_real_time_stored_length_description=Perioada în care este stocată istoria statisticilor
 theme_dashboard_accordion_live_stats=Statistici Istoric
 theme_xhred_live_stats_cpu=Procesor
 theme_xhred_live_stats_mem=Memorie
@@ -177,7 +212,7 @@ theme_xhred_connection_error_details_ssl=Verificați avertismentul <a>certificat
 #19.71
 settings_sysinfo_hidden_panels_user=Acordeoane ascunse
 theme_xhred_tooltip_dashboard_panels_disable=Ascundeți panoul $1 
-theme_xhred_dashboard_panels_disabled_explain=Panoul ascuns poate fi reactivat folosind pagina de configurare a temei.
+theme_xhred_dashboard_panels_disabled_explain=Panoul ascuns poate fi reactivat folosind <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
 settings_right_sysinfo_page_options=Tablou de bord și monitorizare în timp real
 settings_right_navigation_menu_options=Meniu de navigatie
 settings_right_notification_slider_options=Glisor lateral
@@ -199,10 +234,7 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=Această caracteristică n
 theme_xhred_global_module_preferences=Preferințele modulului
 
 #19.74
-settings_sysinfo_real_time_status_forced=Da, forțat
-settings_sysinfo_real_time_status_forced_warn=Activarea monitorizării în timp real în modul de forță este descurajată, deoarece colectarea fundalului va fi efectuată chiar și atunci când fila browserului nu este focalizată, ceea ce poate provoca supraîncărcarea serverului cu mai multe file deschise
 theme_xhred_theme_update_available=Este instalată o nouă versiune a temei autentice
-
 settings_right_page_keep=Încărcați aceeași pagină pe comutatorul de domeniu
 settings_right_page_keep_description=Această opțiune va încerca să încarce aceeași pagină la selectarea domeniului, când este modificată din lista derulantă a meniului de navigare
 
@@ -405,3 +437,50 @@ theme_xhred_columns_layout_variation_cannot_horizontal=Aspectul orizontal nu poa
 settings_auto_open_panels_on_proximity=Panouri închise cu deschidere automată în apropiere
 
 theme_xhred_config_portable_module_xterm_render_addon=Activați suplimentul de redare WebGL
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=Filtrați și exportați conținutul
+
+#21.10
+settings_hotkey_logout_dbl=Deconectare
+theme_xhred_hotkey_emsg=Tasta backslash nu poate fi folosită ca tastă rapidă
+settings_embed_product_splash_privileged=Afișați un ecran de introducere a mărcii după conectare
+dashboard_status_running=Alergare
+dashboard_status_stopped=Oprit
+
+#21.11
+theme_xhred_global_watching=Privind
+theme_xhred_global_connected=Conectat
+theme_xhred_global_disconnected=Deconectat
+theme_xhred_global_connecting=Conectare
+index_mods_missing=Modulul Perl <tt>$1</tt> lipsește.
+index_noadmin_eaccess=Accesul refuzat administratorilor non-master!
+theme_xhred_body_os=Sistem de operare
+theme_xhred_theme_version=Versiune tematică autentică
+
+theme_xhred_body_updates=Actualizări de pachete
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Schimbați tema
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Încărcare reușită
+theme_xhred_filemanager_upload_status_err=Încărcare eșuată:
+theme_xhred_filemanager_download_status_err=Descarcare esuata:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Citire
+theme_xhred_dashboard_chart_disk_write=Scrie
+theme_xhred_dashboard_chart_net_read=În
+theme_xhred_dashboard_chart_net_write=Afară
+theme_xhred_tooltip_dashboard_live_stats_offline=Statisticile live nu sunt disponibile atunci când sistemul este accesat în modul proxy; vor fi afișate numai statisticile colectate anterior și numai dacă sunt disponibile, iar pagina va trebui reîncărcată pentru a actualiza aceste statistici
+settings_sysinfo_real_time_status_history1=Da, și stocați statistici pentru
+settings_sysinfo_real_time_status_history2=Da, fără a stoca statistici
+settings_sysinfo_real_time_status_history_duration1=20 de minute
+settings_sysinfo_real_time_status_history_duration2=1 oră
+settings_sysinfo_real_time_status_history_duration3=3 ore
+settings_sysinfo_real_time_status_history_duration4=6 ore
+settings_sysinfo_real_time_status_history_duration5=12 ore
+settings_sysinfo_real_time_status_history_duration6=18 ore
+settings_sysinfo_real_time_status_history_duration7=24 de ore
+theme_xhred_license_purchase=Cumpărați o licență

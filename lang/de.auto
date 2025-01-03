@@ -1,3 +1,7 @@
+body_cputype1=$5, $8 Kern
+settings_right_logos_title=Hier können Sie ganz einfach Theme-Logos für authentifizierte und nicht authentifizierte Benutzer festlegen. Die empfohlene Logogröße beträgt <em>180 x 90</em> Pixel.
+settings_right_logos_error=Bei der hochgeladenen Datei handelt es sich nicht um ein Bild
+
 settings_right_hotkey_custom_options_description=Mit benutzerdefinierten Links können Sie Ziffern von <code>1</code> bis <code>9</code> verwenden, um schnell auf jede gültige Panel-<code>URL</code> zuzugreifen. Die <code>URL</code> code> kann aus der aktuell geöffneten Seite extrahiert werden. Um beispielsweise schnell zum Apache-Modul zu wechseln, setzen Sie <code>apache</code> auf das Feld <code>Benutzerdefinierter Link 1</code>. Wenn die Standard-Zusatztaste auf <code>Alt</code> eingestellt ist, wird durch Klicken auf <code>Alt + 1</code> Ihr Apache-Modul geöffnet.
 
 settings_right_reload=Laden Sie die Standardseite auf den Registerkartenschalter
@@ -21,6 +25,36 @@ theme_xhred_sysinfo_wmdocs=Webmin-Dokumentation
 theme_xhred_sysinfo_vmdocs=Virtualmin-Dokumentation
 theme_xhred_sysinfo_cmdocs=Cloudmin-Dokumentation
 
+theme_xhred_filemanager_setting_permissions=Festlegen der Berechtigungen auf <tt>%value</tt> für ausgewählte Dateien.
+theme_xhred_filemanager_changing_ownership=Ändern des Eigentümers für ausgewählte Dateien auf <tt>%value</tt>.
+theme_xhred_filemanager_bookmark_success=Das Verzeichnis <tt>%value</tt> wurde erfolgreich zu Ihren Lesezeichen hinzugefügt.
+theme_xhred_filemanager_searching=Suche nach <tt>%value</tt> das mit den Namen der Dateien /directories.
+
+theme_xhred_filemanager_successful_directory_creation=Verzeichnis <tt>%value</tt> wurde erfolgreich erstellt.
+theme_xhred_filemanager_successful_file_creation=Datei <tt>%value</tt> wurde erfolgreich erstellt.
+
+theme_xhred_filemanager_unbookmark_success=Das Verzeichnis <tt>%value</tt> wurde erfolgreich aus Ihren Lesezeichen entfernt.
+
+theme_xhred_database_object_selected_delete2=Ausgewählte Tabelle löschen
+theme_xhred_database_objects_selected_delete2=Ausgewählte Tabellen löschen
+
+filemanager_create_object_exists=$3 <tt>$1</tt> existiert bereits in <tt>$2</tt>
+filemanager_create_object_denied=$3 <tt>$1</tt> kann in <tt>$2</tt> nicht erstellt werden – Berechtigung verweigert: $4.
+
+filemanager_rename_exists=$3 mit Namen <tt>$1</tt> existiert bereits in <tt>$2</tt>
+
+theme_xhred_filemanager_successful_rename=Die Umbenennung <tt>%from</tt> in <tt>%to</tt> war erfolgreich.
+
+theme_xhred_filemanager_searching_matching=Suche nach <tt>%value</tt> /directories, übereinstimmt und <tt>%text</tt> text enthält.
+theme_xhred_filemanager_searching_replacing=Ersetzen von Übereinstimmungen <tt>%text</tt> durch <tt>%replace</tt> in Dateien mit Namen, <tt>%value</tt> enthalten.
+
+theme_xhred_filemanager_successful_compression_bg=Die Komprimierung wurde erfolgreich abgeschlossen. Die komprimierte Datei <tt>%file</tt> befindet sich im Verzeichnis <tt>%path</tt>.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Die Komprimierung wurde mit Fehlern abgeschlossen. Die komprimierte Datei <tt>%file</tt> sollte sich im Verzeichnis <tt>%path</tt> befinden.
+
+theme_xhred_filemanager_changing_attributes=Festlegen der Attribute auf <tt>%value</tt> für ausgewählte Dateien.
+
+theme_xhred_filemanager_changing_secontext=Sicherheitskontext für ausgewählte Dateien auf <tt>%value</tt> ändern.
+
 #18.40
 settings_hotkey_toggle_key_night_mode=Farbpalette umschalten
 
@@ -40,9 +74,14 @@ extensions_mail_flag_tls_on=Standardverschlüsselung (TLS)
 extensions_mail_flag_tls_off=Unverschlüsselte Mail
 extensions_mail_flag_tls_none=Verschlüsselungsstatus unbekannt
 
+settings_right_bgs_title=Das Hintergrunddesign für die Anmeldeseite kann hier festgelegt werden.
+
 settings_hotkey_navigation=Status des Navigationsmenüs umschalten
 
 settings_hotkey_slider=Status des seitlichen Schiebereglers umschalten
+
+#19.32
+settings_leftmenu_custom_links_description=Es ist möglich, benutzerdefinierte, zusätzliche Links in das Navigationsmenü einzufügen. <br><br> Die Schlüssel <em>title</em>, <em>link</em> und <em>icon</em> sind erforderlich; optional können Sie definieren, in welchem Anmeldemodus ein Link angezeigt werden soll, indem Sie den Schlüssel <em>level</em> mit Werten in einer durch Kommas getrennten Liste angeben, die Folgendes enthält: <br><br> <em>0</em> – Administratoranmeldung; <br><em>1</em> – Wiederverkäufer-Login;<br><em>2</em> – Serverbesitzer-Login;<br><em>3</em> – Benutzer-Login;<br><em>4</em> – Systembesitzer-Login.<br><br> Sie müssen ein gültiges JSON-Objekt als Zeichenfolge übergeben, wie im folgenden Beispiel.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 
 theme_xhred_filemanager_mass_selected_for_delete=Alle Elemente im Verzeichnis %1
 
@@ -103,7 +142,7 @@ theme_xhred_connection_error_details_ssl=Überprüfen Sie die Warnung <a>selbsts
 #19.71
 settings_sysinfo_hidden_panels_user=Versteckte Akkordeons
 theme_xhred_tooltip_dashboard_panels_disable=$1 Panel ausblenden
-theme_xhred_dashboard_panels_disabled_explain=Das ausgeblendete Bedienfeld kann über die Designkonfigurationsseite wieder aktiviert werden.
+theme_xhred_dashboard_panels_disabled_explain=Das versteckte Panel kann mithilfe <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
 settings_right_sysinfo_page_options=Dashboard und Echtzeitüberwachung
 settings_right_navigation_menu_options=Navigationsmenü
 settings_right_notification_slider_options=Seitenschieber
@@ -125,10 +164,7 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=Für diese Funktion muss d
 theme_xhred_global_module_preferences=Moduleinstellungen
 
 #19.74
-settings_sysinfo_real_time_status_forced=Ja, gezwungen
-settings_sysinfo_real_time_status_forced_warn=Das Aktivieren der Echtzeitüberwachung im Force-Modus wird nicht empfohlen, da die Hintergrundsammlung auch dann durchgeführt wird, wenn die Registerkarte "Browser" nicht fokussiert ist. Dies kann zu einer Serverüberlastung führen, wenn mehrere Registerkarten geöffnet sind
 theme_xhred_theme_update_available=Eine neue Version von Authentic Theme wird installiert
-
 settings_right_page_keep=Laden Sie dieselbe Seite auf den Domain-Switch
 settings_right_page_keep_description=Diese Option versucht, dieselbe Seite bei der Domänenauswahl zu laden, wenn sie aus der Dropdown-Liste des Navigationsmenüs geändert wird
 
@@ -331,3 +367,50 @@ theme_xhred_columns_layout_variation_cannot_horizontal=Das horizontale Layout ka
 settings_auto_open_panels_on_proximity=Automatisches Öffnen geschlossener Paneele bei Annäherung
 
 theme_xhred_config_portable_module_xterm_render_addon=Aktivieren Sie das WebGL-Rendering-Add-on
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=Inhalte filtern und exportieren
+
+#21.10
+settings_hotkey_logout_dbl=Ausloggen
+theme_xhred_hotkey_emsg=Die Backslash-Taste kann nicht als Hotkey verwendet werden
+settings_embed_product_splash_privileged=Nach der Anmeldung wird ein Branding-Begrüßungsbildschirm angezeigt
+dashboard_status_running=Läuft
+dashboard_status_stopped=Gestoppt
+
+#21.11
+theme_xhred_global_watching=Aufpassen
+theme_xhred_global_connected=In Verbindung gebracht
+theme_xhred_global_disconnected=Getrennt
+theme_xhred_global_connecting=Verbinden
+index_mods_missing=Das Perl-Modul <tt>$1</tt> fehlt.
+index_noadmin_eaccess=Zugriff für Nicht-Master-Administratoren verweigert!
+theme_xhred_body_os=Betriebssystem
+theme_xhred_theme_version=Authentische Themenversion
+
+theme_xhred_body_updates=Paketaktualisierungen
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Design wechseln
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Hochladen erfolgreich
+theme_xhred_filemanager_upload_status_err=Upload fehlgeschlagen:
+theme_xhred_filemanager_download_status_err=Herunterladen fehlgeschlagen:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Lesen
+theme_xhred_dashboard_chart_disk_write=Schreiben
+theme_xhred_dashboard_chart_net_read=In
+theme_xhred_dashboard_chart_net_write=Aus
+theme_xhred_tooltip_dashboard_live_stats_offline=Live-Statistiken sind nicht verfügbar, wenn auf das System im Proxy-Modus zugegriffen wird. Es werden nur zuvor erfasste Statistiken angezeigt und nur, wenn diese verfügbar sind. Die Seite muss neu geladen werden, um diese Statistiken zu aktualisieren
+settings_sysinfo_real_time_status_history1=Ja, und Statistiken speichern für
+settings_sysinfo_real_time_status_history2=Ja, ohne Statistiken zu speichern
+settings_sysinfo_real_time_status_history_duration1=20 Minuten
+settings_sysinfo_real_time_status_history_duration2=1 Stunde
+settings_sysinfo_real_time_status_history_duration3=3 Stunden
+settings_sysinfo_real_time_status_history_duration4=6 Stunden
+settings_sysinfo_real_time_status_history_duration5=12 Stunden
+settings_sysinfo_real_time_status_history_duration6=18 Stunden
+settings_sysinfo_real_time_status_history_duration7=24 Stunden
+theme_xhred_license_purchase=Erwerben Sie eine Lizenz

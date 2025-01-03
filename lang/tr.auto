@@ -3,6 +3,7 @@ body_cpu=CPU yük ortalamaları
 body_cpuinfo=İşlemci bilgileri
 body_cputemps=CPU sıcaklıkları
 body_cputype=$5, $8 çekirdek
+body_cputype1=$5, $8 çekirdek
 body_disk=Yerel disk alanı
 body_driveerr=$1 hata!
 body_drivefailed=SMART kontrolü başarısız oldu!
@@ -99,9 +100,10 @@ settings_right_extensions_title=Tema kapsamlı tasarımı, arayüzün hedeflenen
 
 theme_xhred_settings_right_theme_logos=Tema logoları
 theme_xhred_settings_right_theme_logos_title=Tema Logoları
-settings_right_logos_title=Tema logoları, hem kimliği doğrulanmış hem de kimliği doğrulanmamış kullanıcılar için burada kolayca ayarlanabilir. Önerilen logo boyutu <kbd>180x90</kbd> piksel ve yalnızca desteklenen biçimidir <kbd>.png</kbd> alfa saydamlığı sağlamak üzere,.
+settings_right_logos_title=Tema logoları, hem kimliği doğrulanmış hem de kimliği doğrulanmamış kullanıcılar için burada kolayca ayarlanabilir. Önerilen logo boyutu <em>180x90</em> pikseldir.
 settings_right_logo_authenticated_users=Kimliği doğrulanmış kullanıcılar için logo
 settings_right_logo_unauthenticated_users=Kimliği doğrulanmamış kullanıcılar için logo
+settings_right_logos_error=Yüklenen dosya bir resim değil
 
 settings_right_current_theme=Geçerli tema
 settings_right_title=Bu sayfa <a href="https://github.com/authentic-theme/authentic-theme" target="_blank">Otantik Tema</a> için seçenekleri yapılandırmanıza olanak tanır. Ayarlar tema güncellemesi üzerine kaydedilecektir.
@@ -208,15 +210,15 @@ theme_xhred_filemanager_renaming_selected=Yeniden adlandırma seçildi.
 theme_xhred_filemanager_creating_directory=Dizin oluşturuluyor
 theme_xhred_filemanager_creating_file=Dosya oluşturuluyor
 theme_xhred_filemanager_downloading_from=Adresinden indiriliyor
-theme_xhred_filemanager_setting_permissions=Seçili dosyalarda <strong><em>%value</em></strong> izinler ayarlama.
-theme_xhred_filemanager_changing_ownership=Seçilen dosyalarda sahipliğin <strong><em>%value</em></strong> değiştirilmesi.
+theme_xhred_filemanager_setting_permissions=Seçilen dosya(lar)daki izinler <tt>%value</tt> olarak ayarlanıyor.
+theme_xhred_filemanager_changing_ownership=Seçilen dosya(lar)daki sahiplik <tt>%value</tt> olarak değiştiriliyor.
 theme_xhred_filemanager_compressing_selected=Arka planda seçilen sıkıştırma.
 theme_xhred_filemanager_refreshing=Dizin içeriğini yenileme.
 theme_xhred_filemanager_copying_successful=Panoya kopyalama başarılı.
 theme_xhred_filemanager_cutting_successful=Panoya kesme başarılı.
 theme_xhred_filemanager_pasting_successful=Panodan yapıştırma başarılı oldu.
-theme_xhred_filemanager_bookmark_success=<strong><em>%value</em></strong> Dizin <strong><em>%value</em></strong>, yer işaretlerinize başarıyla eklendi.
-theme_xhred_filemanager_searching=Dosyaların/dizinlerin `<em>%value</em>` eşleme adlarını arama.
+theme_xhred_filemanager_bookmark_success=<tt>%value</tt> dizini yer imlerinize başarıyla eklendi.
+theme_xhred_filemanager_searching=/directories. dosyalarının <tt>%value</tt> eşleşen adları aranıyor.
 theme_xhred_filemanager_search_founds=<strong>%value</strong> eşleşmesi bulundu.
 theme_xhred_filemanager_search_found=<Strong>1</strong> eşleşmesi bulundu.
 theme_xhred_filemanager_search_no_matches=Hiçbir sonuç bulunamadı.
@@ -234,8 +236,8 @@ theme_xhred_filemanager_successful_deletion=Silme başarılı oldu.
 theme_xhred_filemanager_successful_permissions=İzinler başarıyla değiştirildi.
 theme_xhred_filemanager_successful_ownership=Sahiplik başarıyla değiştirildi.
 theme_xhred_filemanager_successful_compression=Sıkıştırma başarıyla tamamlandı.
-theme_xhred_filemanager_successful_directory_creation=rehber `<strong>%value</strong>` başarıyla oluşturuldu.
-theme_xhred_filemanager_successful_file_creation=Dosya `<strong>%value</strong>` başarıyla oluşturuldu.
+theme_xhred_filemanager_successful_directory_creation=<tt>%value</tt> dizini başarıyla oluşturuldu.
+theme_xhred_filemanager_successful_file_creation=<tt>%value</tt> dosyası başarıyla oluşturuldu.
 
 theme_xhred_notifications_packages_updates=Paketler Güncellemesi
 theme_xhred_notifications_theme_update=Tema Güncellemesi
@@ -346,7 +348,7 @@ theme_xhred_global_warning=Uyarı
 theme_xhred_global_close=Kapat
 
 theme_xhred_filemanager__no_bookmarks=Kaydedilmiş yer işareti yok
-theme_xhred_filemanager_unbookmark_success=<strong><em>%value</em></strong> Dizin <strong><em>%value</em></strong>, yer işaretlerinizden başarıyla kaldırıldı.
+theme_xhred_filemanager_unbookmark_success=<tt>%value</tt> dizini yer işaretlerinizden başarıyla kaldırıldı.
 theme_xhred_filemanager_bookmark=Geçerli dizine yer işareti koy
 theme_xhred_filemanager_unbookmark=Geçerli dizinin işaretini kaldır
 theme_xhred_filemanager_move_into_self=Bir dizini kendi içine taşıyamazsınız! Hedef dizin kaynak dizinin içindedir.
@@ -399,6 +401,8 @@ theme_xhred_database_delete_selected_field=Seçili alanı sil
 theme_xhred_database_delete_selected_fields=Seçili alanları sil
 theme_xhred_database_object_selected_delete=Seçilen nesneyi sil
 theme_xhred_database_objects_selected_delete=Seçili nesneleri sil
+theme_xhred_database_object_selected_delete2=Seçilen tabloyu bırak
+theme_xhred_database_objects_selected_delete2=Seçili tabloları bırak
 theme_xhred_database_db_selected_drop=Seçili veritabanını bırak
 theme_xhred_database_dbs_selected_drop=Seçili veritabanlarını bırak
 theme_xhred_database_edit_but_not_saved=Tablo verileri düzenlendi ancak kaydedilmedi.
@@ -426,17 +430,17 @@ theme_xhred_datatable_no_search_results=<span class="h5">Sonuç bulunamadı</spa
 
 theme_xhred_filemanager_buffer_error=Ara belleğe dosyalar yapıştırılamadı - izin reddedildi.
 
-filemanager_create_object_exists=$3 `<strong><em>$1</em></strong>` zaten var `<strong><tt>$2</tt></strong>`
-filemanager_create_object_denied=$3 oluşturulamaz `<strong><em>$1</em></strong>` içinde `<strong><tt>$2</tt></strong>` - izin reddedildi : $4.
+filemanager_create_object_exists=$3 <tt>$1</tt> zaten <tt>$2</tt> mevcut
+filemanager_create_object_denied=$3 <tt>$1</tt> içinde <tt>$2</tt> oluşturulamıyor - izin reddedildi : $4.
 
 theme_xhred_filemanager_paste_warning=Hedef (ler) yapıştırılamadı. Yapıştırmadan önce/yapıştırılmadan önce istenen nesnelerin <em>yeniden adlandırılması, taşınması</em> veya <em>silinmesi</em> mümkündür. Başka bir olası neden, hedefin yazılabilir olmamasıdır. Nesnelerin niteliklerini kontrol etmeye değer.
 
 theme_xhred_filemanager_delete_warning=Silme işlemi başarıyla tamamlandı ancak tüm nesneler için tamamlanmadı. İstenen nesnelerin silinmeden önce <em>yeniden adlandırılması</em> veya <em>taşınması</em> mümkündür. Kısıtlı izinler (öznitelikler) başka bir olası nedendir. Hata mesajı:
 
-filemanager_rename_exists=$3 adında `<strong><em>$1</em></strong>` zaten var `<strong><tt>$2</tt></strong>`
+filemanager_rename_exists=<tt>$1</tt> adlı $3 zaten <tt>$2</tt> mevcut
 filemanager_rename_denied=$3 yeniden adlandırılamaz. Bu, $3 kaynağının kaldırılmış olması veya kısıtlı izinler nedeniyle olabilir.
 
-theme_xhred_filemanager_successful_rename=Yeniden adlandırma `<strong><em><s>%from</s></em></strong>` için `<strong><em>%to</em></strong>` başarılıydı.
+theme_xhred_filemanager_successful_rename=<tt>%from</tt> <tt>%to</tt> to'ya yeniden adlandırma işlemi başarılı oldu.
 
 filemanager_global_info_total1=Toplam: $1 dosya ve $2 dizini
 filemanager_global_info_total2=Toplam: $1 dosya ve $2 dizini
@@ -452,8 +456,8 @@ theme_xhred_filemanager_search_replace=Sonuçlarda değiştir
 theme_xhred_global_find=bulmak
 theme_xhred_global_replace=değiştirmek
 
-theme_xhred_filemanager_searching_matching=`<em>%text</em>` metni içeren dosya/dizinlerin `<em>%value</em>` eşleme adlarını arama.
-theme_xhred_filemanager_searching_replacing=Değiştirme, `<em>%value</em>` içeren adlara sahip dosyalarda `<em>%text</em>` `<em>%replace</em>` ile eşleştirir.
+theme_xhred_filemanager_searching_matching=<tt>%text</tt> metni içeren /directories, dosyalarının <tt>%value</tt> eşleşen adları aranıyor.
+theme_xhred_filemanager_searching_replacing=<tt>%value</tt> içeren adlara sahip dosyalarda <tt>%text</tt> eşleşmelerinin <tt>%replace</tt> ile değiştirilmesi.
 
 theme_xhred_filemanager_search_replaced_multi=<strong>%value</strong> dosyalarında bulundu ve değiştirildi.
 theme_xhred_filemanager_search_replaced=<Strong>1</strong> dosyasında bulundu ve değiştirildi.
@@ -464,8 +468,8 @@ theme_xhred_filemanager_successful_ownership_with_errors=Sahiplik tüm nesneler 
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=Sahiplik aşağıdaki hatalar nedeniyle değiştirilemez:
 
 theme_xhred_filemanager_successful_compression_with_errors=Sıkıştırma aşağıdaki hatalarla sona erdi:
-theme_xhred_filemanager_successful_compression_bg=Sıkıştırma başarıyla tamamlandı. Sıkıştırılmış dosya `<strong>%file</strong>` `<strong>%path</strong>` dizininde bulunur.
-theme_xhred_filemanager_successful_compression_bg_with_errors=Sıkıştırma hatalarla bitti. Sıkıştırılmış dosya `<strong>%file</strong>` `<strong>%path</strong>` dizininde bulunmalıdır.
+theme_xhred_filemanager_successful_compression_bg=Sıkıştırma başarıyla tamamlandı. Sıkıştırılmış dosya <tt>%file</tt> <tt>%path</tt> dizininde bulunur.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Sıkıştırma hatalarla tamamlandı. Sıkıştırılmış dosya <tt>%file</tt> <tt>%path</tt> dizininde bulunmalıdır.
 
 theme_xhred_filemanager_settings_notification_type=Görüntülenecek bildirimlerin türü
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=Bilgiler, uyarılar ve hatalar
@@ -526,12 +530,12 @@ settings_leftmenu_netdata=Netdata gerçek zamanlı izleme bağlantısını göst
 settings_leftmenu_netdata_link=Netdata sunucusu tercih edilen bağlantı
 
 theme_xhred_filemanager_context_chattr=Nitelikleri değiştir
-theme_xhred_filemanager_changing_attributes=Seçili dosyalarda <strong><em>%value</em></strong> öznitelikler ayarlama.
+theme_xhred_filemanager_changing_attributes=Seçilen dosya(lar)daki öznitelikler <tt>%value</tt> olarak ayarlanıyor.
 theme_xhred_filemanager_successful_attributes_with_errors=Özellikler tüm nesneler için başarıyla ayarlanmadı:
 theme_xhred_filemanager_successful_attributes=Özellikler başarıyla ayarlandı.
 
 theme_xhred_filemanager_context_chcon=Güvenlik bağlamını değiştirme
-theme_xhred_filemanager_changing_secontext=Güvenlik bağlamını seçilen dosyalarda <strong><em>%value</em></strong> değiştirme.
+theme_xhred_filemanager_changing_secontext=Seçilen dosya(lar)da güvenlik bağlamı <tt>%value</tt> olarak değiştiriliyor.
 theme_xhred_filemanager_successful_secontext_with_errors=Güvenlik içeriği tüm nesneler için başarıyla değiştirilmedi:
 theme_xhred_filemanager_successful_secontext=Güvenlik içeriği başarıyla değiştirildi.
 
@@ -749,8 +753,6 @@ theme_xhred_nice_size_GB=GB
 theme_xhred_nice_size_MB=MB
 theme_xhred_nice_size_kB=kB
 theme_xhred_nice_size_b=bayt
-settings_sysinfo_real_time_status_disk=Diskler için etkinleştir
-settings_sysinfo_real_time_status_disk_description=Yavaş/büyük dosya sistemlerindeki diskler için gerçek zamanlı izlemeyi devre dışı bırakmak yararlı olabilir
 theme_xhred_title_locale_non_ui_config=Sunucu tarafından oluşturulan tarih biçimi
 
 #19.20
@@ -843,7 +845,7 @@ theme_xhred_mail_search_has_attach=ek vardır
 
 theme_xhred_settings_right_theme_bgs=Tema arka planları
 theme_xhred_settings_right_theme_bgs_title=Tema Arka Planlar
-settings_right_bgs_title=Giriş sayfası için tema arka planı buradan ayarlanabilir. Alfa saydamlığı sağlamak için desteklenen tek biçim <kbd>.png</kbd>.
+settings_right_bgs_title=Giriş sayfası için tema arka planı buradan ayarlanabilir.
 settings_right_bg_unauthenticated_users=Kimliği doğrulanmamış kullanıcılar için arka plan
 settings_right_theme_left_background_title=Tema Arka Plan Kontrolü
 
@@ -922,7 +924,7 @@ theme_xhred_shell_aborted=İşlem iptal edildi
 #19.32
 theme_xhred_connection_reboot=Rebooting
 theme_xhred_connection_reboot_details=Sunucu yeniden başlatılıyor. Lütfen bekle ..
-settings_leftmenu_custom_links_description=Navigasyon menüsüne özel, ekstra bağlantılar enjekte etmek mümkündür. <br><br> <em>başlık</em>, <em>bağlantı</em> ve <em>simgesi</em> tuşları gereklidir; isteğe bağlı olarak, virgülle ayrılmış listede <em>düzey</em> tuşunu değerlerle birlikte belirterek, hangi oturum açma modunda görüntüleneceğini tanımlayabilirsiniz: <br><br> <em>0</ em > - yönetici girişi; <br><em> 1 </em>- bayi girişi;<br> <em>2</em> - sunucu sahibi girişi; <br><em> 3 </em>- kullanıcı girişi;<br> <em>4</em> - sistem sahibi girişi. <br><br> Aşağıdaki örnekte olduğu gibi geçerli JSON nesnesini bir dize olarak geçirmeniz gerekir. <hr><pre> {"extra": [{ "title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "düzey": "0,1,2,3,4"}, { "title": "BIND DNS Sunucusu", "link": "/bind8", "icon": "sunucu"}, {"title": "Usermin", "link": "/", "icon": " zarf "," bağlantı noktası ":" 20000 "," hedef ":" _blank "}]} </pre>
+settings_leftmenu_custom_links_description=Gezinme menüsüne özel, ekstra bağlantıların eklenmesi mümkündür. <br><br> <em>başlık</em>, <em>bağlantı</em> ve <em>simge</em> tuşları gereklidir; isteğe bağlı olarak, virgülle ayrılmış listede değerler içeren <em>seviye</em> anahtarını belirterek, bir bağlantının hangi oturum açma modunda görüntüleneceğini tanımlayabilirsiniz: <br><br> <em>0</em > - yönetici girişi; <br><em>1</em> - bayi girişi;<br><em>2</em> - sunucu sahibi girişi;<br><em>3</em> - kullanıcı girişi;<br><em>4</em>- sistem sahibi girişi.<br><br> Aşağıdaki örnekte olduğu gibi, geçerli JSON nesnesini bir dize olarak iletmenizi gerektirecektir.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=Sık Kullanılanları Düzenle
 left_favorites_edit_desc=Bu sayfa tema sık kullanılanlar kullanıcı dosyasını manuel olarak düzenlemek için kullanılabilir. Bu, değişiklikleriniz üzerinde herhangi bir sözdizimi veya başka bir geçerlilik denetimi yapılmayacağı için dikkatli bir şekilde yapılmalıdır.
 theme_xhred_filemanager_records_for_server_pagination=Sunucu sayfalamasını başlatmak için dizindeki varsayılan öğe sayısı
@@ -1049,10 +1051,6 @@ theme_xhred_global_today=Bugün
 theme_xhred_global_tomorrow=Yarın
 theme_xhred_mail_composer_scheduled=Gönder %1 de %2
 theme_global_core=çekirdek
-settings_sysinfo_real_time_stored=İstatistik geçmişini etkinleştir
-settings_sysinfo_real_time_stored_description=Etkinleştirilirse, önceden toplanan istatistikler depolanır ve Gösterge Tablosundaki bir grafikte görüntülenir
-settings_sysinfo_real_time_stored_length=İstatistik geçmişi süresi
-settings_sysinfo_real_time_stored_length_description=İstatistik geçmişinin saklandığı zaman
 theme_dashboard_accordion_live_stats=İstatistik Geçmişi
 theme_xhred_live_stats_cpu=İşlemci
 theme_xhred_live_stats_mem=Hafıza
@@ -1147,7 +1145,7 @@ theme_xhred_connection_error_details_ssl=<a>Kendinden imzalı SSL sertifikasın�
 #19.71
 settings_sysinfo_hidden_panels_user=Gizli akordeonlar
 theme_xhred_tooltip_dashboard_panels_disable=$1 panelini gizle
-theme_xhred_dashboard_panels_disabled_explain=Gizli panel, tema yapılandırma sayfası kullanılarak yeniden etkinleştirilebilir.
+theme_xhred_dashboard_panels_disabled_explain=Gizli panel <tt>Theme Configuration: Dashboard and real-time monitoring</tt> sayfası kullanılarak yeniden etkinleştirilebilir.
 settings_right_sysinfo_page_options=Kontrol paneli ve gerçek zamanlı izleme
 settings_right_navigation_menu_options=Navigasyon menüsü
 settings_right_notification_slider_options=Yan kaydırıcı
@@ -1169,8 +1167,6 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=Bu özellik, dosya sistemi
 theme_xhred_global_module_preferences=Modül tercihleri
 
 #19.74
-settings_sysinfo_real_time_status_forced=Evet, zorunlu
-settings_sysinfo_real_time_status_forced_warn=Zorla modunda gerçek zamanlı izlemeyi etkinleştirmek önerilmez çünkü tarayıcı sekmesi odaklanılmadığında bile arka planda toplama gerçekleştirilir ve bu durum, birden çok sekme açıkken sunucunun aşırı yüklenmesine neden olabilir.
 theme_xhred_theme_update_available=Authentic Theme'in yeni bir sürümü yüklendi
 settings_right_page_keep=Aynı sayfayı etki alanı anahtarına yükleyin
 settings_right_page_keep_description=Bu seçenek, gezinme menüsü açılır listesinden değiştirildiğinde, alan seçildiğinde aynı sayfayı yüklemeyi deneyecektir.
@@ -1374,3 +1370,49 @@ theme_xhred_columns_layout_variation_cannot_horizontal=Mobil modda, özellikle e
 settings_auto_open_panels_on_proximity=Yakınlıkta kapalı panelleri otomatik aç
 
 theme_xhred_config_portable_module_xterm_render_addon=WebGL oluşturma eklentisini etkinleştir
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=İçeriği filtreleme ve dışa aktarma
+
+#21.10
+settings_hotkey_logout_dbl=Çıkış Yap
+theme_xhred_hotkey_emsg=Ters eğik çizgi tuşu kısayol tuşu olarak kullanılamaz
+settings_embed_product_splash_privileged=Giriş yaptıktan sonra marka bilinci oluşturma ekranı görüntüle
+dashboard_status_running=Koşma
+dashboard_status_stopped=Durduruldu
+
+#21.11
+theme_xhred_global_watching=Seyretme
+theme_xhred_global_connected=Bağlı
+theme_xhred_global_disconnected=Bağlantı kesildi
+theme_xhred_global_connecting=Bağlanıyor
+index_mods_missing=<tt>$1</tt> Perl modülü eksik.
+index_noadmin_eaccess=Yönetici olmayan yöneticilerin erişimi reddedildi!
+theme_xhred_body_os=İşletim sistemi
+theme_xhred_theme_version=Otantik tema sürümü
+theme_xhred_body_updates=Paket güncellemeleri
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Temayı değiştir
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=yükleme başarılı
+theme_xhred_filemanager_upload_status_err=Yükleme başarısız:
+theme_xhred_filemanager_download_status_err=Yükleme başarısız:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Okumak
+theme_xhred_dashboard_chart_disk_write=Yazmak
+theme_xhred_dashboard_chart_net_read=İçinde
+theme_xhred_dashboard_chart_net_write=Dışarı
+theme_xhred_tooltip_dashboard_live_stats_offline=Sistem proxy modunda erişildiğinde canlı istatistikler kullanılamaz; yalnızca daha önce toplanan istatistikler görüntülenir ve yalnızca varsa görüntülenir ve bu istatistikleri güncellemek için sayfanın yeniden yüklenmesi gerekir
+settings_sysinfo_real_time_status_history1=Evet ve istatistikleri sakla
+settings_sysinfo_real_time_status_history2=Evet, istatistikleri depolamadan
+settings_sysinfo_real_time_status_history_duration1=20 dakika
+settings_sysinfo_real_time_status_history_duration2=1 saat
+settings_sysinfo_real_time_status_history_duration3=3 saat
+settings_sysinfo_real_time_status_history_duration4=6 saat
+settings_sysinfo_real_time_status_history_duration5=12 saat
+settings_sysinfo_real_time_status_history_duration6=18 saat
+settings_sysinfo_real_time_status_history_duration7=24 saat
+theme_xhred_license_purchase=Lisans satın al

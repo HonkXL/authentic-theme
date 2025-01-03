@@ -1,3 +1,7 @@
+body_cputype1=$5, $8 cœur
+settings_right_logos_title=Les logos de thème peuvent être facilement définis ici, pour les utilisateurs authentifiés et non authentifiés. La taille du logo recommandée est de <em>180 x 90</em> pixels.
+settings_right_logos_error=Le fichier téléchargé n'est pas une image
+
 settings_right_hotkey_custom_options_description=Les liens personnalisés vous permettent d'utiliser des chiffres de <code>1</code> à <code>9</code> afin d'accéder rapidement à n'importe quelle <code>URL de panneau valide.</code> L'<code>URL</code> peut être extrait de la page actuellement ouverte. Par exemple, pour basculer rapidement vers le module Apache, définissez <code>apache</code> sur le champ <code>Lien personnalisé 1</code>. Si la touche de modification par défaut est définie sur <code>Alt,</code> en cliquant sur <code>Alt + 1</code>, vous ouvrirez le module Apache.
 
 settings_right_reload=Charger la page par défaut sur le commutateur d'onglet
@@ -21,6 +25,36 @@ theme_xhred_sysinfo_wmdocs=Documentation Webmin
 theme_xhred_sysinfo_vmdocs=Documentation Virtualmin
 theme_xhred_sysinfo_cmdocs=Documentation Cloudmin
 
+theme_xhred_filemanager_setting_permissions=Définition des autorisations sur <tt>%value</tt> sur le(s) fichier(s) sélectionné(s).
+theme_xhred_filemanager_changing_ownership=Modification de la propriété en <tt>%value</tt> sur le(s) fichier(s) sélectionné(s).
+theme_xhred_filemanager_bookmark_success=Le répertoire <tt>%value</tt> a été ajouté avec succès à vos favoris.
+theme_xhred_filemanager_searching=Recherche de <tt>%value</tt> correspondant aux noms de fichiers /directories.
+
+theme_xhred_filemanager_successful_directory_creation=Le répertoire <tt>%value</tt> a été créé avec succès.
+theme_xhred_filemanager_successful_file_creation=Le fichier <tt>%value</tt> a été créé avec succès.
+
+theme_xhred_filemanager_unbookmark_success=Le répertoire <tt>%value</tt> a été supprimé avec succès de vos favoris.
+
+theme_xhred_database_object_selected_delete2=Supprimer le tableau sélectionné
+theme_xhred_database_objects_selected_delete2=Supprimer les tables sélectionnées
+
+filemanager_create_object_exists=$3 <tt>$1</tt> existe déjà dans <tt>$2</tt>
+filemanager_create_object_denied=Impossible de créer $3 <tt>$1</tt> dans <tt>$2</tt> - autorisation refusée : $4.
+
+filemanager_rename_exists=$3 portant le nom <tt>$1</tt> existe déjà dans <tt>$2</tt>
+
+theme_xhred_filemanager_successful_rename=Le changement de nom <tt>%from</tt> en <tt>%to</tt> a réussi.
+
+theme_xhred_filemanager_searching_matching=Recherche de <tt>%value</tt> correspondant aux noms de fichiers /directories, contenant <tt>%text</tt> text.
+theme_xhred_filemanager_searching_replacing=Remplacement des correspondances <tt>%text</tt> par <tt>%replace</tt> dans les fichiers dont les noms contiennent <tt>%value</tt>.
+
+theme_xhred_filemanager_successful_compression_bg=La compression s'est terminée avec succès. Le fichier compressé <tt>%file</tt> se trouve dans le répertoire <tt>%path</tt>.
+theme_xhred_filemanager_successful_compression_bg_with_errors=La compression s'est terminée avec des erreurs. Le fichier compressé <tt>%file</tt> doit être situé dans le répertoire <tt>%path</tt>.
+
+theme_xhred_filemanager_changing_attributes=Définition des attributs sur <tt>%value</tt> sur le(s) fichier(s) sélectionné(s).
+
+theme_xhred_filemanager_changing_secontext=Modification du contexte de sécurité en <tt>%value</tt> sur le(s) fichier(s) sélectionné(s).
+
 #18.40
 settings_hotkey_toggle_key_night_mode=Basculer la palette de couleurs
 
@@ -33,9 +67,14 @@ settings_webmin_default_module=Page par défaut pour Webmin
 #19.09
 theme_git_patch_incompatible_message_desc=Il pourrait y avoir des changements incompatibles, qui pourraient empêcher le thème de fonctionner comme prévu. Il n'est pas possible de poursuivre l'opération de mise à niveau à l'aide de l'interface utilisateur.
 
+settings_right_bgs_title=L’arrière-plan du thème pour la page de connexion peut être défini ici.
+
 settings_hotkey_navigation=Basculer l'état du menu de navigation
 
 settings_hotkey_slider=Basculer l'état du curseur latéral
+
+#19.32
+settings_leftmenu_custom_links_description=Il est possible d'injecter des liens supplémentaires personnalisés dans le menu de navigation. <br><br> Les clés <em>titre</em>, <em>lien</em> et <em>icône</em> sont obligatoires ; en option, vous pouvez définir dans quel mode de connexion un lien sera affiché, en spécifiant la clé de <em>niveau</em>, avec des valeurs, dans une liste séparée par des virgules, contenant : <br><br> <em>0</em > - connexion administrateur ; <br><em>1</em> - connexion du revendeur ;<br><em>2</em> - connexion du propriétaire du serveur ;<br><em>3</em> - connexion de l'utilisateur ;<br><em>4</em>- connexion du propriétaire du système.<br><br> Vous devrez transmettre un objet JSON valide sous forme de chaîne, comme dans l'exemple ci-dessous.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 
 theme_xhred_filemanager_mass_selected_for_delete=Tous les éléments du répertoire %1
 
@@ -73,7 +112,7 @@ theme_xhred_connection_error_details_ssl=Vérifiez l'avertissement concernant le
 #19.71
 settings_sysinfo_hidden_panels_user=Accordéons cachés
 theme_xhred_tooltip_dashboard_panels_disable=Masquer le panneau $1 
-theme_xhred_dashboard_panels_disabled_explain=Le panneau masqué peut être réactivé à l'aide de la page de configuration du thème.
+theme_xhred_dashboard_panels_disabled_explain=Le panneau masqué peut être réactivé à l’aide de <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
 settings_right_sysinfo_page_options=Tableau de bord et surveillance en temps réel
 settings_right_navigation_menu_options=Le menu de navigation
 settings_right_notification_slider_options=Curseur latéral
@@ -95,10 +134,7 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=Cette fonctionnalité néc
 theme_xhred_global_module_preferences=Préférences du module
 
 #19.74
-settings_sysinfo_real_time_status_forced=Oui, forcé
-settings_sysinfo_real_time_status_forced_warn=L'activation de la surveillance en temps réel en mode forcé est déconseillée car la collecte en arrière-plan sera effectuée même lorsque l'onglet du navigateur n'est pas ciblé, ce qui peut entraîner une surcharge du serveur avec plusieurs onglets ouverts
 theme_xhred_theme_update_available=Une nouvelle version d'Authentic Theme est installée
-
 settings_right_page_keep=Charger la même page sur le commutateur de domaine
 settings_right_page_keep_description=Cette option essaiera de charger la même page lors de la sélection du domaine, lorsqu'elle sera modifiée dans la liste déroulante du menu de navigation
 
@@ -301,3 +337,50 @@ theme_xhred_columns_layout_variation_cannot_horizontal=La disposition horizontal
 settings_auto_open_panels_on_proximity=Ouverture automatique des panneaux fermés à proximité
 
 theme_xhred_config_portable_module_xterm_render_addon=Activer le module complémentaire de rendu WebGL
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=Filtrer et exporter du contenu
+
+#21.10
+settings_hotkey_logout_dbl=Se déconnecter
+theme_xhred_hotkey_emsg=La touche barre oblique inverse ne peut pas être utilisée comme raccourci clavier
+settings_embed_product_splash_privileged=Afficher un écran de démarrage de marque après la connexion
+dashboard_status_running=En cours d'exécution
+dashboard_status_stopped=Arrêté
+
+#21.11
+theme_xhred_global_watching=En train de regarder
+theme_xhred_global_connected=Connecté
+theme_xhred_global_disconnected=Débranché
+theme_xhred_global_connecting=De liaison
+index_mods_missing=Le module Perl <tt>$1</tt> est manquant.
+index_noadmin_eaccess=Accès refusé aux administrateurs non-maîtres !
+theme_xhred_body_os=Système opérateur
+theme_xhred_theme_version=Version thématique authentique
+
+theme_xhred_body_updates=Mises à jour des packages
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Changer de thème
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Téléchargement réussi
+theme_xhred_filemanager_upload_status_err=Échec du téléchargement :
+theme_xhred_filemanager_download_status_err=Échec du téléchargement:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Lire
+theme_xhred_dashboard_chart_disk_write=Écrire
+theme_xhred_dashboard_chart_net_read=Dans
+theme_xhred_dashboard_chart_net_write=Dehors
+theme_xhred_tooltip_dashboard_live_stats_offline=Les statistiques en direct ne sont pas disponibles lorsque le système est accessible en mode proxy ; seules les statistiques précédemment collectées seront affichées, et uniquement si elles sont disponibles, et la page devra être rechargée pour mettre à jour ces statistiques
+settings_sysinfo_real_time_status_history1=Oui, et stockez les statistiques pour
+settings_sysinfo_real_time_status_history2=Oui, sans stocker de statistiques
+settings_sysinfo_real_time_status_history_duration1=20 minutes
+settings_sysinfo_real_time_status_history_duration2=1 heure
+settings_sysinfo_real_time_status_history_duration3=3 heures
+settings_sysinfo_real_time_status_history_duration4=6 heures
+settings_sysinfo_real_time_status_history_duration5=12 heures
+settings_sysinfo_real_time_status_history_duration6=18 heures
+settings_sysinfo_real_time_status_history_duration7=24 heures
+theme_xhred_license_purchase=Acheter une licence

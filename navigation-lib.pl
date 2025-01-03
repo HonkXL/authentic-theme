@@ -552,6 +552,7 @@ sub nav_cat
                       'global_services'   => 'fa-puzzle-piece',
                       'cat_services'      => 'fa-puzzle-piece',
                       'cat_dns'           => 'fa2 fa2-dns scaled1_5',
+                      'cat_dnsreg'        => 'fa2 fa2-domain scaled1_5',
                       'cat_mail'          => 'fa2 fa2-email-open scaled1_5',
                       'cat_web'           => 'fa2 fa2-web scaled1_5',
                       'create_new'        => 'fa-plus',
@@ -597,6 +598,7 @@ sub nav_search
 "<input type=\"text\" class=\"form-control sidebar-search\" name=\"search\" placeholder=\"$theme_text{'left_search'}\">\n";
         $rv .= "<i class=\"fa fa-search\"></i>\n";
         $rv .= "</div>\n";
+        $rv .= "<div class='autocomplete-dropdown-container'></div>\n";
         $rv .= "</form>\n</li>\n";
     }
     return $rv;
@@ -783,7 +785,7 @@ sub nav_list_combined_menu
 
                 } elsif ($link =~ /\/virtual-server\/list_users\.cgi/) {
                     $icon = '<i class="fa fa-fw fa2 fa2-users-cog"></i>';
-                } elsif ($link =~ /\/virtual-server\/list_aliases\.cgi/) {
+                } elsif ($link =~ /\/virtual-server\/list_aliases\.cgi/ && $id ne 'cat_mail') {
                     $icon = '<i class="fa fa-fw fa2 fa2-maillist"></i>';
                 } elsif ($link =~ /\/virtual-server\/list_databases\.cgi/) {
                     $icon = '<i class="fa fa-fw fa-database"></i>';
@@ -816,7 +818,7 @@ sub nav_list_combined_menu
                     }
                 } elsif (
                         ($link =~ /^http:\/\// || $link =~ /^https:\/\// || $link =~ /^ftp:\/\// || $link =~ /^ftps:\/\//) &&
-                        $link !~ /virtualmin\.com\/professional/)
+                        $link !~ /virtualmin\.com\/docs\/professional/)
                 {
                     $icon = '<i class="fa fa-fw fa-external-link"></i>';
                 } elsif ($link =~ /\.\.\/servers\/link\.cgi/) {
@@ -996,7 +998,7 @@ sub nav_links
         $rv .= '<li data-linked' .
           get_button_tooltip('theme_xhred_titles_dashboard', 'settings_hotkey_sysinfo', 'auto top') . ' class="user-link">';
         $rv .=
-          '<a class="menu-exclude-link sidebar_sysinfo_link" href="' .
+          '<a tabindex="-1" class="menu-exclude-link sidebar_sysinfo_link" href="' .
           $theme_webprefix . '/sysinfo.cgi"><i class="fa fa-fw fa-' .
           ($get_user_level eq '3' ? 'user-circle' : 'dashboard') . '"></i></a>';
         $rv .= '</li>';
@@ -1041,7 +1043,7 @@ sub nav_links
     {
         my $tooltip = get_button_tooltip('settings_title', 'settings_hotkey_open_module_config_privileged', 'auto top');
         $rv .= "<li $tooltip data-linked class=\"user-link theme-options cursor-pointer\">";
-        $rv .= '<a class="menu-exclude-link" href="' . $theme_webprefix .
+        $rv .= '<a tabindex="-1" class="menu-exclude-link" href="' . $theme_webprefix .
           '/tconfig.cgi" data-href="' . $theme_webprefix . '/tconfig.cgi"><i class="fa2 fa-fw fa2-palette"></i></a>';
         $rv .= '</li>';
     }
@@ -1051,7 +1053,7 @@ sub nav_links
     {
         $rv .=
           '<li data-linked' . get_button_tooltip('theme_xhred_title_language_locale', undef, 'auto top') .
-          ' class="user-link"><a class="menu-exclude-link" href="' .
+          ' class="user-link"><a tabindex="-1" class="menu-exclude-link" href="' .
           $theme_webprefix . '/change-user"><i class="fa fa-fw fa-globe"></i></a></li>';
     }
 
@@ -1119,12 +1121,12 @@ sub nav_links
     $rv .= "$menu_elem_br<li $user_title class=\"user-link user-link-acl$cursor_def\">";
     if ($foreign_acl) {
         $rv .=
-          '<a class="menu-exclude-link" data-href="' . $theme_webprefix . '/acl/edit_user.cgi" href="' .
+          '<a tabindex="-1" class="menu-exclude-link" data-href="' . $theme_webprefix . '/acl/edit_user.cgi" href="' .
           $theme_webprefix . '/acl/edit_user.cgi?user=' . (get_env('base_remote_user') eq "root" ? "root" : $remote_user) .
           '"><i class="fa2 fa-fw ' . get_user_icon() . '"></i>&nbsp;<span>' . $remote_user . '</span></a>';
     } else {
         $rv .=
-          '<a class="menu-exclude-link cursor-default no-hover"><i class="fa2 fa-fw ' .
+          '<a tabindex="-1" class="menu-exclude-link cursor-default no-hover"><i class="fa2 fa-fw ' .
           get_user_icon() . '"></i>&nbsp;<span>' . $remote_user . '</span></a>';
     }
     $rv .= '</li>';
@@ -1137,15 +1139,15 @@ sub nav_links
         get_env('http_user_agent') !~ /webmin/i)
     {
         my $tooltip = get_button_tooltip(($main::session_id ? 'theme_tooltip_logout' : 'theme_xhred_tooltip_switch_user'),
-                                         undef, 'auto top');
+                                         'settings_hotkey_logout_dbl', 'auto top');
         $rv .= "<li $tooltip class=\"user-link __logout-link\">";
         if ($main::session_id) {
             $rv .=
-              '<a data-nref class="menu-exclude-link" href="' .
+              '<a tabindex="-1" data-nref class="menu-exclude-link" href="' .
               $theme_webprefix . '/session_login.cgi?logout=1"><i class="fa fa-fw fa-sign-out text-danger"></i></a>';
         } else {
             $rv .=
-              '<a data-nref class="menu-exclude-link" href="' .
+              '<a tabindex="-1" data-nref class="menu-exclude-link" href="' .
               $theme_webprefix . '/switch_user.cgi"><i class="fa fa-fw fa-exchange text-danger"></i></a>';
         }
         $rv .= '</li>';
@@ -1156,7 +1158,7 @@ sub nav_links
             my $tooltip_other_servers = get_button_tooltip('tooltip_list_other_servers',           undef, 'auto top');
             $rv .= "<li class=\"user-link servers-index-link\">";
             $rv .=
-              '<a ' . $tooltip_go_to_master . ' data-nref class="menu-exclude-link" href="' .
+              '<a tabindex="-1" ' . $tooltip_go_to_master . ' data-nref class="menu-exclude-link" href="' .
               $master_link . '?' . $xnav . '"><i class="fa fa-fw fa2 fa2-server"></i></a>';
             $rv .= '
                 <div data-http-webmin-servers="' .
@@ -1175,7 +1177,7 @@ sub nav_links
       '<li data-linked' .
       get_button_tooltip('theme_xhred_filemanager_context_refresh', 'settings_hotkey_reload', 'auto top') .
       ' class="user-link' . ($theme_config{'settings_leftmenu_button_refresh'} ne 'true' && ' hidden') .
-'"><a class="menu-exclude-link" data-refresh="true" style="cursor: pointer"><i class="fa fa-fw fa-refresh"></i></a></li>';
+'"><a tabindex="-1" class="menu-exclude-link" data-refresh="true" style="cursor: pointer"><i class="fa fa-fw fa-refresh"></i></a></li>';
     $rv .= '</ul></li>';
     $rv .= "\n";
     return $rv;
@@ -1385,7 +1387,7 @@ sub print_switch
 
     }
     print '<a></a>
-            </div><div class="toggle-space"></div>';
+            </div><div class="toggle-space"></div><div class="select-dropdown-container"></div>';
 }
 
 # XXX - needs further refactor
@@ -1443,6 +1445,8 @@ sub nav_menu_html_snippet
     my $rv;
     my $html_snippet         = $theme_config{'settings_leftmenu_user_html'};
     my $html_snippet_limited = $theme_config{'settings_leftmenu_user_html_privileged'};
+    $html_snippet = "<i class='fa2 fa-2x-force fa2-bug opacity-0_2'></i>"
+        if (!$html_snippet && theme_debug_mode());
     $html_snippet =~ s/(<(\/|\s*)(html|head|meta|link|title|body).*?>)//g;
 
     if ($html_snippet_limited ne 'true' ||

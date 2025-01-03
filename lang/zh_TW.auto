@@ -3,6 +3,7 @@ body_cpu=平均CPU負載
 body_cpuinfo=處理器信息
 body_cputemps=CPU溫度
 body_cputype=$5，$8內核
+body_cputype1=$5、$8 核心
 body_disk=本地磁盤空間
 body_driveerr=$1個錯誤！
 body_drivefailed=SMART檢查失敗！
@@ -99,9 +100,10 @@ settings_right_extensions_title=主題廣泛的設計，使您可以輕鬆地在
 
 theme_xhred_settings_right_theme_logos=主題徽標
 theme_xhred_settings_right_theme_logos_title=主題徽標
-settings_right_logos_title=無論是經過身份驗證的用戶還是未經身份驗證的用戶，都可以在此處輕鬆設置主題徽標。徽標的建議大小為<kbd>180x90</kbd>像素，唯一受支持的格式為<kbd>.png</kbd> ，以提供Alpha透明度。
+settings_right_logos_title=可以在此處輕鬆為經過身份驗證和未經身份驗證的使用者設定主題徽標。建議的標誌尺寸為 <em>180x90</em> 像素。
 settings_right_logo_authenticated_users=認證用戶的徽標
 settings_right_logo_unauthenticated_users=未經身份驗證的用戶的徽標
+settings_right_logos_error=上傳的檔案不是圖像
 
 settings_right_current_theme=當前主題
 settings_right_title=該頁面允許您為<a href="https://github.com/authentic-theme/authentic-theme" target="_blank">Authentic主題</a>配置選項。設置將在主題更新時存儲。
@@ -208,15 +210,15 @@ theme_xhred_filemanager_renaming_selected=重命名所選內容。
 theme_xhred_filemanager_creating_directory=創建目錄
 theme_xhred_filemanager_creating_file=建立檔案
 theme_xhred_filemanager_downloading_from=從下載
-theme_xhred_filemanager_setting_permissions=將權限設置為所選文件的<strong><em>%value</em></strong> 。
-theme_xhred_filemanager_changing_ownership=將所有權更改為所選文件的<strong><em>%value</em></strong> 。
+theme_xhred_filemanager_setting_permissions=將所選檔案的權限設定為<tt>%value</tt> 。
+theme_xhred_filemanager_changing_ownership=將所選文件的所有權更改為<tt>%value</tt> 。
 theme_xhred_filemanager_compressing_selected=壓縮在後台選擇。
 theme_xhred_filemanager_refreshing=刷新目錄內容。
 theme_xhred_filemanager_copying_successful=複製到剪貼板成功。
 theme_xhred_filemanager_cutting_successful=剪切到剪貼板成功。
 theme_xhred_filemanager_pasting_successful=從剪貼板粘貼成功。
-theme_xhred_filemanager_bookmark_success=目錄<strong><em>%value</em></strong>已成功添加到您的書籤。
-theme_xhred_filemanager_searching=搜索與文件/目錄名稱匹配的`<em>%value</em>` 。
+theme_xhred_filemanager_bookmark_success=目錄<tt>%value</tt>已成功加入您的書籤。
+theme_xhred_filemanager_searching=正在搜尋與檔案“/directories”名稱相符的<tt>%value</tt> /directories.
 theme_xhred_filemanager_search_founds=找到<strong>%value</strong>匹配項。
 theme_xhred_filemanager_search_found=找到<strong>1</strong>匹配項。
 theme_xhred_filemanager_search_no_matches=找不到匹配項。
@@ -234,8 +236,8 @@ theme_xhred_filemanager_successful_deletion=刪除成功。
 theme_xhred_filemanager_successful_permissions=權限已成功更改。
 theme_xhred_filemanager_successful_ownership=所有權已成功更改。
 theme_xhred_filemanager_successful_compression=壓縮已成功完成。
-theme_xhred_filemanager_successful_directory_creation=目錄`<strong>%value</strong>`已成功創建。
-theme_xhred_filemanager_successful_file_creation=文件`<strong>%value</strong>`已成功創建。
+theme_xhred_filemanager_successful_directory_creation=目錄<tt>%value</tt>已成功建立。
+theme_xhred_filemanager_successful_file_creation=文件<tt>%value</tt>已成功建立。
 
 theme_xhred_notifications_packages_updates=套餐更新
 theme_xhred_notifications_theme_update=主題更新
@@ -346,7 +348,7 @@ theme_xhred_global_warning=警告
 theme_xhred_global_close=關
 
 theme_xhred_filemanager__no_bookmarks=沒有保存的書籤
-theme_xhred_filemanager_unbookmark_success=目錄<strong><em>%value</em></strong>已成功從書籤中刪除。
+theme_xhred_filemanager_unbookmark_success=目錄<tt>%value</tt>已成功從您的書籤中刪除。
 theme_xhred_filemanager_bookmark=為當前目錄添加書籤
 theme_xhred_filemanager_unbookmark=取消收藏當前目錄
 theme_xhred_filemanager_move_into_self=您不能將目錄移動到其自身！目標目錄位於源目錄內。
@@ -399,6 +401,8 @@ theme_xhred_database_delete_selected_field=刪除所選字段
 theme_xhred_database_delete_selected_fields=刪除所選字段
 theme_xhred_database_object_selected_delete=刪除所選對象
 theme_xhred_database_objects_selected_delete=刪除所選對象
+theme_xhred_database_object_selected_delete2=刪除選定的表
+theme_xhred_database_objects_selected_delete2=刪除選定的表
 theme_xhred_database_db_selected_drop=刪除選定的數據庫
 theme_xhred_database_dbs_selected_drop=刪除選定的數據庫
 theme_xhred_database_edit_but_not_saved=表數據已被編輯但未保存。
@@ -426,17 +430,17 @@ theme_xhred_datatable_no_search_results=<span class=“h5”>未找到結果</sp
 
 theme_xhred_filemanager_buffer_error=無法將文件粘貼到緩衝區-權限被拒絕。
 
-filemanager_create_object_exists=三塊錢`<strong><em>$1</em></strong>`已經存在於`<strong><tt>$2</tt></strong>`
-filemanager_create_object_denied=無法創建 $3 `<strong><em>$1</em></strong>`在`<strong><tt>$2</tt></strong>` - 沒有權限 : $4。
+filemanager_create_object_exists=$3 <tt>$1</tt>已存在於<tt>$2</tt>中
+filemanager_create_object_denied=無法在<tt>$2</tt>中創建 $3 <tt>$1</tt> - 權限被拒絕： $4 。
 
 theme_xhred_filemanager_paste_warning=無法粘貼目標。在粘貼之前/之前，被請求的對象可能已被<em>重命名，移動</em>或<em>刪除</em>。另一個可能的原因是目的地不可寫。值得檢查對象的屬性。
 
 theme_xhred_filemanager_delete_warning=刪除成功完成，但並非所有對像都刪除。刪除之前，被請求的對象可能已經<em>重命名</em>或<em>移動</em>。權限受限（屬性）是另一個可能的原因。錯誤信息：
 
-filemanager_rename_exists=$3（帶名稱） `<strong><em>$1</em></strong>`已經存在於`<strong><tt>$2</tt></strong>`
+filemanager_rename_exists=名稱為<tt>$1</tt> $3已存在於<tt>$2</tt>中
 filemanager_rename_denied=無法重命名$3。這可能是由於源$3已被刪除或由於權限受限所致。
 
-theme_xhred_filemanager_successful_rename=重命名`<strong><em><s>%from</s></em></strong>`至`<strong><em>%to</em></strong>`那是成功的。
+theme_xhred_filemanager_successful_rename=將<tt>%from</tt>重新命名為<tt>%to</tt>成功。
 
 filemanager_global_info_total1=總計：$1文件和$2目錄
 filemanager_global_info_total2=總計：$1文件和$2目錄
@@ -452,8 +456,8 @@ theme_xhred_filemanager_search_replace=替換結果
 theme_xhred_global_find=找
 theme_xhred_global_replace=更換
 
-theme_xhred_filemanager_searching_matching=搜索包含`<em>%text</em>`文本的文件/目錄的`<em>%value</em>`匹配名稱。
-theme_xhred_filemanager_searching_replacing=在名稱包含`<em>%value</em>`文件中， `<em>%replace</em>` `<em>%text</em>`與`<em>%replace</em>`匹配。
+theme_xhred_filemanager_searching_matching=正在搜尋<tt>%value</tt>符合包含<tt>%text</tt>文字的檔案/directories, 的名稱。
+theme_xhred_filemanager_searching_replacing=在名稱包含<tt>%value</tt>的檔案中，替換將<tt>%text</tt>與<tt>%replace</tt>匹配。
 
 theme_xhred_filemanager_search_replaced_multi=在<strong>%value</strong>文件中找到並替換。
 theme_xhred_filemanager_search_replaced=在<strong>1</strong>文件中找到並替換。
@@ -464,8 +468,8 @@ theme_xhred_filemanager_successful_ownership_with_errors=尚未成功更改所�
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=由於發生以下錯誤，因此無法更改所有權：
 
 theme_xhred_filemanager_successful_compression_with_errors=壓縮完成時出現以下錯誤：
-theme_xhred_filemanager_successful_compression_bg=壓縮已成功完成。壓縮文件`<strong>%file</strong>`位於`<strong>%path</strong>`目錄中。
-theme_xhred_filemanager_successful_compression_bg_with_errors=壓縮已完成，但有錯誤。壓縮文件`<strong>%file</strong>`應該位於`<strong>%path</strong>`目錄中。
+theme_xhred_filemanager_successful_compression_bg=壓縮已成功完成。壓縮檔案<tt>%file</tt>位於<tt>%path</tt>目錄中。
+theme_xhred_filemanager_successful_compression_bg_with_errors=壓縮已完成，但有錯誤。壓縮檔案<tt>%file</tt>應位於<tt>%path</tt>目錄中。
 
 theme_xhred_filemanager_settings_notification_type=顯示的通知類型
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=信息，警告和錯誤
@@ -526,12 +530,12 @@ settings_leftmenu_netdata=顯示Netdata實時監控鏈接
 settings_leftmenu_netdata_link=Netdata服務器首選鏈接
 
 theme_xhred_filemanager_context_chattr=變更屬性
-theme_xhred_filemanager_changing_attributes=將所選文件的屬性設置為<strong><em>%value</em></strong> 。
+theme_xhred_filemanager_changing_attributes=將所選檔案的屬性設為<tt>%value</tt> 。
 theme_xhred_filemanager_successful_attributes_with_errors=尚未為所有對象成功設置屬性：
 theme_xhred_filemanager_successful_attributes=屬性已成功設置。
 
 theme_xhred_filemanager_context_chcon=更改安全上下文
-theme_xhred_filemanager_changing_secontext=將所選文件的安全性上下文更改為<strong><em>%value</em></strong> 。
+theme_xhred_filemanager_changing_secontext=將所選檔案的安全上下文變更為<tt>%value</tt> 。
 theme_xhred_filemanager_successful_secontext_with_errors=尚未成功更改所有對象的安全上下文：
 theme_xhred_filemanager_successful_secontext=安全上下文已成功更改。
 
@@ -749,8 +753,6 @@ theme_xhred_nice_size_GB=國標
 theme_xhred_nice_size_MB=兆字節
 theme_xhred_nice_size_kB=kB
 theme_xhred_nice_size_b=個字節
-settings_sysinfo_real_time_status_disk=為磁盤啟用
-settings_sysinfo_real_time_status_disk_description=禁用慢/大文件系統上磁盤的實時監視可能很有用
 theme_xhred_title_locale_non_ui_config=服務器生成的日期格式
 
 #19.20
@@ -843,7 +845,7 @@ theme_xhred_mail_search_has_attach=有附件
 
 theme_xhred_settings_right_theme_bgs=主題背景
 theme_xhred_settings_right_theme_bgs_title=主題背景
-settings_right_bgs_title=可以在此處設置登錄頁面的主題背景。唯一受支持的格式是<kbd>.png</kbd> ，以提供alpha透明度。
+settings_right_bgs_title=可以在此處設定登入頁面的主題背景。
 settings_right_bg_unauthenticated_users=未經身份驗證的用戶的背景
 settings_right_theme_left_background_title=主題背景控制
 
@@ -922,7 +924,7 @@ theme_xhred_shell_aborted=行動取消
 #19.32
 theme_xhred_connection_reboot=重新啟動
 theme_xhred_connection_reboot_details=服務器正在重新啟動。請稍候 ..
-settings_leftmenu_custom_links_description=可以將自定義的額外鏈接注入到導航菜單中。 <br><br>需要鍵<em>title</em>，<em>link</em>和<em>icon</em>； （可選）您可以通過指定<em>level</em>鍵，並在逗號分隔的列表中指定值，以定義在哪種登錄模式下顯示鏈接，該值包含：<br><br> <em>0</ em >-管理員登錄； <br><em> 1 </em>-經銷商登錄；<br> <em>2</em>-服務器所有者登錄； <br><em> 3 </em>-用戶登錄；<br> <em>4</em>-系統所有者登錄。<br><br>這將要求您將有效的JSON對像作為字符串傳遞，如下例。<hr><pre> {"extra"：[{ "標題"："Google Mail"，"鏈接"："https://gmail.com/"，"icon"："google"，"級別"："0、1、2、3、4"}，{ "title"："BIND DNS服務器"，"link"："/bind8"，"icon"："服務器"}，{"title"："Usermin"，"link"："/"，"icon"："信封"，"端口"："20000"，"目標"："_ blank"}]} </pre>
+settings_leftmenu_custom_links_description=可以將自訂的額外連結注入到導覽功能表中。 <br><br><em>標題</em>、<em>連結</em>和<em>圖示</em>鍵是必需的；或者，您可以透過指定 <em>level</em> 鍵和逗號分隔清單中的值來定義連結將在哪種登入模式下顯示，其中包含：<br><br> <em>0</em > - 管理員登入； <br><em>1</em> - 經銷商登入；<br><em>2</em> - 伺服器擁有者登入；<br><em>3</em> - 使用者登入；<br ><em>4</em>- 系統擁有者登入。 "extra" :[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4" }, {"title": "BIND DNS 伺服器", "link": "/bind8", "icon": "伺服器"}, {"title": "Usermin", "link": "/", "icon" ": "信封", "連接埠": "20000", "目標": "_blank"}]}</pre>
 left_favorites_edit=編輯收藏夾
 left_favorites_edit_desc=該頁面可用於手動編輯主題收藏夾用戶文件。這應該謹慎進行，因為不會對您的更改執行語法或其他有效性檢查。
 theme_xhred_filemanager_records_for_server_pagination=目錄中用於啟動服務器分頁的默認項目數
@@ -1049,10 +1051,6 @@ theme_xhred_global_today=今天
 theme_xhred_global_tomorrow=明天
 theme_xhred_mail_composer_scheduled=在%2發送%1
 theme_global_core=核心
-settings_sysinfo_real_time_stored=啟用統計記錄
-settings_sysinfo_real_time_stored_description=如果啟用，將存儲以前收集的統計信息，並顯示在儀表板上的圖形中
-settings_sysinfo_real_time_stored_length=統計歷史持續時間
-settings_sysinfo_real_time_stored_length_description=統計歷史記錄的存儲時間
 theme_dashboard_accordion_live_stats=統計歷史
 theme_xhred_live_stats_cpu=中央處理器
 theme_xhred_live_stats_mem=記憶
@@ -1147,7 +1145,7 @@ theme_xhred_connection_error_details_ssl=檢查<a>自簽名SSL證書</a>警告
 #19.71
 settings_sysinfo_hidden_panels_user=隱藏的手風琴
 theme_xhred_tooltip_dashboard_panels_disable=隱藏 $1面板
-theme_xhred_dashboard_panels_disabled_explain=可以使用主題配置頁面重新啟用隱藏面板。
+theme_xhred_dashboard_panels_disabled_explain=可使用<tt>Theme Configuration: Dashboard and real-time monitoring</tt>頁面。
 settings_right_sysinfo_page_options=儀表板和實時監控
 settings_right_navigation_menu_options=導航菜單
 settings_right_notification_slider_options=側滑桿
@@ -1169,8 +1167,6 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=此功能要求在打開<t
 theme_xhred_global_module_preferences=模塊首選項
 
 #19.74
-settings_sysinfo_real_time_status_forced=是的，強迫
-settings_sysinfo_real_time_status_forced_warn=不建議在強制模式下啟用實時監視，因為即使瀏覽器選項卡未聚焦時也會執行後台收集，這可能會導致打開多個選項卡時服務器過載
 theme_xhred_theme_update_available=安裝了新版本的Authentic Theme
 settings_right_page_keep=在域交換機上加載同一頁面
 settings_right_page_keep_description=從導航菜單下拉列表中更改時，此選項將嘗試在選擇域時加載同一頁面
@@ -1374,3 +1370,49 @@ theme_xhred_columns_layout_variation_cannot_horizontal=移動模式下不能使�
 settings_auto_open_panels_on_proximity=接近時自動打開關閉的面板
 
 theme_xhred_config_portable_module_xterm_render_addon=啟用 WebGL 渲染插件
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=過濾和匯出內容
+
+#21.10
+settings_hotkey_logout_dbl=登出
+theme_xhred_hotkey_emsg=反斜杠鍵不能當熱鍵
+settings_embed_product_splash_privileged=登入後顯示品牌啟動畫面
+dashboard_status_running=跑步
+dashboard_status_stopped=已停止
+
+#21.11
+theme_xhred_global_watching=觀看
+theme_xhred_global_connected=連接的
+theme_xhred_global_disconnected=已斷開連接
+theme_xhred_global_connecting=連接中
+index_mods_missing=Perl 模組 <tt>$1</tt> 遺失。
+index_noadmin_eaccess=非主管理員拒絕存取！
+theme_xhred_body_os=作業系統
+theme_xhred_theme_version=正版主題版本
+theme_xhred_body_updates=套餐更新
+
+# 21.20
+theme_xhred_hotkey_switch_theme=切換主題
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=上傳成功
+theme_xhred_filemanager_upload_status_err=上傳失敗：
+theme_xhred_filemanager_download_status_err=下載失敗：
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=讀
+theme_xhred_dashboard_chart_disk_write=寫
+theme_xhred_dashboard_chart_net_read=在
+theme_xhred_dashboard_chart_net_write=出去
+theme_xhred_tooltip_dashboard_live_stats_offline=當系統以代理模式存取時，即時統計資料不可用；僅顯示先前收集的統計信息，並且僅在可用時顯示，並且需要重新加載頁面才能更新這些統計信息
+settings_sysinfo_real_time_status_history1=是的，並儲存統計數據
+settings_sysinfo_real_time_status_history2=是的，不儲存統計數據
+settings_sysinfo_real_time_status_history_duration1=20分鐘
+settings_sysinfo_real_time_status_history_duration2=1小時
+settings_sysinfo_real_time_status_history_duration3=3小時
+settings_sysinfo_real_time_status_history_duration4=6小時
+settings_sysinfo_real_time_status_history_duration5=12小時
+settings_sysinfo_real_time_status_history_duration6=18小時
+settings_sysinfo_real_time_status_history_duration7=24小時
+theme_xhred_license_purchase=購買許可證

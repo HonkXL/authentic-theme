@@ -36,6 +36,10 @@ foreach my $name (@entries_list) {
     $name = simplify_path($name);
     if ($in{'etrash'}) {
         my $tdir = "$cwd/$tdirname/";
+        if (!can_write($tdir)) {
+            $errors{$name_} = lc($text{'error_delete'} . lc(" - $text{'error_write'}"));
+            next;    
+        }
         if (!&unlink_file($tdir)) {
             $errors{$name_} = lc($text{'error_delete'} . lc(" - $!"));
         } else {
@@ -55,7 +59,7 @@ foreach my $name (@entries_list) {
         my $tfile;
         if (!$mkpathr && -f "$tdir/$name" && -r "$tdir/$name") {
             $tfile = "$tdir/$name-$time";
-        } elsif (!$mkpathr && glob("$tdir/$name/*")) {
+        } elsif (!$mkpathr && glob("\Q$tdir/$name\E/*")) {
             $tfile = "$tdir/$name-$time";
             &$mkpath_($tdir);
         }
@@ -65,7 +69,10 @@ foreach my $name (@entries_list) {
             if (&is_under_directory("$cwd/$name", $tfile || "$tdir/$name")) {
                 # If .Trash the only one in list, delete it
                 if (scalar(@entries_list) == 1) {
-                    if (!&unlink_file("$cwd/$name")) {
+                    if (!can_write("$cwd/$name")) {
+                        $errors{$name_} = lc($text{'error_delete'} . lc(" - $text{'error_write'}"));
+                    }
+                    elsif (!&unlink_file("$cwd/$name")) {
                         $errors{$name_} = lc($text{'error_delete'} . lc(" - $!"));
                     } else {
                         $etrashed = 1;
@@ -79,7 +86,10 @@ foreach my $name (@entries_list) {
             push(@deleted_entries, $name);
         }
     } else {
-        if (!&unlink_file($cwd . '/' . $name)) {
+        if (!can_write($cwd . '/' . $name)) {
+            $errors{$name_} = lc($text{'error_delete'} . lc(" - $text{'error_write'}"));
+        }
+        elsif (!&unlink_file($cwd . '/' . $name)) {
             $errors{$name_} = lc($text{'error_delete'} . lc(" - $!"));
         } else {
             push(@deleted_entries, $name);

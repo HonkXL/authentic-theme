@@ -20,8 +20,8 @@ our (
     $theme_root_directory,
     $current_theme, $root_directory, $config_directory, $var_directory,
 
-    %theme_text,     %module_text_full, %theme_config, $get_user_level, $theme_webprefix, $http_x_url,
-    $has_virtualmin, $has_cloudmin,
+    %theme_text,     %module_text_full, %theme_config, $theme_info, $get_user_level, $theme_webprefix, $http_x_url,
+    $has_virtualmin, $has_cloudmin, $theme_server_webprefix,
     $has_usermin,    $has_usermin_version, $has_usermin_root_dir, $has_usermin_conf_dir, $has_usermin_var_dir);
 
 init_type();
@@ -173,6 +173,31 @@ sub get_extended_sysinfo
                     if ($info->{'type'} ne 'html') {
                         $returned_sysinfo .= '<table class="table table-striped"><tbody>';
                     }
+                    my $status_icons_tpl = {
+                        _fa => 'fa fa-fw fa',
+                        _fa2 => 'fa2 fa-fw fa2',
+                        _fa115x => 'fa-1_15x',
+                        _falg => 'fa-lg',
+                        _text_succ => 'text-success',
+                        _text_warn => 'text-warning text-warning-brighter',
+                        _text_dang => 'text-danger',
+                        _vert_algn_md => 'vertical-align-middle',
+                    };
+                    my $status_icons = {
+                        up     => "<i data-toggle=\"tooltip\" title=\"$theme_text{'dashboard_status_running'}\" class=\"$status_icons_tpl->{'_fa'}-check $status_icons_tpl->{'_falg'} $status_icons_tpl->{'_text_succ'}\"></i>",
+                        stop   => "<i class=\"$status_icons_tpl->{'_fa'}-times-circle $status_icons_tpl->{'_falg'} $status_icons_tpl->{'_text_warn'}\"></i>",
+                        down   => "<i data-toggle=\"tooltip\" title=\"$theme_text{'dashboard_status_stopped'}\" class=\"$status_icons_tpl->{'_fa'}-minus-circle $status_icons_tpl->{'_falg'} $status_icons_tpl->{'_text_dang'}\"></i>",
+                        start  => "<i class=\"$status_icons_tpl->{'_fa'}-play text-success $status_icons_tpl->{'_falg'}\"></i>",
+                        reload => "<i class=\"$status_icons_tpl->{'_fa'}-refresh text-info $status_icons_tpl->{'_falg'}\"></i>",
+                        quest  => "<i class=\"$status_icons_tpl->{'_fa'}-question-circle $status_icons_tpl->{'_fa115x'}\"></i>",
+                        not    => "<i class=\"$status_icons_tpl->{'_fa2'}-not-interested $status_icons_tpl->{'_fa115x'}\"></i>",
+                        skip   => "<i class=\"$status_icons_tpl->{'_fa2'}-minus $status_icons_tpl->{'_fa115x'} $status_icons_tpl->{'_vert_algn_md'}\"></i>",
+                        timed   => "<i class=\"$status_icons_tpl->{'_fa'}-clock $status_icons_tpl->{'_fa115x'} $status_icons_tpl->{'_vert_algn_md'} $status_icons_tpl->{'_text_warn'}\"></i>",
+                        webmin   => "<i class=\"$status_icons_tpl->{'_fa'}-webmin $status_icons_tpl->{'_fa115x'} $status_icons_tpl->{'_vert_algn_md'} $status_icons_tpl->{'_text_warn'}\"></i>",
+                    };
+                    if ($info->{'id'} eq 'status_services') {
+                        $info->{"html"} =~ s/<img src=.*?\/status\/images\/(\S+).gif.*?>/$status_icons->{$1}/g;
+                    }
 
                     if ($info->{'type'} eq 'table' &&
                         (   $info->{'module'} ne 'system-status' &&
@@ -180,20 +205,10 @@ sub get_extended_sysinfo
 
                         ))
                     {
-
                         foreach my $t (@{ $info->{'table'} }) {
-                            my $__checkmark = '<i class="fa fa-fw fa-lg fa-check text-success"></i>';
-                            my $__stop      = '<i class="fa fa-fw fa-lg fa-times-circle text-warning text-warning-brighter"></i>';
-                            my $__down      = '<i class="fa fa-fw fa-lg fa-minus-circle text-danger"></i>';
-                            my $__start     = '<i class="fa fa-fw fa-lg fa-play text-success"></i>';
-                            my $__restart   = '<i class="fa fa-fw fa-lg fa-refresh text-info"></i>';
-
-                            $t->{"value"} =~ s/<img src='.*?\/virtual-server\/images\/up.gif'.*?>/$__checkmark/g;
-                            $t->{"value"} =~ s/<img src='.*?\/virtual-server\/images\/stop.png'.*?>/$__stop/g;
-                            $t->{"value"} =~ s/<img src='.*?\/virtual-server\/images\/down.gif'.*?>/$__down/g;
-                            $t->{"value"} =~ s/<img src='.*?\/virtual-server\/images\/start.png'.*?>/$__start/g;
-                            $t->{"value"} =~ s/<img src='.*?\/virtual-server\/images\/reload.png'.*?>/$__restart/g;
-
+                            $t->{"desc"} =~ s/^\&nbsp;//g;
+                            $t->{"desc"} =~ s/<img src='.*?\/virtual-server\/images\/(\S+).(png|gif)'.*?>/$status_icons->{$1}/g;
+                            $t->{"value"} =~ s/<img src='.*?\/virtual-server\/images\/(\S+).(png|gif)'.*?>/$status_icons->{$1}/g;
                             $returned_sysinfo .= '<tr>
                                 <td>' . $t->{"desc"} . '</td>
                                 <td>' . $t->{"value"} . '</td>
@@ -222,8 +237,9 @@ sub get_extended_sysinfo
             }
         }
         if (&webmin_user_is_admin() &&
+            $theme_config{'settings_sysinfo_hidden_panels_user'} !~ /\'live_stats\'/ &&
             $theme_config{'settings_sysinfo_real_time_status'} ne '0'     &&
-            $theme_config{'settings_sysinfo_real_time_stored'} ne 'false' &&
+            (!$theme_server_webprefix || $theme_server_webprefix && -r get_stats_history_file()) &&
             (acl_system_status('cpu') || acl_system_status('mem') || acl_system_status('load')))
         {
             my $data = '<div data-charts-loader class="text-muted loading-dots flex-center">
@@ -238,11 +254,18 @@ sub get_extended_sysinfo
                             <span data-chart="proc"></span>
                             <span data-chart="disk"></span>
                             <span data-chart="net"></span>';
+            my $live_stats_not_live; 
+            $live_stats_not_live =
+                '<span data-live="'.
+                        ($theme_server_webprefix ? 0 : 1).'"'.get_button_tooltip(
+                                theme_text('theme_xhred_tooltip_dashboard_live_stats_offline',
+                                undef), undef, 'auto right').
+                                    '></span>' if ($theme_server_webprefix);
             $returned_sysinfo .=
               print_panel(
                 1,
                 'live_stats',
-"$theme_text{'theme_dashboard_accordion_live_stats'}<span class=\"pull-right on-hover\"><i class=\"fa fa-fw fa-times-thin\" "
+"$theme_text{'theme_dashboard_accordion_live_stats'}${live_stats_not_live}<span class=\"pull-right on-hover\"><i class=\"fa fa-fw fa-times-thin\" "
                   .
                   get_button_tooltip(
                                      theme_text('theme_xhred_tooltip_dashboard_panels_disable',
@@ -460,6 +483,7 @@ sub print_sysstats_panel_start
 
     print '<div id="system-status" class="panel panel-default" style="margin-bottom: 5px">' . "\n";
     print '<div class="panel-heading">' . "\n";
+    my $debug_mode = theme_debug_mode() ? '&nbsp;&nbsp;<i class="fa2 fa2-bug fa-0_75x opacity-0_2"></i>' : "";
     print '<h3 class="panel-title">'
       .
       ( $recollect . ''
@@ -485,7 +509,7 @@ sub print_sysstats_panel_start
            '<a class="btn btn-default pull-right extra_documentation_links" href="' . $virtualmin_config{'docs_link'} .
            '"target="_blank"><i class="fa fa-book"> </i> ' . $virtualmin_config{'docs_text'} . '</a>' :
            undef
-      ) .
+      ) . $debug_mode .
       '
     </h3>' . "\n";
 
@@ -495,7 +519,7 @@ sub print_sysstats_panel_start
 
 sub print_sysstats_table
 {
-    my ($data, $quota, $prod) = @_;
+    my ($data, $quota) = @_;
 
     if ((defined($data) && scalar(@{$data})) ||
         (defined($quota) && scalar(@{$quota})))
@@ -503,14 +527,7 @@ sub print_sysstats_table
         print '<table class="table table-hover">' . "\n";
         if (defined($data) && scalar(@{$data})) {
             foreach my $t (@{ @{$data}[0]->{'table'} }) {
-                my $insert = ($t->{"desc"} =~ /\Q$prod/i);
-                if ($insert && $get_user_level ne '3') {
-                    print_table_row($theme_text{'body_webmin'}, get_webmin_version());
-                }
                 print_table_row($t->{"desc"}, $t->{"value"});
-                if ($insert) {
-                    print_table_row($theme_text{'theme_version'}, get_theme_user_link());
-                }
             }
         }
         if (defined($quota) && scalar(@{$quota})) {
@@ -680,6 +697,12 @@ sub get_sysinfo_vars
         } else {
             $os = $gconfig{'real_os_type'} . ' ' . $gconfig{'real_os_version'};
         }
+        
+        # EOL info
+        my $eol = $gconfig{'os_eol_expired'} || $gconfig{'os_eol_expiring'};
+        if ($eol) {
+            $os .= " <span class='label label-danger badge-danger font-uppercase eol-badge'>$eol</span>";
+        }
 
         my $is_hidden_link = (!&webmin_user_is_admin() ? ' hidden-force ' : undef);
 
@@ -759,7 +782,7 @@ sub get_sysinfo_vars
         }
 
         # Fetch theme version
-        if (&webmin_user_is_admin()) {
+        if (&webmin_user_is_admin() && $theme_config{'settings_upgrade_allowed'} eq 'true') {
 
             # Theme version/update
             my $authentic_remote_data                = theme_remote_version(1);
@@ -864,7 +887,7 @@ sub get_sysinfo_vars
         if ($info->{'load'}) {
             @c = @{ $info->{'load'} };
             if (@c > 3) {
-                $cpu_type = &theme_text('body_cputype', @c);
+                $cpu_type = &theme_text($c[7] == 1 ? 'body_cputype1' : 'body_cputype', @c);
             }
         }
     }
@@ -880,8 +903,8 @@ sub get_sysinfo_vars
                   ($cpucores > 1 ? ($theme_text{'theme_global_core'} . ' ' . (int($t->{'core'}) + 1) . ': ') : '')
                   .
                   ( get_module_config_data('system-status', 'collect_units') ?
-                      (int(($t->{'temp'} * 9.0 / 5) + 32) . "&#176;F") :
-                      (int($t->{'temp'}) . '&#176;C ')
+                      (int(($t->{'temp'} * 9.0 / 5) + 32) . " &#176;F") :
+                      (int($t->{'temp'}) . ' &#176;C ')
                   ) .
                   '</span>';
             }
@@ -912,8 +935,8 @@ sub get_sysinfo_vars
                 $hdd_temperature .= '<span class="badge-custom badge-drivestatus" data-stats="drive">' . $short . ': '
                   .
                   ( get_module_config_data('system-status', 'collect_units') ?
-                      (int(($t->{'temp'} * 9.0 / 5) + 32) . "&#176;F") :
-                      (int($t->{'temp'}) . '&#176;C ')
+                      (int(($t->{'temp'} * 9.0 / 5) + 32) . " &#176;F") :
+                      (int($t->{'temp'}) . ' &#176;C ')
                   ) .
                   $emsg . '</span>';
             }
@@ -1540,7 +1563,7 @@ sub theme_update_incompatible
 
 sub theme_remote_version
 {
-
+    return if ($theme_config{'settings_upgrade_allowed'} ne 'true');
     my ($data, $force_stable_check, $force_beta_check, $nocache) = @_;
 
     my $remote_version = 0;
@@ -1678,7 +1701,7 @@ sub theme_var_dir
 
 sub clear_theme_cache
 {
-    my ($root)  = @_;
+    my ($root, $full)  = @_;
     my $salt    = substr(encode_base64($main::session_id), 0, 6);
     my $tmp_dir = tempname_dir();
     my $home_tmp_dir = get_user_home() . "/tmp";
@@ -1694,8 +1717,12 @@ sub clear_theme_cache
         unlink_file("$theme_var_dir/software+latest");
 
         # Clear stats history
+        opendir(my $dir, $theme_var_dir);
+        grep {unlink_file("$theme_var_dir/$_") if (/^stats-server-\d+/)} readdir($dir);
+        closedir($dir);
+        unlink_file("$theme_var_dir/real-time-monitoring.json");
+        kill_byname("$current_theme/stats.pl", 9);
         unlink_file("$theme_var_dir/stats-$remote_user.json");
-        kill_byname("$current_theme/stats.cgi", 9);
 
         # Remove cached downloads
         unlink_file("$product_var/cache");
@@ -1708,6 +1735,12 @@ sub clear_theme_cache
         # Remove package updates cache
         unlink_file("$product_var/modules/package-updates/current.cache");
         unlink_file("$product_var/modules/package-updates/updates.cache");
+
+        # Remove cached package updates
+        if (&foreign_available('package-updates')) {
+            &foreign_require("package-updates");
+            &package_updates::flush_package_caches();
+        }
     }
 
     # Clear user cached collected info
@@ -1720,10 +1753,30 @@ sub clear_theme_cache
         &webmin::detect_operating_system();
     }
 
+    # Remove EOL cache
+    if (defined($gconfig{'os_eol'})) {
+        # Invalidate EOL cache
+        &lock_file("$config_directory/config");
+        foreach my $key (keys %gconfig) {
+            delete $gconfig{$key}
+                if ($key =~ /^(os_eol|os_ext_eol)/);
+        }
+        &write_file("$config_directory/config", \%gconfig);
+        &unlock_file("$config_directory/config");
+    }
+
     # Clear potentially stuck BIND cache
     if (&foreign_available('bind8')) {
         &foreign_require("bind8");
         &bind8::flush_zone_names();
+    }
+
+    # Clear potentially stuck Postfix version file
+    if (&foreign_available('postfix')) {
+        &foreign_require("postfix");
+        my $postfix_version_file = $postfix::version_file;
+        unlink_file($postfix_version_file)
+            if (-f $postfix_version_file);
     }
 
     # Clear potentially stuck Apache cache
@@ -1745,10 +1798,6 @@ sub clear_theme_cache
         }
         &virtual_server::clear_links_cache($remote_user);
 
-        # Clear license status cache
-        my $licence_status = &virtual_server::cache_file_path("licence-status");
-        unlink_file($licence_status);
-
         # Clear collected data
         my $collected_info_file = &virtual_server::cache_file_path("collected");
         unlink_file($collected_info_file);
@@ -1757,7 +1806,13 @@ sub clear_theme_cache
         my $vm_var_dir = $virtual_server::module_var_directory;
         opendir(my $dir, $vm_var_dir);
         grep {unlink_file("$vm_var_dir/$_") if (/^virtual\-server\-server\-templates/)} readdir($dir);
-        closedir $dir;
+        closedir($dir);
+
+        # Clear seen features cache
+        if ($full) {
+            my $seenfeatdir = $virtual_server::newfeatures_seen_dir;
+            unlink_file("$seenfeatdir/$remote_user-pro-tips");
+        }
     }
 
     # Clear potentially stuck menus and other cache
@@ -1766,7 +1821,7 @@ sub clear_theme_cache
     # Clear session specific temporary files
     opendir(my $dir, $tmp_dir);
     grep {unlink_file("$tmp_dir/$_") if (/^\.theme_/ && /$salt/)} readdir($dir);
-    closedir $dir;
+    closedir($dir);
 }
 
 sub theme_make_config_dir
@@ -1795,7 +1850,7 @@ sub get_theme_user_link
     my $is_hidden = (!foreign_available("webmin") &&
                        $theme_config{'settings_theme_config_admins_only_privileged'} eq 'true' ? ' hidden-force ' :
                        undef);
-    my $is_hidden_link = (!&webmin_user_is_admin() ? ' hidden-force ' : undef);
+    my $is_hidden_link = ((!&webmin_user_is_admin() || $theme_config{'settings_upgrade_allowed'} ne 'true') ? ' hidden-force ' : undef);
     my $link           = '/tconfig.cgi';
 
     return '' . theme_version('versionfull') .
@@ -1807,326 +1862,6 @@ sub get_theme_user_link
       $theme_text{'settings_right_theme_left_configuration_title'} . '"><i class="fa2 fa-fw fa2-palette"></i></a></div>';
 }
 
-sub get_xhr_request
-{
-
-    if (post_has('xhr-')) {
-        head();
-
-        if ($in{'xhr-settings'} eq '1') {
-            if ($in{'restore'} eq '1') {
-                theme_config_restore();
-            }
-        } elsif ($in{'xhr-manage-config'} eq '1') {
-            if ($in{'save'} eq '1') {
-                theme_config_save();
-            } elsif ($in{'load'} eq '1') {
-                print theme_config_get();
-            }
-        } elsif ($in{'xhr-get_available_modules'} eq '1') {
-            print get_available_modules('json');
-        }
-
-        # This should be split on next refactor to be used separately by modules (filemin/mailbox)
-        elsif ($in{'xhr-get_size'} eq '1') {
-            switch_to_remote_user_safe();
-            my $nodir  = $in{'xhr-get_size_nodir'};
-            my $path   = get_access_data('root') . $in{'xhr-get_size_path'};
-            my $home   = get_user_home();
-            my $module = $in{'xhr-get_size_cmodule'};                          # $in{'xhr-get_size_cmodule'};
-            if ($module eq 'filemin') {
-                exit if (!foreign_available($module));
-                my $jailed_user = get_fm_jailed_user($module);
-                if ($jailed_user) {
-                    $home = $jailed_user;
-                    $path = $home . $in{'xhr-get_size_path'};
-                }
-                if (($jailed_user || $get_user_level eq '3') && !string_starts_with($path, $home)) {
-                    $path = $home . $path;
-                    $path =~ s/\/\//\//g;
-                }
-            }
-            if ($nodir && -d $path) {
-                print "$theme_text{'theme_xhred_global_error'}|-2";
-            } elsif (!-r $path) {
-                print "$theme_text{'theme_xhred_global_error'}|-1";
-            } else {
-                my $size = recursive_disk_usage($path);
-                print nice_size($size, -1) . '|' . nice_number($size);
-            }
-        } elsif ($in{'xhr-get_list'} eq '1') {
-            switch_to_remote_user_safe();
-            my $module = 'filemin';    # $in{'xhr-get_list_cmodule'};
-            exit if (!foreign_available($module));
-            my $path = "$in{'xhr-get_list_path'}";
-            my @dirs;
-
-            my $jailed_user = get_fm_jailed_user($module);
-            if ($jailed_user ||
-                $get_user_level eq '2' ||
-                $get_user_level eq '4' ||
-                webmin_user_is('safe-user'))
-            {
-                $path = ($jailed_user || get_user_home()) . $path;
-            }
-            opendir(my $dirs, $path);
-            while (my $dir = readdir $dirs) {
-                next unless -d $path . '/' . $dir;
-                next if $dir eq '.' or $dir eq '..';
-                push @dirs, $dir;
-            }
-            closedir $dirs;
-
-            @dirs = sort {"\L$a" cmp "\L$b"} @dirs;
-            print convert_to_json(\@dirs);
-
-        } elsif ($in{'xhr-encoding_convert'} eq '1') {
-            my $module = 'filemin';    # $in{'xhr-encoding_convert_cmodule'};
-            exit if (!foreign_available($module));
-            my $jailed_user      = get_fm_jailed_user($module, 1);
-            my $jailed_user_home = get_fm_jailed_user($module);
-            my $cfile            = $in{'xhr-encoding_convert_file'};
-            if ($jailed_user) {
-                switch_to_given_unix_user($jailed_user);
-                $cfile = $jailed_user_home . $cfile;
-            } else {
-                switch_to_remote_user_safe();
-            }
-            my $data = &ui_read_file_contents_limit(
-                                                    { 'file',    $cfile, 'limit', $in{'xhr-encoding_convert_limit'},
-                                                      'reverse', $in{'xhr-encoding_convert_reverse'},
-                                                      'head',    $in{'xhr-encoding_convert_head'},
-                                                      'tail',    $in{'xhr-encoding_convert_tail'} });
-            if (-s $cfile < 128 || -T $cfile) {
-                eval {$data = Encode::encode('utf-8', Encode::decode($in{'xhr-encoding_convert_name'}, $data));};
-            }
-            print $data;
-        } elsif ($in{'xhr-get_gpg_keys'} eq '1') {
-            my $module = 'filemin';    # $in{'xhr-get_gpg_keys_cmodule'};
-            exit if (!foreign_available($module));
-            my $jailed_user = get_fm_jailed_user($module, 1);
-            my ($public, $gpgpath) =
-              get_user_allowed_gpg_keys($jailed_user, $in{'xhr-get_gpg_keys_all'});
-            my %keys;
-            $keys{'public'}  = $public;
-            $keys{'gpgpath'} = $gpgpath;
-            print convert_to_json(\%keys);
-        } elsif ($in{'xhr-get_user_level'} eq '1') {
-            print $get_user_level;
-        } elsif ($in{'xhr-get_update_notice'} eq '1') {
-            print update_notice();
-        } elsif ($in{'xhr-get_nice_size'} eq '1') {
-            print nice_size($in{'xhr-get_nice_size_sum'}, -1);
-        } elsif ($in{'xhr-get_command_exists'} eq '1') {
-            print has_command($in{'xhr-get_command_exists_name'});
-        } elsif ($in{'xhr-theme_temp_data'} eq '1') {
-            if ($in{'xhr-theme_temp_data_action'} eq 'set') {
-                set_theme_temp_data($in{'xhr-theme_temp_data_name'}, $in{'xhr-theme_temp_data_value'});
-            } elsif ($in{'xhr-theme_temp_data_action'} eq 'get') {
-                print get_theme_temp_data($in{'xhr-theme_temp_data_name'}, $in{'xhr-theme_temp_data_keep'});
-            }
-        } elsif ($in{'xhr-shell-pop'}) {
-            my $file    = get_history_shell_file();
-            my $index   = (int($in{'xhr-shell-pop'}) - 1);
-            my $history = read_file_lines($file);
-            if (@$history[$index]) {
-                splice(@$history, $index, 1);
-                flush_file_lines($file);
-                print 1;
-            }
-        } elsif ($in{'xhr-shell-insert'}) {
-            my $file    = get_history_shell_file();
-            my $history = read_file_lines($file);
-            push(@$history, $in{'xhr-shell-inserted'}) if ($in{'xhr-shell-inserted'});
-            flush_file_lines($file);
-            print convert_to_json($history);
-        } elsif ($in{'xhr-get_autocompletes'} eq '1') {
-            my @data =
-              get_autocomplete_shell($in{'xhr-get_autocomplete_type'}, $in{'xhr-get_autocomplete_string'});
-            print convert_to_json(\@data);
-        } elsif ($in{'xhr-theme_latest_version'} eq '1') {
-            my @current_versions;
-            my @remote_version = theme_remote_version(1, 0, 1);
-            my ($remote_version_number) = "@remote_version" =~ /^version=(.*)/m;
-            my ($remote_mversion_number) = "@remote_version" =~ /^mversion=(.*)/m;
-            if ($remote_mversion_number <= 1) {
-                $remote_mversion_number = "";
-            } else {
-                $remote_mversion_number = "-$remote_mversion_number";
-            }
-            my ($remote_bversion_number) = "@remote_version" =~ /^bversion=(.*)/m;
-            if ($remote_bversion_number <= 1) {
-                $remote_bversion_number = "";
-            } else {
-                $remote_bversion_number = ":$remote_bversion_number";
-            }
-            push(@current_versions,
-                 (theme_remote_version(1, 1) =~ /^version=(.*)/m),
-                 "$remote_version_number$remote_mversion_number$remote_bversion_number");
-            print convert_to_json(\@current_versions);
-        } elsif ($in{'xhr-theme_clear_cache'} eq '1') {
-            clear_theme_cache(&webmin_user_is_admin());
-        } elsif ($in{'xhr-update'} eq '1' && &webmin_user_is_admin()) {
-            my @update_rs;
-            my $version_type            = ($in{'xhr-update-type'} eq '-beta' ? '-beta' : '-release');
-            my $update_force            = $in{'xhr-update-force'};
-            my $update_version          = $in{'xhr-update-version'};
-            my $usermin_enabled_updates = ($theme_config{'settings_sysinfo_theme_updates_for_usermin'} ne 'false' ? 1 : 0);
-            if (!has_command('git') || !has_command('curl') || !has_command('bash')) {
-                @update_rs = {
-                               "no_git" => replace((!has_command('curl') || !has_command('bash') ? '>git<'  : '~'),
-                                                   (!has_command('curl')                         ? '>curl<' : '>bash<'),
-                                                   $theme_text{'theme_git_patch_no_git_message'}
-                               ), };
-                print convert_to_json(\@update_rs);
-            } else {
-                if ($update_force ne "1" && !$update_version) {
-                    my $authentic_remote_data;
-
-                    if ($version_type eq '-release') {
-                        $authentic_remote_data = theme_remote_version(1, 1, undef, 1);
-                    } else {
-                        $authentic_remote_data = theme_remote_version(1, 0, 1, 1);
-                    }
-
-                    if ($authentic_remote_data eq '0') {
-                        @update_rs = { "no_connection" => $theme_text{'theme_git_update_locked'} };
-                        print convert_to_json(\@update_rs);
-                        exit;
-                    }
-
-                    @update_rs = theme_update_incompatible($authentic_remote_data, ($version_type eq '-release' ? 1 : 0));
-                    if (@update_rs) {
-                        print convert_to_json(\@update_rs);
-                        exit;
-                    }
-                }
-                my $usermin = ($has_usermin && $usermin_enabled_updates);
-                my $usermin_root;
-                $version_type = "$version_type:$update_version" if ($update_version);
-                backquote_logged("yes | $root_directory/$current_theme/theme-update.sh $version_type -no-restart");
-                if ($usermin) {
-                    $usermin_root = $root_directory;
-                    $usermin_root =~ s/webmin/usermin/;
-                    backquote_logged("yes | $usermin_root/$current_theme/theme-update.sh $version_type -no-restart");
-                }
-                my $tversion = theme_version('versionfull', 'no-cache');
-
-                @update_rs = {
-                               "success" => ($usermin ? theme_text('theme_git_patch_update_success_message2', $tversion) :
-                                               theme_text('theme_git_patch_update_success_message', $tversion)
-                               ) };
-                print convert_to_json(\@update_rs);
-            }
-        } elsif ($in{'xhr-info'} eq '1') {
-            if (&foreign_available('virtual-server')) {
-                &foreign_require("virtual-server");
-
-                # Refresh regularly collected info on status of services
-                &virtual_server::refresh_startstop_status();
-            }
-            my @info = theme_list_combined_system_info();
-            our ($cpu_percent,
-                 $mem_percent,
-                 $virt_percent,
-                 $disk_percent,
-                 $host,
-                 $os,
-                 $webmin_version,
-                 $virtualmin_version,
-                 $cloudmin_version,
-                 $authentic_theme_version,
-                 $local_time,
-                 $kernel_arch,
-                 $cpu_type,
-                 $cpu_temperature,
-                 $cpu_fans,
-                 $hdd_temperature,
-                 $uptime,
-                 $running_proc,
-                 $load,
-                 $real_memory,
-                 $virtual_memory,
-                 $disk_space,
-                 $package_message,
-                 $csf_title,
-                 $csf_data,
-                 $csf_remote_version,
-                 $authentic_remote_version,
-                 $local_motd
-            ) = get_sysinfo_vars(\@info);
-
-            # Build update info
-            my @updated_info = {
-                  "data"                     => 1,
-                  "cpu_percent"              => $cpu_percent,
-                  "mem_percent"              => $mem_percent,
-                  "virt_percent"             => $virt_percent,
-                  "disk_percent"             => $disk_percent,
-                  "host"                     => $host,
-                  "os"                       => $os,
-                  "webmin_version"           => $webmin_version,
-                  "virtualmin_version"       => $virtualmin_version,
-                  "cloudmin_version"         => $cloudmin_version,
-                  "authentic_theme_version"  => $authentic_theme_version,
-                  "local_time"               => $local_time,
-                  "kernel_arch"              => $kernel_arch,
-                  "cpu_type"                 => $cpu_type,
-                  "cpu_temperature"          => $cpu_temperature,
-                  "cpu_fans"                 => $cpu_fans,
-                  "hdd_temperature"          => $hdd_temperature,
-                  "uptime"                   => $uptime,
-                  "proc"                     => $running_proc,
-                  "cpu"                      => $load,
-                  "mem"                      => $real_memory,
-                  "virt"                     => $virtual_memory,
-                  "disk"                     => $disk_space,
-                  "package_message"          => $package_message,
-                  "authentic_remote_version" => $authentic_remote_version,
-                  "local_motd"               => $local_motd,
-                  "csf_title"                => $csf_title,
-                  "csf_data"                 => $csf_data,
-                  "csf_remote_version"       => $csf_remote_version,
-                  "csf_deny"                 => (
-                      (defined(&csf_temporary_list) && $theme_config{'settings_sysinfo_csf_temp_list_privileged'} ne 'false')
-                      ? csf_temporary_list() :
-                        undef
-                  ),
-                  "collect_interval" => get_module_config_data('system-status', 'collect_interval'),
-                  "extended_si"      => get_extended_sysinfo(\@info, undef),
-                  "warning_si"       => get_sysinfo_warning(\@info), };
-            print convert_to_json(\@updated_info);
-        } elsif ($in{'xhr-search-in-file'} eq '1') {
-            switch_to_remote_user_safe();
-            my @files = split(/,/, $in{'xhr-search-in-file-files'});
-            my $match = trim($in{'xhr-search-in-file-string'});
-            my @match;
-            fdo {
-                my ($file, $line, $text) = @_;
-                if ($text =~ /\Q$match\E/i) {
-                    push(@match, ([$files[$file] => [html_escape(substr($text, 0, 120)), $line]]));
-                }
-            }
-            @files;
-            print convert_to_json(\@match);
-        } elsif ($in{'xhr-csf-unload'} eq '1') {
-            lib_csf_control('unload');
-        } elsif ($in{'xhr-gennewpass'} eq 'get') {
-            my $pass;
-            if (&foreign_available('virtual-server')) {
-                &foreign_require("virtual-server");
-                $pass = &virtual_server::random_password();
-            } elsif (&foreign_available('useradmin')) {
-                &foreign_require("useradmin", "user-lib.pl");
-                $pass = &useradmin::generate_random_password();
-            }
-            print $pass;
-        }
-
-        exit;
-    }
-}
-
 sub init_type
 {
     (($ENV{'CONTENT_TYPE'}  =~ /multipart\/form-data/i) ? ReadParseMime() :
@@ -2135,13 +1870,13 @@ sub init_type
 
 sub init
 {
-    # Don't log XHR requests
+    # Don't log XHR requests (exclude from logs)
     my %tmp_miniserv;
     get_miniserv_config(\%tmp_miniserv);
     my $nolog = quotemeta('/stats.cgi?xhr-stats=general');
     $nolog =~ s/\\ / /g;
-    if ($tmp_miniserv{'nolog'} ne $nolog) {
-        $tmp_miniserv{'nolog'} = $nolog;
+    if ($tmp_miniserv{'nolog'} eq $nolog) {
+        delete($tmp_miniserv{'nolog'});
         put_miniserv_config(\%tmp_miniserv);
         reload_miniserv();
     }
@@ -2150,7 +1885,7 @@ sub init
     theme_make_config_dir();
 
     # Provide unobstructive access for AJAX calls
-    get_xhr_request();
+    exit if (post_has('xhr-'));
 
     # Load module lib if available
     lib_csf_control('load');
@@ -2159,8 +1894,13 @@ sub init
 sub content
 {
     # Mobile toggle
-    print '<div class="' . ($theme_config{'settings_navigation_always_collapse'} eq 'true' ? '' : 'visible-xs ') .
-      'mobile-menu-toggler" style="position: fixed; ' . get_filters() . '">';
+    my $nav_collapsed = $theme_config{'settings_navigation_always_collapse'} eq 'true' ? 1 : 0;
+    my $nav_styles_extra = get_filters();
+    if ($nav_collapsed) {
+        $nav_styles_extra .= " transform: translate(0px, 0px);";
+    }
+    print '<div class="' . ($nav_collapsed ? '' : 'visible-xs ') .
+      "mobile-menu-toggler\" style=\"position: fixed; $nav_styles_extra\">";
 
     print '<button aria-label="' . $theme_text{'left_toggle_navigation_menu'} .
       '" type="button" class="btn btn-primary btn-menu-toggler" style="padding-left: 6px; padding-right: 5px;">' . "\n";
@@ -2170,7 +1910,7 @@ sub content
 
     # Navigation
     do($ENV{'THEME_ROOT'} . "/navigation-lib.pl");
-    print '<aside style="' . get_filters() . '" id="sidebar" class="hidden-xs">' . "\n";
+    print "<aside style=\"$nav_styles_extra\" id=\"sidebar\" class=\"hidden-xs\">\n";
     print_switch();
     print "<ul class=\"navigation\">\n";
     print nav_menu($get_user_level eq '2'   ? 'virtualmin' :
@@ -2178,10 +1918,11 @@ sub content
                      $get_user_level eq '3' ? 'usermin' :
                      undef);
     print "</ul>\n";
-    print '</aside>' . "\n";
 
     # Authenticated logo
     embed_logo();
+
+    print '</aside><x-aside class="x-aside"></x-aside>' . "\n";
 
     # Favorites menu
     print_favorites();
@@ -2328,19 +2069,6 @@ sub theme_config_save
             }
         }
     }
-}
-
-sub theme_config_get
-{
-    my %tuconfig;
-    my $tuconfig_file = get_tuconfig_file();
-    if (-f $tuconfig_file) {
-        my %tuconfig = settings($tuconfig_file);
-        return convert_to_json(\%tuconfig);
-    } else {
-        return convert_to_json();
-    }
-
 }
 
 sub theme_config_restore

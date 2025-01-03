@@ -53,123 +53,6 @@ sub ui_button_group_local
     return $rv;
 }
 
-sub ui_element
-{
-    my ($e, $c) = @_;
-
-    # Allowed elements to use 'type' attr
-    if ($e =~ /^(a|button|embed|input|link|menu|object|script|source|style)$/) {
-
-        # Set default `type` for common elements
-        if ($e eq 'input') {
-            $c->{'type'} = "text" if (!$c->{'type'});
-        } elsif ($e eq 'button') {
-            $c->{'type'} = "button" if (!$c->{'type'});
-        }
-        $c->{'type'} = " type=\"@{[quote_escape($c->{'type'})]}\"" if ($c->{'type'});
-    } else {
-        delete $c->{'type'};
-    }
-
-    # Allowed elements to use 'name' attr
-    if ($e =~ /^(button|fieldset|form|iframe|input|map|meta|object|output|param|select|textarea)$/) {
-        $c->{'name'} = " name=\"@{[quote_escape($c->{'name'})]}\"" if ($c->{'name'});
-    } else {
-        delete $c->{'name'};
-    }
-
-    # Allowed elements to use 'value' attr
-    if ($e =~ /^(button|input|meter|li|option|progress|param)$/) {
-        $c->{'value'} = " value=\"@{[quote_escape($c->{'value'})]}\"" if ($c->{'value'});
-    } else {
-        delete $c->{'value'};
-    }
-
-    # Trigger `autofocus` or remove it
-    if ($e =~ /^(button|input|select|textarea)$/) {
-        if ($c->{'autofocus'} =~ /^(false|0)$/) {
-            delete $c->{'autofocus'};
-        }
-
-        # If element is empty trigger autofocus
-        elsif ($e =~ /input|textarea/ && !$c->{'value'}) {
-            $c->{'autofocus'} = " autofocus";
-        }
-    }
-
-    # Set default `class` for common elements
-    if (!$c->{'class'}) {
-        my $c_;
-        if ($e eq 'input') {
-            $c_ = "form-control";
-            if ($c->{'type'} =~ /password/) {
-                $c_ .= " ui_password";
-            } else {
-                $c_ .= " ui_textbox";
-            }
-        } elsif ($e eq 'textarea') {
-            $c_ = "form-control ui_textarea";
-        }
-        $c->{'class'} = " class=\"$c_\"";
-    } else {
-        $c->{'class'} = " class=\"@{[quote_escape($c->{'class'})]}\"";
-    }
-
-    # Collect all other independent attributes
-    my $attrs;
-    foreach my $attr (keys %{$c}) {
-        if ($attr ne "class" &&
-            $attr ne "value" &&
-            $attr ne "name"  &&
-            $attr ne "type")
-        {
-
-            # Parse and add data attributes passed as reference
-            if ($attr eq "data") {
-                if (ref($c->{$attr})) {
-                    foreach my $dattr (keys %{ $c->{$attr} }) {
-                        $attrs .= " data-$dattr=\"@{[quote_escape($c->{$attr}->{$dattr})]}\"";
-                    }
-                }
-
-                # Add all other attributes to the tag
-            } else {
-                $attrs .= " $attr=\"@{[quote_escape($c->{$attr})]}\"";
-            }
-        }
-    }
-
-    # Check if a tag must be closed
-    my $e_c;
-    if ($e !~ /^(area|base|br|hr|input|link|meta|param|source|circle|track|wbr)$/) {
-        $e_c = "</$e>";
-    }
-    return "<$e$c->{'type'}$c->{'name'}$c->{'value'}$c->{'class'}$attrs>@{[html_escape($c->{'_'})]}$e_c\n";
-}
-
-sub ui_input
-{
-    my ($c, $v, $s, $d, $m, $t) = @_;
-
-    # If old type input used, support it as well
-    if (!ref($c)) {
-        $c = { 'name'  => $c,
-               'value' => $v,
-               'size'  => $s };
-        $c->{'disabled'}  = "true" if ($d);
-        $c->{'maxlength'} = $m     if ($m);
-        if ($t) {
-            my @t = split(/\s+/, $t);
-            foreach my $t (@t) {
-                my ($t, $v) = ($t =~ /(.*?)=(.*)/);
-                $v =~ s/^("|')|("|')$//g;
-                $c->{$t} = "@{[quote_escape($v)]}";
-            }
-        }
-    }
-    return ui_element('input', $c);
-}
-
 sub ui_span_local
 {
     my ($data, $extra_class) = @_;
@@ -219,6 +102,7 @@ sub theme_ui_checkbox_local
         $label = $1;
         $after = $2;
     }
+    $after = "<span class=\"awobject-after\">$after</span>" if ($after && $after !~ /^\s*<a/);
     $label = trim($label);
     my $bl = string_ends_with($label, '<br>') ? ' ds-bl-fs' : undef;
     return "<span class=\"awcheckbox awobject$bl$cls\"><input class=\"iawobject\" type=\"checkbox\" " .
@@ -812,57 +696,6 @@ sub current_to_pid
     write_file($tmp_file, \%pid);
 }
 
-sub network_stats
-{
-    # Get network data from all interfaces
-    my ($type) = @_;
-    my $file = "/proc/net/dev";
-    return () unless -r $file;
-    open(my $dev, $file);
-    my (@titles, %result);
-    while (my $line = <$dev>) {
-        chomp($line);
-        if ($line =~ /^.{6}\|([^\\]+)\|([^\\]+)$/) {
-            my ($rec, $trans) = ($1, $2);
-            @titles = ((map {"r$_"} split(/\s+/, $rec)), (map {"t$_"} split(/\s+/, $trans)));
-        } elsif ($line =~ /^\s*([^:]+):\s*(.*)$/) {
-            my ($id, @data) = ($1, split(/\s+/, $2));
-            $result{$id} = { map {$titles[$_] => $data[$_];} (0 .. $#titles) };
-        }
-    }
-    close($dev);
-
-    # Return current network I/O
-    if ($type eq 'io') {
-        my ($rbytes, $tbytes, $rbytes2, $tbytes2) = (0, 0, 0, 0);
-        my @rs;
-        my $results = \%result;
-
-        # Parse current data
-        foreach (%$results) {
-            $rbytes += $results->{$_}->{'rbytes'};
-            $tbytes += $results->{$_}->{'tbytes'};
-        }
-
-        # Wait for one second and fetch data over again
-        sleep 1, $results = network_stats();
-
-        # Parse data after dalay
-        foreach (%$results) {
-            $rbytes2 += $results->{$_}->{'rbytes'};
-            $tbytes2 += $results->{$_}->{'tbytes'};
-        }
-
-        # Return current network I/O
-        $rbytes = int($rbytes2 - $rbytes);
-        $tbytes = int($tbytes2 - $tbytes);
-
-        @rs = ($rbytes, $tbytes);
-        return serialise_variable(\@rs);
-    }
-    return \%result;
-}
-
 sub acl_system_status
 {
     my ($show) = @_;
@@ -899,14 +732,17 @@ sub init_prefail
 {
     # Usermin is always fully restarted
     return if (get_product_name() eq 'usermin');
-    my $pversion = get_webmin_version();
+    my $prod_version = get_webmin_version();
     if (
+        # Affects upgrades 2.120 and up
+        (!defined(&get_miniserv_websocket_url) && $prod_version >= 2.120) ||
+        
         # Affects upgrades 2.103 and up
-        (!defined(&ui_switch_theme_javascript) && $pversion >= 2.103) ||
+        (!defined(&ui_switch_theme_javascript) && $prod_version >= 2.103) ||
         
         # Affects upgrades 2.022 and up
-        (!defined(&get_http_redirect) && $pversion >= 2.022) ||
-        (!defined(&create_wrapper) && $pversion >= 2.022) ||
+        (!defined(&get_http_redirect) && $prod_version >= 2.022) ||
+        (!defined(&create_wrapper) && $prod_version >= 2.022) ||
 
         # Affects upgrades before 2.020
         !defined(&parse_accepted_language) ||

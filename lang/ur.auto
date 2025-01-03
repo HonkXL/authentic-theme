@@ -3,6 +3,7 @@ body_cpu=اوسطا CPU
 body_cpuinfo=پروسیسر کی معلومات
 body_cputemps=سی پی یو درجہ حرارت
 body_cputype=$5 ، $8 کور
+body_cputype1=$5، $8 کور
 body_disk=مقامی ڈسک کی جگہ
 body_driveerr=errors 1 غلطیاں!
 body_drivefailed=اسمارٹ چیک ناکام!
@@ -99,9 +100,10 @@ settings_right_extensions_title=تھیم وسیع ڈیزائن ، آپ کو ان
 
 theme_xhred_settings_right_theme_logos=تھیم لوگو
 theme_xhred_settings_right_theme_logos_title=تھیم لوگو
-settings_right_logos_title=Theme logos can be easily set here, for both, authenticated and unauthenticated users. Recommended logo size is <kbd>180x90</kbd> pixels and the only supported format is <kbd>.png</kbd>, to provide alpha transparency.
+settings_right_logos_title=Theme logos can be easily set here, for both, authenticated and unauthenticated users. Recommended logo size is <em>180x90</em> pixels.
 settings_right_logo_authenticated_users=تصدیق شدہ صارفین کے لئے لوگو
 settings_right_logo_unauthenticated_users=غیر تصدیق شدہ صارفین کے لئے لوگو
+settings_right_logos_error=اپ لوڈ کردہ فائل تصویر نہیں ہے۔
 
 settings_right_current_theme=موجودہ تھیم
 settings_right_title=This page allows you to configure options for <a href="https://github.com/authentic-theme/authentic-theme" target="_blank">Authentic Theme</a>. Settings will be stored upon theme update.
@@ -208,15 +210,15 @@ theme_xhred_filemanager_renaming_selected=نام تبدیل کرنا منتخب 
 theme_xhred_filemanager_creating_directory=ڈائرکٹری بنانا
 theme_xhred_filemanager_creating_file=فائل بنانا
 theme_xhred_filemanager_downloading_from=سے ڈاؤن لوڈ ہو رہا ہے
-theme_xhred_filemanager_setting_permissions=Setting permissions to <strong><em>%value</em></strong> on selected file(s).
-theme_xhred_filemanager_changing_ownership=Changing ownership to <strong><em>%value</em></strong> on selected file(s).
+theme_xhred_filemanager_setting_permissions=Setting permissions to <tt>%value</tt> on selected file(s).
+theme_xhred_filemanager_changing_ownership=Changing ownership to <tt>%value</tt> on selected file(s).
 theme_xhred_filemanager_compressing_selected=پس منظر میں منتخب کردہ سکیڑنا۔
 theme_xhred_filemanager_refreshing=ڈائریکٹری کے مواد کو تازہ دم کرنا۔
 theme_xhred_filemanager_copying_successful=کلپ بورڈ پر کاپی کامیاب۔
 theme_xhred_filemanager_cutting_successful=کٹ ٹو کلپ بورڈ کامیاب۔
 theme_xhred_filemanager_pasting_successful=کلپ بورڈ سے پیسٹ کامیاب رہا۔
-theme_xhred_filemanager_bookmark_success=Directory <strong><em>%value</em></strong> was successfully added to your bookmarks.
-theme_xhred_filemanager_searching=Searching for <em>`%value`</em> matching names of files/directories.
+theme_xhred_filemanager_bookmark_success=Directory <tt>%value</tt> was successfully added to your bookmarks.
+theme_xhred_filemanager_searching=Searching for <tt>%value</tt> matching names of files/directories.
 theme_xhred_filemanager_search_founds=Found <strong>%value</strong> matches.
 theme_xhred_filemanager_search_found=Found <strong>1</strong> match.
 theme_xhred_filemanager_search_no_matches=کوئی میچ نہیں ملا۔
@@ -234,8 +236,8 @@ theme_xhred_filemanager_successful_deletion=حذف کرنا کامیاب رہا�
 theme_xhred_filemanager_successful_permissions=اجازتوں کو کامیابی کے ساتھ تبدیل کردیا گیا ہے۔
 theme_xhred_filemanager_successful_ownership=ملکیت کامیابی کے ساتھ تبدیل کردی گئی ہے۔
 theme_xhred_filemanager_successful_compression=دباؤ کامیابی کے ساتھ ختم ہوچکا ہے۔
-theme_xhred_filemanager_successful_directory_creation=Directory `<strong>%value</strong>` was created successfully.
-theme_xhred_filemanager_successful_file_creation=File `<strong>%value</strong>` was created successfully.
+theme_xhred_filemanager_successful_directory_creation=Directory <tt>%value</tt> was created successfully.
+theme_xhred_filemanager_successful_file_creation=File <tt>%value</tt> was created successfully.
 
 theme_xhred_notifications_packages_updates=پیکیج اپ ڈیٹ
 theme_xhred_notifications_theme_update=تھیم اپ ڈیٹ
@@ -346,7 +348,7 @@ theme_xhred_global_warning=انتباہ
 theme_xhred_global_close=بند کریں
 
 theme_xhred_filemanager__no_bookmarks=کوئی محفوظ کردہ بک مارکس نہیں ہیں
-theme_xhred_filemanager_unbookmark_success=Directory <strong><em>%value</em></strong> was successfully removed from your bookmarks.
+theme_xhred_filemanager_unbookmark_success=Directory <tt>%value</tt> was successfully removed from your bookmarks.
 theme_xhred_filemanager_bookmark=موجودہ ڈائریکٹری کو بُک مارک کریں
 theme_xhred_filemanager_unbookmark=موجودہ ڈائرکٹری کو غیر بُک مارک کریں
 theme_xhred_filemanager_move_into_self=آپ کسی ڈائرکٹری کو اپنے اندر منتقل نہیں کرسکتے ہیں! منبع ڈائریکٹری کے اندر منزل مقصود ہے۔
@@ -399,6 +401,8 @@ theme_xhred_database_delete_selected_field=منتخب فیلڈ کو حذف کر�
 theme_xhred_database_delete_selected_fields=منتخب کردہ فیلڈز کو حذف کریں
 theme_xhred_database_object_selected_delete=منتخب کردہ آبجیکٹ کو حذف کریں
 theme_xhred_database_objects_selected_delete=منتخب کردہ اشیاء کو حذف کریں
+theme_xhred_database_object_selected_delete2=منتخب کردہ ٹیبل گرا دیں۔
+theme_xhred_database_objects_selected_delete2=منتخب کردہ میزیں چھوڑیں۔
 theme_xhred_database_db_selected_drop=منتخب کردہ ڈیٹا بیس کو چھوڑیں
 theme_xhred_database_dbs_selected_drop=منتخب کردہ ڈیٹا بیس کو چھوڑیں
 theme_xhred_database_edit_but_not_saved=ٹیبل ڈیٹا میں ترمیم کی گئی ہے لیکن محفوظ نہیں کی گئی ہے۔
@@ -426,17 +430,17 @@ theme_xhred_datatable_no_search_results=<span class="h5">No results found</span>
 
 theme_xhred_filemanager_buffer_error=فائلوں کو بفر پر چسپاں کرنے میں ناکام۔ اجازت سے انکار کردیا گیا۔
 
-filemanager_create_object_exists=$3 `<strong><em>$1</em></strong>` already exists in `<strong><tt>$2</tt></strong>`
-filemanager_create_object_denied=Can't create $3 `<strong><em>$1</em></strong>` in `<strong><tt>$2</tt></strong>` - permission denied : $4.
+filemanager_create_object_exists=$3 <tt>$1</tt> already exists in <tt>$2</tt>
+filemanager_create_object_denied=Can't create $3 <tt>$1</tt> in <tt>$2</tt> - permission denied : $4.
 
 theme_xhred_filemanager_paste_warning=Failed to paste target(s). It is possible that requested object(s) could have been <em>renamed, moved</em> or <em>deleted</em> while/before pasting. Another possible cause is that destination is not writable.  It is worth checking objects' attributes.
 
 theme_xhred_filemanager_delete_warning=Deletion has finished successfully but not for all objects. It is possible that requested object(s) could have been <em>renamed</em> or <em>moved</em> before deletion. Restricted permissions (attributes) is another possible cause.  Error message:
 
-filemanager_rename_exists=$3 with name `<strong><em>$1</em></strong>` already exists in `<strong><tt>$2</tt></strong>`
+filemanager_rename_exists=$3 with name <tt>$1</tt> already exists in <tt>$2</tt>
 filemanager_rename_denied=$3 کا نام تبدیل نہیں کرسکتے ہیں۔ یہ ہوسکتا ہے کیونکہ ماخذ $3 کو ہٹا دیا گیا ہے یا محدود اجازت کی وجہ سے ہے۔
 
-theme_xhred_filemanager_successful_rename=Renaming `<strong><em><s>%from</s></em></strong>` to `<strong><em>%to</em></strong>` was successful.
+theme_xhred_filemanager_successful_rename=Renaming <tt>%from</tt> to <tt>%to</tt> was successful.
 
 filemanager_global_info_total1=کل: $1 فائل اور $2 ڈائریکٹری
 filemanager_global_info_total2=کل: $1 فائلیں اور $2 ڈائریکٹری
@@ -452,8 +456,8 @@ theme_xhred_filemanager_search_replace=نتائج میں بدل دیں
 theme_xhred_global_find=مل
 theme_xhred_global_replace=بدل دیں
 
-theme_xhred_filemanager_searching_matching=Searching for <em>`%value`</em> matching names of files/directories, containing <em>`%text`</em> text.
-theme_xhred_filemanager_searching_replacing=Replacing matches <em>`%text`</em> with <em>`%replace`</em> in files with names containing <em>`%value`</em>.
+theme_xhred_filemanager_searching_matching=Searching for <tt>%value</tt> matching names of files/directories, containing <tt>%text</tt> text.
+theme_xhred_filemanager_searching_replacing=Replacing matches <tt>%text</tt> with <tt>%replace</tt> in files with names containing <tt>%value</tt>.
 
 theme_xhred_filemanager_search_replaced_multi=Found and replaced in <strong>%value</strong> files.
 theme_xhred_filemanager_search_replaced=Found and replaced in <strong>1</strong> file.
@@ -464,8 +468,8 @@ theme_xhred_filemanager_successful_ownership_with_errors=تمام اشیاء ک�
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=مندرجہ ذیل غلطیوں کی وجہ سے ملکیت کو تبدیل نہیں کیا جاسکتا:
 
 theme_xhred_filemanager_successful_compression_with_errors=درج ذیل غلطیوں کے ساتھ کمپریشن ختم ہوگئی ہے۔
-theme_xhred_filemanager_successful_compression_bg=Compression has successfully finished. Compressed file <strong>`%file`</strong> is located in <strong>`%path`</strong> directory.
-theme_xhred_filemanager_successful_compression_bg_with_errors=Compression has finished with errors. Compressed file <strong>`%file`</strong> should be located in <strong>`%path`</strong> directory.
+theme_xhred_filemanager_successful_compression_bg=Compression has successfully finished. Compressed file <tt>%file</tt> is located in <tt>%path</tt> directory.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Compression has finished with errors. Compressed file <tt>%file</tt> should be located in <tt>%path</tt> directory.
 
 theme_xhred_filemanager_settings_notification_type=ظاہر کرنے کے لئے اطلاعات کی قسم
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=معلومات ، انتباہات اور غلطیاں
@@ -526,12 +530,12 @@ settings_leftmenu_netdata=نیٹ ڈیٹا ریئل ٹائم مانیٹرنگ ل�
 settings_leftmenu_netdata_link=نیٹ ڈیٹا سرور ترجیحی لنک
 
 theme_xhred_filemanager_context_chattr=اوصاف بدلیں
-theme_xhred_filemanager_changing_attributes=Setting attributes to <strong><em>%value</em></strong> on selected file(s).
+theme_xhred_filemanager_changing_attributes=Setting attributes to <tt>%value</tt> on selected file(s).
 theme_xhred_filemanager_successful_attributes_with_errors=تمام اشیاء کے ل Att صفات کامیابی کے ساتھ طے نہیں کی گئیں:
 theme_xhred_filemanager_successful_attributes=صفات کامیابی کے ساتھ طے کی گئی ہیں۔
 
 theme_xhred_filemanager_context_chcon=سیکیورٹی سیاق و سباق کو تبدیل کریں
-theme_xhred_filemanager_changing_secontext=Changing security context to <strong><em>%value</em></strong> on selected file(s).
+theme_xhred_filemanager_changing_secontext=Changing security context to <tt>%value</tt> on selected file(s).
 theme_xhred_filemanager_successful_secontext_with_errors=سکیورٹی سیاق و سباق کو کامیابی کے ساتھ تبدیل نہیں کیا گیا ہے۔
 theme_xhred_filemanager_successful_secontext=سیکیورٹی سیاق و سباق کامیابی کے ساتھ تبدیل کر دیا گیا ہے۔
 
@@ -749,8 +753,6 @@ theme_xhred_nice_size_GB=جی بی
 theme_xhred_nice_size_MB=ایم بی
 theme_xhred_nice_size_kB=kB
 theme_xhred_nice_size_b=بائٹس
-settings_sysinfo_real_time_status_disk=ڈسک کے لئے اہل کریں
-settings_sysinfo_real_time_status_disk_description=یہ سست/بڑے فائل سسٹم پر ڈسکوں کے ل real ریئل ٹائم مانیٹرنگ کو غیر موثر ثابت ہوگا
 theme_xhred_title_locale_non_ui_config=سرور نے تاریخ کی شکل تیار کی
 
 #19.20
@@ -843,7 +845,7 @@ theme_xhred_mail_search_has_attach=لگاؤ ہے
 
 theme_xhred_settings_right_theme_bgs=تھیم کے پس منظر
 theme_xhred_settings_right_theme_bgs_title=تھیم کے پس منظر
-settings_right_bgs_title=Theme background for login page can be set here. The only supported format is <kbd>.png</kbd>, to provide alpha transparency.
+settings_right_bgs_title=لاگ ان پیج کے لیے تھیم کا پس منظر یہاں سیٹ کیا جا سکتا ہے۔
 settings_right_bg_unauthenticated_users=غیر تصدیق شدہ صارفین کے لئے پس منظر
 settings_right_theme_left_background_title=تھیم کا پس منظر کنٹرول
 
@@ -922,7 +924,7 @@ theme_xhred_shell_aborted=آپریشن ختم ہوگیا
 #19.32
 theme_xhred_connection_reboot=دوبارہ چل رہا ہے
 theme_xhred_connection_reboot_details=سرور دوبارہ شروع ہو رہا ہے۔ برائے مہربانی انتظار کریں ..
-settings_leftmenu_custom_links_description=It is possible to have custom, extra links injected into navigation menu. <br><br> The keys <em>title</em>, <em>link</em> and <em>icon</em> are required; optionally, you can define at which login mode a link would be displayed, by specifying <em>level</em> key, with values, in comma separated list, containing: <br><br> <em>0</em> - administrator login; <br><em>1</em> - reseller login;<br><em>2</em> - server owner login;<br> <em>3</em> - user login;<br> <em>4</em> - system owner login.<br><br> It will require you to pass valid JSON object as a string, as in the example below.<hr><pre>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
+settings_leftmenu_custom_links_description=It is possible to have custom, extra links injected into the navigation menu. <br><br> The keys <em>title</em>, <em>link</em> and <em>icon</em> are required; optionally, you can define at which login mode a link would be displayed, by specifying <em>level</em> key, with values, in comma separated list, containing: <br><br> <em>0</em> - administrator login; <br><em>1</em> - reseller login;<br><em>2</em> - server owner login;<br> <em>3</em> - user login;<br> <em>4</em> - system owner login.<br><br> It will require you to pass valid JSON object as a string, as in the example below.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=پسندیدہ میں ترمیم کریں
 left_favorites_edit_desc=اس صفحے کو تھیم فیورٹ صارف فائل میں دستی طور پر ترمیم کرنے کے لئے استعمال کیا جاسکتا ہے۔ یہ احتیاط سے کرنا چاہئے ، کیوں کہ آپ کی تبدیلیوں پر کوئی نحو یا کوئی اور درست جانچ پڑتال نہیں کی جائے گی۔
 theme_xhred_filemanager_records_for_server_pagination=سرور صفحہ بندی شروع کرنے کیلئے ڈائریکٹری میں آئٹمز کی طے شدہ تعداد
@@ -1049,10 +1051,6 @@ theme_xhred_global_today=آج
 theme_xhred_global_tomorrow=کل
 theme_xhred_mail_composer_scheduled=%1 پر %2 بھیجیں
 theme_global_core=لازمی
-settings_sysinfo_real_time_stored=اعدادوشمار کی تاریخ کو قابل بنائیں
-settings_sysinfo_real_time_stored_description=اگر فعال ہوجائے تو ، پہلے جمع کردہ اعدادوشمار کو اسٹور کیا جائے گا ، اور ڈیش بورڈ کے گراف میں دکھائے جائیں گے
-settings_sysinfo_real_time_stored_length=اعدادوشمار کی تاریخ کا دورانیہ
-settings_sysinfo_real_time_stored_length_description=وہ وقت جس کے دوران اعدادوشمار کی تاریخ محفوظ کی جاتی ہے
 theme_dashboard_accordion_live_stats=اعدادوشمار کی تاریخ
 theme_xhred_live_stats_cpu=سی پی یو
 theme_xhred_live_stats_mem=یاداشت
@@ -1147,7 +1145,7 @@ theme_xhred_connection_error_details_ssl=Check <a>self-signed SSL certificate</a
 #19.71
 settings_sysinfo_hidden_panels_user=پوشیدہ معاہدے
 theme_xhred_tooltip_dashboard_panels_disable=$1 پینل چھپائیں
-theme_xhred_dashboard_panels_disabled_explain=تھیم کنفیگریشن پیج کا استعمال کرکے پوشیدہ پینل کو دوبارہ فعال کیا جاسکتا ہے۔
+theme_xhred_dashboard_panels_disabled_explain=Hidden panel can be re-enabled using <tt>Theme Configuration: Dashboard and real-time monitoring</tt> page.
 settings_right_sysinfo_page_options=ڈیش بورڈ اور اصل وقت کی نگرانی
 settings_right_navigation_menu_options=نیویگیشن مینو
 settings_right_notification_slider_options=سائیڈ سلائیڈر
@@ -1169,8 +1167,6 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=This feature requires file
 theme_xhred_global_module_preferences=ماڈیول کی ترجیحات
 
 #19.74
-settings_sysinfo_real_time_status_forced=ہاں ، جبری
-settings_sysinfo_real_time_status_forced_warn=ریئل ٹائم مانیٹرنگ کو فورس موڈ میں چالو کرنے کی حوصلہ شکنی کی جاتی ہے کیونکہ پس منظر کا مجموعہ اس وقت بھی انجام دیا جائے گا جب براؤزر ٹیب پر توجہ مرکوز نہیں کی جاتی ہے ، جس کی وجہ سے ممکنہ طور پر متعدد ٹیبز کے ساتھ سرور اوورلوڈ کھولا جاتا ہے۔
 theme_xhred_theme_update_available=مستند تھیم کا ایک نیا ورژن انسٹال ہوا ہے
 settings_right_page_keep=ڈومین سوئچ پر اسی صفحے کو لوڈ کریں
 settings_right_page_keep_description=جب یہ نیویگیشن مینو ڈراپ ڈاؤن فہرست سے تبدیل ہوتا ہے تو یہ آپشن ڈومین منتخب ہونے پر اسی صفحے کو لوڈ کرنے کی کوشش کرے گا
@@ -1374,3 +1370,49 @@ theme_xhred_columns_layout_variation_cannot_horizontal=افقی لے آؤٹ کو
 settings_auto_open_panels_on_proximity=قربت پر بند پینل خود بخود کھولیں۔
 
 theme_xhred_config_portable_module_xterm_render_addon=WebGL رینڈرنگ ایڈون کو فعال کریں۔
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=مواد کو فلٹر اور ایکسپورٹ کریں۔
+
+#21.10
+settings_hotkey_logout_dbl=لاگ آوٹ
+theme_xhred_hotkey_emsg=بیک سلیش کلید کو ہاٹکی کے طور پر استعمال نہیں کیا جا سکتا
+settings_embed_product_splash_privileged=لاگ ان کے بعد ایک برانڈنگ سپلیش اسکرین دکھائیں۔
+dashboard_status_running=چل رہا ہے۔
+dashboard_status_stopped=رک گیا۔
+
+#21.11
+theme_xhred_global_watching=دیکھ رہا ہے۔
+theme_xhred_global_connected=جڑا ہوا
+theme_xhred_global_disconnected=منقطع
+theme_xhred_global_connecting=جڑ رہا ہے۔
+index_mods_missing=The Perl module <tt>$1</tt> is missing.
+index_noadmin_eaccess=غیر ماسٹر ایڈمنسٹریٹرز تک رسائی سے انکار!
+theme_xhred_body_os=آپریٹنگ سسٹم
+theme_xhred_theme_version=مستند تھیم ورژن
+theme_xhred_body_updates=پیکیج اپ ڈیٹس
+
+# 21.20
+theme_xhred_hotkey_switch_theme=تھیم سوئچ کریں۔
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=اپ لوڈ کامیاب
+theme_xhred_filemanager_upload_status_err=اپ لوڈناکام:
+theme_xhred_filemanager_download_status_err=ڈاؤن لوڈ ناکام:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=پڑھیں
+theme_xhred_dashboard_chart_disk_write=لکھیں۔
+theme_xhred_dashboard_chart_net_read=میں
+theme_xhred_dashboard_chart_net_write=باہر
+theme_xhred_tooltip_dashboard_live_stats_offline=پراکسی موڈ میں سسٹم تک رسائی کے وقت لائیو اعدادوشمار دستیاب نہیں ہوتے ہیں۔ صرف پہلے جمع کیے گئے اعدادوشمار ہی دکھائے جائیں گے، اور صرف دستیاب ہونے کی صورت میں، اور ان اعدادوشمار کو اپ ڈیٹ کرنے کے لیے صفحہ کو دوبارہ لوڈ کرنے کی ضرورت ہوگی۔
+settings_sysinfo_real_time_status_history1=ہاں، اور اس کے لیے اعدادوشمار اسٹور کریں۔
+settings_sysinfo_real_time_status_history2=ہاں، اعدادوشمار کو ذخیرہ کیے بغیر
+settings_sysinfo_real_time_status_history_duration1=20 منٹ
+settings_sysinfo_real_time_status_history_duration2=1 گھنٹہ
+settings_sysinfo_real_time_status_history_duration3=3 گھنٹے
+settings_sysinfo_real_time_status_history_duration4=6 گھنٹے
+settings_sysinfo_real_time_status_history_duration5=12 گھنٹے
+settings_sysinfo_real_time_status_history_duration6=18 گھنٹے
+settings_sysinfo_real_time_status_history_duration7=24 گھنٹے
+theme_xhred_license_purchase=لائسنس خریدیں۔

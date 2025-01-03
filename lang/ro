@@ -98,7 +98,6 @@ settings_right_extensions_title=Proiectarea extinsă a Temei, vă permite manipu
 
 theme_xhred_settings_right_theme_logos=Logo-urile temei
 theme_xhred_settings_right_theme_logos_title=Logo-urile Temei
-settings_right_logos_title=Logo-urile temei pot fi ușor configurate aici, pentru ambele moduri, atât pentru utilizatorii autentificați cât și neautentificați. Dimensiunea recomandată a logo-ului este <kbd>180x90</kbd> pixeli și singurul format acceptat este <kbd>.png</kbd>, pentru a asigura transpatența în mod ALPHA.
 settings_right_logo_authenticated_users=Logo pentru utilizatori autentificați
 settings_right_logo_unauthenticated_users=Logo pentru utilizatori neautentificați
 
@@ -188,15 +187,11 @@ theme_xhred_filemanager_renaming_selected=Redenumesc selecțiile.
 theme_xhred_filemanager_creating_directory=Creez dosar
 theme_xhred_filemanager_creating_file=Creez fișier
 theme_xhred_filemanager_downloading_from=Descar de la
-theme_xhred_filemanager_setting_permissions=Setez permisiuni pentru <strong><em>%value</em></strong> pe fișier(ele) selectat(e).
-theme_xhred_filemanager_changing_ownership=Modifica proprietatea pentru <strong><em>%value</em></strong> pe fișier(ele) selectat(e).
 theme_xhred_filemanager_compressing_selected=Compressing selected in the background.
 theme_xhred_filemanager_refreshing=Reîmprospătez conșinutul dosarului.
 theme_xhred_filemanager_copying_successful=Copiere cu succes în clipboard.
 theme_xhred_filemanager_cutting_successful=Tăiere cu succes în clipboard.
 theme_xhred_filemanager_pasting_successful=Alipirea din clipboard efectuată cu succes.
-theme_xhred_filemanager_bookmark_success=Dosar <strong><em>%value</em></strong> a fost adăugat cu succes la favorite.
-theme_xhred_filemanager_searching=Searching for <em>`%value`</em> matching names of files/directories.
 theme_xhred_filemanager_search_founds=Găsit <strong>%value</strong> potriviri.
 theme_xhred_filemanager_search_found=Găsit <strong>1</strong> potrivire.
 theme_xhred_filemanager_search_no_matches=Nicio potrivire găsită.
@@ -214,8 +209,6 @@ theme_xhred_filemanager_successful_deletion=Ștergere efectuată cu succes.
 theme_xhred_filemanager_successful_permissions=Permisiunile au fost modificate cu succes.
 theme_xhred_filemanager_successful_ownership=Proprietatea a fost schimbată cu succes.
 theme_xhred_filemanager_successful_compression=Comprimarea s-a finașizat cu succes.
-theme_xhred_filemanager_successful_directory_creation=Dosar `<strong>%value</strong>` creat cu succes.
-theme_xhred_filemanager_successful_file_creation=Fișier `<strong>%value</strong>` creat cu succes.
 
 theme_xhred_notifications_packages_updates=Actualizări de Pachete
 theme_xhred_notifications_theme_update=Actualizări de Temă
@@ -326,7 +319,6 @@ theme_xhred_global_warning=Atenţie
 theme_xhred_global_close=Închide
 
 theme_xhred_filemanager__no_bookmarks=Niciun marcaj salvat
-theme_xhred_filemanager_unbookmark_success=Directorul <strong><em>%value</em></strong> a fost eliminat cu succes din marcaje.
 theme_xhred_filemanager_bookmark=Marchează directorul curent
 theme_xhred_filemanager_unbookmark=Demarchează directorul current
 theme_xhred_filemanager_move_into_self=Nu poţi muta un director în el însuşi! Directorul destinarat este în directorul sursă.
@@ -406,17 +398,11 @@ theme_xhred_datatable_no_search_results=<span class="h5">Niciun rezultat găsit<
 
 theme_xhred_filemanager_buffer_error=Eşuare la lipirea fişierelor în tampon - acces refuzat.
 
-filemanager_create_object_exists=$3 `<strong><em>$1</em></strong>` există deja în `<strong><tt>$2</tt></strong>`
-filemanager_create_object_denied=Nu pot crea $3 `<strong><em>$1</em></strong>` în `<strong><tt>$2</tt></strong>` - acces refuzat : $4.
-
 theme_xhred_filemanager_paste_warning=Eşuare în lipirea obiectiv(elor). Este posibil ca obiectiv(ele) cerute să fi fost <em>redenumite, mutate</em> sau <em>şterse</em> în timp/înaintea lipirii. O altă posibilă cauză este aceea ca destinaţia să nu poată fi scrisă. Merită verificate atributele obiectivului.
 
 theme_xhred_filemanager_delete_warning=Ştergerea s-a finalizat cu succes, dar nu toate obiectele. Este posibil ca obiectul(/ele) cerut(e) să fi fost <em>redenumit(e)</em> sau <em>mutat(e)</em> înainte de ştergere. Permisiuni restricţionate (atribute) sunt o altă posibilă cauză.Mesaj de eroare:
 
-filemanager_rename_exists=$3 cu numele `<strong><em>$1</em></strong>` există deja în `<strong><tt>$2</tt></strong>`
 filemanager_rename_denied=Nu pot redenumi $3. Aceasta se poate întâmpla deaorece sursa $3 a fost muatată sau are permisiuni restricţionate.
-
-theme_xhred_filemanager_successful_rename=Redenumirea `<strong><em><s>%from</s></em></strong>` în `<strong><em>%to</em></strong>` efectuată cu succes.
 
 filemanager_global_info_total1=Total: $1 fişier şi $2 director
 filemanager_global_info_total2=Total: $1 fişiere şi $2 director
@@ -432,9 +418,6 @@ theme_xhred_filemanager_search_replace=Înlocuieşte rezultatele
 theme_xhred_global_find=Caută
 theme_xhred_global_replace=Înlocuiește
 
-theme_xhred_filemanager_searching_matching=Căutarea pentru <em>`%value`</em> potrivirea numelor de fişiere/directoare care conţin <em>`%text`</em> ca text.
-theme_xhred_filemanager_searching_replacing=Înlocuirea potrivirilor <em>`%text`</em> cu <em>`%replace`</em> în fisiere cu nume conţinând <em>`%value`</em>.
-
 theme_xhred_filemanager_search_replaced_multi=Găsit şi înlocuit în <strong>%value</strong> fişiere.
 theme_xhred_filemanager_search_replaced=Găsit şi înlocuit în <strong>1</strong> fişier.
 
@@ -444,8 +427,6 @@ theme_xhred_filemanager_successful_ownership_with_errors=Proprietatea a fost mod
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=Proprietatea nu poate fi modificată din cauza erorilor următoare:
 
 theme_xhred_filemanager_successful_compression_with_errors=Comprimarea s-a efectuat cu următoarele erori:
-theme_xhred_filemanager_successful_compression_bg=Comprimarea s-a efectuat cu succes. Fişierul comprimat<strong>`%file`</strong> se află în directorul <strong>`%path`</strong>.
-theme_xhred_filemanager_successful_compression_bg_with_errors=Compresia s-a efectuat cu erori.Fişierul comprimat <strong>`%file`</strong> ar trebui să se afle în directorul <strong>`%path`</strong>.
 
 theme_xhred_filemanager_settings_notification_type=Tipuri de notificări pentru afişare.
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=Informaţii, atenţionări şi erori
@@ -506,12 +487,10 @@ settings_leftmenu_netdata=Afișați linkul de monitorizare Netdata în timp real
 settings_leftmenu_netdata_link=Link server preferat de Netdata
 
 theme_xhred_filemanager_context_chattr=Schimbă Atribute
-theme_xhred_filemanager_changing_attributes=Aplic atributele <strong><em>%value</em></strong> fişierelor selectate..
 theme_xhred_filemanager_successful_attributes_with_errors=Nu s-au aplicat atributele tuturor obiecteleor:
 theme_xhred_filemanager_successful_attributes=Atributele s-au aplicat cu succes.
 
 theme_xhred_filemanager_context_chcon=Modifică contextul de securitate
-theme_xhred_filemanager_changing_secontext=Schimb contextul de securitate ca <strong><em>%value</em></strong> fişierelor selectate.
 theme_xhred_filemanager_successful_secontext_with_errors=Contextul de securitate nu a fost schimbat cu succes pentru toate obiectele:
 theme_xhred_filemanager_successful_secontext=Contextul de securitate s-a schimbat cu succes.
 
@@ -723,8 +702,6 @@ theme_xhred_nice_size_GB=GO(GB)
 theme_xhred_nice_size_MB=MO(MB)
 theme_xhred_nice_size_kB=kO(kB)
 theme_xhred_nice_size_b=octeți
-settings_sysinfo_real_time_status_disk=Activează pentru discuri
-settings_sysinfo_real_time_status_disk_description=Ar putea fi util să dezactivezi monitorizarea în timp real a discurilor pe sistemele de fișiere lente/mari
 theme_xhred_title_locale_non_ui_config=Format non-UI (ca în e-mailurile automate și fișierele exportate)
 
 #19.20
@@ -812,7 +789,6 @@ theme_xhred_mail_search_has_attach=Conține atașament
 
 theme_xhred_settings_right_theme_bgs=Fundaluri temă
 theme_xhred_settings_right_theme_bgs_title=Fundaluri Temă
-settings_right_bgs_title=Fundal temă pentru pagina de login poate fi setată aici. Singurele formate suportate sunt <kbd>.png</kbd>, pentru a oferi transparență alpha.
 settings_right_bg_unauthenticated_users=Fundal pentru utilizatori neautentificați
 settings_right_theme_left_background_title=Controlul Fundalului Temă
 
@@ -888,7 +864,6 @@ theme_xhred_shell_aborted=Operațiune anulată
 #19.32
 theme_xhred_connection_reboot=În repornire
 theme_xhred_connection_reboot_details=Serverul este în repornire. Te rog așteaptă..
-settings_leftmenu_custom_links_description=Este posibil să ai linkuri extra personalizate, injectate în meniul de navigare. <br> <br> Sunt necesare tastele <em>titlu</em>, <em>link</em> și <em>icon</em>; opțional puteți defini la ce mod de conectare va fi afișat un link, specificând tasta <em>nivel</em>, cu valori, în lista separată prin virgulă, care conține: <br><br> <em>0</em> - login administrator; <br><em>1</em> - autentificare reseller <br><br><em>2</em> - login utilizator, <em>3</ em> em>4</em> - autentificarea proprietarului sistemului. <br><br> Va fi necesar să trimiteți obiect valabil JSON ca un șir, ca în exemplul de mai jos.<hr><pre>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=Edit Favorites
 left_favorites_edit_desc=Această pagină poate fi utilizată pentru a edita manual fișierul cu temele favorite. Acest lucru trebuie făcut cu atenție, deoarece nu se va efectua nicio sintaxă sau altă verificare a valabilității modificărilor.
 theme_xhred_filemanager_records_for_server_pagination=Numărul implicit de elemente din directorul pentru a iniția paginarea serverului

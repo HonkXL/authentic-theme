@@ -3,6 +3,7 @@ body_cpu=CPU зарежда средни стойности
 body_cpuinfo=Информация за процесора
 body_cputemps=Температурите на процесора
 body_cputype=$5, $8 ядра
+body_cputype1=$5, $8 ядро
 body_disk=Локално дисково пространство
 body_driveerr=$1 грешки!
 body_drivefailed=SMART проверката не бе успешна!
@@ -99,9 +100,10 @@ settings_right_extensions_title=Темата обширен дизайн, ви �
 
 theme_xhred_settings_right_theme_logos=Тематични лога
 theme_xhred_settings_right_theme_logos_title=Тема Логос
-settings_right_logos_title=Тематичните лога могат да бъдат лесно зададени тук, както за удостоверени, така и за неоторизирани потребители. Препоръчителен размер на логото е <kbd>180x90</kbd> пиксела и единственият поддържан формат е <kbd>.png</kbd>, за да се осигури алфа прозрачност.
+settings_right_logos_title=Логотата на темата могат лесно да бъдат зададени тук както за удостоверени, така и за неавтентифицирани потребители. Препоръчителният размер на логото е <em>180x90</em> пиксела.
 settings_right_logo_authenticated_users=Лого за удостоверени потребители
 settings_right_logo_unauthenticated_users=Лого за неоторизирани потребители
+settings_right_logos_error=Каченият файл не е изображение
 
 settings_right_current_theme=Актуална тема
 settings_right_title=Тази страница ви позволява да конфигурирате опции за <a href="https://github.com/authentic-theme/authentic-theme" target="_blank">автентична тема</a>. Настройките ще се съхраняват при актуализиране на темата.
@@ -208,15 +210,15 @@ theme_xhred_filemanager_renaming_selected=Преименуване избран�
 theme_xhred_filemanager_creating_directory=Създаване на директория
 theme_xhred_filemanager_creating_file=Създаване на файл
 theme_xhred_filemanager_downloading_from=Изтегляне от
-theme_xhred_filemanager_setting_permissions=Задаване на разрешения на <strong><em>%value</em></strong> на избрани файлове (файлове).
-theme_xhred_filemanager_changing_ownership=Промяна на собствеността на <strong><em>%value</em></strong> на избрани файлове.
+theme_xhred_filemanager_setting_permissions=Задаване на разрешения за <tt>%value</tt> за избран файл(ове).
+theme_xhred_filemanager_changing_ownership=Промяна на собствеността на <tt>%value</tt> върху избран файл(ове).
 theme_xhred_filemanager_compressing_selected=Компресирането е избрано на заден план.
 theme_xhred_filemanager_refreshing=Освежаващо съдържание на директория.
 theme_xhred_filemanager_copying_successful=Копирането в клипборда е успешно.
 theme_xhred_filemanager_cutting_successful=Изрязване в клипборда успешно.
 theme_xhred_filemanager_pasting_successful=Поставянето от клипборда беше успешно.
-theme_xhred_filemanager_bookmark_success=<strong><em>%value</em></strong> директория <strong><em>%value</em></strong> бе успешно добавена към отметките ви.
-theme_xhred_filemanager_searching=Търсене на `<em>%value</em>` съответстващи на имена на файлове/директории.
+theme_xhred_filemanager_bookmark_success=Директорията <tt>%value</tt> бе добавена успешно към вашите отметки.
+theme_xhred_filemanager_searching=Търсене на <tt>%value</tt>, съответстващи на имена на файлове /directories.
 theme_xhred_filemanager_search_founds=Намерени <strong>%value</strong> съвпадения на <strong>%value</strong>.
 theme_xhred_filemanager_search_found=Намерено е </strong> 1 съвпадение.
 theme_xhred_filemanager_search_no_matches=Няма намерени съвпадения
@@ -234,8 +236,8 @@ theme_xhred_filemanager_successful_deletion=Изтриването бе успе
 theme_xhred_filemanager_successful_permissions=Разрешенията бяха променени успешно.
 theme_xhred_filemanager_successful_ownership=Собствеността е променена успешно.
 theme_xhred_filemanager_successful_compression=Компресията приключи успешно.
-theme_xhred_filemanager_successful_directory_creation=указател `<strong>%value</strong>` е създаден успешно.
-theme_xhred_filemanager_successful_file_creation=досие `<strong>%value</strong>` е създаден успешно.
+theme_xhred_filemanager_successful_directory_creation=Директория <tt>%value</tt> е създадена успешно.
+theme_xhred_filemanager_successful_file_creation=Файлът <tt>%value</tt> е създаден успешно.
 
 theme_xhred_notifications_packages_updates=Актуализация на пакетите
 theme_xhred_notifications_theme_update=Актуализация на темата
@@ -346,7 +348,7 @@ theme_xhred_global_warning=Внимание
 theme_xhred_global_close=Близо
 
 theme_xhred_filemanager__no_bookmarks=Няма запазени отметки
-theme_xhred_filemanager_unbookmark_success=<strong><em>%value</em></strong> директория <strong><em>%value</em></strong> беше премахната успешно от отметките ви.
+theme_xhred_filemanager_unbookmark_success=Директория <tt>%value</tt> бе успешно премахната от вашите отметки.
 theme_xhred_filemanager_bookmark=Отметка текуща директория
 theme_xhred_filemanager_unbookmark=Отписване на текущата директория
 theme_xhred_filemanager_move_into_self=Не можете да преместите директория в себе си! Директорията на местоназначението е вътре в директорията на източника.
@@ -399,6 +401,8 @@ theme_xhred_database_delete_selected_field=Изтрийте избраното �
 theme_xhred_database_delete_selected_fields=Изтрийте избраните полета
 theme_xhred_database_object_selected_delete=Изтрийте избрания обект
 theme_xhred_database_objects_selected_delete=Изтрийте избраните обекти
+theme_xhred_database_object_selected_delete2=Пуснете избраната таблица
+theme_xhred_database_objects_selected_delete2=Пуснете избраните таблици
 theme_xhred_database_db_selected_drop=Пуснете избраната база данни
 theme_xhred_database_dbs_selected_drop=Пуснете избраните бази данни
 theme_xhred_database_edit_but_not_saved=Данните в таблицата са редактирани, но не са запазени.
@@ -426,17 +430,17 @@ theme_xhred_datatable_no_search_results=<span class="h5">Няма намерен
 
 theme_xhred_filemanager_buffer_error=Неуспешно поставяне на файлове в буфера - разрешението е отказано.
 
-filemanager_create_object_exists=$3 `<strong><em>$1</em></strong>` вече съществува в `<strong><tt>$2</tt></strong>`
-filemanager_create_object_denied=$3 не може да се създаде `<strong><em>$1</em></strong>` в `<strong><tt>$2</tt></strong>` - отказано разрешение : $4
+filemanager_create_object_exists=$3 <tt>$1</tt> вече съществува в <tt>$2</tt>
+filemanager_create_object_denied=Не може да се създаде $3 <tt>$1</tt> в <tt>$2</tt> - разрешението е отказано: $4.
 
 theme_xhred_filemanager_paste_warning=Неуспешно поставяне на целта (ите). Възможно е исканият обект (и) да е бил <em>преименуван, преместен</em> или <em>изтрит</em> по време на/преди поставяне. Друга възможна причина е, че дестинацията не може да се записва. Струва си да проверите атрибутите на обектите.
 
 theme_xhred_filemanager_delete_warning=Изтриването завърши успешно, но не за всички обекти. Възможно е исканият обект (и) да е бил <em>преименуван</em> или <em>преместен</em> преди изтриването. Ограничените разрешения (атрибути) са друга възможна причина. Съобщение за грешка:
 
-filemanager_rename_exists=$3 с име `<strong><em>$1</em></strong>` вече съществува в `<strong><tt>$2</tt></strong>`
+filemanager_rename_exists=$3 с име <tt>$1</tt> вече съществува в <tt>$2</tt>
 filemanager_rename_denied=Не може да се преименува $3. Това може да се случи, защото източникът $3 е премахнат или поради ограничени разрешения.
 
-theme_xhred_filemanager_successful_rename=Преименуването `<strong><em><s>%from</s></em></strong>` да се `<strong><em>%to</em></strong>` беше успешно.
+theme_xhred_filemanager_successful_rename=Преименуването на <tt>%from</tt> на <tt>%to</tt> бе успешно.
 
 filemanager_global_info_total1=Общо: $1 файл и $2 директория
 filemanager_global_info_total2=Общо: $1 файлове и $2 директория
@@ -452,8 +456,8 @@ theme_xhred_filemanager_search_replace=Заменете в резултатит�
 theme_xhred_global_find=намирам
 theme_xhred_global_replace=Заменете
 
-theme_xhred_filemanager_searching_matching=Търсене на `<em>%value</em>` съответстващи на имена на файлове/директории, съдържащи `<em>%text</em>` text.
-theme_xhred_filemanager_searching_replacing=Подмяна на съвпадения `<em>%text</em>` с `<em>%replace</em>` във файлове с имена, съдържащи `<em>%value</em>`.
+theme_xhred_filemanager_searching_matching=Търсене на <tt>%value</tt>, съответстващи на имена на файлове /directories, съдържащи <tt>%text</tt> текст.
+theme_xhred_filemanager_searching_replacing=Замяната съвпада <tt>%text</tt> с <tt>%replace</tt> във файлове с имена, съдържащи <tt>%value</tt>.
 
 theme_xhred_filemanager_search_replaced_multi=Намерени и заменени във <strong>%value</strong> файлове.
 theme_xhred_filemanager_search_replaced=Намерен и заменен във файл </strong>1</strong> файл.
@@ -464,8 +468,8 @@ theme_xhred_filemanager_successful_ownership_with_errors=Собственост�
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=Собствеността не може да бъде променена поради следните грешки:
 
 theme_xhred_filemanager_successful_compression_with_errors=Компресията завърши със следните грешки:
-theme_xhred_filemanager_successful_compression_bg=Компресията приключи успешно. Компресиран файл `<strong>%file</strong>` се намира в директорията `<strong>%path</strong>`.
-theme_xhred_filemanager_successful_compression_bg_with_errors=Компресията завърши с грешки. Компресиран файл `<strong>%file</strong>` трябва да бъде разположен в директорията `<strong>%path</strong>`.
+theme_xhred_filemanager_successful_compression_bg=Компресирането завърши успешно. Компресираният файл <tt>%file</tt> се намира в директория <tt>%path</tt>.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Компресирането завърши с грешки. Компресираният файл <tt>%file</tt> трябва да се намира в директория <tt>%path</tt>.
 
 theme_xhred_filemanager_settings_notification_type=Тип известия за показване
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=Информация, предупреждения и грешки
@@ -526,12 +530,12 @@ settings_leftmenu_netdata=Показване на връзка за наблюд
 settings_leftmenu_netdata_link=Предпочитана връзка на сървъра на Netdata
 
 theme_xhred_filemanager_context_chattr=Промяна на атрибути
-theme_xhred_filemanager_changing_attributes=Задаване на атрибути на <strong><em>%value</em></strong> на избрани файлове.
+theme_xhred_filemanager_changing_attributes=Задаване на атрибути на <tt>%value</tt> на избран файл(ове).
 theme_xhred_filemanager_successful_attributes_with_errors=Атрибутите не са зададени успешно за всички обекти:
 theme_xhred_filemanager_successful_attributes=Атрибутите са зададени успешно.
 
 theme_xhred_filemanager_context_chcon=Промяна на контекста на сигурността
-theme_xhred_filemanager_changing_secontext=Промяна на контекста на защита в <strong><em>%value</em></strong> на избрани файлове.
+theme_xhred_filemanager_changing_secontext=Промяна на контекста на сигурността на <tt>%value</tt> на избран файл(ове).
 theme_xhred_filemanager_successful_secontext_with_errors=Контекстът на защита не е променен успешно за всички обекти:
 theme_xhred_filemanager_successful_secontext=Контекстът за сигурност е променен успешно.
 
@@ -749,8 +753,6 @@ theme_xhred_nice_size_GB=GB
 theme_xhred_nice_size_MB=MB
 theme_xhred_nice_size_kB=КБ
 theme_xhred_nice_size_b=байта
-settings_sysinfo_real_time_status_disk=Активиране за дискове
-settings_sysinfo_real_time_status_disk_description=Може да е полезно да деактивирате мониторинга в реално време за дискове на бавни/големи файлови системи
 theme_xhred_title_locale_non_ui_config=Формат на дата, генериран от сървъра
 
 #19.20
@@ -843,7 +845,7 @@ theme_xhred_mail_search_has_attach=Има привързаност
 
 theme_xhred_settings_right_theme_bgs=Тематични фонове
 theme_xhred_settings_right_theme_bgs_title=Тематични фонове
-settings_right_bgs_title=Фонът на темата за страница за вход може да бъде зададен тук. Единственият поддържан формат е <kbd>.png</kbd>, за да се осигури алфа прозрачност.
+settings_right_bgs_title=Фон на темата за страницата за вход може да бъде зададен тук.
 settings_right_bg_unauthenticated_users=Фон за неоторизирани потребители
 settings_right_theme_left_background_title=Тематичен контрол на фона
 
@@ -922,7 +924,7 @@ theme_xhred_shell_aborted=Операция прекъсна
 #19.32
 theme_xhred_connection_reboot=Рестартирането
 theme_xhred_connection_reboot_details=Сървърът се рестартира. Моля Изчакай ..
-settings_leftmenu_custom_links_description=Възможно е да имате персонализирани допълнителни линкове, които се вкарват в менюто за навигация. <br><br> Необходими са клавишите <em>заглавие</em>, <em>връзка</em> и <em>икона</em>; по избор можете да определите в кой режим на влизане ще се показва връзка, като посочите клавиша <em>level</em> със стойности в списък, разделен със запетая, съдържащ: <br><br> <em>0</em> > - влизане на администратор; <br><em> 1 </em>- влизане в дистрибутор;<br> <em>2</em> - вход на собственика на сървъра; <br><em> 3 </em>- вход на потребител;<br> <em>4</em> - влизане в системата на собственика. <br><br> Ще трябва да предадете валиден JSON обект като низ, както в примера по-долу. <hr><pre> {"extra": [{ "title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, { "title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": " плик "," port ":" 20000 "," target ":" _blank "}]} </pre>
+settings_leftmenu_custom_links_description=Възможно е да имате персонализирани, допълнителни връзки, инжектирани в менюто за навигация. <br><br> Ключовете <em>title</em>, <em>link</em> и <em>icon</em> са задължителни; по желание можете да определите в кой режим на влизане ще се показва връзка, като посочите ключ за <em>ниво</em> със стойности в списък, разделен със запетаи, съдържащ: <br><br> <em>0</em > - вход на администратор; <br><em>1</em> - вход на дистрибутора;<br><em>2</em> - вход на собственика на сървъра;<br><em>3</em> - вход на потребител;<br><em>4</em>- влизане на собственика на системата.<br><br> Ще се изисква да подадете валиден JSON обект като низ, както в примера по-долу.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=Редактиране на любими
 left_favorites_edit_desc=Тази страница може да се използва за ръчно редактиране на потребителски файл с предпочитани теми. Това трябва да се направи внимателно, тъй като няма да се извършва синтаксис или друга проверка на валидността на вашите промени.
 theme_xhred_filemanager_records_for_server_pagination=По подразбиране брой елементи в директория за иницииране на страницата на сървър
@@ -1049,10 +1051,6 @@ theme_xhred_global_today=днес
 theme_xhred_global_tomorrow=утре
 theme_xhred_mail_composer_scheduled=Изпратете %1 на %2
 theme_global_core=сърцевина
-settings_sysinfo_real_time_stored=Активиране на историята на статистиките
-settings_sysinfo_real_time_stored_description=Ако е активирана, събраните по-рано статистически данни ще се съхраняват и показват в графика на таблото за управление
-settings_sysinfo_real_time_stored_length=Статистика продължителност на историята
-settings_sysinfo_real_time_stored_length_description=Времето, през което се съхранява историята на статистическите данни
 theme_dashboard_accordion_live_stats=История на статистиките
 theme_xhred_live_stats_cpu=процесор
 theme_xhred_live_stats_mem=памет
@@ -1147,7 +1145,7 @@ theme_xhred_connection_error_details_ssl=Проверете предупрежд
 #19.71
 settings_sysinfo_hidden_panels_user=Скрити акордеони
 theme_xhred_tooltip_dashboard_panels_disable=Скриване на панела $1 
-theme_xhred_dashboard_panels_disabled_explain=Скритият панел може да бъде активиран отново, като се използва страницата за конфигуриране на тема.
+theme_xhred_dashboard_panels_disabled_explain=Скритият панел може да бъде активиран отново с помощта на <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
 settings_right_sysinfo_page_options=Табло за управление и наблюдение в реално време
 settings_right_navigation_menu_options=Меню за навигация
 settings_right_notification_slider_options=Страничен плъзгач
@@ -1169,8 +1167,6 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=Тази функция и
 theme_xhred_global_module_preferences=Предпочитания на модула
 
 #19.74
-settings_sysinfo_real_time_status_forced=Да, принуден
-settings_sysinfo_real_time_status_forced_warn=Активирането на мониторинг в реално време в режим на сила не се препоръчва, тъй като събирането на фона ще се извършва дори когато раздела на браузъра не е фокусиран, което може да причини претоварване на сървъра с отворени множество раздели
 theme_xhred_theme_update_available=Инсталирана е нова версия на автентична тема
 settings_right_page_keep=Заредете същата страница на превключвателя на домейн
 settings_right_page_keep_description=Тази опция ще се опита да зареди същата страница при избор на домейн, когато се промени от падащия списък на менюто за навигация
@@ -1374,3 +1370,49 @@ theme_xhred_columns_layout_variation_cannot_horizontal=Хоризонтално�
 settings_auto_open_panels_on_proximity=Автоматично отваряне на затворени панели при близост
 
 theme_xhred_config_portable_module_xterm_render_addon=Активирайте добавката за изобразяване на WebGL
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=Филтрирайте и експортирайте съдържание
+
+#21.10
+settings_hotkey_logout_dbl=Излез от профила си
+theme_xhred_hotkey_emsg=Клавишът с обратна наклонена черта не може да се използва като клавишна комбинация
+settings_embed_product_splash_privileged=Показване на начален екран за брандиране след влизане
+dashboard_status_running=бягане
+dashboard_status_stopped=Спряна
+
+#21.11
+theme_xhred_global_watching=Гледане
+theme_xhred_global_connected=Свързан
+theme_xhred_global_disconnected=Прекъсната връзка
+theme_xhred_global_connecting=Свързване
+index_mods_missing=Модулът на Perl <tt>$1</tt> липсва.
+index_noadmin_eaccess=Достъпът е отказан на администратори, които не са главни!
+theme_xhred_body_os=Операционна система
+theme_xhred_theme_version=Автентична версия на темата
+theme_xhred_body_updates=Актуализации на пакети
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Превключване на темата
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Качването е успешно
+theme_xhred_filemanager_upload_status_err=Неуспешно качване:
+theme_xhred_filemanager_download_status_err=Изтеглянето се провали:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Прочетете
+theme_xhred_dashboard_chart_disk_write=Пишете
+theme_xhred_dashboard_chart_net_read=в
+theme_xhred_dashboard_chart_net_write=Навън
+theme_xhred_tooltip_dashboard_live_stats_offline=Статистическите данни на живо не са налични, когато системата е достъпна в прокси режим; ще се показват само предварително събрани статистически данни и само ако са налични и страницата ще трябва да се презареди, за да се актуализират тези статистики
+settings_sysinfo_real_time_status_history1=Да, и съхранявайте статистики за
+settings_sysinfo_real_time_status_history2=Да, без съхраняване на статистика
+settings_sysinfo_real_time_status_history_duration1=20 минути
+settings_sysinfo_real_time_status_history_duration2=1 час
+settings_sysinfo_real_time_status_history_duration3=3 часа
+settings_sysinfo_real_time_status_history_duration4=6 часа
+settings_sysinfo_real_time_status_history_duration5=12 часа
+settings_sysinfo_real_time_status_history_duration6=18 часа
+settings_sysinfo_real_time_status_history_duration7=24 часа
+theme_xhred_license_purchase=Закупуване на лиценз

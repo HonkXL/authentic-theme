@@ -11,6 +11,7 @@ our (%gconfig,
      $current_theme,
      $theme_webprefix,
      %theme_config,
+     $theme_info,
      %theme_text,
      $has_usermin,
      $has_usermin_root_dir,
@@ -18,7 +19,8 @@ our (%gconfig,
 
 sub theme_settings_raw
 {
-    return (
+    # Available settings
+    my @theme_settings_raw = (
         [
          {  'id'    => 's1',
             'title' => &theme_text('settings_global_general_options_title'),
@@ -34,6 +36,7 @@ sub theme_settings_raw
                        'settings_cm_editor_palette',
                        'settings_global_palette_unauthenticated',
                        'settings_theme_config_admins_only_privileged',
+                       'settings_embed_product_splash_privileged',
             ] }
         ],
 
@@ -48,9 +51,6 @@ sub theme_settings_raw
                        'settings_sysinfo_hidden_panels_user',
                        'settings_sysinfo_max_servers',
                        'settings_sysinfo_real_time_status',
-                       'settings_sysinfo_real_time_status_disk',
-                       'settings_sysinfo_real_time_stored',
-                       'settings_sysinfo_real_time_stored_length',
             ] }
         ],
 
@@ -134,6 +134,7 @@ sub theme_settings_raw
                        'settings_hotkey_toggle_key_night_mode',
                        'settings_hotkey_focus_search',
                        'settings_hotkey_reload',
+                       'settings_hotkey_logout_dbl',
             ] }
         ],
 
@@ -152,14 +153,21 @@ sub theme_settings_raw
                        'settings_hotkey_custom_8_user',
                        'settings_hotkey_custom_9_user',
             ] }
-        ],
-
+        ]);
+    # Add upgrade settings if available
+    if ($theme_config{'settings_upgrade_allowed'} eq 'true') {
+        push(@theme_settings_raw,
         [
          {  'id'    => 's8',
             'title' => &theme_text('settings_right_soft_updates_page_options'),
-            'data'  =>
-              ['settings_sysinfo_theme_updates', 'settings_sysinfo_theme_updates_for_usermin', 'settings_cache_interval'] }
+            'data'  => [
+                        'settings_sysinfo_theme_updates', 
+                        'settings_sysinfo_theme_updates_for_usermin',
+                        'settings_cache_interval'
+            ] }
         ]);
+    }
+    return @theme_settings_raw;
 }
 
 sub theme_settings_filter
@@ -246,6 +254,7 @@ sub theme_settings_filter
     if (!&webmin_user_is_admin()) {
         push(@theme_settings_filter,
              'settings_theme_config_admins_only_privileged',
+             'settings_embed_product_splash_privileged',
              'settings_hotkey_slider',
              'settings_global_palette_unauthenticated',
              'settings_sysinfo_easypie_charts',
@@ -254,9 +263,7 @@ sub theme_settings_filter
              'settings_sysinfo_easypie_charts_scale',
              'settings_sysinfo_max_servers',
              'settings_sysinfo_real_time_status',
-             'settings_sysinfo_real_time_status_disk',
-             'settings_sysinfo_real_time_stored',
-             'settings_sysinfo_real_time_stored_length',
+             'settings_sysinfo_real_time_stored_duration',
              'settings_leftmenu_section_hide_refresh_modules',
              'settings_leftmenu_section_hide_unused_modules',
              'settings_leftmenu_netdata',
@@ -336,6 +343,7 @@ sub theme_settings_format
              $k eq 'settings_hotkey_navigation'    ||
              $k eq 'settings_hotkey_slider'        ||
              $k eq 'settings_hotkey_reload'        ||
+             $k eq 'settings_hotkey_logout_dbl'    ||
              $k eq 'settings_hotkey_shell'         ||
              $k eq 'settings_hotkey_shell2'        ||
              $k eq 'settings_hotkey_sysinfo'       ||
@@ -404,7 +412,14 @@ sub theme_settings_format
             ';
 
     } elsif ($k eq 'settings_leftmenu_custom_links') {
-        $v = ui_textarea($k, $v, 1);
+        my $line_count = 1;
+        if ($v) {
+            $v = replace('\'', '"', un_urlize($v, 1));
+            $v = convert_from_json($v);
+            $v = convert_to_json($v, 1);
+            $line_count = () = $v =~ /\n/g;
+        }
+        $v = ui_textarea($k, $v, $line_count);
     } elsif ($k =~ /settings_hotkey_custom/ ||
              $k eq 'settings_leftmenu_netdata_link' ||
              $k eq 'settings_leftmenu_user_html')
@@ -548,40 +563,27 @@ sub theme_settings_format
                        [[('light', $theme_text{'theme_xhred_global_light'})],
                         [('dark',  $theme_text{'theme_xhred_global_dark'})]
                        ]);
-    } elsif ($k eq 'settings_sysinfo_real_time_stored_length') {
-        $v = '<select class="ui_select" name="' . $k . '">
-
-                    <option value="600"'
-          . ($v eq '600' && ' selected') . '>10 ' . lc($theme_text{'theme_xhred_global_minutes'}) . '</option>
-
-                    <option value="1800"'
-          . ($v eq '1800' && ' selected') . '>30 ' . lc($theme_text{'theme_xhred_global_minutes'}) . '</option>
-
-              <option value="3600"'
-          . ($v eq '3600' && ' selected') . '>1 ' . lc($theme_text{'theme_xhred_global_hour'}) . '</option>
-
-              <option value="7200"'
-          . ($v eq '7200' && ' selected') . '>2 ' . lc($theme_text{'theme_xhred_global_hours'}) . '</option>
-
-              <option value="10800"'
-          . ($v eq '10800' && ' selected') . '>3 ' . lc($theme_text{'theme_xhred_global_hours'}) . '</option>
-
-              <option value="21600"'
-          . ($v eq '21600' && ' selected') . '>6 ' . lc($theme_text{'theme_xhred_global_hours'}) . '</option>
-
-              <option value="43200"'
-          . ($v eq '43200' && ' selected') . '>12 ' . lc($theme_text{'theme_xhred_global_hours'}) . '</option>
-
-              <option value="86400"'
-          . ($v eq '86400' && ' selected') . '>24 ' . lc($theme_text{'theme_xhred_global_hours'}) . '</option>
-
-                </select>';
     } elsif ($k eq 'settings_document_title') {
         $v = settings_get_select_document_title($v, $k);
     } elsif ($k eq 'settings_sysinfo_real_time_status') {
-        my $yes_forced =
-"$theme_text{'settings_sysinfo_real_time_status_forced'} <sup @{[get_button_tooltip('settings_sysinfo_real_time_status_forced_warn')]} class=\"fa fa-exclamation-circle\"></sup>";
-        $v = ui_radio($k, $v, [[1, $text{'yes'}], [2, $yes_forced], [0, $text{'no'}]]);
+        my $realtime = 'settings_sysinfo_real_time_';
+        my $realtime_pref = "${realtime}status_";
+        my $duration_key = "${realtime}stored_duration";
+        my $select = ui_select($duration_key, $theme_config{$duration_key},
+                       [
+                        [(1200, $theme_text{"${realtime_pref}history_duration1"})],
+                        [(3600, $theme_text{"${realtime_pref}history_duration2"})],
+                        [(10800, $theme_text{"${realtime_pref}history_duration3"})],
+                        [(21600, $theme_text{"${realtime_pref}history_duration4"})],
+                        [(43200, $theme_text{"${realtime_pref}history_duration5"})],
+                        [(64800, $theme_text{"${realtime_pref}history_duration6"})],
+                        [(86400, $theme_text{"${realtime_pref}history_duration7"})]
+                       ]);
+        $v = ui_radio($k, $v, [
+            [1, $theme_text{"${realtime_pref}history1"}.$select],
+            [2, $theme_text{"${realtime_pref}history2"}],
+            [0, $text{'no'}]
+        ]);
     } elsif ($k eq 'settings_right_table_links_type') {
         $v = ui_radio($k,
                       $v,
@@ -593,6 +595,14 @@ sub theme_settings_format
     my $description = $theme_text{ $k . '_description' };
 
     # Return formatted
+    if ($description =~ /<pre.*?data-json>(.*?)<\/pre>/s) {
+        my $json_str = $1;
+        my $json_data = convert_from_json($json_str);
+        my $pretty_json = convert_to_json($json_data, 1);
+        $pretty_json =~ s/   /&nbsp;/g;
+        $pretty_json =~ s/\n/<br>/g;
+        $description =~ s/<pre.*?data-json>.*?<\/pre>/<pre data-json>$pretty_json<\/pre>/s;
+    }
     return [
         (
          (
@@ -676,7 +686,7 @@ sub theme_controls
             <a tabindex='1' class=\"btn btn-default capitalize\" id=\"atrestore\">
                 <i class=\"fa fa-fw fa-history\"></i><span>$theme_text{'settings_right_restore_defaults'}</span>
             </a>
-            <a tabindex='1' class=\"btn btn-default capitalize\" onclick=\"theme_cache_clear(this);\">
+            <a tabindex='1' class=\"btn btn-default capitalize\" onclick=\"theme_cache_clear(this,1);\">
                 <i class=\"fa fa-fw fa-hourglass-o\"></i><span>$theme_text{'settings_right_clear_local_cache'}</span>
             </a>
             $update_dropdown
@@ -705,26 +715,32 @@ sub settings_get_select_navigation_color
                     <option value="blue"'
       . ($v eq 'blue' && ' selected') . '>Blue (' . $theme_text{'theme_xhred_global_default'} . ')</option>
 
+                    <option value="teal"'
+      . ($v eq 'teal' && ' selected') . '>Teal</option>
+
+                    <option value="green"'
+      . ($v eq 'green' && ' selected') . '>Green</option>
+
+                    <option value="purple"'
+      . ($v eq 'purple' && ' selected') . '>Purple</option>
+      
                     <option value="brown"'
       . ($v eq 'brown' && ' selected') . '>Brown</option>
 
                     <option value="gold"'
       . ($v eq 'gold' && ' selected') . '>Gold</option>
 
-                    <option value="green"'
-      . ($v eq 'green' && ' selected') . '>Green</option>
-
-                    <option value="grey"'
-      . ($v eq 'grey' && ' selected') . '>Gray</option>
-
                     <option value="orange"'
       . ($v eq 'orange' && ' selected') . '>Orange</option>
       
-                    <option value="purple"'
-      . ($v eq 'purple' && ' selected') . '>Purple</option>
-      
-                 <option value="red"'
+                     <option value="red"'
       . ($v eq 'red' && ' selected') . '>Red</option>
+
+                     <option value="maroon"'
+      . ($v eq 'maroon' && ' selected') . '>Maroon</option>
+
+                    <option value="grey"'
+      . ($v eq 'grey' && ' selected') . '>Gray</option>
 
                     <option value="white"'
       . ($v eq 'white' && ' selected') . '>White</option>

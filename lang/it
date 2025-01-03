@@ -99,7 +99,6 @@ settings_right_extensions_title=Design tema esteso, consente di manipolare facil
 
 theme_xhred_settings_right_theme_logos=Loghi del tema
 theme_xhred_settings_right_theme_logos_title=Loghi del tema
-settings_right_logos_title=I loghi del tema possono essere facilmente impostati qui, sia per gli utenti autenticati che per quelli non autenticati. La dimensione raccomandata del logo è <kbd>180x90</kbd> pixel e l'unico formato supportato è <kbd>.png</kbd>, per fornire trasparenza alfa.
 settings_right_logo_authenticated_users=Logo per gli utenti autenticati
 settings_right_logo_unauthenticated_users=Logo per gli utenti non autenticati
 
@@ -190,15 +189,11 @@ theme_xhred_filemanager_renaming_selected=Ridenominazione selezionata.
 theme_xhred_filemanager_creating_directory=Sto creando la cartella
 theme_xhred_filemanager_creating_file=Sto creando il file
 theme_xhred_filemanager_downloading_from=Sto scaricando da
-theme_xhred_filemanager_setting_permissions=Sto impostando i permessi a <strong><em>%value</em></strong> ai file selezionati.
-theme_xhred_filemanager_changing_ownership=Sto cambiando la proprietà a <strong><em>%value</em></strong> ai file selezionati.
 theme_xhred_filemanager_compressing_selected=Sto comprimendo gli elementi selezionati in background.
 theme_xhred_filemanager_refreshing=Sto ricaricando il contenuto della cartella.
 theme_xhred_filemanager_copying_successful=Copia negli appunti eseguita correttamente.
 theme_xhred_filemanager_cutting_successful=Taglio negli appunti eseguito correttamente.
 theme_xhred_filemanager_pasting_successful=Elementi incollati negli appunti correttamente.
-theme_xhred_filemanager_bookmark_success=La cartella <strong><em>%value</em></strong> è stata aggiunta correttamente ai tuoi segnalibri.
-theme_xhred_filemanager_searching=Sto cercando i nomi di file e cartelle corrispondenti a <em>`%value`</em>.
 theme_xhred_filemanager_search_founds=Trovate <strong>%value</strong> corrispondenze.
 theme_xhred_filemanager_search_found=Trovata <strong>1</strong> corrispendenza.
 theme_xhred_filemanager_search_no_matches=Nessuna corrispondenza trovata.
@@ -216,8 +211,6 @@ theme_xhred_filemanager_successful_deletion=L'eleminazione dei file è stata ese
 theme_xhred_filemanager_successful_permissions=I permessi sono stati cambiati correttamente.
 theme_xhred_filemanager_successful_ownership=La proprietà è stata cambiata correttamente.
 theme_xhred_filemanager_successful_compression=La compressione è terminata correttamente.
-theme_xhred_filemanager_successful_directory_creation=La cartella `<strong>%value</strong>` è stata creata correttamente.
-theme_xhred_filemanager_successful_file_creation=Il file `<strong>%value</strong>` è stato creato correttamente.
 
 theme_xhred_notifications_packages_updates=Aggiornamento pacchetti
 theme_xhred_notifications_theme_update=Aggiornamento tema
@@ -328,7 +321,6 @@ theme_xhred_global_warning=Attenzione
 theme_xhred_global_close=Chiudi
 
 theme_xhred_filemanager__no_bookmarks=Nessun segnalibro salvato
-theme_xhred_filemanager_unbookmark_success=La cartella <strong><em>%value</em></strong> è stata rimossa correttamente dai tuoi segnalibri.
 theme_xhred_filemanager_bookmark=Aggiungi ai segnalibri la cartella attuale
 theme_xhred_filemanager_unbookmark=Rimuovi dai segnalibri la cartella attuale
 theme_xhred_filemanager_move_into_self=Non è possibile spostare una cartella in se stessa! La cartella di destinazione si trova all'interno della cartella di origine.
@@ -408,17 +400,11 @@ theme_xhred_datatable_no_search_results=<span class="h5">Nessun risultato trovat
 
 theme_xhred_filemanager_buffer_error=Impossibile incollare i file nel buffer - permesso negato.
 
-filemanager_create_object_exists=$3 `<strong><em>$1</em></strong>` esiste già in `<strong><tt>$2</tt></strong>`
-filemanager_create_object_denied=Impossibile creare $3 `<strong><em>$1</em></strong>` in `<strong><tt>$2</tt></strong>` - permesso negato : $4.
-
 theme_xhred_filemanager_paste_warning=Impossibile incollare il/i bersaglio/i. È possibile che l'oggetto o gli oggetti richiesti possano essere stati <em>rinominati, spostati</em> o <em>eliminati</em> mentre/prima di incollare. Un'altra possibile causa è che la destinazione non sia scrivibile.  Vale la pena controllare gli attributi degli oggetti.
 
 theme_xhred_filemanager_delete_warning=L'eliminazione è terminata correttamente, ma non per tutti gli oggetti. È possibile che gli oggetti richiesti possano essere stati <em>rinominati</em> o <em>mossi</em> prima dell'eliminazione. I permessi limitati (attributi) sono un'altra possibile causa.  Messaggio di errore:
 
-filemanager_rename_exists=$3 con il nome `<strong><em>$1</em></strong>` esiste già in `<strong><tt>$2</tt></strong>`
 filemanager_rename_denied=Impossibile rinominare $3. Questo potrebbe accadere perché la sorgente $3 è stata rimossa o a causa di permessi limitati.
-
-theme_xhred_filemanager_successful_rename=La ridenominazione di `<strong><em><s>%from</s></em></strong>` in `<strong><em>%to</em></strong>` è stata eseguita correttamente.
 
 filemanager_global_info_total1=Total: $1 file e $2 cartella
 filemanager_global_info_total2=Total: $1 file e $2 cartella
@@ -434,9 +420,6 @@ theme_xhred_filemanager_search_replace=Sostituisci nei risultati
 theme_xhred_global_find=Trova
 theme_xhred_global_replace=Sostituisci
 
-theme_xhred_filemanager_searching_matching=Sto cercando nomi di file e cartelle corrispondenti a <em>`%value`</em>, contenenti il testo <em>`%text`</em>.
-theme_xhred_filemanager_searching_replacing=Sto sostituendo le occorrenze di <em>`%text`</em> con <em>`%replace`</em> nei file il cui nome contiene <em>`%value`</em>.
-
 theme_xhred_filemanager_search_replaced_multi=Trovato e sostituito in <strong>%value</strong> file.
 theme_xhred_filemanager_search_replaced=Trovato e sostituito in <strong>1</strong> file.
 
@@ -446,8 +429,6 @@ theme_xhred_filemanager_successful_ownership_with_errors=La proprietà è stata 
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=La proprietà non può essere cambiata a causa dei seguenti errori:
 
 theme_xhred_filemanager_successful_compression_with_errors=La compressione è stata terminata con i seguenti errori:
-theme_xhred_filemanager_successful_compression_bg=La compressione è terminata correttamente. Il file compresso <strong>`%file`</strong> si trova nella cartella <strong>`%path`</strong>.
-theme_xhred_filemanager_successful_compression_bg_with_errors=La compressione è stata terminata con degli errori. Il file compresso <strong>`%file`</strong> dovrebbe trovarsi nella cartella <strong>`%path`</strong>.
 
 theme_xhred_filemanager_settings_notification_type=Tipo di notifiche da visualizzare
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=Informazioni, avvisi e errori
@@ -508,12 +489,10 @@ settings_leftmenu_netdata=Mostra link di monitoraggio in tempo reale Netdata
 settings_leftmenu_netdata_link=Link preferito per il server Netdata
 
 theme_xhred_filemanager_context_chattr=Cambia attributi
-theme_xhred_filemanager_changing_attributes=Imposta gli attributi a <strong><em>%valore%</em></strong> sui file selezionati.
 theme_xhred_filemanager_successful_attributes_with_errors=Gli attributi non sono stati cambiati correttamente per tutti gli oggetti:
 theme_xhred_filemanager_successful_attributes=Attributi cambiati correttamente.
 
 theme_xhred_filemanager_context_chcon=Cambia contesto di sicurezza
-theme_xhred_filemanager_changing_secontext=Cambia il contesto di sicurezza in <strong><em>%valore</em></strong> sui file selezionati.
 theme_xhred_filemanager_successful_secontext_with_errors=Il contesto di sicurezza non è stato cambiato correttamente per tutti gli oggetti:
 theme_xhred_filemanager_successful_secontext=Il contesto di sicurezza è stato cambiato correttamente.
 
@@ -728,8 +707,6 @@ theme_xhred_nice_size_GB=GB
 theme_xhred_nice_size_MB=MB
 theme_xhred_nice_size_kB=kB
 theme_xhred_nice_size_b=byte
-settings_sysinfo_real_time_status_disk=Attiva per dischi
-settings_sysinfo_real_time_status_disk_description=Potrebbe essere utile disabilitare il monitoraggio in tempo reale per i dischi su file system lenti/grandi.
 theme_xhred_title_locale_non_ui_config=Formato non-UI (come nelle e-mail automatiche e nei file esportati)
 
 #19.20
@@ -822,7 +799,6 @@ theme_xhred_mail_search_has_attach=Ha un allegato
 
 theme_xhred_settings_right_theme_bgs=Sfondi tema
 theme_xhred_settings_right_theme_bgs_title=Sfondi tema
-settings_right_bgs_title=Lo sfondo del tema per la pagina di accesso può essere impostato qui. L'unico formato supportato è <kbd>.png</kbd>, per fornire trasparenza alfa.
 settings_right_bg_unauthenticated_users=Sfondo per gli utenti non autenticati
 settings_right_theme_left_background_title=Controllo dello sfondo del tema
 
@@ -898,7 +874,6 @@ theme_xhred_shell_aborted=Operazione interrotta
 #19.32
 theme_xhred_connection_reboot=Sto riavviando
 theme_xhred_connection_reboot_details=Il server è in fase di riavvio. Attendere, per favore..
-settings_leftmenu_custom_links_description=E' possibile inserire link extra personalizzati nel menu di navigazione. <br><br> I tasti <em>titolo</em>, <em>link</em> e <em>icona</em> sono richiesti; facoltativamente, è possibile definire in quale modalità di accesso verrebbe visualizzato un link, specificando la chiave <em>livello</em>, con valori, in lista separata da virgole, contenente: <br><br> <em>0</em> - accesso come amministratore; <br><em>1</em> - accesso come rivenditore;<br><em>2</em> - accesso come proprietario del server;<br> <em> <em>3</em> - accesso come utente;<br> <em>4</em> - accesso come proprietario del sistema.<br><br> Richiederà di passare un oggetto JSON valido come stringa, come nell'esempio qui sotto.<hr><pre>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "livello": "0,1,1,2,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}]}</pre>
 left_favorites_edit=Modifica preferiti
 left_favorites_edit_desc=Questa pagina può essere utilizzata per modificare manualmente i file utente preferiti del tema. Questo dovrebbe essere eseguito con attenzione, in quanto nessun controllo di sintassi o di validità sarà eseguito sulle modifiche.
 theme_xhred_filemanager_records_for_server_pagination=Numero predefinito di elementi nella directory per avviare la paginazione del server
@@ -1024,10 +999,6 @@ theme_xhred_global_today=Oggi
 theme_xhred_global_tomorrow=Domani
 theme_xhred_mail_composer_scheduled=Invia %1 all'ora %2
 theme_global_core=Core
-settings_sysinfo_real_time_stored=Attiva cronologia statistiche
-settings_sysinfo_real_time_stored_description=Se attivato, le statistiche precedentemente raccolte saranno memorizzate e visualizzate in un grafico nella Dashboard.
-settings_sysinfo_real_time_stored_length=Durata cronologia statistiche
-settings_sysinfo_real_time_stored_length_description=Il tempo durante il quale la cronologia delle statistiche è salvata
 theme_dashboard_accordion_live_stats=Cronologia statistiche
 theme_xhred_live_stats_cpu=CPU
 theme_xhred_live_stats_mem=Memoria
@@ -1121,7 +1092,6 @@ theme_xhred_connection_error_details_ssl=Controlla l'avviso <a>Certificato SSL a
 #19.71
 settings_sysinfo_hidden_panels_user=Pannelli nascosti
 theme_xhred_tooltip_dashboard_panels_disable=Nascondi il pannello $1 
-theme_xhred_dashboard_panels_disabled_explain=Il pannello nascosto può essere riattivato utilizzando la pagina di configurazione del tema.
 settings_right_sysinfo_page_options=Dashboard e monitoraggio in tempo reale
 settings_right_navigation_menu_options=Menu di navigazione
 settings_right_notification_slider_options=Slider laterale
@@ -1143,8 +1113,6 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=Questa funzione richiede c
 theme_xhred_global_module_preferences=Preferenze del modulo
 
 #19.74
-settings_sysinfo_real_time_status_forced=Sì, forzato
-settings_sysinfo_real_time_status_forced_warn=L'abilitazione del monitoraggio in tempo reale in modalità forzata è sconsigliata perché la raccolta in background verrà eseguita anche quando la scheda del browser non è focalizzata, causando potenzialmente un sovraccarico del server con più schede aperte
 theme_xhred_theme_update_available=È installata una nuova versione di Authentic Theme
 settings_right_page_keep=Carica la stessa pagina sull'interruttore di dominio
 settings_right_page_keep_description=Questa opzione proverà a caricare la stessa pagina alla selezione del dominio, se modificata dall'elenco a discesa del menu di navigazione

@@ -1,3 +1,7 @@
+body_cputype1=$5、$8 核心
+settings_right_logos_title=主题徽标可在此轻松设置，适用于已认证和未认证的用户。建议徽标尺寸为 <em>180x90</em> 像素。
+settings_right_logos_error=上传的文件不是图片
+
 settings_right_hotkey_custom_options_description=自定义链接使您能够使用从 <code>1</code> 到 <code>9</code> 的数字来快速访问任何有效的面板 <code>URL。</code> <code>URL</code> 可以从当前打开的页面中提取出来。例如，要快速切换到 Apache 模块，请将 <code>apache</code> 设置为 <code>Custom link 1</code> 字段。如果默认修改键设置为 <code>Alt，</code> 单击 <code>Alt + 1</code>，将打开 Apache 模块。
 
 settings_right_reload=在选项卡开关上加载默认页面
@@ -21,6 +25,36 @@ theme_xhred_sysinfo_wmdocs=Webmin 文档
 theme_xhred_sysinfo_vmdocs=虚拟文档
 theme_xhred_sysinfo_cmdocs=Cloudmin 文档
 
+theme_xhred_filemanager_setting_permissions=将所选文件的权限设置为<tt>%value</tt> 。
+theme_xhred_filemanager_changing_ownership=将选定文件的所有权更改为<tt>%value</tt> 。
+theme_xhred_filemanager_bookmark_success=目录<tt>%value</tt>已成功添加到您的书签。
+theme_xhred_filemanager_searching=搜索与文件“/directories”的名称匹配的<tt>%value</tt> /directories.
+
+theme_xhred_filemanager_successful_directory_creation=目录<tt>%value</tt>已成功创建。
+theme_xhred_filemanager_successful_file_creation=文件<tt>%value</tt>已成功创建。
+
+theme_xhred_filemanager_unbookmark_success=目录<tt>%value</tt>已成功从您的书签中删除。
+
+theme_xhred_database_object_selected_delete2=删除选定的表
+theme_xhred_database_objects_selected_delete2=删除选定的表
+
+filemanager_create_object_exists=$3 <tt>$1</tt>已存在于<tt>$2</tt>中
+filemanager_create_object_denied=无法在<tt>$2</tt>中创建 $3 <tt>$1</tt> – 权限被拒绝： $4 。
+
+filemanager_rename_exists=名称为<tt>$1</tt> $3已在<tt>$2</tt>中存在
+
+theme_xhred_filemanager_successful_rename=将<tt>%from</tt>重命名为<tt>%to</tt>已成功。
+
+theme_xhred_filemanager_searching_matching=搜索与文件/directories, 的名称匹配的<tt>%value</tt> ，其中包含<tt>%text</tt>文本。
+theme_xhred_filemanager_searching_replacing=在名称包含<tt>%value</tt>的文件中，替换将<tt>%text</tt>与<tt>%replace</tt>匹配。
+
+theme_xhred_filemanager_successful_compression_bg=压缩已成功完成。压缩文件<tt>%file</tt>位于<tt>%path</tt>目录中。
+theme_xhred_filemanager_successful_compression_bg_with_errors=压缩已完成但出现错误。压缩文件<tt>%file</tt>应位于<tt>%path</tt>目录中。
+
+theme_xhred_filemanager_changing_attributes=将所选文件的属性设置为<tt>%value</tt> 。
+
+theme_xhred_filemanager_changing_secontext=将选定文件的安全上下文更改为<tt>%value</tt> 。
+
 #18.40
 settings_hotkey_toggle_key_night_mode=切换调色板
 
@@ -42,7 +76,7 @@ extensions_mail_flag_tls_none=加密状态未知
 
 theme_xhred_settings_right_theme_bgs=主题背景
 theme_xhred_settings_right_theme_bgs_title=主题背景
-settings_right_bgs_title=可以在此处设置登录页面的主题背景。唯一受支持的格式是<kbd>.png</kbd> ，以提供Alpha透明度。
+settings_right_bgs_title=可以在这里设置登录页面的主题背景。
 settings_right_bg_unauthenticated_users=未经身份验证的用户的背景
 settings_right_theme_left_background_title=主题背景控制
 
@@ -121,7 +155,7 @@ theme_xhred_shell_aborted=行动取消
 #19.32
 theme_xhred_connection_reboot=重新启动
 theme_xhred_connection_reboot_details=服务器正在重新启动。请稍候 ..
-settings_leftmenu_custom_links_description=可以将自定义的额外链接注入到导航菜单中。 <br><br>需要键<em>title</em>，<em>link</em>和<em>icon</em>； （可选）您可以通过指定<em>level</em>键，并在逗号分隔的列表中指定值，以定义在哪种登录模式下显示链接，该值包含：<br><br> <em>0</ em >-管理员登录； <br><em> 1 </em>-经销商登录；<br> <em>2</em>-服务器所有者登录； <br><em> 3 </em>-用户登录；<br> <em>4</em>-系统所有者登录。<br><br>这将要求您将有效的JSON对象作为字符串传递，如下例。<hr><pre> {"extra"：[{ "标题"："Google Mail"，"链接"："https://gmail.com/"，"icon"："google"，"级别"："0、1、2、3、4"}，{ "title"："BIND DNS服务器"，"link"："/bind8"，"icon"："服务器"}，{"title"："Usermin"，"link"："/"，"icon"："信封"，"端口"："20000"，"目标"："_ blank"}]} </pre>
+settings_leftmenu_custom_links_description=可以将自定义的额外链接注入导航菜单。<br><br>需要<em>title</em>、<em>link</em>和<em>icon</em>键；或者，您可以通过指定<em>level</em>键及其值（以逗号分隔的列表）来定义在哪种登录模式下显示链接，其中包含：<br><br> <em>0</em> - 管理员登录； <br><em>1</em> - 经销商登录;<br><em>2</em> - 服务器所有者登录;<br><em>3</em> - 用户登录;<br><em>4</em> - 系统所有者登录。<br><br>它将要求您将有效的 JSON 对象作为字符串传递，如下例所示。<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=编辑收藏夹
 left_favorites_edit_desc=该页面可用于手动编辑主题收藏夹用户文件。这应该谨慎进行，因为不会对您的更改执行语法或其他有效性检查。
 theme_xhred_filemanager_records_for_server_pagination=目录中用于启动服务器分页的默认项目数
@@ -248,10 +282,6 @@ theme_xhred_global_today=今天
 theme_xhred_global_tomorrow=明天
 theme_xhred_mail_composer_scheduled=在%2发送%1
 theme_global_core=核心
-settings_sysinfo_real_time_stored=启用统计记录
-settings_sysinfo_real_time_stored_description=如果启用，将存储以前收集的统计信息，并显示在仪表板上的图形中
-settings_sysinfo_real_time_stored_length=统计历史持续时间
-settings_sysinfo_real_time_stored_length_description=统计历史记录的存储时间
 theme_dashboard_accordion_live_stats=统计历史
 theme_xhred_live_stats_cpu=中央处理器
 theme_xhred_live_stats_mem=记忆
@@ -346,7 +376,7 @@ theme_xhred_connection_error_details_ssl=检查<a>自签名SSL证书</a>警告
 #19.71
 settings_sysinfo_hidden_panels_user=隐藏的手风琴
 theme_xhred_tooltip_dashboard_panels_disable=隐藏 $1面板
-theme_xhred_dashboard_panels_disabled_explain=可以使用主题配置页面重新启用隐藏面板。
+theme_xhred_dashboard_panels_disabled_explain=可以使用<tt>Theme Configuration: Dashboard and real-time monitoring</tt>页面重新启用隐藏面板。
 settings_right_sysinfo_page_options=仪表板和实时监控
 settings_right_navigation_menu_options=导航菜单
 settings_right_notification_slider_options=侧滑杆
@@ -368,10 +398,7 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=此功能要求在打开<t
 theme_xhred_global_module_preferences=模块首选项
 
 #19.74
-settings_sysinfo_real_time_status_forced=是的，强迫
-settings_sysinfo_real_time_status_forced_warn=不建议在强制模式下启用实时监视，因为即使浏览器选项卡未聚焦时也会执行后台收集，这可能会导致打开多个选项卡时服务器过载
 theme_xhred_theme_update_available=安装了新版本的Authentic Theme
-
 settings_right_page_keep=在域交换机上加载同一页面
 settings_right_page_keep_description=从导航菜单下拉列表中更改后，此选项将尝试在选择域时加载同一页面
 
@@ -574,3 +601,50 @@ theme_xhred_columns_layout_variation_cannot_horizontal=移动模式下不能使�
 settings_auto_open_panels_on_proximity=接近时自动打开关闭的面板
 
 theme_xhred_config_portable_module_xterm_render_addon=启用 WebGL 渲染插件
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=过滤和导出内容
+
+#21.10
+settings_hotkey_logout_dbl=登出
+theme_xhred_hotkey_emsg=反斜杠键不能用作热键
+settings_embed_product_splash_privileged=登录后显示品牌启动画面
+dashboard_status_running=跑步
+dashboard_status_stopped=已停止
+
+#21.11
+theme_xhred_global_watching=观看
+theme_xhred_global_connected=连接的
+theme_xhred_global_disconnected=断开连接
+theme_xhred_global_connecting=正在连接
+index_mods_missing=Perl 模块 <tt>$1</tt> 缺失。
+index_noadmin_eaccess=拒绝非主管理员访问！
+theme_xhred_body_os=操作系统
+theme_xhred_theme_version=正宗主题版本
+
+theme_xhred_body_updates=程序包更新
+
+# 21.20
+theme_xhred_hotkey_switch_theme=切换主题
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=上传成功
+theme_xhred_filemanager_upload_status_err=上传失败：
+theme_xhred_filemanager_download_status_err=下载失败：
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=读
+theme_xhred_dashboard_chart_disk_write=写
+theme_xhred_dashboard_chart_net_read=在
+theme_xhred_dashboard_chart_net_write=出去
+theme_xhred_tooltip_dashboard_live_stats_offline=在代理模式下访问系统时，无法获取实时统计数据；仅显示之前收集的统计数据（如果可用），并且需要重新加载页面才能更新这些统计数据
+settings_sysinfo_real_time_status_history1=是的，并存储统计数据
+settings_sysinfo_real_time_status_history2=是的，不存储统计数据
+settings_sysinfo_real_time_status_history_duration1=20 分钟
+settings_sysinfo_real_time_status_history_duration2=1 小时
+settings_sysinfo_real_time_status_history_duration3=3 小时
+settings_sysinfo_real_time_status_history_duration4=6 小时
+settings_sysinfo_real_time_status_history_duration5=12 小时
+settings_sysinfo_real_time_status_history_duration6=18 小时
+settings_sysinfo_real_time_status_history_duration7=24 小时
+theme_xhred_license_purchase=购买许可证

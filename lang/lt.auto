@@ -3,6 +3,7 @@ body_cpu=CPU apkrovos vidurkiai
 body_cpuinfo=Informacija apie procesorių
 body_cputemps=CPU temperatūra
 body_cputype=$5, $8 šerdys
+body_cputype1=$5, $8 branduolys
 body_disk=Vietinė disko vieta
 body_driveerr=$1 klaidų!
 body_drivefailed=SMART patikra nepavyko!
@@ -99,9 +100,10 @@ settings_right_extensions_title=Temos platus dizainas leidžia lengvai manipuliu
 
 theme_xhred_settings_right_theme_logos=Teminiai logotipai
 theme_xhred_settings_right_theme_logos_title=Teminiai logotipai
-settings_right_logos_title=Čia galite lengvai nustatyti temos logotipus tiek autentifikuotiems, tiek neautentifikuotiems vartotojams. Rekomenduojamas logotipo dydis yra <kbd>180x90</kbd> taškų, o vienintelis palaikomas formatas yra <kbd>.png</kbd>, kad būtų užtikrintas alfa skaidrumas.
+settings_right_logos_title=Čia galima lengvai nustatyti temų logotipus ir autentifikuotiems, ir neautentifikuotiems vartotojams. Rekomenduojamas logotipo dydis yra <em>180 x 90</em> pikselių.
 settings_right_logo_authenticated_users=Autentifikuotų vartotojų logotipas
 settings_right_logo_unauthenticated_users=Nepatvirtintų vartotojų logotipas
+settings_right_logos_error=Įkeltas failas nėra vaizdas
 
 settings_right_current_theme=Dabartinė tema
 settings_right_title=Šiame puslapyje galima sukonfigūruoti <a href="https://github.com/authentic-theme/authentic-theme" target="_blank">autentiškos temos</a> parinktis. Nustatymai bus išsaugoti atnaujinus temą.
@@ -208,15 +210,15 @@ theme_xhred_filemanager_renaming_selected=Pasirinkta pervardyti.
 theme_xhred_filemanager_creating_directory=Kuriamas katalogas
 theme_xhred_filemanager_creating_file=Kuriamas failas
 theme_xhred_filemanager_downloading_from=Atsisiunčiama iš
-theme_xhred_filemanager_setting_permissions=Leidimų <strong><em>%value</em></strong> nustatymas pasirinktame faile (-uose).
-theme_xhred_filemanager_changing_ownership=Pakeitus pasirinktos (-ų) failo (-ų) nuosavybės <strong><em>%value</em></strong> į <strong><em>%value</em></strong>.
+theme_xhred_filemanager_setting_permissions=Pasirinktame faile (-uose) nustatomi leidimai į <tt>%value</tt>.
+theme_xhred_filemanager_changing_ownership=Pasirinkto failo (-ų) nuosavybės teisės pakeitimas į <tt>%value</tt>.
 theme_xhred_filemanager_compressing_selected=Suspaudimas pasirinktas fone.
 theme_xhred_filemanager_refreshing=Atnaujinamas katalogų turinys.
 theme_xhred_filemanager_copying_successful=Kopijuoti į mainų sritį sėkmingai.
 theme_xhred_filemanager_cutting_successful=Iškirpti į mainų sritį sėkmingai.
 theme_xhred_filemanager_pasting_successful=Įklijavimas iš iškarpinės buvo sėkmingas.
-theme_xhred_filemanager_bookmark_success=<strong><em>%value</em></strong> Katalogo <strong><em>%value</em></strong> buvo sėkmingai pridėta prie jūsų žymių.
-theme_xhred_filemanager_searching=Ieškoma `<em>%value</em>` atitinkančios failų/katalogų pavadinimus.
+theme_xhred_filemanager_bookmark_success=Katalogas <tt>%value</tt> sėkmingai pridėtas prie jūsų žymių.
+theme_xhred_filemanager_searching=Ieškoma <tt>%value</tt> atitinkančių failų pavadinimų /directories.
 theme_xhred_filemanager_search_founds=Rasta atitikmenų <strong>%value</strong>.
 theme_xhred_filemanager_search_found=Rasta 1 atitikmens.
 theme_xhred_filemanager_search_no_matches=Nerasta atitikmenų.
@@ -234,8 +236,8 @@ theme_xhred_filemanager_successful_deletion=Ištrinti pavyko.
 theme_xhred_filemanager_successful_permissions=Leidimai buvo sėkmingai pakeisti.
 theme_xhred_filemanager_successful_ownership=Nuosavybė sėkmingai pakeista.
 theme_xhred_filemanager_successful_compression=Suspaudimas sėkmingai baigtas.
-theme_xhred_filemanager_successful_directory_creation=Katalogas `<strong>%value</strong>` buvo sėkmingai sukurta.
-theme_xhred_filemanager_successful_file_creation=Byla `<strong>%value</strong>` buvo sėkmingai sukurta.
+theme_xhred_filemanager_successful_directory_creation=Katalogas <tt>%value</tt> sėkmingai sukurtas.
+theme_xhred_filemanager_successful_file_creation=Failas <tt>%value</tt> sėkmingai sukurtas.
 
 theme_xhred_notifications_packages_updates=Paketų atnaujinimas
 theme_xhred_notifications_theme_update=Temos atnaujinimas
@@ -346,7 +348,7 @@ theme_xhred_global_warning=Įspėjimas
 theme_xhred_global_close=Uždaryti
 
 theme_xhred_filemanager__no_bookmarks=Nėra išsaugotų žymių
-theme_xhred_filemanager_unbookmark_success=<strong><em>%value</em></strong> Katalogo <strong><em>%value</em></strong> buvo sėkmingai pašalinta iš jūsų žymių.
+theme_xhred_filemanager_unbookmark_success=Katalogas <tt>%value</tt> sėkmingai pašalintas iš jūsų žymių.
 theme_xhred_filemanager_bookmark=Pažymėkite dabartinį katalogą
 theme_xhred_filemanager_unbookmark=Pašalinti dabartinio katalogo žymėjimą
 theme_xhred_filemanager_move_into_self=Negalite perkelti katalogo į save! Paskirties katalogas yra šaltinio kataloge.
@@ -399,6 +401,8 @@ theme_xhred_database_delete_selected_field=Ištrinti pasirinktą lauką
 theme_xhred_database_delete_selected_fields=Ištrinkite pasirinktus laukus
 theme_xhred_database_object_selected_delete=Ištrinti pasirinktą objektą
 theme_xhred_database_objects_selected_delete=Ištrinti pasirinktus objektus
+theme_xhred_database_object_selected_delete2=Nuleiskite pasirinktą lentelę
+theme_xhred_database_objects_selected_delete2=Išmeskite pasirinktas lenteles
 theme_xhred_database_db_selected_drop=Išmesti pasirinktą duomenų bazę
 theme_xhred_database_dbs_selected_drop=Išmeskite pasirinktas duomenų bazes
 theme_xhred_database_edit_but_not_saved=Lentelės duomenys buvo redaguoti, bet neišsaugoti.
@@ -426,17 +430,17 @@ theme_xhred_datatable_no_search_results=<span class="h5">Nerasta jokių rezultat
 
 theme_xhred_filemanager_buffer_error=Nepavyko įklijuoti failų į buferį - atsisakyta suteikti leidimą.
 
-filemanager_create_object_exists=$3 `<strong><em>$1</em></strong>` jau egzistuoja `<strong><tt>$2</tt></strong>`
-filemanager_create_object_denied=Neįmanoma sukurti $3 `<strong><em>$1</em></strong>` į `<strong><tt>$2</tt></strong>` - leidimas nesuteiktas : $4.
+filemanager_create_object_exists=$3 <tt>$1</tt> jau yra <tt>$2</tt>
+filemanager_create_object_denied=Negalima sukurti $3 <tt>$1</tt> <tt>$2</tt> - leidimas atmestas: $4.
 
 theme_xhred_filemanager_paste_warning=Nepavyko įklijuoti tikslo (-ų). Gali būti, kad prašomas (-i) objektas (-ai) galėjo būti <em>pervardyti, perkelti</em> arba <em>ištrinti</em>, kol/prieš įklijuodami. Kita galima priežastis yra ta, kad kelionės tikslo negalima rašyti. Verta patikrinti objektų atributus.
 
 theme_xhred_filemanager_delete_warning=Trinti sėkmingai baigta, bet ne visus objektus. Gali būti, kad prašomas (-i) objektas (-ai) galėjo būti <em>pervadintas</em> arba <em>perkeltas</em> prieš ištrinant. Riboti leidimai (atributai) yra dar viena galima priežastis. Klaidos pranešimas:
 
-filemanager_rename_exists=$3 su vardu `<strong><em>$1</em></strong>` jau egzistuoja `<strong><tt>$2</tt></strong>`
+filemanager_rename_exists=$3 pavadinimu <tt>$1</tt> jau yra <tt>$2</tt>
 filemanager_rename_denied=Neįmanoma pervardyti $3. Tai gali nutikti dėl to, kad šaltinis $3 buvo pašalintas arba dėl ribotų teisių.
 
-theme_xhred_filemanager_successful_rename=Pervadinimas `<strong><em><s>%from</s></em></strong>` į `<strong><em>%to</em></strong>` buvo sėkmingas.
+theme_xhred_filemanager_successful_rename=<tt>%from</tt> į <tt>%to</tt> buvo sėkmingas.
 
 filemanager_global_info_total1=Iš viso: $1 failas ir $2 katalogas
 filemanager_global_info_total2=Iš viso: $1 failai ir $2 katalogas
@@ -452,8 +456,8 @@ theme_xhred_filemanager_search_replace=Pakeiskite rezultatais
 theme_xhred_global_find=Rasti
 theme_xhred_global_replace=Pakeiskite
 
-theme_xhred_filemanager_searching_matching=Ieškoma `<em>%value</em>` atitinkančios failų/katalogų pavadinimus, kuriuose yra `<em>%text</em>` teksto.
-theme_xhred_filemanager_searching_replacing=Pakeitus atitikmenis `<em>%text</em>` `<em>%replace</em>` failais pavadinimais, kuriuose yra `<em>%value</em>`.
+theme_xhred_filemanager_searching_matching=Ieškoma <tt>%value</tt> atitinkančių failų pavadinimų /directories, kuriuose yra <tt>%text</tt>.
+theme_xhred_filemanager_searching_replacing=Keitimas atitinka <tt>%text</tt> su <tt>%replace</tt> failuose, kurių pavadinimai yra <tt>%value</tt>.
 
 theme_xhred_filemanager_search_replaced_multi=Rasta ir pakeista <strong>%value</strong> failais.
 theme_xhred_filemanager_search_replaced=Rasta ir pakeista <strong>1</strong> faile.
@@ -464,8 +468,8 @@ theme_xhred_filemanager_successful_ownership_with_errors=Visų objektų nuosavyb
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=Nuosavybės negalima pakeisti dėl šių klaidų:
 
 theme_xhred_filemanager_successful_compression_with_errors=Suspaudimas baigtas šiomis klaidomis:
-theme_xhred_filemanager_successful_compression_bg=Suspaudimas sėkmingai baigtas. Suspaustas failas `<strong>%file</strong>` yra `<strong>%path</strong>` kataloge.
-theme_xhred_filemanager_successful_compression_bg_with_errors=Suspaudimas baigėsi klaidomis. Suspaustas failas `<strong>%file</strong>` turėtų būti `<strong>%path</strong>` aplanke.
+theme_xhred_filemanager_successful_compression_bg=Suspaudimas sėkmingai baigtas. Suspaustas failas <tt>%file</tt> yra <tt>%path</tt> kataloge.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Suspaudimas baigtas su klaidomis. Suspaustas failas <tt>%file</tt> turi būti <tt>%path</tt> kataloge.
 
 theme_xhred_filemanager_settings_notification_type=Rodomų pranešimų tipas
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=Informacija, įspėjimai ir klaidos
@@ -526,12 +530,12 @@ settings_leftmenu_netdata=Rodyti „Netdata“ stebėjimo nuorodą realiu laiku
 settings_leftmenu_netdata_link=„Netdata“ serverio pasirinkta nuoroda
 
 theme_xhred_filemanager_context_chattr=Keisti atributus
-theme_xhred_filemanager_changing_attributes=Atributų nustatymas pagal pasirinktos (-ų) bylos (-ų) <strong><em>%value</em></strong>.
+theme_xhred_filemanager_changing_attributes=Pasirinktame faile (-iuose) nustatomi atributai į <tt>%value</tt>.
 theme_xhred_filemanager_successful_attributes_with_errors=Atributai nebuvo sėkmingai nustatyti visiems objektams:
 theme_xhred_filemanager_successful_attributes=Atributai buvo nustatyti sėkmingai.
 
 theme_xhred_filemanager_context_chcon=Pakeiskite saugos kontekstą
-theme_xhred_filemanager_changing_secontext=Saugos konteksto keitimas į pasirinktos (-ų) failo (-ų) <strong><em>%value</em></strong>.
+theme_xhred_filemanager_changing_secontext=Pasirinktame faile (-iuose) keičiamas saugos kontekstas į <tt>%value</tt>.
 theme_xhred_filemanager_successful_secontext_with_errors=Visų objektų saugos kontekstas nebuvo sėkmingai pakeistas:
 theme_xhred_filemanager_successful_secontext=Saugumo kontekstas buvo sėkmingai pakeistas.
 
@@ -749,8 +753,6 @@ theme_xhred_nice_size_GB=GB
 theme_xhred_nice_size_MB=MB
 theme_xhred_nice_size_kB=kB
 theme_xhred_nice_size_b=baitų
-settings_sysinfo_real_time_status_disk=Įgalinti diskus
-settings_sysinfo_real_time_status_disk_description=Gali būti naudinga išjungti lėtų/didelių failų sistemų diskų stebėjimą realiuoju laiku
 theme_xhred_title_locale_non_ui_config=Serverio sukurtas datos formatas
 
 #19.20
@@ -843,7 +845,7 @@ theme_xhred_mail_search_has_attach=Turi prisirišimą
 
 theme_xhred_settings_right_theme_bgs=Temos fonai
 theme_xhred_settings_right_theme_bgs_title=Temos fonai
-settings_right_bgs_title=Čia galite nustatyti prisijungimo puslapio teminį foną. Vienintelis palaikomas formatas yra <kbd>.png</kbd>, kad būtų užtikrintas alfa skaidrumas.
+settings_right_bgs_title=Čia galima nustatyti prisijungimo puslapio temos foną.
 settings_right_bg_unauthenticated_users=Nepatvirtintų vartotojų fonas
 settings_right_theme_left_background_title=Temos fono valdymas
 
@@ -922,7 +924,7 @@ theme_xhred_shell_aborted=Operacija nutraukta
 #19.32
 theme_xhred_connection_reboot=Perkrovimas
 theme_xhred_connection_reboot_details=Serveris perkraunamas. Prašau palauk ..
-settings_leftmenu_custom_links_description=Į naršymo meniu galima įtraukti pasirinktinių, papildomų nuorodų. Reikalingi klavišai <em>title</em>, <em>link</em> ir <em>piktograma</em>; pasirinktinai galite apibrėžti, kuriame prisijungimo režime bus rodoma nuoroda, nurodant <em>lygį</em> klavišą su vertėmis kableliais atskirtame sąraše, kuriame būtų: <br><br> <em>0</em> > - administratoriaus prisijungimas; <br><em> 1 </em>- prisijungimas perpardavėjui;<br> <em>2</em> - prisijungimas prie serverio savininko; <br><em> 3 </em>- vartotojo prisijungimas;<br> <em>4</em> - sistemos savininko prisijungimas. <br><br> Jums reikės perduoti galiojantį JSON objektą kaip eilutę, kaip parodyta žemiau pateiktame pavyzdyje. <hr><pre> {"extra": [{ "title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, { "title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": " vokas “,„ prievadas “:„ 20000 “,„ taikinys “:„ _blank “}]} </pre>
+settings_leftmenu_custom_links_description=Į naršymo meniu galima įvesti pasirinktines, papildomas nuorodas. <br><br> Reikalingi klavišai <em>pavadinimas</em>, <em>nuoroda</em> ir <em>piktograma</em>; pasirinktinai galite nustatyti, kuriuo prisijungimo režimu būtų rodoma nuoroda, nurodydami <em>lygio</em> klavišą su reikšmėmis kableliais atskirtame sąraše, kuriame yra: <br><br> <em>0</em > - administratoriaus prisijungimas; <br><em>1</em> – perpardavėjo prisijungimas;<br><em>2</em> – serverio savininko prisijungimas;<br><em>3</em> – vartotojo prisijungimas;<br><em>4</em>– sistemos savininko prisijungimas.<br><br> Reikės perduoti galiojantį JSON objektą kaip eilutę, kaip nurodyta toliau pateiktame pavyzdyje.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=Redaguoti parankines
 left_favorites_edit_desc=Šis puslapis gali būti naudojamas rankiniu būdu redaguoti temos parankinių vartotojo failą. Tai turėtų būti daroma atsargiai, nes pakeitimai nebus atliekami nei sintaksės, nei kitokio galiojimo patikrinimo.
 theme_xhred_filemanager_records_for_server_pagination=Numatytasis elementų skaičius kataloge, kad būtų galima inicijuoti serverį
@@ -1049,10 +1051,6 @@ theme_xhred_global_today=Šiandien
 theme_xhred_global_tomorrow=Rytoj
 theme_xhred_mail_composer_scheduled=Siųsti %1 %2
 theme_global_core=Core
-settings_sysinfo_real_time_stored=Įgalinti statistikos istoriją
-settings_sysinfo_real_time_stored_description=Jei įjungta, anksčiau surinkta statistika bus saugoma ir rodoma diagramoje informacijos suvestinėje
-settings_sysinfo_real_time_stored_length=Statistikos istorijos trukmė
-settings_sysinfo_real_time_stored_length_description=Laikas, per kurį saugoma statistikos istorija
 theme_dashboard_accordion_live_stats=Statistikos istorija
 theme_xhred_live_stats_cpu=Centrinis procesorius
 theme_xhred_live_stats_mem=Atmintis
@@ -1147,7 +1145,7 @@ theme_xhred_connection_error_details_ssl=Patikrinkite <a>savarankiškai pasiraš
 #19.71
 settings_sysinfo_hidden_panels_user=Paslėpti akordeonai
 theme_xhred_tooltip_dashboard_panels_disable=Slėpti skydą $1 
-theme_xhred_dashboard_panels_disabled_explain=Paslėptą skydą galima iš naujo įjungti naudojant temos konfigūracijos puslapį.
+theme_xhred_dashboard_panels_disabled_explain=Paslėptą skydelį galima iš naujo įjungti naudojant <tt>Theme Configuration: Dashboard and real-time monitoring</tt> puslapį.
 settings_right_sysinfo_page_options=Informacijos suvestinė ir stebėjimas realiuoju laiku
 settings_right_navigation_menu_options=Naršymo meniu
 settings_right_notification_slider_options=Šoninis slankiklis
@@ -1169,8 +1167,6 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=Šiai funkcijai reikia, ka
 theme_xhred_global_module_preferences=Modulio nuostatos
 
 #19.74
-settings_sysinfo_real_time_status_forced=Taip, priversti
-settings_sysinfo_real_time_status_forced_warn=Įjungti realaus laiko stebėjimą priverstiniu režimu nerekomenduojama, nes foninis rinkimas bus atliekamas net ir tada, kai naršyklės skirtukas nebus sutelktas, o tai gali sukelti serverio perkrovą atidarius kelis skirtukus
 theme_xhred_theme_update_available=Įdiegta nauja Autentiškos temos versija
 settings_right_page_keep=Įkelkite tą patį puslapį į domeno jungiklį
 settings_right_page_keep_description=Ši parinktis bandys įkelti tą patį puslapį pasirinkus domeną, kai jis bus pakeistas iš naršymo meniu išskleidžiamojo sąrašo
@@ -1374,3 +1370,49 @@ theme_xhred_columns_layout_variation_cannot_horizontal=Horizontalus išdėstymas
 settings_auto_open_panels_on_proximity=Automatiškai atidarykite uždaras plokštes arti
 
 theme_xhred_config_portable_module_xterm_render_addon=Įgalinti „WebGL“ atvaizdavimo priedą
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=Filtruokite ir eksportuokite turinį
+
+#21.10
+settings_hotkey_logout_dbl=Atsijungti
+theme_xhred_hotkey_emsg=Pasvirojo brūkšnio klavišo negalima naudoti kaip greitojo klavišo
+settings_embed_product_splash_privileged=Prisijungę parodykite prekės ženklo įjungimo ekraną
+dashboard_status_running=Bėgimas
+dashboard_status_stopped=Sustojo
+
+#21.11
+theme_xhred_global_watching=Žiūrint
+theme_xhred_global_connected=Prisijungta
+theme_xhred_global_disconnected=Atjungtas
+theme_xhred_global_connecting=Prisijungimas
+index_mods_missing=Trūksta Perl modulio <tt>$1</tt>.
+index_noadmin_eaccess=Ne pagrindiniams administratoriams prieiga uždrausta!
+theme_xhred_body_os=Operacinė sistema
+theme_xhred_theme_version=Autentiška temos versija
+theme_xhred_body_updates=Paketo atnaujinimai
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Perjungti temą
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Įkėlimas sėkmingas
+theme_xhred_filemanager_upload_status_err=Įkelti nepavyko:
+theme_xhred_filemanager_download_status_err=Atsisiuntimas nepavyko:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Skaityti
+theme_xhred_dashboard_chart_disk_write=Rašyti
+theme_xhred_dashboard_chart_net_read=Į
+theme_xhred_dashboard_chart_net_write=Išeina
+theme_xhred_tooltip_dashboard_live_stats_offline=Tiesioginė statistika nepasiekiama, kai sistema pasiekiama tarpinio serverio režimu; bus rodoma tik anksčiau surinkta statistika ir tik tada, jei ji yra, ir norint atnaujinti šią statistiką, puslapį reikės įkelti iš naujo
+settings_sysinfo_real_time_status_history1=Taip, ir saugokite statistiką
+settings_sysinfo_real_time_status_history2=Taip, nesaugodami statistikos
+settings_sysinfo_real_time_status_history_duration1=20 minučių
+settings_sysinfo_real_time_status_history_duration2=1 valanda
+settings_sysinfo_real_time_status_history_duration3=3 valandos
+settings_sysinfo_real_time_status_history_duration4=6 valandos
+settings_sysinfo_real_time_status_history_duration5=12 valandų
+settings_sysinfo_real_time_status_history_duration6=18 valandų
+settings_sysinfo_real_time_status_history_duration7=24 valandos
+theme_xhred_license_purchase=Įsigykite licenciją

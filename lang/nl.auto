@@ -1,3 +1,7 @@
+body_cputype1=$5, $8 kern
+settings_right_logos_title=Themalogo's kunnen hier eenvoudig worden ingesteld, voor zowel geverifieerde als niet-geverifieerde gebruikers. Het aanbevolen logoformaat is <em>180 x 90</em> pixels.
+settings_right_logos_error=Het geüploade bestand is geen afbeelding
+
 settings_right_hotkey_custom_options_description=Met aangepaste koppelingen kunt u cijfers van <code>1</code> tot <code>9</code> gebruiken om snel toegang te krijgen tot elke geldige paneel-<code>URL.</code> De <code>URL</code> code> kan worden geëxtraheerd uit de momenteel geopende pagina. Als u bijvoorbeeld snel wilt overschakelen naar de Apache-module, stelt u <code>apache</code> in op het veld <code>Aangepaste koppeling 1</code>. Als de standaard wijzigingstoets is ingesteld op <code>Alt,</code> zal klikken op <code>Alt + 1</code> uw Apache-module openen.
 settings_hotkey_custom_1_user=Aangepaste link <code>1</code>
 settings_hotkey_custom_2_user=Aangepaste link <code>2</code>
@@ -96,15 +100,15 @@ theme_xhred_filemanager_renaming_selected=Naam wijzigen geselecteerd.
 theme_xhred_filemanager_creating_directory=Directory maken
 theme_xhred_filemanager_creating_file=Bestand maken
 theme_xhred_filemanager_downloading_from=Downloaden van
-theme_xhred_filemanager_setting_permissions=Rechten instellen op <strong><em>%value</em></strong> voor geselecteerde bestand (en).
-theme_xhred_filemanager_changing_ownership=Eigendom wijzigen in <strong><em>%value</em></strong> voor geselecteerde bestand (en).
+theme_xhred_filemanager_setting_permissions=Machtigingen instellen op <tt>%value</tt> voor geselecteerde bestanden.
+theme_xhred_filemanager_changing_ownership=Eigendom wijzigen in <tt>%value</tt> voor geselecteerde bestand(en).
 theme_xhred_filemanager_compressing_selected=Comprimeren geselecteerd op de achtergrond.
 theme_xhred_filemanager_refreshing=Directoryinhoud vernieuwen.
 theme_xhred_filemanager_copying_successful=Kopiëren naar klembord geslaagd.
 theme_xhred_filemanager_cutting_successful=Knippen naar klembord geslaagd.
 theme_xhred_filemanager_pasting_successful=Plakken vanaf klembord is geslaagd.
-theme_xhred_filemanager_bookmark_success=De <strong><em>%value</em></strong> Directory <strong><em>%value</em></strong> is met succes toegevoegd aan uw bladwijzers.
-theme_xhred_filemanager_searching=Zoeken naar `<em>%value</em>` overeenkomende namen van bestanden/mappen.
+theme_xhred_filemanager_bookmark_success=Directory <tt>%value</tt> is succesvol toegevoegd aan uw bladwijzers.
+theme_xhred_filemanager_searching=Zoeken naar <tt>%value</tt> overeenkomende namen van bestanden /directories.
 theme_xhred_filemanager_search_founds=<strong>%value</strong> Waardeovereenkomsten gevonden.
 theme_xhred_filemanager_search_found=<Sterke>1</strong> overeenkomst gevonden.
 theme_xhred_filemanager_search_no_matches=Geen overeenkomsten gevonden.
@@ -122,8 +126,8 @@ theme_xhred_filemanager_successful_deletion=Verwijderen is gelukt.
 theme_xhred_filemanager_successful_permissions=Rechten zijn succesvol gewijzigd.
 theme_xhred_filemanager_successful_ownership=Eigendom is succesvol gewijzigd.
 theme_xhred_filemanager_successful_compression=De compressie is succesvol beëindigd.
-theme_xhred_filemanager_successful_directory_creation=Directory `<strong>%value</strong>` is met succes gemaakt.
-theme_xhred_filemanager_successful_file_creation=het dossier `<strong>%value</strong>` is met succes gemaakt.
+theme_xhred_filemanager_successful_directory_creation=Directory <tt>%value</tt> is succesvol aangemaakt.
+theme_xhred_filemanager_successful_file_creation=Bestand <tt>%value</tt> is succesvol aangemaakt.
 
 theme_xhred_notifications_packages_updates=Pakketten bijwerken
 theme_xhred_notifications_theme_update=Thema-update
@@ -234,7 +238,7 @@ theme_xhred_global_warning=Waarschuwing
 theme_xhred_global_close=Dichtbij
 
 theme_xhred_filemanager__no_bookmarks=Geen opgeslagen bladwijzers
-theme_xhred_filemanager_unbookmark_success=De <strong><em>%value</em></strong> Directory <strong><em>%value</em></strong> is met succes verwijderd uit uw bladwijzers.
+theme_xhred_filemanager_unbookmark_success=Directory <tt>%value</tt> is succesvol verwijderd uit uw bladwijzers.
 theme_xhred_filemanager_bookmark=Maak een bladwijzer van de huidige directory
 theme_xhred_filemanager_unbookmark=Maak een bladwijzer voor de huidige map
 theme_xhred_filemanager_move_into_self=U kunt een directory niet naar zichzelf verplaatsen! De bestemmingsmap bevindt zich in de bronmap.
@@ -287,6 +291,8 @@ theme_xhred_database_delete_selected_field=Verwijder geselecteerd veld
 theme_xhred_database_delete_selected_fields=Verwijder geselecteerde velden
 theme_xhred_database_object_selected_delete=Verwijder geselecteerd object
 theme_xhred_database_objects_selected_delete=Verwijder geselecteerde objecten
+theme_xhred_database_object_selected_delete2=Geselecteerde tabel verwijderen
+theme_xhred_database_objects_selected_delete2=Geselecteerde tabellen verwijderen
 theme_xhred_database_db_selected_drop=Zet geselecteerde database neer
 theme_xhred_database_dbs_selected_drop=Zet geselecteerde databases neer
 theme_xhred_database_edit_but_not_saved=Tabelgegevens zijn bewerkt maar niet opgeslagen.
@@ -314,17 +320,17 @@ theme_xhred_datatable_no_search_results=<span class="h5">Geen resultaten gevonde
 
 theme_xhred_filemanager_buffer_error=Kan bestanden niet in de buffer plakken - toestemming geweigerd.
 
-filemanager_create_object_exists=$3 `<strong><em>$1</em></strong>` bestaat al in `<strong><tt>$2</tt></strong>`
-filemanager_create_object_denied=Kan $3 niet maken `<strong><em>$1</em></strong>` in `<strong><tt>$2</tt></strong>` - toestemming geweigerd : $4.
+filemanager_create_object_exists=$3 <tt>$1</tt> bestaat al in <tt>$2</tt>
+filemanager_create_object_denied=Kan $3 <tt>$1</tt> niet maken in <tt>$2</tt> - toestemming geweigerd: $4.
 
 theme_xhred_filemanager_paste_warning=Kan doel (en) niet plakken. Het is mogelijk dat het/de gevraagde object (en) tijdens/voor het plakken <em>hernoemd, verplaatst</em> of <em>verwijderd</em> zijn. Een andere mogelijke oorzaak is dat de bestemming niet beschrijfbaar is. Het is de moeite waard om de kenmerken van objecten te controleren.
 
 theme_xhred_filemanager_delete_warning=Het verwijderen is voltooid, maar niet voor alle objecten. Het is mogelijk dat het/de gevraagde object (en) vóór verwijdering is <em>hernoemd</em> of <em>verplaatst</em>. Beperkte rechten (attributen) is een andere mogelijke oorzaak. Foutmelding:
 
-filemanager_rename_exists=$3 met naam `<strong><em>$1</em></strong>` bestaat al in `<strong><tt>$2</tt></strong>`
+filemanager_rename_exists=$3 met naam <tt>$1</tt> bestaat al in <tt>$2</tt>
 filemanager_rename_denied=Kan $3 niet hernoemen. Dit kan gebeuren omdat de bron $3 is verwijderd of vanwege beperkte rechten.
 
-theme_xhred_filemanager_successful_rename=Hernoemen `<strong><em><s>%from</s></em></strong>` naar `<strong><em>%to</em></strong>` was succesvol.
+theme_xhred_filemanager_successful_rename=Het hernoemen <tt>%from</tt> naar <tt>%to</tt> is gelukt.
 
 filemanager_global_info_total1=Totaal: $1 -bestand en $2 -directory
 filemanager_global_info_total2=Totaal: $1 -bestanden en $2 -directory
@@ -340,8 +346,8 @@ theme_xhred_filemanager_search_replace=Vervang in resultaten
 theme_xhred_global_find=Vind
 theme_xhred_global_replace=Vervangen
 
-theme_xhred_filemanager_searching_matching=Zoeken naar `<em>%value</em>` overeenkomende namen van bestanden/mappen, die `<em>%text</em>` bevatten.
-theme_xhred_filemanager_searching_replacing=Vervangen komt overeen met `<em>%text</em>` door `<em>%replace</em>` in bestanden met namen die `<em>%value</em>`.
+theme_xhred_filemanager_searching_matching=Zoeken naar <tt>%value</tt> overeenkomende namen van bestanden /directories, <tt>%text</tt> tekst bevatten.
+theme_xhred_filemanager_searching_replacing=Vervangen komt overeen <tt>%text</tt> door <tt>%replace</tt> in bestanden met namen <tt>%value</tt> bevatten.
 
 theme_xhred_filemanager_search_replaced_multi=Gevonden en vervangen in <strong>%value</strong> -waardebestanden.
 theme_xhred_filemanager_search_replaced=Gevonden en vervangen in <strong>1</strong> -bestand.
@@ -352,8 +358,8 @@ theme_xhred_filemanager_successful_ownership_with_errors=Eigendom is niet met su
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=Eigendom kan niet worden gewijzigd vanwege de volgende fouten:
 
 theme_xhred_filemanager_successful_compression_with_errors=De compressie is beëindigd met de volgende fouten:
-theme_xhred_filemanager_successful_compression_bg=De compressie is succesvol beëindigd. Het gecomprimeerde bestand `<strong>%file</strong>` bevindt zich in de map `<strong>%path</strong>`.
-theme_xhred_filemanager_successful_compression_bg_with_errors=De compressie is beëindigd met fouten. Het gecomprimeerde bestand `<strong>%file</strong>` moet zich in de map `<strong>%path</strong>`.
+theme_xhred_filemanager_successful_compression_bg=De compressie is met succes voltooid. Gecomprimeerd bestand <tt>%file</tt> bevindt zich in de map <tt>%path</tt>.
+theme_xhred_filemanager_successful_compression_bg_with_errors=De compressie is geëindigd met fouten. Het gecomprimeerde bestand <tt>%file</tt> moet zich in de map <tt>%path</tt> bevinden.
 
 theme_xhred_filemanager_settings_notification_type=Type meldingen om weer te geven
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=Informatie, waarschuwingen en fouten
@@ -414,12 +420,12 @@ settings_leftmenu_netdata=Toon realtime monitoringlink van Netdata
 settings_leftmenu_netdata_link=Netdata-server voorkeur link
 
 theme_xhred_filemanager_context_chattr=Verander attributen
-theme_xhred_filemanager_changing_attributes=Attributen instellen op <strong><em>%value</em></strong> op geselecteerde bestand (en).
+theme_xhred_filemanager_changing_attributes=Attributen instellen op <tt>%value</tt> voor geselecteerde bestanden.
 theme_xhred_filemanager_successful_attributes_with_errors=Attributen zijn niet voor alle objecten succesvol ingesteld:
 theme_xhred_filemanager_successful_attributes=Attributen zijn succesvol ingesteld.
 
 theme_xhred_filemanager_context_chcon=Wijzig de beveiligingscontext
-theme_xhred_filemanager_changing_secontext=Beveiligingscontext wijzigen in <strong><em>%value</em></strong> op geselecteerde bestand (en).
+theme_xhred_filemanager_changing_secontext=Beveiligingscontext wijzigen in <tt>%value</tt> voor geselecteerde bestanden.
 theme_xhred_filemanager_successful_secontext_with_errors=De beveiligingscontext is niet voor alle objecten met succes gewijzigd:
 theme_xhred_filemanager_successful_secontext=De beveiligingscontext is met succes gewijzigd.
 
@@ -636,8 +642,6 @@ theme_xhred_nice_size_GB=GB
 theme_xhred_nice_size_MB=MB
 theme_xhred_nice_size_kB=kB
 theme_xhred_nice_size_b=bytes
-settings_sysinfo_real_time_status_disk=Inschakelen voor schijven
-settings_sysinfo_real_time_status_disk_description=Het kan handig zijn om realtime monitoring uit te schakelen voor schijven op langzame/grote bestandssystemen
 theme_xhred_title_locale_non_ui_config=Door de server gegenereerd datumnotatie
 
 #19.20
@@ -730,7 +734,7 @@ theme_xhred_mail_search_has_attach=Heeft bijlage
 
 theme_xhred_settings_right_theme_bgs=Thema-achtergronden
 theme_xhred_settings_right_theme_bgs_title=Thema Achtergronden
-settings_right_bgs_title=Thema-achtergrond voor inlogpagina kan hier worden ingesteld. Het enige ondersteunde formaat is <kbd>.png</kbd> om <kbd>.png</kbd> te bieden.
+settings_right_bgs_title=De thema-achtergrond voor de inlogpagina kan hier worden ingesteld.
 settings_right_bg_unauthenticated_users=Achtergrond voor niet-geverifieerde gebruikers
 settings_right_theme_left_background_title=Thema Achtergrondcontrole
 
@@ -809,7 +813,7 @@ theme_xhred_shell_aborted=Operatie afgebroken
 #19.32
 theme_xhred_connection_reboot=Opnieuw opstarten
 theme_xhred_connection_reboot_details=De server wordt opnieuw opgestart. Wacht alsjeblieft ..
-settings_leftmenu_custom_links_description=Het is mogelijk om aangepaste, extra links in het navigatiemenu te laten injecteren. <br><br> De sleutels <em>titel</em>, <em>link</em> en <em>pictogram</em> zijn vereist; optioneel kunt u definiëren in welke aanmeldingsmodus een link wordt weergegeven, door de sleutel <em>level</em> met waarden op te geven in een door komma's gescheiden lijst, die het volgende bevat: <br><br> <em>0</ em > - login beheerder; <br><em> 1 </em>- reseller login;<br> <em>2</em> - login servereigenaar; <br><em> 3 </em>- login gebruiker;<br> <em>4</em> - login systeemeigenaar. <br><br> Je moet een geldig JSON-object doorgeven als een string, zoals in het onderstaande voorbeeld. <hr><pre> {"extra": [{ "title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, { "title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": " envelop "," poort ":" 20000 "," target ":" _blank "}]} </pre>
+settings_leftmenu_custom_links_description=Het is mogelijk om aangepaste, extra links in het navigatiemenu te laten injecteren. <br><br> De sleutels <em>titel</em>, <em>link</em> en <em>pictogram</em> zijn vereist; optioneel kunt u definiëren in welke inlogmodus een link wordt weergegeven door de sleutel <em>niveau</em> op te geven, met waarden, in een door komma's gescheiden lijst, met daarin: <br><br> <em>0</em > - beheerder inloggen; <br><em>1</em> - login van reseller;<br><em>2</em> - login van servereigenaar;<br><em>3</em> - login van gebruiker;<br><em>4</em>- inloggen systeemeigenaar.<br><br> Hiervoor moet u een geldig JSON-object doorgeven als een tekenreeks, zoals in het onderstaande voorbeeld.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=Favorieten aanpassen
 left_favorites_edit_desc=Deze pagina kan worden gebruikt om het gebruikersbestand van thema-favorieten handmatig te bewerken. Dit moet zorgvuldig worden gedaan, aangezien er geen syntaxis of andere validiteitscontrole wordt uitgevoerd op uw wijzigingen.
 theme_xhred_filemanager_records_for_server_pagination=Standaardaantal items in de directory om paginering van de server te starten
@@ -936,10 +940,6 @@ theme_xhred_global_today=Vandaag
 theme_xhred_global_tomorrow=Morgen
 theme_xhred_mail_composer_scheduled=Stuur %1 naar %2
 theme_global_core=Kern
-settings_sysinfo_real_time_stored=Statistiekengeschiedenis inschakelen
-settings_sysinfo_real_time_stored_description=Indien ingeschakeld, worden eerder verzamelde statistieken opgeslagen en weergegeven in een grafiek op het dashboard
-settings_sysinfo_real_time_stored_length=Statistieken geschiedenis duur
-settings_sysinfo_real_time_stored_length_description=De tijd gedurende welke de geschiedenis van statistieken wordt opgeslagen
 theme_dashboard_accordion_live_stats=Statistieken Geschiedenis
 theme_xhred_live_stats_cpu=processor
 theme_xhred_live_stats_mem=Geheugen
@@ -1034,7 +1034,7 @@ theme_xhred_connection_error_details_ssl=Controleer de waarschuwing <a>zelfonder
 #19.71
 settings_sysinfo_hidden_panels_user=Verborgen accordeons
 theme_xhred_tooltip_dashboard_panels_disable=Verberg $1 paneel
-theme_xhred_dashboard_panels_disabled_explain=Verborgen paneel kan opnieuw worden ingeschakeld met behulp van de themaconfiguratiepagina.
+theme_xhred_dashboard_panels_disabled_explain=Het verborgen paneel kan opnieuw worden ingeschakeld met behulp van <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
 settings_right_sysinfo_page_options=Dashboard en realtime monitoring
 settings_right_navigation_menu_options=Navigatie menu
 settings_right_notification_slider_options=Schuifregelaar aan de zijkant
@@ -1056,8 +1056,6 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=Deze functie vereist dat h
 theme_xhred_global_module_preferences=Module voorkeuren
 
 #19.74
-settings_sysinfo_real_time_status_forced=Ja, gedwongen
-settings_sysinfo_real_time_status_forced_warn=Het inschakelen van realtime monitoring in de force-modus wordt afgeraden omdat het verzamelen op de achtergrond wordt uitgevoerd, zelfs als het browsertabblad niet is gefocust, waardoor de server mogelijk overbelast raakt met meerdere geopende tabbladen
 theme_xhred_theme_update_available=Er is een nieuwe versie van Authentic Theme geïnstalleerd
 settings_right_page_keep=Laad dezelfde pagina op de domeinschakelaar
 settings_right_page_keep_description=Deze optie zal proberen om dezelfde pagina te laden bij het selecteren van een domein, indien gewijzigd in de vervolgkeuzelijst van het navigatiemenu
@@ -1261,3 +1259,49 @@ theme_xhred_columns_layout_variation_cannot_horizontal=Horizontale lay-out kan n
 settings_auto_open_panels_on_proximity=Open automatisch gesloten panelen bij nabijheid
 
 theme_xhred_config_portable_module_xterm_render_addon=Schakel de WebGL-rendering-add-on in
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=Filter en exporteer inhoud
+
+#21.10
+settings_hotkey_logout_dbl=Uitloggen
+theme_xhred_hotkey_emsg=De backslash-toets kan niet als sneltoets worden gebruikt
+settings_embed_product_splash_privileged=Geef na het inloggen een branding-splash-scherm weer
+dashboard_status_running=Rennen
+dashboard_status_stopped=Gestopt
+
+#21.11
+theme_xhred_global_watching=Aan het kijken
+theme_xhred_global_connected=Verbonden
+theme_xhred_global_disconnected=Losgekoppeld
+theme_xhred_global_connecting=Verbinden
+index_mods_missing=De Perl-module <tt>$1</tt> ontbreekt.
+index_noadmin_eaccess=Toegang geweigerd aan niet-masterbeheerders!
+theme_xhred_body_os=Besturingssysteem
+theme_xhred_theme_version=Authentieke themaversie
+theme_xhred_body_updates=Pakketupdates
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Van thema wisselen
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=succesvol geupload
+theme_xhred_filemanager_upload_status_err=Upload mislukt:
+theme_xhred_filemanager_download_status_err=Download mislukt:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Lezen
+theme_xhred_dashboard_chart_disk_write=Schrijven
+theme_xhred_dashboard_chart_net_read=In
+theme_xhred_dashboard_chart_net_write=Uit
+theme_xhred_tooltip_dashboard_live_stats_offline=Live statistieken zijn niet beschikbaar wanneer het systeem in proxy-modus wordt benaderd; alleen eerder verzamelde statistieken worden weergegeven, en alleen als ze beschikbaar zijn, en de pagina moet opnieuw worden geladen om deze statistieken bij te werken
+settings_sysinfo_real_time_status_history1=Ja, en statistieken opslaan voor
+settings_sysinfo_real_time_status_history2=Ja, zonder statistieken op te slaan
+settings_sysinfo_real_time_status_history_duration1=20 minuten
+settings_sysinfo_real_time_status_history_duration2=1 uur
+settings_sysinfo_real_time_status_history_duration3=3 uur
+settings_sysinfo_real_time_status_history_duration4=6 uur
+settings_sysinfo_real_time_status_history_duration5=12 uur
+settings_sysinfo_real_time_status_history_duration6=18 uur
+settings_sysinfo_real_time_status_history_duration7=24 uur
+theme_xhred_license_purchase=Koop een licentie

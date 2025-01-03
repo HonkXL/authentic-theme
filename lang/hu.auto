@@ -3,6 +3,7 @@ body_cpu=CPU terhelés átlagai
 body_cpuinfo=Processzor információk
 body_cputemps=CPU hőmérsékletek
 body_cputype=$5, $8 magok
+body_cputype1=$5, $8 mag
 body_disk=Helyi lemezterület
 body_driveerr=$1 hibák!
 body_drivefailed=A SMART ellenőrzés sikertelen!
@@ -99,9 +100,10 @@ settings_right_extensions_title=A téma széles körű kialakítása lehetővé 
 
 theme_xhred_settings_right_theme_logos=Téma logók
 theme_xhred_settings_right_theme_logos_title=Téma logók
-settings_right_logos_title=A témalogók itt könnyen beállíthatók, mind a hitelesített, mind a nem hitelesített felhasználók számára. Az ajánlott logó mérete <kbd>180x90</kbd> pixel, az egyetlen támogatott formátum a <kbd>.png</kbd>, az alfa-átlátszóság biztosítása érdekében.
+settings_right_logos_title=Itt könnyen beállíthatóak a témalogók, hitelesített és nem hitelesített felhasználók számára egyaránt. Az ajánlott logóméret <em>180x90</em> képpont.
 settings_right_logo_authenticated_users=Logó a hitelesített felhasználók számára
 settings_right_logo_unauthenticated_users=Logó nem hitelesített felhasználók számára
+settings_right_logos_error=A feltöltött fájl nem kép
 
 settings_right_current_theme=Aktuális téma
 settings_right_title=Ezen az oldalon konfigurálhatja a <a href="https://github.com/authentic-theme/authentic-theme" target="_blank">Hiteles téma</a> beállításait. A beállításokat a téma frissítésekor tárolják.
@@ -208,15 +210,15 @@ theme_xhred_filemanager_renaming_selected=Átnevezés kiválasztva.
 theme_xhred_filemanager_creating_directory=Könyvtár létrehozása
 theme_xhred_filemanager_creating_file=Fájl létrehozása
 theme_xhred_filemanager_downloading_from=Letöltés a
-theme_xhred_filemanager_setting_permissions=Az engedélyek <strong><em>%value</em></strong> a kiválasztott fájlokon.
-theme_xhred_filemanager_changing_ownership=Tulajdonságok megváltoztatása <strong><em>%value</em></strong> a kiválasztott fájlokon.
+theme_xhred_filemanager_setting_permissions=Engedélyek beállítása <tt>%value</tt> -ra a kiválasztott fájl(ok)on.
+theme_xhred_filemanager_changing_ownership=A kiválasztott fájl(ok) tulajdonjogának módosítása <tt>%value</tt> értékre.
 theme_xhred_filemanager_compressing_selected=A háttérben kiválasztott tömörítés.
 theme_xhred_filemanager_refreshing=A könyvtár tartalmának frissítése.
 theme_xhred_filemanager_copying_successful=Másolás a vágólapra sikeres.
 theme_xhred_filemanager_cutting_successful=A vágólapra vágás sikeres.
 theme_xhred_filemanager_pasting_successful=A vágólapra való beillesztés sikeres volt.
-theme_xhred_filemanager_bookmark_success=A könyvtár <strong><em>%value</em></strong> sikeresen hozzáadtuk a könyvjelzőkhöz.
-theme_xhred_filemanager_searching=`<em>%value</em>` Értékű fájlok/könyvtárak nevének keresése.
+theme_xhred_filemanager_bookmark_success=<tt>%value</tt> könyvtár sikeresen hozzáadva a könyvjelzőihez.
+theme_xhred_filemanager_searching=/directories. fájlok <tt>%value</tt> megfelelő nevének keresése.
 theme_xhred_filemanager_search_founds=Talált <strong>%value</strong> egyezés.
 theme_xhred_filemanager_search_found=Talált <strong> egyezés.
 theme_xhred_filemanager_search_no_matches=Nincs találat.
@@ -234,8 +236,8 @@ theme_xhred_filemanager_successful_deletion=A törlés sikeres volt.
 theme_xhred_filemanager_successful_permissions=Az engedélyek sikeresen megváltoztak.
 theme_xhred_filemanager_successful_ownership=A tulajdonos sikeresen megváltozott.
 theme_xhred_filemanager_successful_compression=A tömörítés sikeresen befejeződött.
-theme_xhred_filemanager_successful_directory_creation=Könyvtár `<strong>%value</strong>` sikeresen létrejött.
-theme_xhred_filemanager_successful_file_creation=fájl `<strong>%value</strong>` sikeresen létrejött.
+theme_xhred_filemanager_successful_directory_creation=A <tt>%value</tt> könyvtár sikeresen létrejött.
+theme_xhred_filemanager_successful_file_creation=A(z <tt>%value</tt> fájl sikeresen létrejött.
 
 theme_xhred_notifications_packages_updates=Csomagok frissítése
 theme_xhred_notifications_theme_update=Témafrissítés
@@ -346,7 +348,7 @@ theme_xhred_global_warning=Figyelem
 theme_xhred_global_close=Bezárás
 
 theme_xhred_filemanager__no_bookmarks=Nincs mentett könyvjelző
-theme_xhred_filemanager_unbookmark_success=A könyvtár <strong><em>%value</em></strong> sikeresen eltávolítottuk a könyvjelzőkből.
+theme_xhred_filemanager_unbookmark_success=<tt>%value</tt> könyvtárat sikeresen eltávolítottuk a könyvjelzők közül.
 theme_xhred_filemanager_bookmark=Jelölje meg az aktuális könyvtárat könyvjelzővel
 theme_xhred_filemanager_unbookmark=Törölje az aktuális könyvtár könyvjelzőjét
 theme_xhred_filemanager_move_into_self=Nem helyezhet át egy könyvtárat magába! A cél könyvtár a forrás könyvtárban található.
@@ -399,6 +401,8 @@ theme_xhred_database_delete_selected_field=Törölje a kijelölt mezőt
 theme_xhred_database_delete_selected_fields=Törölje a kijelölt mezőket
 theme_xhred_database_object_selected_delete=Törölje a kijelölt objektumot
 theme_xhred_database_objects_selected_delete=Törölje a kijelölt objektumokat
+theme_xhred_database_object_selected_delete2=A kiválasztott táblázat eldobása
+theme_xhred_database_objects_selected_delete2=Dobja el a kiválasztott táblázatokat
 theme_xhred_database_db_selected_drop=A kijelölt adatbázis eldobása
 theme_xhred_database_dbs_selected_drop=A kijelölt adatbázisok eldobása
 theme_xhred_database_edit_but_not_saved=A táblázat adatait szerkesztettük, de nem mentettük.
@@ -426,17 +430,17 @@ theme_xhred_datatable_no_search_results=<span class="h5">Nincs találat</span> <
 
 theme_xhred_filemanager_buffer_error=A fájlok beillesztése a pufferbe nem sikerült - az engedély megtagadva.
 
-filemanager_create_object_exists=$3 `<strong><em>$1</em></strong>` már létezik a `<strong><tt>$2</tt></strong>`
-filemanager_create_object_denied=Nem lehet $3 létrehozni `<strong><em>$1</em></strong>` ban ben `<strong><tt>$2</tt></strong>` - hozzáférés megtagadva : $4.
+filemanager_create_object_exists=$3 <tt>$1</tt> már létezik a <tt>$2</tt> ben
+filemanager_create_object_denied=Nem hozható létre $3 <tt>$1</tt> a <tt>$2</tt> -ben - engedély megtagadva: $4.
 
 theme_xhred_filemanager_paste_warning=Nem sikerült beilleszteni a célokat. Lehetséges, hogy a kért objektum (oka) t beillesztés előtt/átnevezése, áthelyezése </em>vagy<em> törlése </em> lehetett. Egy másik lehetséges ok az, hogy a rendeltetési hely nem írható. Érdemes ellenőrizni az objektumok attribútumait.
 
 theme_xhred_filemanager_delete_warning=A törlés sikeresen befejeződött, de nem minden objektum esetében. Lehetséges, hogy a kért objektum (oka) t törlés előtt át lehetne nevezni </em>vagy<em> áthelyezni </em>. A korlátozott engedélyek (attribútumok) egy másik lehetséges oka. Hiba üzenet:
 
-filemanager_rename_exists=$3 névvel `<strong><em>$1</em></strong>` már létezik a `<strong><tt>$2</tt></strong>`
+filemanager_rename_exists=$3 névvel <tt>$1</tt> már létezik a <tt>$2</tt>
 filemanager_rename_denied=Nem lehet átnevezni a $3. Ez azért fordulhat elő, mert az $3 forrást eltávolították, vagy korlátozott engedélyek miatt.
 
-theme_xhred_filemanager_successful_rename=átnevezése `<strong><em><s>%from</s></em></strong>` nak nek `<strong><em>%to</em></strong>` sikeres volt.
+theme_xhred_filemanager_successful_rename=<tt>%from</tt> <tt>%to</tt> -ra sikeres volt.
 
 filemanager_global_info_total1=Összesen: $1 fájl és $2 könyvtár
 filemanager_global_info_total2=Összesen: $1 fájlok és $2 könyvtárak
@@ -452,8 +456,8 @@ theme_xhred_filemanager_search_replace=Cserélje ki az eredményeket
 theme_xhred_global_find=megtalálja
 theme_xhred_global_replace=Cserélje
 
-theme_xhred_filemanager_searching_matching=`<em>%value</em>` keresése a `<em>%text</em>` tartalmazó fájlok/könyvtárak nevével.
-theme_xhred_filemanager_searching_replacing=A (z) `<em>%text</em>` `<em>%replace</em>` a `<em>%text</em>` `<em>%replace</em>` a `<em>%value</em>` tartalmazó fájlokban.
+theme_xhred_filemanager_searching_matching=<tt>%text</tt> szöveget tartalmazó /directories, fájlok <tt>%value</tt> -egyező nevének keresése.
+theme_xhred_filemanager_searching_replacing=<tt>%text</tt> lecserélése <tt>%replace</tt> re egyezik <tt>%value</tt> tartalmazó fájlokban.
 
 theme_xhred_filemanager_search_replaced_multi=Megtalálva és cserélve <strong>%value</strong> fájlokban.
 theme_xhred_filemanager_search_replaced=Találták és lecserélték az <strong>1</strong> fájlba.
@@ -464,8 +468,8 @@ theme_xhred_filemanager_successful_ownership_with_errors=Az összes objektum tul
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=A tulajdonos nem változtatható meg a következő hibák miatt:
 
 theme_xhred_filemanager_successful_compression_with_errors=A tömörítés a következő hibákkal fejeződött be:
-theme_xhred_filemanager_successful_compression_bg=A tömörítés sikeresen befejeződött. A tömörített fájl `<strong>%file</strong>` a `<strong>%path</strong>` könyvtárban található.
-theme_xhred_filemanager_successful_compression_bg_with_errors=A tömörítés hibákkal fejeződött be. Tömörített fájl `<strong>%file</strong>` kell elhelyezni `<strong>%path</strong>` könyvtárba.
+theme_xhred_filemanager_successful_compression_bg=A tömörítés sikeresen befejeződött. A tömörített fájl <tt>%file</tt> a <tt>%path</tt> könyvtárban található.
+theme_xhred_filemanager_successful_compression_bg_with_errors=A tömörítés hibákkal fejeződött be. A tömörített fájlnak <tt>%file</tt> <tt>%path</tt> könyvtárban kell lennie.
 
 theme_xhred_filemanager_settings_notification_type=A megjelenítendő értesítések típusa
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=Információk, figyelmeztetések és hibák
@@ -526,12 +530,12 @@ settings_leftmenu_netdata=Mutassa a Netdata valósidejű figyelő linket
 settings_leftmenu_netdata_link=A Netdata szerver által preferált link
 
 theme_xhred_filemanager_context_chattr=Tulajdonságok módosítása
-theme_xhred_filemanager_changing_attributes=Az attribútumok <strong><em>%value</em></strong> a kiválasztott fájlokon.
+theme_xhred_filemanager_changing_attributes=Attribútumok beállítása <tt>%value</tt> -ra a kiválasztott fájl(ok)on.
 theme_xhred_filemanager_successful_attributes_with_errors=Az attribútumokat nem sikerült minden objektumhoz beállítani:
 theme_xhred_filemanager_successful_attributes=Az attribútumok sikeresen lettek beállítva.
 
 theme_xhred_filemanager_context_chcon=A biztonsági környezet megváltoztatása
-theme_xhred_filemanager_changing_secontext=A biztonsági környezet megváltoztatása a kiválasztott fájl (ok) <strong><em>%value</em></strong>.
+theme_xhred_filemanager_changing_secontext=A kiválasztott fájl(ok) biztonsági környezetének módosítása <tt>%value</tt> értékre.
 theme_xhred_filemanager_successful_secontext_with_errors=A biztonsági kontextust nem sikerült megváltoztatni az összes objektum esetében:
 theme_xhred_filemanager_successful_secontext=A biztonsági környezet sikeresen megváltozott.
 
@@ -749,8 +753,6 @@ theme_xhred_nice_size_GB=GB
 theme_xhred_nice_size_MB=MB
 theme_xhred_nice_size_kB=kB
 theme_xhred_nice_size_b=bájt
-settings_sysinfo_real_time_status_disk=Engedélyezze a lemezeket
-settings_sysinfo_real_time_status_disk_description=Hasznos lehet letiltani a valós idejű megfigyelést a lassú/nagy fájlrendszerek lemezein
 theme_xhred_title_locale_non_ui_config=Szerver által generált dátumformátum
 
 #19.20
@@ -843,7 +845,7 @@ theme_xhred_mail_search_has_attach=Melléklete van
 
 theme_xhred_settings_right_theme_bgs=Téma háttérrel
 theme_xhred_settings_right_theme_bgs_title=Téma hátterek
-settings_right_bgs_title=A bejelentkezési oldal témájának háttere itt állítható be. Az egyetlen támogatott formátum a <kbd>.png</kbd>, az alfa-átláthatóság biztosítása érdekében.
+settings_right_bgs_title=Itt állítható be a bejelentkezési oldal témája.
 settings_right_bg_unauthenticated_users=Háttér nem hitelesített felhasználók számára
 settings_right_theme_left_background_title=Téma háttérvezérlés
 
@@ -922,7 +924,7 @@ theme_xhred_shell_aborted=A művelet megszakítva
 #19.32
 theme_xhred_connection_reboot=újraindítása
 theme_xhred_connection_reboot_details=A szerver újraindul. Kérlek várj ..
-settings_leftmenu_custom_links_description=A navigációs menübe egyéni extra linkeket lehet beinjektálni. <em>cím</em>, <em>link</em> és az <em>ikon</em> gombok szükségesek; opcionálisan meghatározhatja, hogy melyik bejelentkezési módban jelenjen meg egy link, az <em>szint</em> gomb megadásával, az értékekkel, vesszővel elválasztott listában, amely tartalmazza: <br><br> <em>0</em> > - rendszergazdai bejelentkezés; <br><em> 1 </em>- viszonteladó bejelentkezése;<br> <em>2</em> - szerver tulajdonosa bejelentkezés; <br><em> 3 </em>- felhasználói bejelentkezés;<br> <em>4</em> - a rendszertulajdonos bejelentkezése. <br><br> Ehhez az érvényes példához hasonlóan érvényes JSON-objektumot kell megadnia karakterlánccal. <hr><pre> {"extra": [{ "title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, { "title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": " boríték "," port ":" 20000 "," cél ":" _blank "}]} </pre>
+settings_leftmenu_custom_links_description=Lehetőség van egyedi, extra hivatkozások beszúrására a navigációs menübe. <br><br> A <em>title</em>, <em>link</em> és az <em>icon</em> gombok kötelezőek; opcionálisan megadhatja, hogy a hivatkozás melyik bejelentkezési módban jelenjen meg a <em>level</em> kulcs értékekkel történő megadásával, vesszővel tagolt listában, amely tartalmazza: <br><br> <em>0</em> > - rendszergazda bejelentkezés; <br><em>1</em> - viszonteladói bejelentkezés;<br><em>2</em> - szervertulajdonosi bejelentkezés;<br><em>3</em> - felhasználói bejelentkezés;<br><em>4</em>– rendszertulajdonosi bejelentkezés.<br><br> Ehhez érvényes JSON-objektumot kell átadnia karakterláncként, ahogy az alábbi példában is látható.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=Kedvencek szerkesztése
 left_favorites_edit_desc=Ez az oldal a téma kedvenc felhasználói fájljának kézi szerkesztésére használható. Ezt óvatosan kell elvégezni, mivel a változtatásokra nem kerül sor szintaxis vagy más érvényesség-ellenőrzés.
 theme_xhred_filemanager_records_for_server_pagination=A könyvtár elemeinek alapértelmezett száma a kiszolgáló oldalának elindításához
@@ -1049,10 +1051,6 @@ theme_xhred_global_today=Ma
 theme_xhred_global_tomorrow=Holnap
 theme_xhred_mail_composer_scheduled=Küldje el a (z) %1 fájlt a %2
 theme_global_core=Mag
-settings_sysinfo_real_time_stored=A statisztikák előzményeinek engedélyezése
-settings_sysinfo_real_time_stored_description=Ha engedélyezve van, a korábban összegyűjtött statisztikák tárolódnak, és egy grafikonon jelennek meg az irányítópulton
-settings_sysinfo_real_time_stored_length=Az előzmények időtartamát mutatja
-settings_sysinfo_real_time_stored_length_description=Az az idő, amely alatt a statisztikák előzményeit tárolják
 theme_dashboard_accordion_live_stats=Statisztika története
 theme_xhred_live_stats_cpu=CPU
 theme_xhred_live_stats_mem=memória
@@ -1147,7 +1145,7 @@ theme_xhred_connection_error_details_ssl=Ellenőrizze az <a>önaláírt SSL tan�
 #19.71
 settings_sysinfo_hidden_panels_user=Rejtett harmonikák
 theme_xhred_tooltip_dashboard_panels_disable=$1 panel elrejtése
-theme_xhred_dashboard_panels_disabled_explain=A rejtett panel újból engedélyezhető a téma konfigurációs oldalán.
+theme_xhred_dashboard_panels_disabled_explain=A rejtett panel újra engedélyezhető <tt>Theme Configuration: Dashboard and real-time monitoring</tt> oldal segítségével.
 settings_right_sysinfo_page_options=Irányítópult és valós idejű figyelés
 settings_right_navigation_menu_options=Navigációs menü
 settings_right_notification_slider_options=Oldalsó csúszka
@@ -1169,8 +1167,6 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=Ehhez a funkcióhoz a fáj
 theme_xhred_global_module_preferences=A modul beállításai
 
 #19.74
-settings_sysinfo_real_time_status_forced=Igen, kénytelen
-settings_sysinfo_real_time_status_forced_warn=A valós idejű felügyelet bekapcsolása kényszerített módban nem ajánlott, mert a háttérgyűjtést akkor is elvégezzük, ha a böngésző lap nincs fókuszálva, ami a szerver túlterhelését okozhatja, ha több fül van megnyitva
 theme_xhred_theme_update_available=A Hiteles téma új verziója telepítve van
 settings_right_page_keep=Töltse be ugyanazt az oldalt a tartományváltóra
 settings_right_page_keep_description=Ez az opció megpróbálja ugyanazt az oldalt betölteni a tartomány kiválasztásakor, amikor megváltoztatja a navigációs menü legördülő listájából
@@ -1374,3 +1370,49 @@ theme_xhred_columns_layout_variation_cannot_horizontal=A vízszintes elrendezés
 settings_auto_open_panels_on_proximity=A zárt panelek automatikus nyitása a közelben
 
 theme_xhred_config_portable_module_xterm_render_addon=WebGL-megjelenítési bővítmény engedélyezése
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=Tartalom szűrése és exportálása
+
+#21.10
+settings_hotkey_logout_dbl=Kijelentkezés
+theme_xhred_hotkey_emsg=A fordított perjel billentyű nem használható gyorsbillentyűként
+settings_embed_product_splash_privileged=A bejelentkezést követően jelenítsen meg egy márkaépítési indítóképernyőt
+dashboard_status_running=Futás
+dashboard_status_stopped=Megállt
+
+#21.11
+theme_xhred_global_watching=Nézni
+theme_xhred_global_connected=csatlakoztatva
+theme_xhred_global_disconnected=Szétkapcsolt
+theme_xhred_global_connecting=Csatlakozás
+index_mods_missing=Hiányzik a <tt>$1</tt> Perl modul.
+index_noadmin_eaccess=A nem főadminisztrátorok hozzáférése megtagadva!
+theme_xhred_body_os=Operációs rendszer
+theme_xhred_theme_version=Hiteles téma verzió
+theme_xhred_body_updates=Csomagfrissítések
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Téma váltása
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Feltöltés sikeres
+theme_xhred_filemanager_upload_status_err=Feltöltés sikertelen:
+theme_xhred_filemanager_download_status_err=Sikertelen letöltés:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Olvas
+theme_xhred_dashboard_chart_disk_write=Írj
+theme_xhred_dashboard_chart_net_read=In
+theme_xhred_dashboard_chart_net_write=Ki
+theme_xhred_tooltip_dashboard_live_stats_offline=Az élő statisztikák nem érhetők el, ha a rendszerhez proxy módban fér hozzá; csak a korábban összegyűjtött statisztikák jelennek meg, és csak akkor, ha elérhetők, és az oldalt újra be kell tölteni a statisztikák frissítéséhez
+settings_sysinfo_real_time_status_history1=Igen, és tárolja a statisztikát
+settings_sysinfo_real_time_status_history2=Igen, statisztikák tárolása nélkül
+settings_sysinfo_real_time_status_history_duration1=20 perc
+settings_sysinfo_real_time_status_history_duration2=1 óra
+settings_sysinfo_real_time_status_history_duration3=3 óra
+settings_sysinfo_real_time_status_history_duration4=6 óra
+settings_sysinfo_real_time_status_history_duration5=12 óra
+settings_sysinfo_real_time_status_history_duration6=18 óra
+settings_sysinfo_real_time_status_history_duration7=24 óra
+theme_xhred_license_purchase=Vásároljon licencet

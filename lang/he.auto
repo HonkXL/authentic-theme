@@ -3,6 +3,7 @@ body_cpu=ממוצעי עומס מעבד
 body_cpuinfo=מידע על מעבד
 body_cputemps=טמפרטורות מעבד
 body_cputype=5 ליבות, $8
+body_cputype1=$5, $8 ליבה
 body_disk=שטח דיסק מקומי
 body_driveerr=שגיאות של $1!
 body_drivefailed=הסימון החכם נכשל!
@@ -99,9 +100,10 @@ settings_right_extensions_title=עיצוב נרחב בנושא, מאפשר לך 
 
 theme_xhred_settings_right_theme_logos=סמלי נושא
 theme_xhred_settings_right_theme_logos_title=סמלי נושא
-settings_right_logos_title=ניתן להגדיר כאן לוגו של ערכות נושא, למשתמשים מאומתים וגם לא מאומתים. גודל הלוגו המומלץ הוא <kbd>180x90</kbd> פיקסלים והפורמט הנתמך היחיד הוא <kbd>.png</kbd>, בכדי לספק שקיפות אלפא.
+settings_right_logos_title=ניתן להגדיר כאן בקלות סמלי לוגו של ערכת נושא, הן עבור משתמשים מאומתים והן עבור משתמשים לא מאומתים. גודל הלוגו המומלץ הוא <em>180x90</em> פיקסלים.
 settings_right_logo_authenticated_users=לוגו למשתמשים מאומתים
 settings_right_logo_unauthenticated_users=לוגו למשתמשים לא מאומתים
+settings_right_logos_error=הקובץ שהועלה אינו תמונה
 
 settings_right_current_theme=נושא נוכחי
 settings_right_title=דף זה מאפשר לך להגדיר אפשרויות עבור <a href="https://github.com/authentic-theme/authentic-theme" target="_blank">נושא אותנטי</a>. ההגדרות יישמרו בעדכון הנושא.
@@ -208,15 +210,15 @@ theme_xhred_filemanager_renaming_selected=שינוי שם נבחר.
 theme_xhred_filemanager_creating_directory=יוצר ספרייה
 theme_xhred_filemanager_creating_file=יוצר קובץ
 theme_xhred_filemanager_downloading_from=מוריד מ-
-theme_xhred_filemanager_setting_permissions=הגדרת הרשאות <strong><em>%value</em></strong> בקבצים שנבחרו.
-theme_xhred_filemanager_changing_ownership=שינוי בעלות <strong><em>%value</em></strong> בקבצים שנבחרו.
+theme_xhred_filemanager_setting_permissions=הגדרת הרשאות ל- <tt>%value</tt> בקבצים שנבחרו.
+theme_xhred_filemanager_changing_ownership=שינוי בעלות ל- <tt>%value</tt> בקבצים שנבחרו.
 theme_xhred_filemanager_compressing_selected=דחיסה שנבחרה ברקע.
 theme_xhred_filemanager_refreshing=מרענן תוכן ספרייה.
 theme_xhred_filemanager_copying_successful=ההעתקה ללוח הצליחה.
 theme_xhred_filemanager_cutting_successful=הגזירה ללוח מוצלחת.
 theme_xhred_filemanager_pasting_successful=הדבק מהלוח היה מוצלח.
-theme_xhred_filemanager_bookmark_success=<strong><em>%value</em></strong> מדריך התווסף לסימניות שלך.
-theme_xhred_filemanager_searching=מחפש `<em>%value</em>` תואם שמות של קבצים/ספריות.
+theme_xhred_filemanager_bookmark_success=ספריה <tt>%value</tt> נוספה בהצלחה לסימניות שלך.
+theme_xhred_filemanager_searching=מחפש שמות תואמים של <tt>%value</tt> של קבצים /directories.
 theme_xhred_filemanager_search_founds=נמצאו התאמות <strong>%value</strong>.
 theme_xhred_filemanager_search_found=נמצא <חזקה>1</strong> התאמה.
 theme_xhred_filemanager_search_no_matches=אין תוצאות מתאימות.
@@ -234,8 +236,8 @@ theme_xhred_filemanager_successful_deletion=המחיקה הצליחה.
 theme_xhred_filemanager_successful_permissions=ההרשאות שונו בהצלחה.
 theme_xhred_filemanager_successful_ownership=הבעלות השתנתה בהצלחה.
 theme_xhred_filemanager_successful_compression=הדחיסה הסתיימה בהצלחה.
-theme_xhred_filemanager_successful_directory_creation=מדריך `<strong>%value</strong>` נוצר בהצלחה.
-theme_xhred_filemanager_successful_file_creation=קובץ `<strong>%value</strong>` נוצר בהצלחה.
+theme_xhred_filemanager_successful_directory_creation=הספרייה <tt>%value</tt> נוצרה בהצלחה.
+theme_xhred_filemanager_successful_file_creation=הקובץ <tt>%value</tt> נוצר בהצלחה.
 
 theme_xhred_notifications_packages_updates=עדכון חבילות
 theme_xhred_notifications_theme_update=עדכון נושא
@@ -346,7 +348,7 @@ theme_xhred_global_warning=אזהרה
 theme_xhred_global_close=סגור
 
 theme_xhred_filemanager__no_bookmarks=אין סימניות שמורות
-theme_xhred_filemanager_unbookmark_success=<strong><em>%value</em></strong> מדריך הספריות הוסר בהצלחה מהסימניות שלך.
+theme_xhred_filemanager_unbookmark_success=הספרייה <tt>%value</tt> הוסרה בהצלחה מהסימניות שלך.
 theme_xhred_filemanager_bookmark=הוסף סימניה לספרייה הנוכחית
 theme_xhred_filemanager_unbookmark=בטל את סימון הספריה הנוכחית
 theme_xhred_filemanager_move_into_self=אינך יכול להעביר ספרייה לעצמה! ספריית היעד נמצאת בתוך ספריית המקור.
@@ -399,6 +401,8 @@ theme_xhred_database_delete_selected_field=מחק שדה שנבחר
 theme_xhred_database_delete_selected_fields=מחק שדות שנבחרו
 theme_xhred_database_object_selected_delete=מחק את האובייקט שנבחר
 theme_xhred_database_objects_selected_delete=מחק אובייקטים שנבחרו
+theme_xhred_database_object_selected_delete2=שחרר את הטבלה שנבחרה
+theme_xhred_database_objects_selected_delete2=שחרר את הטבלאות שנבחרו
 theme_xhred_database_db_selected_drop=שחרר את מסד הנתונים שנבחר
 theme_xhred_database_dbs_selected_drop=זרוק מסדי נתונים שנבחרו
 theme_xhred_database_edit_but_not_saved=נתוני הטבלה נערכו אך לא נשמרו.
@@ -426,17 +430,17 @@ theme_xhred_datatable_no_search_results=<span class="h5">לא נמצאו תוצ�
 
 theme_xhred_filemanager_buffer_error=הדבקת קבצים במאגר נכשלה - ההרשאה נדחתה.
 
-filemanager_create_object_exists=$3 `<strong><em>$1</em></strong>` קיים כבר ב `<strong><tt>$2</tt></strong>`
-filemanager_create_object_denied=לא ניתן ליצור $3 `<strong><em>$1</em></strong>` בתוך `<strong><tt>$2</tt></strong>` - ההרשאה נדחתה : $4.
+filemanager_create_object_exists=$3 <tt>$1</tt> כבר קיים ב- <tt>$2</tt>
+filemanager_create_object_denied=לא ניתן ליצור $3 <tt>$1</tt> ב- <tt>$2</tt> - הרשאה נדחתה: $4.
 
 theme_xhred_filemanager_paste_warning=הדבקת יעדים נכשלים. יתכן שניתן היה לשנות את שם האובייקטים המבוקשים, להזיזם </em>או<em> </em> בזמן/לפני ההדבקה. סיבה אפשרית נוספת היא שיעד אינו ניתן לכתיבה. כדאי לבדוק את תכונות האובייקטים.
 
 theme_xhred_filemanager_delete_warning=המחיקה הסתיימה בהצלחה אך לא עבור כל האובייקטים. יתכן כי האובייקטים / ים המבוקשים היו יכולים להיות <em>שינוי שם</em> או <em></em> לפני המחיקה. הרשאות מוגבלות (תכונות) הן סיבה אפשרית נוספת. הודעת שגיאה:
 
-filemanager_rename_exists=$3 עם שם `<strong><em>$1</em></strong>` קיים כבר ב `<strong><tt>$2</tt></strong>`
+filemanager_rename_exists=$3 עם השם <tt>$1</tt> כבר קיים ב- <tt>$2</tt>
 filemanager_rename_denied=לא ניתן לשנות את שם ה- $3. זה עשוי לקרות מכיוון שהמקור $3 הוסר או בגלל הרשאות מוגבלות.
 
-theme_xhred_filemanager_successful_rename=שינוי שם `<strong><em><s>%from</s></em></strong>` ל `<strong><em>%to</em></strong>` היה מוצלח.
+theme_xhred_filemanager_successful_rename=שינוי השם <tt>%from</tt> ל- <tt>%to</tt> הצליח.
 
 filemanager_global_info_total1=סה"כ: קובץ $1 וספריית $2
 filemanager_global_info_total2=סה"כ: $1 קבצים וספריית $2
@@ -452,8 +456,8 @@ theme_xhred_filemanager_search_replace=החלף בתוצאות
 theme_xhred_global_find=למצוא
 theme_xhred_global_replace=החלף
 
-theme_xhred_filemanager_searching_matching=מחפש `<em>%value</em>` תואם שמות של קבצים/ספריות, המכיל `<em>%text</em>` טקסט.
-theme_xhred_filemanager_searching_replacing=החלפת התאמות `<em>%text</em>` עם `<em>%replace</em>` בקבצים עם שמות המכילים `<em>%value</em>`.
+theme_xhred_filemanager_searching_matching=מחפש שמות תואמים של <tt>%value</tt> של קבצים /directories, המכילים <tt>%text</tt> טקסט.
+theme_xhred_filemanager_searching_replacing=החלפת התאמות <tt>%text</tt> ב- <tt>%replace</tt> בקבצים עם שמות המכילים <tt>%value</tt>.
 
 theme_xhred_filemanager_search_replaced_multi=נמצא והחלף בקבצי <strong>%value</strong>.
 theme_xhred_filemanager_search_replaced=נמצא והוחלף בקובץ <strong>1</strong>.
@@ -464,8 +468,8 @@ theme_xhred_filemanager_successful_ownership_with_errors=הבעלות לא הש�
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=לא ניתן לשנות בעלות בגלל השגיאות הבאות:
 
 theme_xhred_filemanager_successful_compression_with_errors=הדחיסה סיימה עם השגיאות הבאות:
-theme_xhred_filemanager_successful_compression_bg=הדחיסה הסתיימה בהצלחה. קובץ `<strong>%file</strong>` נמצא בספריית `<strong>%path</strong>`.
-theme_xhred_filemanager_successful_compression_bg_with_errors=הדחיסה הסתיימה בשגיאות. קובץ דחוס `<strong>%file</strong>` צריך להיות ממוקם בספריית `<strong>%path</strong>`.
+theme_xhred_filemanager_successful_compression_bg=הדחיסה הסתיימה בהצלחה. הקובץ הדחוס <tt>%file</tt> נמצא בספריית <tt>%path</tt>.
+theme_xhred_filemanager_successful_compression_bg_with_errors=הדחיסה הסתיימה עם שגיאות. הקובץ הדחוס <tt>%file</tt> צריך להיות ממוקם בספריית <tt>%path</tt>.
 
 theme_xhred_filemanager_settings_notification_type=סוג ההתראות להצגה
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=ידיעות, אזהרות ושגיאות
@@ -526,12 +530,12 @@ settings_leftmenu_netdata=הצג קישור ניטור בזמן אמת בזמן 
 settings_leftmenu_netdata_link=קישור מועדף על שרת Netdata
 
 theme_xhred_filemanager_context_chattr=שנה תכונות
-theme_xhred_filemanager_changing_attributes=הגדרת תכונות <strong><em>%value</em></strong> בקבצים שנבחרו.
+theme_xhred_filemanager_changing_attributes=הגדרת תכונות ל- <tt>%value</tt> בקבצים שנבחרו.
 theme_xhred_filemanager_successful_attributes_with_errors=תכונות לא הוגדרו בהצלחה לכל האובייקטים:
 theme_xhred_filemanager_successful_attributes=התכונות הוגדרו בהצלחה.
 
 theme_xhred_filemanager_context_chcon=שנה את הקשר האבטחה
-theme_xhred_filemanager_changing_secontext=שינוי הקשר האבטחה <strong><em>%value</em></strong> בקבצים שנבחרו.
+theme_xhred_filemanager_changing_secontext=שינוי הקשר האבטחה ל- <tt>%value</tt> בקבצים שנבחרו.
 theme_xhred_filemanager_successful_secontext_with_errors=הקשר האבטחה לא השתנה בהצלחה עבור כל האובייקטים:
 theme_xhred_filemanager_successful_secontext=הקשר האבטחה השתנה בהצלחה.
 
@@ -749,8 +753,6 @@ theme_xhred_nice_size_GB=GB
 theme_xhred_nice_size_MB=תואר שני
 theme_xhred_nice_size_kB=kB
 theme_xhred_nice_size_b=בתים
-settings_sysinfo_real_time_status_disk=אפשר לדיסקים
-settings_sysinfo_real_time_status_disk_description=יכול להיות שימושי להשבית ניטור בזמן אמת עבור דיסקים במערכות קבצים איטיות/גדולות
 theme_xhred_title_locale_non_ui_config=פורמט תאריך שנוצר על ידי שרת
 
 #19.20
@@ -843,7 +845,7 @@ theme_xhred_mail_search_has_attach=יש קובץ מצורף
 
 theme_xhred_settings_right_theme_bgs=רקע נושא
 theme_xhred_settings_right_theme_bgs_title=רקע נושא
-settings_right_bgs_title=ניתן לקבוע כאן נושא נושא לדף הכניסה. הפורמט היחיד הנתמך הוא <kbd>.png</kbd>, כדי לספק שקיפות אלפא.
+settings_right_bgs_title=ניתן להגדיר רקע ערכת נושא לדף הכניסה כאן.
 settings_right_bg_unauthenticated_users=רקע למשתמשים לא מאומתים
 settings_right_theme_left_background_title=בקרת רקע נושא
 
@@ -922,7 +924,7 @@ theme_xhred_shell_aborted=הפעולה בוטלה
 #19.32
 theme_xhred_connection_reboot=אתחול מחדש
 theme_xhred_connection_reboot_details=אתחול השרת מחדש. המתן בבקשה ..
-settings_leftmenu_custom_links_description=אפשר להכניס קישורים מותאמים אישית ותוספת לתפריט הניווט. <br><br> המקשים <em>כותרת</em>, <em>קישור</em> ו <em>סמל</em> נדרשים; לחלופין, באפשרותך להגדיר באיזה מצב כניסה יוצג קישור, על ידי ציון מקש <em>רמה</em> עם ערכים ברשימה מופרדת בפסיקים, המכיל: <br><br> <em>0</em> > - כניסה למנהל; <br><em> 1 </em>- כניסה למפיצים;<br> <em>2</em> - התחברות לבעלי שרת; <br><em> 3 </em>- כניסה למשתמש;<br> <em>4</em> - כניסה לבעלי מערכת. <br><br> זה ידרוש ממך להעביר אובייקט חוקי JSON כמחרוזת, כמו בדוגמה למטה. <hr><pre> {"extra": [{ "title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, { "title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": " מעטפה "," port ":" 20000 "," target ":" _blank "}]} </pre>
+settings_leftmenu_custom_links_description=אפשר להחדיר קישורים נוספים בהתאמה אישית לתפריט הניווט. <br><br> המקשים <em>כותרת</em>, <em>קישור</em> ו<em>סמל</em> נדרשים; לחלופין, אתה יכול להגדיר באיזה מצב התחברות קישור יוצג, על ידי ציון מפתח <em>רמה</em>, עם ערכים, ברשימה מופרדת בפסיק, המכילה: <br><br> <em>0</em > - התחברות של מנהל מערכת; <br><em>1</em> - התחברות למפיץ;<br><em>2</em> - התחברות של בעל השרת;<br><em>3</em> - התחברות משתמש;<br><em>4</em>- התחברות של בעלי מערכת.<br><br> זה ידרוש ממך להעביר אובייקט JSON חוקי כמחרוזת, כמו בדוגמה למטה.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=ערוך מועדפים
 left_favorites_edit_desc=ניתן להשתמש בדף זה לעריכה ידנית של קובץ המשתמש המועדפים על נושא. יש לעשות זאת בזהירות, מכיוון שלא יבוצע שום תחביר או בדיקת תוקף אחרת על השינויים שלך.
 theme_xhred_filemanager_records_for_server_pagination=מספר ברירת המחדל של הפריטים בספרייה כדי להתחיל עימוד שרתים
@@ -1049,10 +1051,6 @@ theme_xhred_global_today=היום
 theme_xhred_global_tomorrow=מחר
 theme_xhred_mail_composer_scheduled=שלח %1 ב- %2
 theme_global_core=הליבה
-settings_sysinfo_real_time_stored=אפשר היסטוריית סטטיסטיקות
-settings_sysinfo_real_time_stored_description=אם זה פעיל, הנתונים הסטטיסטיים שנאספו בעבר יאוחסנו ויוצגו בתרשים בלוח המחוונים
-settings_sysinfo_real_time_stored_length=משך היסטוריית הנתונים הסטטיסטיים
-settings_sysinfo_real_time_stored_length_description=הזמן בו נשמרת היסטוריית הסטטיסטיקה
 theme_dashboard_accordion_live_stats=היסטוריית נתונים סטטיסטיים
 theme_xhred_live_stats_cpu=מעבד
 theme_xhred_live_stats_mem=זיכרון
@@ -1147,7 +1145,7 @@ theme_xhred_connection_error_details_ssl=בדוק אזהרת <a>אישור SSL �
 #19.71
 settings_sysinfo_hidden_panels_user=אקורדיונים נסתרים
 theme_xhred_tooltip_dashboard_panels_disable=הסתר את החלונית $1 
-theme_xhred_dashboard_panels_disabled_explain=ניתן להפעיל מחדש את החלונית הנסתרת באמצעות דף תצורת העיצוב.
+theme_xhred_dashboard_panels_disabled_explain=ניתן להפעיל מחדש פאנל מוסתר באמצעות <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
 settings_right_sysinfo_page_options=לוח מחוונים וניטור בזמן אמת
 settings_right_navigation_menu_options=תפריט ניווט
 settings_right_notification_slider_options=מחוון צד
@@ -1169,8 +1167,6 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=תכונה זו מחייב
 theme_xhred_global_module_preferences=העדפות מודול
 
 #19.74
-settings_sysinfo_real_time_status_forced=כן, מאולץ
-settings_sysinfo_real_time_status_forced_warn=הפעלת ניטור בזמן אמת במצב כוח מתייאשת מכיוון שאיסוף הרקע יבוצע גם כאשר כרטיסיית הדפדפן אינה ממוקדת, ועלולה לגרום לעומס יתר בשרת עם כרטיסיות מרובות שנפתחות
 theme_xhred_theme_update_available=מותקנת גרסה חדשה של Theme Authentic
 settings_right_page_keep=טען את אותו הדף במתג הדומיין
 settings_right_page_keep_description=אפשרות זו תנסה לטעון את אותו הדף לאחר בחירת הדומיין, כאשר תשונה מהרשימה הנפתחת של תפריט הניווט
@@ -1374,3 +1370,49 @@ theme_xhred_columns_layout_variation_cannot_horizontal=לא ניתן להשתמ�
 settings_auto_open_panels_on_proximity=פתיחה אוטומטית של פאנלים סגורים בקירבה
 
 theme_xhred_config_portable_module_xterm_render_addon=הפעל תוסף עיבוד WebGL
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=סינון ויצוא תוכן
+
+#21.10
+settings_hotkey_logout_dbl=להתנתק
+theme_xhred_hotkey_emsg=לא ניתן להשתמש במקש הנטוי האחורי כמקש קיצור
+settings_embed_product_splash_privileged=הצג מסך פתיחה של מיתוג לאחר הכניסה
+dashboard_status_running=רץ
+dashboard_status_stopped=עצר
+
+#21.11
+theme_xhred_global_watching=צופה
+theme_xhred_global_connected=מְחוּבָּר
+theme_xhred_global_disconnected=מְנוּתָק
+theme_xhred_global_connecting=מְקַשֵׁר
+index_mods_missing=מודול Perl <tt>$1</tt> חסר.
+index_noadmin_eaccess=הגישה נדחתה למנהלים שאינם מנהלי מערכת!
+theme_xhred_body_os=מערכת הפעלה
+theme_xhred_theme_version=גרסת נושא אותנטית
+theme_xhred_body_updates=עדכוני חבילה
+
+# 21.20
+theme_xhred_hotkey_switch_theme=החלף נושא
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=ההעלאה בוצעה בהצלחה
+theme_xhred_filemanager_upload_status_err=העלאה נכשלה:
+theme_xhred_filemanager_download_status_err=הורדה נכשלה:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=לִקְרוֹא
+theme_xhred_dashboard_chart_disk_write=לִכתוֹב
+theme_xhred_dashboard_chart_net_read=ב
+theme_xhred_dashboard_chart_net_write=הַחוּצָה
+theme_xhred_tooltip_dashboard_live_stats_offline=נתונים סטטיסטיים חיים אינם זמינים כאשר הגישה למערכת מתבצעת במצב פרוקסי; רק נתונים סטטיסטיים שנאספו בעבר יוצגו, ורק אם הם זמינים, ויהיה צורך לטעון מחדש את הדף כדי לעדכן את הנתונים הסטטיסטיים הללו
+settings_sysinfo_real_time_status_history1=כן, וסטטיסטיקות חנות עבור
+settings_sysinfo_real_time_status_history2=כן, ללא אחסון נתונים סטטיסטיים
+settings_sysinfo_real_time_status_history_duration1=20 דקות
+settings_sysinfo_real_time_status_history_duration2=שעה אחת
+settings_sysinfo_real_time_status_history_duration3=3 שעות
+settings_sysinfo_real_time_status_history_duration4=6 שעות
+settings_sysinfo_real_time_status_history_duration5=12 שעות
+settings_sysinfo_real_time_status_history_duration6=18 שעות
+settings_sysinfo_real_time_status_history_duration7=24 שעות
+theme_xhred_license_purchase=קנה רישיון

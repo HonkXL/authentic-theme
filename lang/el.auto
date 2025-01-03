@@ -3,6 +3,7 @@ body_cpu=Μέσος όρος φόρτωσης CPU
 body_cpuinfo=Πληροφορίες επεξεργαστή
 body_cputemps=Θερμοκρασίες CPU
 body_cputype=$5, $8 πυρήνες
+body_cputype1=$5, $8 πυρήνας
 body_disk=Τοπικός χώρος στο δίσκο
 body_driveerr=Σφάλματα $1!
 body_drivefailed=Ο έλεγχος SMART απέτυχε!
@@ -99,9 +100,10 @@ settings_right_extensions_title=Η εκτεταμένη σχεδίαση θέμ�
 
 theme_xhred_settings_right_theme_logos=Λογότυπα θεμάτων
 theme_xhred_settings_right_theme_logos_title=Θεματικά λογότυπα
-settings_right_logos_title=Τα λογότυπα θεμάτων μπορούν να ρυθμιστούν εύκολα εδώ, τόσο για τους χρήστες που έχουν πιστοποιηθεί και για τους χρήστες χωρίς έλεγχο ταυτότητας. Το προτεινόμενο μέγεθος λογότυπου είναι <kbd>180x90</kbd> pixel και η μόνη υποστηριζόμενη μορφή είναι <kbd>.png</kbd>, για να παρέχει διαφάνεια άλφα.
+settings_right_logos_title=Τα λογότυπα θεμάτων μπορούν εύκολα να οριστούν εδώ, τόσο για χρήστες με έλεγχο ταυτότητας όσο και για μη πιστοποιημένους χρήστες. Το συνιστώμενο μέγεθος λογότυπου είναι <em>180x90</em> pixel.
 settings_right_logo_authenticated_users=Λογότυπο για πιστοποιημένους χρήστες
 settings_right_logo_unauthenticated_users=Λογότυπο για μη εξουσιοδοτημένους χρήστες
+settings_right_logos_error=Το μεταφορτωμένο αρχείο δεν είναι εικόνα
 
 settings_right_current_theme=Τρέχον θέμα
 settings_right_title=Αυτή η σελίδα σας επιτρέπει να διαμορφώσετε επιλογές για το <a href="https://github.com/authentic-theme/authentic-theme" target="_blank">Αυθεντικό θέμα</a>. Οι ρυθμίσεις θα αποθηκευτούν κατά την ενημέρωση του θέματος.
@@ -208,15 +210,15 @@ theme_xhred_filemanager_renaming_selected=Επιλέχθηκε μετονομα�
 theme_xhred_filemanager_creating_directory=Δημιουργία καταλόγου
 theme_xhred_filemanager_creating_file=Δημιουργία αρχείου
 theme_xhred_filemanager_downloading_from=Λήψη από
-theme_xhred_filemanager_setting_permissions=Ορισμός δικαιωμάτων σε <strong><em>%value</em></strong> σε επιλεγμένα αρχεία.
-theme_xhred_filemanager_changing_ownership=Αλλαγή ιδιοκτησίας σε <strong><em>%value</em></strong> σε επιλεγμένα αρχεία.
+theme_xhred_filemanager_setting_permissions=Ορισμός δικαιωμάτων σε <tt>%value</tt> σε επιλεγμένα αρχεία.
+theme_xhred_filemanager_changing_ownership=Αλλαγή ιδιοκτησίας σε <tt>%value</tt> σε επιλεγμένα αρχεία.
 theme_xhred_filemanager_compressing_selected=Συμπίεση επιλεγμένη στο παρασκήνιο.
 theme_xhred_filemanager_refreshing=Ανανέωση περιεχομένου καταλόγου.
 theme_xhred_filemanager_copying_successful=Η αντιγραφή στο πρόχειρο ήταν επιτυχής.
 theme_xhred_filemanager_cutting_successful=Η περικοπή στο πρόχειρο ήταν επιτυχής.
 theme_xhred_filemanager_pasting_successful=Η επικόλληση από το πρόχειρο ήταν επιτυχής.
-theme_xhred_filemanager_bookmark_success=Η <strong><em>%value</em></strong> καταλόγου προστέθηκε με επιτυχία στους σελιδοδείκτες σας.
-theme_xhred_filemanager_searching=Αναζήτηση για `<em>%value</em>` αντιστοιχούν σε ονόματα αρχείων/καταλόγων.
+theme_xhred_filemanager_bookmark_success=Ο κατάλογος <tt>%value</tt> προστέθηκε με επιτυχία στους σελιδοδείκτες σας.
+theme_xhred_filemanager_searching=Αναζήτηση για <tt>%value</tt> που ταιριάζουν ονόματα αρχείων /directories.
 theme_xhred_filemanager_search_founds=Βρέθηκαν <strong>%value</strong> αντιστοιχίσεις <strong>%value</strong>.
 theme_xhred_filemanager_search_found=Βρέθηκε <strong>1</strong> αγώνα.
 theme_xhred_filemanager_search_no_matches=Δεν βρέθηκαν αντιστοιχίες.
@@ -234,8 +236,8 @@ theme_xhred_filemanager_successful_deletion=Η διαγραφή ήταν επι�
 theme_xhred_filemanager_successful_permissions=Τα δικαιώματα άλλαξαν με επιτυχία.
 theme_xhred_filemanager_successful_ownership=Η ιδιοκτησία άλλαξε με επιτυχία.
 theme_xhred_filemanager_successful_compression=Η συμπίεση ολοκληρώθηκε με επιτυχία.
-theme_xhred_filemanager_successful_directory_creation=Ευρετήριο `<strong>%value</strong>` δημιουργήθηκε με επιτυχία.
-theme_xhred_filemanager_successful_file_creation=Αρχείο `<strong>%value</strong>` δημιουργήθηκε με επιτυχία.
+theme_xhred_filemanager_successful_directory_creation=Ο κατάλογος <tt>%value</tt> δημιουργήθηκε με επιτυχία.
+theme_xhred_filemanager_successful_file_creation=Το αρχείο <tt>%value</tt> δημιουργήθηκε με επιτυχία.
 
 theme_xhred_notifications_packages_updates=Ενημέρωση πακέτων
 theme_xhred_notifications_theme_update=Ενημέρωση θέματος
@@ -346,7 +348,7 @@ theme_xhred_global_warning=Προειδοποίηση
 theme_xhred_global_close=Κλείσε
 
 theme_xhred_filemanager__no_bookmarks=Δεν υπάρχουν αποθηκευμένοι σελιδοδείκτες
-theme_xhred_filemanager_unbookmark_success=Η <strong><em>%value</em></strong> καταλόγου καταργήθηκε με επιτυχία από τους σελιδοδείκτες σας.
+theme_xhred_filemanager_unbookmark_success=Ο κατάλογος <tt>%value</tt> καταργήθηκε με επιτυχία από τους σελιδοδείκτες σας.
 theme_xhred_filemanager_bookmark=Σελιδοδείκτης τρέχων κατάλογος
 theme_xhred_filemanager_unbookmark=Κατάργηση καταγραφής από τον τρέχοντα κατάλογο
 theme_xhred_filemanager_move_into_self=Δεν μπορείτε να μετακινήσετε έναν κατάλογο στον εαυτό του! Ο κατάλογος προορισμού βρίσκεται μέσα στον κατάλογο πηγών.
@@ -399,6 +401,8 @@ theme_xhred_database_delete_selected_field=Διαγραφή επιλεγμένο
 theme_xhred_database_delete_selected_fields=Διαγραφή επιλεγμένων πεδίων
 theme_xhred_database_object_selected_delete=Διαγραφή επιλεγμένου αντικειμένου
 theme_xhred_database_objects_selected_delete=Διαγραφή επιλεγμένων αντικειμένων
+theme_xhred_database_object_selected_delete2=Απόθεση επιλεγμένου πίνακα
+theme_xhred_database_objects_selected_delete2=Απόθεση επιλεγμένων πινάκων
 theme_xhred_database_db_selected_drop=Απόθεση επιλεγμένης βάσης δεδομένων
 theme_xhred_database_dbs_selected_drop=Απόθεση επιλεγμένων βάσεων δεδομένων
 theme_xhred_database_edit_but_not_saved=Τα δεδομένα του πίνακα έχουν επεξεργαστεί αλλά δεν έχουν αποθηκευτεί.
@@ -426,17 +430,17 @@ theme_xhred_datatable_no_search_results=<span class="h5">Δεν βρέθηκαν
 
 theme_xhred_filemanager_buffer_error=Αποτυχία επικόλλησης αρχείων στο buffer - απορρίφθηκε η άδεια.
 
-filemanager_create_object_exists=$3 `<strong><em>$1</em></strong>` υπάρχει ήδη στο `<strong><tt>$2</tt></strong>`
-filemanager_create_object_denied=Δεν είναι δυνατή η δημιουργία $3 `<strong><em>$1</em></strong>` σε `<strong><tt>$2</tt></strong>` - απορρίφθηκε η άδεια : $4.
+filemanager_create_object_exists=$3 <tt>$1</tt> υπάρχει ήδη σε <tt>$2</tt>
+filemanager_create_object_denied=Δεν είναι δυνατή η δημιουργία $3 <tt>$1</tt> σε <tt>$2</tt> - η άδεια δεν επιτρέπεται : $4.
 
 theme_xhred_filemanager_paste_warning=Αποτυχία επικόλλησης στόχων. Είναι πιθανό ότι τα ζητούμενα αντικείμενα θα μπορούσαν να έχουν <em>μετονομαστεί, μετακινηθεί</em> ή <em>διαγραφούν</em> ενώ/πριν επικολληθούν. Μια άλλη πιθανή αιτία είναι ότι ο προορισμός δεν είναι εγγράψιμος. Αξίζει τον έλεγχο των χαρακτηριστικών των αντικειμένων.
 
 theme_xhred_filemanager_delete_warning=Η διαγραφή ολοκληρώθηκε με επιτυχία, αλλά όχι για όλα τα αντικείμενα. Είναι πιθανό ότι τα ζητούμενα αντικείμενα θα μπορούσαν να έχουν <em>μετονομαστεί</em> ή <em>να μετακινηθούν</em> πριν από τη διαγραφή. Τα περιορισμένα δικαιώματα (χαρακτηριστικά) είναι μια άλλη πιθανή αιτία. Μήνυμα λάθους:
 
-filemanager_rename_exists=$3 με όνομα `<strong><em>$1</em></strong>` υπάρχει ήδη στο `<strong><tt>$2</tt></strong>`
+filemanager_rename_exists=$3 με όνομα <tt>$1</tt> υπάρχει ήδη στο <tt>$2</tt>
 filemanager_rename_denied=Δεν είναι δυνατή η μετονομασία του $3. Αυτό μπορεί να συμβεί επειδή η πηγή $3 έχει καταργηθεί ή λόγω περιορισμένων δικαιωμάτων.
 
-theme_xhred_filemanager_successful_rename=Μετονομασία `<strong><em><s>%from</s></em></strong>` προς την `<strong><em>%to</em></strong>` ήταν επιτυχές.
+theme_xhred_filemanager_successful_rename=Η μετονομασία <tt>%from</tt> σε <tt>%to</tt> ήταν επιτυχής.
 
 filemanager_global_info_total1=Σύνολο: $1 αρχείο και $2 κατάλογος
 filemanager_global_info_total2=Σύνολο: $1 αρχεία και $2 κατάλογος
@@ -452,8 +456,8 @@ theme_xhred_filemanager_search_replace=Αντικαταστήστε στα απ�
 theme_xhred_global_find=Εύρημα
 theme_xhred_global_replace=Αντικαθιστώ
 
-theme_xhred_filemanager_searching_matching=Αναζήτηση για `<em>%value</em>` αντιστοιχούν ονόματα αρχείων/καταλόγων, που περιέχουν `<em>%text</em>` κειμένου.
-theme_xhred_filemanager_searching_replacing=Αντικατάσταση αντιστοιχιών `<em>%text</em>` με `<em>%replace</em>` σε αρχεία με ονόματα που περιέχουν `<em>%value</em>`.
+theme_xhred_filemanager_searching_matching=Αναζήτηση για <tt>%value</tt> που ταιριάζουν ονόματα αρχείων /directories, που περιέχουν <tt>%text</tt>.
+theme_xhred_filemanager_searching_replacing=Η αντικατάσταση αντιστοιχίζει <tt>%text</tt> με <tt>%replace</tt> σε αρχεία με ονόματα που περιέχουν <tt>%value</tt>.
 
 theme_xhred_filemanager_search_replaced_multi=Βρέθηκαν και αντικαταστάθηκαν σε αρχεία <strong>%value</strong>.
 theme_xhred_filemanager_search_replaced=Βρέθηκε και αντικαταστάθηκε στο αρχείο <strong>1</strong>.
@@ -464,8 +468,8 @@ theme_xhred_filemanager_successful_ownership_with_errors=Η ιδιοκτησία
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=Η ιδιοκτησία δεν μπορεί να αλλάξει λόγω των ακόλουθων σφαλμάτων:
 
 theme_xhred_filemanager_successful_compression_with_errors=Η συμπίεση ολοκληρώθηκε με τα ακόλουθα σφάλματα:
-theme_xhred_filemanager_successful_compression_bg=Η συμπίεση ολοκληρώθηκε με επιτυχία. Το συμπιεσμένο αρχείο `<strong>%file</strong>` βρίσκεται στον κατάλογο `<strong>%path</strong>`.
-theme_xhred_filemanager_successful_compression_bg_with_errors=Η συμπίεση ολοκληρώθηκε με σφάλματα. Το συμπιεσμένο αρχείο `<strong>%file</strong>` πρέπει να βρίσκεται στον κατάλογο `<strong>%path</strong>`.
+theme_xhred_filemanager_successful_compression_bg=Η συμπίεση ολοκληρώθηκε με επιτυχία. Το συμπιεσμένο αρχείο <tt>%file</tt> βρίσκεται στον κατάλογο <tt>%path</tt>.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Η συμπίεση ολοκληρώθηκε με σφάλματα. Το συμπιεσμένο αρχείο <tt>%file</tt> πρέπει να βρίσκεται στον κατάλογο <tt>%path</tt>.
 
 theme_xhred_filemanager_settings_notification_type=Τύπος ειδοποιήσεων προς εμφάνιση
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=Πληροφορίες, προειδοποιήσεις και σφάλματα
@@ -526,12 +530,12 @@ settings_leftmenu_netdata=Εμφάνιση συνδέσμου παρακολού
 settings_leftmenu_netdata_link=Προτιμώμενος σύνδεσμος διακομιστή Netdata
 
 theme_xhred_filemanager_context_chattr=Αλλαγή χαρακτηριστικών
-theme_xhred_filemanager_changing_attributes=Ορισμός χαρακτηριστικών σε <strong><em>%value</em></strong> σε επιλεγμένα αρχεία.
+theme_xhred_filemanager_changing_attributes=Ορισμός χαρακτηριστικών σε <tt>%value</tt> σε επιλεγμένα αρχεία.
 theme_xhred_filemanager_successful_attributes_with_errors=Τα χαρακτηριστικά δεν έχουν οριστεί με επιτυχία για όλα τα αντικείμενα:
 theme_xhred_filemanager_successful_attributes=Τα χαρακτηριστικά έχουν οριστεί με επιτυχία.
 
 theme_xhred_filemanager_context_chcon=Αλλαγή περιβάλλοντος ασφαλείας
-theme_xhred_filemanager_changing_secontext=Αλλαγή περιβάλλοντος ασφαλείας σε <strong><em>%value</em></strong> σε επιλεγμένα αρχεία.
+theme_xhred_filemanager_changing_secontext=Αλλαγή περιβάλλοντος ασφαλείας σε <tt>%value</tt> σε επιλεγμένα αρχεία.
 theme_xhred_filemanager_successful_secontext_with_errors=Το περιβάλλον ασφαλείας δεν έχει αλλάξει με επιτυχία για όλα τα αντικείμενα:
 theme_xhred_filemanager_successful_secontext=Το περιβάλλον ασφαλείας άλλαξε με επιτυχία.
 
@@ -749,8 +753,6 @@ theme_xhred_nice_size_GB=γιγαμπάιτ
 theme_xhred_nice_size_MB=ΜΒ
 theme_xhred_nice_size_kB=kB
 theme_xhred_nice_size_b=byte
-settings_sysinfo_real_time_status_disk=Ενεργοποίηση για δίσκους
-settings_sysinfo_real_time_status_disk_description=Μπορεί να είναι χρήσιμο να απενεργοποιήσετε την παρακολούθηση σε πραγματικό χρόνο για δίσκους σε αργά/μεγάλα συστήματα αρχείων
 theme_xhred_title_locale_non_ui_config=Μορφή ημερομηνίας δημιουργίας διακομιστή
 
 #19.20
@@ -843,7 +845,7 @@ theme_xhred_mail_search_has_attach=Έχει προσκόλληση
 
 theme_xhred_settings_right_theme_bgs=Θέματα υπόβαθρα
 theme_xhred_settings_right_theme_bgs_title=Θέμα υπόβαθρα
-settings_right_bgs_title=Το φόντο του θέματος για τη σελίδα σύνδεσης μπορεί να οριστεί εδώ. Η μόνη υποστηριζόμενη μορφή είναι <kbd>.png</kbd>, για να παρέχει διαφάνεια άλφα.
+settings_right_bgs_title=Το φόντο του θέματος για τη σελίδα σύνδεσης μπορεί να οριστεί εδώ.
 settings_right_bg_unauthenticated_users=Ιστορικό για μη εξουσιοδοτημένους χρήστες
 settings_right_theme_left_background_title=Έλεγχος φόντου θέματος
 
@@ -922,7 +924,7 @@ theme_xhred_shell_aborted=Η λειτουργία ακυρώθηκε
 #19.32
 theme_xhred_connection_reboot=Επανεκκίνηση
 theme_xhred_connection_reboot_details=Γίνεται επανεκκίνηση του διακομιστή. Παρακαλώ περιμένετε ..
-settings_leftmenu_custom_links_description=Είναι δυνατή η έγχυση προσαρμοσμένων, επιπλέον συνδέσμων στο μενού πλοήγησης. <br><br> Απαιτούνται τα πλήκτρα <em>title</em>, <em>link</em> και <em></em>. προαιρετικά, μπορείτε να ορίσετε σε ποια λειτουργία σύνδεσης θα εμφανίζεται ένας σύνδεσμος, καθορίζοντας <em>επίπεδο</em> κλειδί, με τιμές, σε λίστα διαχωρισμένη με κόμμα, που περιέχει: <br><br> <em>0</ em > - σύνδεση διαχειριστή <br><em> 1 </em>- σύνδεση μεταπωλητή;<br> <em>2</em> - είσοδος κατόχου διακομιστή; <br><em> 3 </em>- σύνδεση χρήστη;<br> <em>4</em> - είσοδος κατόχου συστήματος. <br><br> Θα σας ζητήσει να περάσετε έγκυρο αντικείμενο JSON ως συμβολοσειρά, όπως στο παρακάτω παράδειγμα. <hr><pre> {"extra": [{ "title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, { "title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": " φάκελος "," port ":" 20000 "," target ":" _blank "}]} </pre>
+settings_leftmenu_custom_links_description=Είναι δυνατό να εισάγετε προσαρμοσμένους, επιπλέον συνδέσμους στο μενού πλοήγησης. <br><br> Απαιτούνται τα κλειδιά <em>τίτλος</em>, <em>σύνδεσμος</em> και <em>εικονίδιο</em>. προαιρετικά, μπορείτε να ορίσετε σε ποια λειτουργία σύνδεσης θα εμφανίζεται ένας σύνδεσμος, προσδιορίζοντας το κλειδί <em>επίπεδο</em>, με τιμές, σε λίστα διαχωρισμένη με κόμμα, που περιέχει: <br><br> <em>0</em > - σύνδεση διαχειριστή. <br><em>1</em> - σύνδεση μεταπωλητή;<br><em>2</em> - σύνδεση κατόχου διακομιστή;<br><em>3</em> - σύνδεση χρήστη;<br><em>4</em>- σύνδεση κατόχου συστήματος.<br><br> Θα σας ζητήσει να μεταβιβάσετε έγκυρο αντικείμενο JSON ως συμβολοσειρά, όπως στο παρακάτω παράδειγμα.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=Επεξεργασία Αγαπημένων
 left_favorites_edit_desc=Αυτή η σελίδα μπορεί να χρησιμοποιηθεί για τη μη αυτόματη επεξεργασία του αρχείου χρήστη των αγαπημένων θέματος. Αυτό πρέπει να γίνει προσεκτικά, καθώς δεν θα πραγματοποιηθεί έλεγχος σύνταξης ή άλλος έλεγχος εγκυρότητας στις αλλαγές σας.
 theme_xhred_filemanager_records_for_server_pagination=Προεπιλεγμένος αριθμός αντικειμένων στον κατάλογο για την έναρξη της σελίδας διακομιστή
@@ -1049,10 +1051,6 @@ theme_xhred_global_today=Σήμερα
 theme_xhred_global_tomorrow=Αύριο
 theme_xhred_mail_composer_scheduled=Αποστολή %1 στο %2
 theme_global_core=Πυρήνας
-settings_sysinfo_real_time_stored=Ενεργοποίηση ιστορικού στατιστικών
-settings_sysinfo_real_time_stored_description=Εάν είναι ενεργοποιημένη, τα στατιστικά που συλλέχθηκαν προηγουμένως θα αποθηκευτούν και θα εμφανιστούν σε ένα γράφημα στον Πίνακα ελέγχου
-settings_sysinfo_real_time_stored_length=Διάρκεια ιστορικού στατιστικών
-settings_sysinfo_real_time_stored_length_description=Ο χρόνος κατά τον οποίο αποθηκεύεται το ιστορικό στατιστικών
 theme_dashboard_accordion_live_stats=Ιστορία στατιστικών
 theme_xhred_live_stats_cpu=ΕΠΕΞΕΡΓΑΣΤΗΣ
 theme_xhred_live_stats_mem=Μνήμη
@@ -1147,7 +1145,7 @@ theme_xhred_connection_error_details_ssl=Ελέγξτε την προειδοπ�
 #19.71
 settings_sysinfo_hidden_panels_user=Κρυμμένα ακορντεόν
 theme_xhred_tooltip_dashboard_panels_disable=Απόκρυψη του πίνακα $1 
-theme_xhred_dashboard_panels_disabled_explain=Το κρυφό πλαίσιο μπορεί να ενεργοποιηθεί ξανά χρησιμοποιώντας τη σελίδα διαμόρφωσης θέματος.
+theme_xhred_dashboard_panels_disabled_explain=Ο κρυφός πίνακας μπορεί να ενεργοποιηθεί ξανά χρησιμοποιώντας <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
 settings_right_sysinfo_page_options=Πίνακας ελέγχου και παρακολούθηση σε πραγματικό χρόνο
 settings_right_navigation_menu_options=Μενού πλοήγησης
 settings_right_notification_slider_options=Πλευρικό ρυθμιστικό
@@ -1169,8 +1167,6 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=Αυτή η δυνατότ
 theme_xhred_global_module_preferences=Προτιμήσεις ενότητας
 
 #19.74
-settings_sysinfo_real_time_status_forced=Ναι, αναγκασμένος
-settings_sysinfo_real_time_status_forced_warn=Δεν επιτρέπεται η ενεργοποίηση της παρακολούθησης σε πραγματικό χρόνο σε κατάσταση λειτουργίας, επειδή η συλλογή παρασκηνίου θα πραγματοποιηθεί ακόμα και όταν η καρτέλα του προγράμματος περιήγησης δεν είναι εστιασμένη, προκαλώντας δυνητικά υπερφόρτωση διακομιστή με ανοιχτές πολλές καρτέλες
 theme_xhred_theme_update_available=Έχει εγκατασταθεί μια νέα έκδοση του Αυθεντικού θέματος
 settings_right_page_keep=Φόρτωση της ίδιας σελίδας στο διακόπτη τομέα
 settings_right_page_keep_description=Αυτή η επιλογή θα προσπαθήσει να φορτώσει την ίδια σελίδα κατά την επιλογή τομέα, όταν αλλάξει από την αναπτυσσόμενη λίστα μενού πλοήγησης
@@ -1374,3 +1370,49 @@ theme_xhred_columns_layout_variation_cannot_horizontal=Η οριζόντια δ�
 settings_auto_open_panels_on_proximity=Αυτόματο άνοιγμα κλειστών πάνελ σε κοντινή απόσταση
 
 theme_xhred_config_portable_module_xterm_render_addon=Ενεργοποίηση πρόσθετου απόδοσης WebGL
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=Φιλτράρισμα και εξαγωγή περιεχομένου
+
+#21.10
+settings_hotkey_logout_dbl=Αποσύνδεση
+theme_xhred_hotkey_emsg=Το πλήκτρο ανάστροφης κάθετο δεν μπορεί να χρησιμοποιηθεί ως πλήκτρο πρόσβασης
+settings_embed_product_splash_privileged=Εμφανίστε μια οθόνη εκκίνησης επωνυμίας μετά τη σύνδεση
+dashboard_status_running=Τρέξιμο
+dashboard_status_stopped=Σταμάτησε
+
+#21.11
+theme_xhred_global_watching=Βλέποντας
+theme_xhred_global_connected=Συνδεδεμένος
+theme_xhred_global_disconnected=Ασύνδετος
+theme_xhred_global_connecting=Συνδετικός
+index_mods_missing=Η λειτουργική μονάδα Perl <tt>$1</tt> λείπει.
+index_noadmin_eaccess=Δεν επιτρέπεται η πρόσβαση σε μη κύριους διαχειριστές!
+theme_xhred_body_os=Λειτουργικό σύστημα
+theme_xhred_theme_version=Αυθεντική έκδοση θέματος
+theme_xhred_body_updates=Ενημερώσεις πακέτων
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Εναλλαγή θέματος
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Επιτυχής μεταφόρτωση
+theme_xhred_filemanager_upload_status_err=Η μεταφόρτωση απέτυχε:
+theme_xhred_filemanager_download_status_err=Η λήψη απέτυχε:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Ανάγνωση
+theme_xhred_dashboard_chart_disk_write=Γράφω
+theme_xhred_dashboard_chart_net_read=Σε
+theme_xhred_dashboard_chart_net_write=Εξω
+theme_xhred_tooltip_dashboard_live_stats_offline=Τα ζωντανά στατιστικά δεν είναι διαθέσιμα όταν γίνεται πρόσβαση στο σύστημα σε λειτουργία διακομιστή μεσολάβησης. θα εμφανίζονται μόνο τα στατιστικά που έχουν συλλεχθεί προηγουμένως, και μόνο εάν είναι διαθέσιμα, και η σελίδα θα πρέπει να φορτωθεί ξανά για να ενημερώσετε αυτά τα στατιστικά στοιχεία
+settings_sysinfo_real_time_status_history1=Ναι, και αποθήκευση στατιστικών για
+settings_sysinfo_real_time_status_history2=Ναι, χωρίς αποθήκευση στατιστικών στοιχείων
+settings_sysinfo_real_time_status_history_duration1=20 λεπτά
+settings_sysinfo_real_time_status_history_duration2=1 ώρα
+settings_sysinfo_real_time_status_history_duration3=3 ώρες
+settings_sysinfo_real_time_status_history_duration4=6 ώρες
+settings_sysinfo_real_time_status_history_duration5=12 ώρες
+settings_sysinfo_real_time_status_history_duration6=18 ώρες
+settings_sysinfo_real_time_status_history_duration7=24 ώρες
+theme_xhred_license_purchase=Αγορά άδειας

@@ -3,6 +3,7 @@ body_cpu=CPU load averages
 body_cpuinfo=Processor information
 body_cputemps=CPU temperatures
 body_cputype=$5, $8 cores
+body_cputype1=$5, $8 core
 body_disk=Local disk space
 body_driveerr=$1 errors!
 body_drivefailed=SMART check failed!
@@ -108,9 +109,10 @@ settings_right_extensions_title=Theme extensive design, enables you easily manip
 
 theme_xhred_settings_right_theme_logos=Theme logos
 theme_xhred_settings_right_theme_logos_title=Theme Logos
-settings_right_logos_title=Theme logos can be easily set here, for both, authenticated and unauthenticated users. Recommended logo size is <kbd>180x90</kbd> pixels and the only supported format is <kbd>.png</kbd>, to provide alpha transparency.
+settings_right_logos_title=Theme logos can be easily set here, for both, authenticated and unauthenticated users. Recommended logo size is <em>180x90</em> pixels.
 settings_right_logo_authenticated_users=Logo for authenticated users
 settings_right_logo_unauthenticated_users=Logo for unauthenticated users
+settings_right_logos_error=Uploaded file is not an image
 
 settings_right_current_theme=Current theme
 settings_right_title=This page allows you to configure options for <a href="https://github.com/authentic-theme/authentic-theme" target="_blank">Authentic Theme</a>. Settings will be stored upon theme update.
@@ -219,15 +221,15 @@ theme_xhred_filemanager_renaming_selected=Renaming selected.
 theme_xhred_filemanager_creating_directory=Creating directory
 theme_xhred_filemanager_creating_file=Creating file
 theme_xhred_filemanager_downloading_from=Downloading from
-theme_xhred_filemanager_setting_permissions=Setting permissions to <strong><em>%value</em></strong> on selected file(s).
-theme_xhred_filemanager_changing_ownership=Changing ownership to <strong><em>%value</em></strong> on selected file(s).
+theme_xhred_filemanager_setting_permissions=Setting permissions to <tt>%value</tt> on selected file(s).
+theme_xhred_filemanager_changing_ownership=Changing ownership to <tt>%value</tt> on selected file(s).
 theme_xhred_filemanager_compressing_selected=Compressing selected in the background.
 theme_xhred_filemanager_refreshing=Refreshing directory content.
 theme_xhred_filemanager_copying_successful=Copy to clipboard successful.
 theme_xhred_filemanager_cutting_successful=Cut to clipboard successful.
 theme_xhred_filemanager_pasting_successful=Paste from clipboard was successful.
-theme_xhred_filemanager_bookmark_success=Directory <strong><em>%value</em></strong> was successfully added to your bookmarks.
-theme_xhred_filemanager_searching=Searching for <em>`%value`</em> matching names of files/directories.
+theme_xhred_filemanager_bookmark_success=Directory <tt>%value</tt> was successfully added to your bookmarks.
+theme_xhred_filemanager_searching=Searching for <tt>%value</tt> matching names of files/directories.
 theme_xhred_filemanager_search_founds=Found <strong>%value</strong> matches.
 theme_xhred_filemanager_search_found=Found <strong>1</strong> match.
 theme_xhred_filemanager_search_no_matches=No matches found.
@@ -245,8 +247,8 @@ theme_xhred_filemanager_successful_deletion=Deletion was successful.
 theme_xhred_filemanager_successful_permissions=Permissions have been changed successfully.
 theme_xhred_filemanager_successful_ownership=Ownership has been changed successfully.
 theme_xhred_filemanager_successful_compression=Compression has successfully finished.
-theme_xhred_filemanager_successful_directory_creation=Directory `<strong>%value</strong>` was created successfully.
-theme_xhred_filemanager_successful_file_creation=File `<strong>%value</strong>` was created successfully.
+theme_xhred_filemanager_successful_directory_creation=Directory <tt>%value</tt> was created successfully.
+theme_xhred_filemanager_successful_file_creation=File <tt>%value</tt> was created successfully.
 
 theme_xhred_notifications_packages_updates=Packages Update
 theme_xhred_notifications_theme_update=Theme Update
@@ -357,7 +359,7 @@ theme_xhred_global_warning=Warning
 theme_xhred_global_close=Close
 
 theme_xhred_filemanager__no_bookmarks=No saved bookmarks
-theme_xhred_filemanager_unbookmark_success=Directory <strong><em>%value</em></strong> was successfully removed from your bookmarks.
+theme_xhred_filemanager_unbookmark_success=Directory <tt>%value</tt> was successfully removed from your bookmarks.
 theme_xhred_filemanager_bookmark=Bookmark current directory
 theme_xhred_filemanager_unbookmark=Unbookmark current directory
 theme_xhred_filemanager_move_into_self=You cannot move a directory into itself! The destination directory is inside the source directory.
@@ -410,6 +412,8 @@ theme_xhred_database_delete_selected_field=Delete selected field
 theme_xhred_database_delete_selected_fields=Delete selected fields
 theme_xhred_database_object_selected_delete=Delete selected object
 theme_xhred_database_objects_selected_delete=Delete selected objects
+theme_xhred_database_object_selected_delete2=Drop selected table
+theme_xhred_database_objects_selected_delete2=Drop selected tables
 theme_xhred_database_db_selected_drop=Drop selected database
 theme_xhred_database_dbs_selected_drop=Drop selected databases
 theme_xhred_database_edit_but_not_saved=Table data has been edited but not saved.
@@ -438,18 +442,18 @@ theme_xhred_datatable_no_search_results=<span class="h5">No results found</span>
 
 theme_xhred_filemanager_buffer_error=Failed to paste files to the buffer - permission denied.
 
-filemanager_create_object_exists=$3 `<strong><em>$1</em></strong>` already exists in `<strong><tt>$2</tt></strong>`
-filemanager_create_object_denied=Can't create $3 `<strong><em>$1</em></strong>` in `<strong><tt>$2</tt></strong>` - permission denied : $4.
+filemanager_create_object_exists=$3 <tt>$1</tt> already exists in <tt>$2</tt>
+filemanager_create_object_denied=Can't create $3 <tt>$1</tt> in <tt>$2</tt> - permission denied : $4.
 
 theme_xhred_filemanager_paste_warning=Failed to paste target(s). It is possible that requested object(s) could have been <em>renamed, moved</em> or <em>deleted</em> while/before pasting
 
 theme_xhred_filemanager_delete_warning=Deletion has finished successfully but not for all objects. It is possible that requested object(s) could have been <em>renamed</em> or <em>moved</em> before deletion. Restricted permissions (attributes) is another possible cause. Error message:
 
 
-filemanager_rename_exists=$3 with name `<strong><em>$1</em></strong>` already exists in `<strong><tt>$2</tt></strong>`
+filemanager_rename_exists=$3 with name <tt>$1</tt> already exists in <tt>$2</tt>
 filemanager_rename_denied=Can not rename the $3. This might happen because the source $3 has been removed or due to restricted permissions.
 
-theme_xhred_filemanager_successful_rename=Renaming `<strong><em><s>%from</s></em></strong>` to `<strong><em>%to</em></strong>` was successful.
+theme_xhred_filemanager_successful_rename=Renaming <tt>%from</tt> to <tt>%to</tt> was successful.
 
 filemanager_global_info_total1=Total: $1 file and $2 directory
 filemanager_global_info_total2=Total: $1 files and $2 directory
@@ -465,8 +469,8 @@ theme_xhred_filemanager_search_replace=Replace in results
 theme_xhred_global_find=Find
 theme_xhred_global_replace=Replace
 
-theme_xhred_filemanager_searching_matching=Searching for <em>`%value`</em> matching names of files/directories, containing <em>`%text`</em> text.
-theme_xhred_filemanager_searching_replacing=Replacing matches <em>`%text`</em> with <em>`%replace`</em> in files with names containing <em>`%value`</em>.
+theme_xhred_filemanager_searching_matching=Searching for <tt>%value</tt> matching names of files/directories, containing <tt>%text</tt> text.
+theme_xhred_filemanager_searching_replacing=Replacing matches <tt>%text</tt> with <tt>%replace</tt> in files with names containing <tt>%value</tt>.
 
 theme_xhred_filemanager_search_replaced_multi=Found and replaced in <strong>%value</strong> files.
 theme_xhred_filemanager_search_replaced=Found and replaced in <strong>1</strong> file.
@@ -477,8 +481,8 @@ theme_xhred_filemanager_successful_ownership_with_errors=Ownership has not been 
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=Ownership can't be changed due to following errors:
 
 theme_xhred_filemanager_successful_compression_with_errors=Compression has finished with the following errors:
-theme_xhred_filemanager_successful_compression_bg=Compression has successfully finished. Compressed file <strong>`%file`</strong> is located in <strong>`%path`</strong> directory.
-theme_xhred_filemanager_successful_compression_bg_with_errors=Compression has finished with errors. Compressed file <strong>`%file`</strong> should be located in <strong>`%path`</strong> directory.
+theme_xhred_filemanager_successful_compression_bg=Compression has successfully finished. Compressed file <tt>%file</tt> is located in <tt>%path</tt> directory.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Compression has finished with errors. Compressed file <tt>%file</tt> should be located in <tt>%path</tt> directory.
 
 theme_xhred_filemanager_settings_notification_type=Type of notifications to display
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=Informations, warnings and errors
@@ -542,12 +546,12 @@ settings_leftmenu_netdata=Show Netdata realtime monitoring link
 settings_leftmenu_netdata_link=Netdata server preferred link
 
 theme_xhred_filemanager_context_chattr=Change attributes
-theme_xhred_filemanager_changing_attributes=Setting attributes to <strong><em>%value</em></strong> on selected file(s).
+theme_xhred_filemanager_changing_attributes=Setting attributes to <tt>%value</tt> on selected file(s).
 theme_xhred_filemanager_successful_attributes_with_errors=Attributes haven't been set successfully for all objects:
 theme_xhred_filemanager_successful_attributes=Attributes have been set successfully.
 
 theme_xhred_filemanager_context_chcon=Change security context
-theme_xhred_filemanager_changing_secontext=Changing security context to <strong><em>%value</em></strong> on selected file(s).
+theme_xhred_filemanager_changing_secontext=Changing security context to <tt>%value</tt> on selected file(s).
 theme_xhred_filemanager_successful_secontext_with_errors=Security context has not been changed successfully for all objects:
 theme_xhred_filemanager_successful_secontext=Security context has been changed successfully.
 
@@ -784,8 +788,6 @@ theme_xhred_nice_size_GB=GB
 theme_xhred_nice_size_MB=MB
 theme_xhred_nice_size_kB=kB
 theme_xhred_nice_size_b=bytes
-settings_sysinfo_real_time_status_disk=Enable for disks
-settings_sysinfo_real_time_status_disk_description=It might be useful to disable real-time monitoring for disks on slow/large file systems
 theme_xhred_title_locale_non_ui_config=Server generated date format
 
 
@@ -846,11 +848,11 @@ extensions_mail_header_dkim=dkim-signature
 extensions_mail_header_encrypted=encrypted
 extensions_mail_mark_spam_view_razordel=Mark as spam and delete
 extensions_mail_mark_spam_view_razor=Mark as spam
-extensions_mail_mark_spam_mail_black=Mark as blacklisted
+extensions_mail_mark_spam_mail_black=Block sender
 extensions_mail_mark_spam_view_ham=Mark as not spam
 extensions_mail_mark_spam_view_hammove=Mark as not spam and move to inbox
-extensions_mail_mark_spam_mail_white=Mark as whitelisted
-extensions_mail_mark_spam_mail_whitemove=Mark as whitelisted and move to inbox
+extensions_mail_mark_spam_mail_white=Allow sender
+extensions_mail_mark_spam_mail_whitemove=Allow sender and move to inbox
 extensions_mail_search_filter_reset=Reset sort filter
 extensions_mail_move_copy_only=Don't move, just copy it
 theme_xhred_global_total=Total
@@ -879,7 +881,7 @@ theme_xhred_mail_search_has_attach=Has attachment
 
 theme_xhred_settings_right_theme_bgs=Theme backgrounds
 theme_xhred_settings_right_theme_bgs_title=Theme Backgrounds
-settings_right_bgs_title=Theme background for login page can be set here. The only supported format is <kbd>.png</kbd>, to provide alpha transparency.
+settings_right_bgs_title=Theme background for login page can be set here.
 settings_right_bg_unauthenticated_users=Background for unauthenticated users
 settings_right_theme_left_background_title=Theme Background Control
 
@@ -961,7 +963,7 @@ theme_xhred_shell_aborted=Operation aborted
 #19.32
 theme_xhred_connection_reboot=Rebooting
 theme_xhred_connection_reboot_details=The server is being rebooted. Please wait..
-settings_leftmenu_custom_links_description=It is possible to have custom, extra links injected into navigation menu. <br><br> The keys <em>title</em>, <em>link</em> and <em>icon</em> are required; optionally, you can define at which login mode a link would be displayed, by specifying <em>level</em> key, with values, in comma separated list, containing: <br><br> <em>0</em> - administrator login; <br><em>1</em> - reseller login;<br><em>2</em> - server owner login;<br> <em>3</em> - user login;<br> <em>4</em> - system owner login.<br><br> It will require you to pass valid JSON object as a string, as in the example below.<hr><pre>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
+settings_leftmenu_custom_links_description=It is possible to have custom, extra links injected into the navigation menu. <br><br> The keys <em>title</em>, <em>link</em> and <em>icon</em> are required; optionally, you can define at which login mode a link would be displayed, by specifying <em>level</em> key, with values, in comma separated list, containing: <br><br> <em>0</em> - administrator login; <br><em>1</em> - reseller login;<br><em>2</em> - server owner login;<br> <em>3</em> - user login;<br> <em>4</em> - system owner login.<br><br> It will require you to pass valid JSON object as a string, as in the example below.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=Edit Favorites
 left_favorites_edit_desc=This page can be used to manually edit theme favorites user file. This should be done carefully, as no syntax or other validity checking will be performed on your changes.
 theme_xhred_filemanager_records_for_server_pagination=Default number of items in directory to initiate server pagination
@@ -1093,10 +1095,6 @@ theme_xhred_global_today=Today
 theme_xhred_global_tomorrow=Tomorrow
 theme_xhred_mail_composer_scheduled=Send %1 at %2
 theme_global_core=Core
-settings_sysinfo_real_time_stored=Enable stats history
-settings_sysinfo_real_time_stored_description=If enabled, previously gathered stats will be stored, and displayed in a graph on the Dashboard
-settings_sysinfo_real_time_stored_length=Stats history duration
-settings_sysinfo_real_time_stored_length_description=The time during which stats history is stored
 theme_dashboard_accordion_live_stats=Stats History
 theme_xhred_live_stats_cpu=CPU
 theme_xhred_live_stats_mem=Real Memory
@@ -1202,7 +1200,7 @@ theme_xhred_connection_error_details_ssl=Check <a>self-signed SSL certificate</a
 #19.71
 settings_sysinfo_hidden_panels_user=Hidden accordions
 theme_xhred_tooltip_dashboard_panels_disable=Hide $1 panel
-theme_xhred_dashboard_panels_disabled_explain=Hidden panel can be re-enabled using theme configuration page.
+theme_xhred_dashboard_panels_disabled_explain=Hidden panel can be re-enabled using <tt>Theme Configuration: Dashboard and real-time monitoring</tt> page.
 settings_right_sysinfo_page_options=Dashboard and real-time monitoring
 settings_right_navigation_menu_options=Navigation menu
 settings_right_notification_slider_options=Side slider
@@ -1226,8 +1224,6 @@ theme_xhred_global_module_preferences=Module preferences
 
 
 #19.74
-settings_sysinfo_real_time_status_forced=Yes, forced
-settings_sysinfo_real_time_status_forced_warn=Enabling real-time monitoring in force mode is discouraged because background collection will be performed even when browser tab is not focused, potentially causing server overload with multiple tabs opened
 theme_xhred_theme_update_available=A new version of Authentic Theme is installed
 settings_right_page_keep=Load same page on domain switch
 settings_right_page_keep_description=This option will try to load the same page upon domain select, when changed from the navigation menu dropdown list
@@ -1444,3 +1440,55 @@ theme_xhred_columns_layout_variation_cannot_horizontal=Horizontal layout cannot 
 settings_auto_open_panels_on_proximity=Auto open closed panels on proximity
 
 theme_xhred_config_portable_module_xterm_render_addon=Enable WebGL rendering addon
+
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=Filter and export content
+
+
+#21.10
+settings_hotkey_logout_dbl=Sign out
+theme_xhred_hotkey_emsg=The backslash key cannot be used as a hotkey
+settings_embed_product_splash_privileged=Display a branding splash screen following login
+dashboard_status_running=Running
+dashboard_status_stopped=Stopped
+
+
+#21.11
+theme_xhred_global_watching=Watching
+theme_xhred_global_connected=Connected
+theme_xhred_global_disconnected=Disconnected
+theme_xhred_global_connecting=Connecting
+index_mods_missing=The Perl module <tt>$1</tt> is missing.
+index_noadmin_eaccess=Access denied to non-master administrators!
+theme_xhred_body_os=Operating system
+theme_xhred_theme_version=Authentic theme version
+theme_xhred_body_updates=Package updates
+
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Switch theme
+
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Upload successful
+theme_xhred_filemanager_upload_status_err=Upload failed:
+theme_xhred_filemanager_download_status_err=Download failed:
+
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Read
+theme_xhred_dashboard_chart_disk_write=Write
+theme_xhred_dashboard_chart_net_read=In
+theme_xhred_dashboard_chart_net_write=Out
+theme_xhred_tooltip_dashboard_live_stats_offline=Live stats aren’t available when the system is accessed in proxy mode; only previously collected stats will be displayed, and only if available, and the page will need to be reloaded to update these stats
+settings_sysinfo_real_time_status_history1=Yes, and store stats for
+settings_sysinfo_real_time_status_history2=Yes, without storing stats
+settings_sysinfo_real_time_status_history_duration1=20 minutes
+settings_sysinfo_real_time_status_history_duration2=1 hour
+settings_sysinfo_real_time_status_history_duration3=3 hours
+settings_sysinfo_real_time_status_history_duration4=6 hours
+settings_sysinfo_real_time_status_history_duration5=12 hours
+settings_sysinfo_real_time_status_history_duration6=18 hours
+settings_sysinfo_real_time_status_history_duration7=24 hours
+theme_xhred_license_purchase=Purchase a license

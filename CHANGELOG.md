@@ -1,5 +1,115 @@
 ## Changelog
 
+#### Version 21.20.7 (August 7, 2024)
+* Add network I/O support in real-time monitoring for FreeBSD
+* Fix network I/O calculations on Linux systems
+* Fix cache purging support for the new real-time monitoring stats server
+
+#### Version 21.20.6 (August 4, 2024)
+* Fix memory leak in the new real-monitoring stats server [forum.virtualmin.com/t/128189](https://forum.virtualmin.com/t/keep-previous-version-of-authentic-theme-to-test-possible-memory-leak/128189/39?u=ilia)
+* Fix pie charts not to show in red for real memory usage if virtual memory exists
+
+#### Version 21.20.5 (August 1, 2024)
+* Fix to remove the old ability to upgrade the theme from Git using the UI [webmin#2243](https://github.com/webmin/webmin/issues/2243#issuecomment-2260489869)
+* Fix the issue of the logo being stuck in mobile mode
+* Fix to improve matching for currently selected name in domain autocomplete dropdown in Virtualmin
+
+#### Version 21.20.4 (July 30, 2024)
+* Add new Teal and Maroon color palettes
+* Fix contrast ratio for all color palettes
+* Fix reconnection attempt rate to the real-time monitoring socket
+* Fix real-time monitoring server return correctly encoded data [webmin#2237](https://github.com/webmin/webmin/issues/2237)
+* Fix to improve error handling in File Manager on files upload and download
+
+#### Version 21.20.3 (July 23, 2024)
+* Fix a bug where in some configurations navigation product switch gets stuck on the initial load
+
+#### Version 21.20.2 (July 22, 2024)
+* Update JSON dependency to use correct namespace [webmin#2222](https://github.com/webmin/webmin/issues/2222)
+* Fix the autofocus for the username field on the login page
+* Fix to consider user preference for accordion visibility state in Dashboard
+
+#### Version 21.20.1 (July 20, 2024)
+* Fix not to attempt enabling stats in proxy mode
+* Fix to limit the number of potential tries to connect to the socket
+* Fix re-authentication modal leaking user password to Webmin logs
+
+#### Version 21.20 (July 8, 2024)
+* Add new way of collecting server stats using WebSocket connection for better efficiency
+* Add significant improvements in supporting keyboard navigation for the navigation menu
+* Add improvements to interactions among elements during scrolling of navigation menu
+* Add support for displaying embedded calendar event details in email messages
+* Add better support for System and Server Status module
+* Add support for the new live logs viewer in the System Logs module
+* Add support for the new block IP feature in the FirewallD module
+* Add support to invalidate OS EOL cache during global cache cleaning
+* Add ability to set custom server name on login page [@53b110b](https://github.com/webmin/authentic-theme/commit/53b110bb09a927a565734e9916bb4eb78d2399ff)
+* Fix a bug in the Terminal module where text color was missing in editors
+* Fix to ensure experimental MIME types are now recognized in File Manager [webmin#2147](https://github.com/webmin/webmin/issues/2147)
+* Fix editor and viewer encodings select in File Manager
+* Fix custom highlights not working for Apache and many other configs in File Manager editor and viewer
+* Fix to correctly display regex pattern blocks in SpamAssassin module
+* Fix broken progressive output in Command Shell module
+* Fix the initial display lag when opening Terminal module
+* Fix the file size label positioning after saving a file in File Manager
+* Fix bookmarks dropdown to support long lists nicely in File Manager
+* Fix issues with extracting `gunzip` files in the File Manager
+* Fix truncation of domain names in autocomplete dropdown in Virtualmin
+* Fix to correctly navigate back to the appropriate embedded module in Virtualmin
+* Fix to correctly escape HTML when displaying the message list in Usermin
+* Fix to correctly handle cloning to a new tab [virtualmin/virtualmin-gpl#796](https://github.com/virtualmin/virtualmin-gpl/issues/796)
+* Fix to validate and accept all image file types for logos and background image [#1694](https://github.com/authentic-theme/authentic-theme/issues/1694)
+* Fix positioning of arrows in multi-select and selection work using double-click
+* Fix to prevent the display of partially loaded navigation menu
+* Fix to correctly wrap mail headers in Usermin
+* Fix XSS-related issues
+
+<!--- separator --->
+
+#### Version 21.10 (March 31, 2024)
+* Add improved upload progress indicator [#1692](https://github.com/authentic-theme/authentic-theme/issues/1692)
+* Add HTML signatures support in Usermin
+* Add regional settings support for dates and times in File Manager
+* Add support for sign out hotkey [#1690](https://github.com/authentic-theme/authentic-theme/issues/1690)
+* Add proper support for `en-be` locale
+* Add icons to the new buttons in Edit Users page in Virtualmin
+* Fix height of bouncy top loader
+* Fix main scrollbar visibility
+* Fix header to include passed params to config [webmin#2098](https://github.com/webmin/webmin/issues/2098)
+* Fix icon positioning in Safari [#1693](https://github.com/authentic-theme/authentic-theme/issues/1693)
+* Fix not to wrap domain names in the list of virtual servers
+* Fix to display install as Chrome app button to unauthenticated users [#1687](https://github.com/authentic-theme/authentic-theme/issues/1687)
+* Fix menu link detection after domain switch in Virtualmin
+* Fix to remove Postfix version file on cache clear
+* Fix missing footer in login page [#1691](https://github.com/authentic-theme/authentic-theme/issues/1691)
+
+#### Version 21.09.5 (November 7, 2023)
+* Fix match highlight in file viewer and editor
+* Fix checkbox after content alignment
+
+#### Version 21.09.4 (November 3, 2023)
+* Add CSV export functionality for table data
+* Fix spinners from appearing on top of other content in File Manager
+* Fix to show original size in bytes in file properties in File Manager
+
+#### Version 21.09.3 (October 30, 2023)
+* Fix PHP options page to correctly handle mode-related content in Virtualmin
+* Fix Virtualmin AWStats module configuration page display bugs
+
+#### Version 21.09.2 (October 27, 2023)
+* Fix "strict refs" fatal error [forum.virtualmin.com/t/123233](https://forum.virtualmin.com/t/dashboard-defaults-to-alpha-domain/123233)
+
+#### Version 21.09.1 (October 26, 2023)
+* Add full support for new categories in the Virtualmin navigation menu
+* Add native support for standard accordions using basic HTML
+* Fix status collection module icons display in the dashboard
+* Fix to correctly set error container height in progressive output
+* Fix not to column wrap elements containing single preformatted text tag
+* Fix password preview and generate buttons to act as buttons rather than as submits
+* Fix the positioning consistency for help bubbles
+* Drop usage of data tables in the dashboard
+* Update German translations
+
 #### Version 21.09 (October 15, 2023)
 * Fix to correctly handle hotkeys in Gecko browsers
 * Fix to keep correct navigation menu on full page reload
@@ -21,7 +131,7 @@
 * Fix check to determine if the Virtualmin package contains the necessary function [#1675](https://github.com/webmin/authentic-theme/discussions/1675)
 * Fix inconsistent buttons size in Command Shell module
 
-#### Version 21.06 (September 06, 2023)
+#### Version 21.06 (September 6, 2023)
 * Add support for disabling WebGL rendering addon in Terminal module [#1674](https://github.com/authentic-theme/authentic-theme/issues/1674)
 * Add support for mail forward in Usermin [#431](https://github.com/authentic-theme/authentic-theme/issues/431#issuecomment-1703615018)
 * Fix to correctly save theme config when changing column layout [#1671](https://github.com/authentic-theme/authentic-theme/issues/1671)
@@ -34,7 +144,7 @@
 * Fix font rendering issues in Terminal module with Firefox
 * Fix tiny alignment issues for various pages using column layout
 
-#### Version 21.04 (August 04, 2023)
+#### Version 21.04 (August 4, 2023)
 * Add better filtering unsafe content to prevent possible XSS attacks
 * Fix print email functionality for Read User Mail module (for both Webmin and Usermin)
 * Fix checkbox positioning for Webmin Users module
@@ -57,7 +167,7 @@
 * Add support for screen reader mode in Terminal module
 * Fix aligns inside of buttons in scaled resolutions
 
-#### Version 21.00 (July 09, 2023)
+#### Version 21.00 (July 9, 2023)
 * Add new column layout mode with variations
 * Add list of theme hotkeys in single help screen (F1)
 * Add significant improvements to the dark palette
@@ -72,9 +182,7 @@
 * Fix elements positioning in password reset form
 * Fix plenty of other bugs and add various improvements
 
-<!--- separator --->
-
-#### Version 20.22 (April 09, 2023)
+#### Version 20.22 (April 9, 2023)
 * Add to allow setting host and protocol in custom links [#904#issuecomment-1482540434](https://github.com/webmin/authentic-theme/issues/904#issuecomment-1482540434)
 * Fix to interrupt previous call when getting navigation menu content
 * Fix issues when opening navigation menu on iOS devices [#1652](https://github.com/authentic-theme/authentic-theme/issues/1652)
@@ -813,7 +921,7 @@
 * Fix displaying quotas in servers index
 * Fix fatal error when trying to split on array (affected module Linux IPv6 Firewall)
 * Fix to improve color combinations for navigation menu palettes
-* Fix to balance multi selects
+* Fix to balance multi-selects
 * Fix status label placement in Cloudmin navigation
 * Fix over a hundred of other minor bugs and made other improvements
 

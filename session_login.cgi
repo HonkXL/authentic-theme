@@ -138,7 +138,9 @@ embed_logo();
 
 # Login message
 my $host;
-if ($gconfig{'realname'}) {
+if ($theme_config{'settings_login_page_server_name'}) {
+    $host = $theme_config{'settings_login_page_server_name'};
+} elsif ($gconfig{'realname'}) {
     $host = &get_display_hostname();
 } else {
     $host = get_env('server_name');
@@ -167,14 +169,11 @@ if ($in{'twofactor_msg'} && $miniserv{'twofactor_provider'}) {
 } else {
     print '<p class="form-signin-paragraph">' . &theme_text('login_message') . '<strong> ' . $host . '</strong></p>' . "\n";
     print '<div class="input-group form-group">' . "\n";
-    print ui_input(
-                   { 'name'           => 'user',
-                     'value'          => $in{"failed"},
-                     'class'          => 'form-control session_login',
-                     "autocomplete"   => $gconfig{'noremember'} ? "off" : "username",
-                     "autocorrect"    => "off",
-                     "autocapitalize" => "none",
-                     "placeholder"    => $theme_text{'theme_xhred_login_user'} });
+    my $autocomplete = $gconfig{'noremember'} ? "off" : "username";
+    print &ui_textbox("user", $in{'failed'}, 20, 0, undef,
+      "autocomplete='$autocomplete' autocorrect='off' autocapitalize='none' ".
+      "placeholder='$theme_text{'theme_xhred_login_user'}'" .
+        (!$in{"failed"} ? ' autofocus' : ''), 'session_login', 1);
 
     print '<span class="input-group-addon"><i class="fa fa-fw fa-user"></i></span>' . "\n";
     print '</div>' . "\n";

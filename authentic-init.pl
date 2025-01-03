@@ -9,6 +9,7 @@ our (@theme_bundle_css,
      @theme_bundle_js,
      %module_text_full,
      %theme_config,
+     $theme_info,
      %theme_text,
      %theme_temp_data,
      $get_user_level,
@@ -76,15 +77,17 @@ sub settings_filter
 sub get_theme_color
 {
     # Chrome application header color should be darker than the theme color
-    my %theme_colors = ('blue'   => '#003374', # '#004090',
-                        'brown'  => '#423328', # '#5d4839',
-                        'gold'   => '#624b33', # '#7e6143',
-                        'green'  => '#1a5936', # '#247648',
-                        'grey'   => '#313533', # '#464b49',
-                        'orange' => '#724e2d', # '#8b5f37',
-                        'purple' => '#3a2b3f', # '#4f3b56',
-                        'red'    => '#752323', # '#8e2b2b',
-                        'white'  => '#eeeeee');# '#ffffff'
+    my %theme_colors = ('blue'   => '#003670', # '#033e86',
+                        'teal'   => '#02474c', # '#034b53',
+                        'green'  => '#234b2d', # '#2b5936',
+                        'purple' => '#45345e', # '#4f3a6e',
+                        'brown'  => '#4b3a2e', # '#544336',
+                        'gold'   => '#61482e', # '#74573a',
+                        'orange' => '#724d2a', # '#7e5631',
+                        'red'    => '#7e2b27', # '#9a3531',
+                        'maroon' => '#6f233e', # '#862b4c',
+                        'grey'   => '#2f3336', # '#343c42',
+                        'white'  => '#555555');# '#ffffff'
 
     my $color = $theme_config{'settings_navigation_color'};
     return $theme_colors{$color};
@@ -106,7 +109,7 @@ sub embed_favicon
     }
 
     my $theme_config_dir = "$config_directory/$current_theme";
-    my $theme_user_color = get_theme_color() || "#004090";
+    my $theme_user_color = get_theme_color() || "#033e86";
 
     my $favicon_path = $theme_webprefix . '/images/favicons/' . $product_name;
     my $ref_link     = 'data-link-ref';
@@ -176,40 +179,38 @@ sub embed_favicon
     }
     print ' <meta name="msapplication-TileColor" content="' . $theme_user_color . '">' . "\n";
     print ' <meta name="theme-color" content="' . $theme_user_color . '">' . "\n";
-    if (!$is_login_page) {
 
-        # Generate manifest file from template
-        my $display_hostname         = get_display_hostname();
-        my $manifest_product_name_uc = ucfirst($product_name);
-        my $manifest_product_name_uc_with_hostname =
-          $manifest_product_name_uc . ($display_hostname ? " on " . $display_hostname : "");
-        my %manifest_prod_descs = ('webmin'     => 'Powerful and flexible web-based server management control panel',
-                                   'usermin'    => 'Powerful and flexible web-based user management interface',
-                                   'virtualmin' => 'Powerful and flexible web hosting control panel',
-                                   'cloudmin'   => 'Powerful and flexible cloud computing platform');
-        my $manifest_desc     = $manifest_prod_descs{$product_name};
-        my $manifest_file     = "$root_directory/$current_theme/manifest.template";
-        my $manifest_contents = read_file_contents($manifest_file);
-        $manifest_contents =~ s/\%name\%/$manifest_product_name_uc_with_hostname/;
-        $manifest_contents =~ s/\%name_short\%/$manifest_product_name_uc/;
-        $manifest_contents =~ s/\%desc\%/$manifest_desc/;
-        $manifest_contents =~ s/\%prod\%/$product_name/g;
-        $manifest_contents =~ s/\%color\%/$theme_user_color/;
-        eval {
-            $main::error_must_die = 1;
-            write_file_contents("$theme_config_dir/manifest-$product_name.json", $manifest_contents)
-              if (-w $theme_config_dir);
-        };
+    # Generate manifest file from template
+    my $display_hostname         = get_display_hostname();
+    my $manifest_product_name_uc = ucfirst($product_name);
+    my $manifest_product_name_uc_with_hostname =
+        $manifest_product_name_uc . ($display_hostname ? " on " . $display_hostname : "");
+    my %manifest_prod_descs = ('webmin'     => 'Powerful and flexible web-based server management control panel',
+                                'usermin'    => 'Powerful and flexible web-based user management interface',
+                                'virtualmin' => 'Powerful and flexible web hosting control panel',
+                                'cloudmin'   => 'Powerful and flexible cloud computing platform');
+    my $manifest_desc     = $manifest_prod_descs{$product_name};
+    my $manifest_file     = "$root_directory/$current_theme/manifest.template";
+    my $manifest_contents = read_file_contents($manifest_file);
+    $manifest_contents =~ s/\%name\%/$manifest_product_name_uc_with_hostname/;
+    $manifest_contents =~ s/\%name_short\%/$manifest_product_name_uc/;
+    $manifest_contents =~ s/\%desc\%/$manifest_desc/;
+    $manifest_contents =~ s/\%prod\%/$product_name/g;
+    $manifest_contents =~ s/\%color\%/$theme_user_color/;
+    eval {
+        $main::error_must_die = 1;
+        write_file_contents("$theme_config_dir/manifest-$product_name.json", $manifest_contents)
+            if (-w $theme_config_dir);
+    };
 
-        print ' <script src="' . $theme_webprefix . '/service-worker.js" defer></script>' . "\n";
-        print ' <link ' .
-          $ref_link .
-          ' crossorigin="use-credentials" rel="manifest" href="' .
-          $theme_webprefix .
-          '/manifest-' .
-          $product_name .
-          '.json">' . "\n";
-    }
+    print ' <script src="' . $theme_webprefix . '/service-worker.js" type="application/javascript" defer></script>' . "\n";
+    print ' <link ' .
+        $ref_link .
+        ' crossorigin="use-credentials" rel="manifest" href="' .
+        $theme_webprefix .
+        '/manifest-' .
+        $product_name .
+        '.json">' . "\n";
 }
 
 sub embed_header
@@ -565,12 +566,18 @@ sub embed_pm_scripts
 
 sub embed_css_fonts
 {
-    print ' <link href="' .
+    my ($return) = @_;
+    my $font_link = ' <link href="' .
       $theme_webprefix .
       '/unauthenticated/css/fonts-roboto.' .
       (theme_debug_mode() ? 'src' : 'min') . '.css?' .
       theme_version('timestamped') .
       '" rel="stylesheet">' . "\n";
+    if ($return) {
+        return $font_link;
+    } else {
+        print $font_link;
+    }
 }
 
 sub embed_css_bundle
@@ -679,6 +686,23 @@ EOF
     print $noscript, "\n";
 }
 
+sub get_css_inline
+{
+    my ($target) = @_;
+    if ($target eq 'calendar') {
+        return <<CALENDAR;
+.calendar-table .calendar-cell,
+.calendar-table .calendar-cell strong,
+.calendar-table strong {
+  font-weight: 500;
+}
+.calendar-details .detail strong {
+  opacity: 0.97;
+}
+CALENDAR
+        }
+}
+
 sub embed_port_shell
 {
     if (!@_ &&
@@ -779,6 +803,8 @@ sub init_vars
                          settings(get_taconfig_file()),
                          settings(get_tgconfig_file(), "settings_"),
                          settings(get_tuconfig_file(), "settings_"));
+    our $theme_info = get_current_theme_info_cached($current_theme);
+
     our $http_x_url =
       (get_env('http_x_pjax_url') || get_env('http_x_progressive_url'));
 
@@ -975,9 +1001,11 @@ sub get_button_style
     my $label = quote_escape(@_);
 
     my %module_text = module_text_full();
-    my (@keys) = grep {$module_text{$_} eq $label} keys %module_text;
-
-    my $keys = "@keys";
+    my ($keys) = grep {$module_text{$_} eq $label} keys %module_text;
+    if (!$keys) {
+        my %text_replaced = &text();
+        $keys = $text_replaced{$label};
+    }
     my $icon;
     my $class = "default";
 
@@ -1001,6 +1029,30 @@ sub get_button_style
         if (string_contains($keys, 'ssl_gen')) {
             $class = "grey ";
         }
+    } elsif (string_contains($keys, "licence_manager") ||
+             string_contains($keys, "licence_manager_change") ||
+             string_contains($keys, "licence_manager_deregister") ||
+             string_contains($keys, "licence_recheck")) {
+        $icon = "virtualmin fa-1_15x margined-left--2 margined-top-1";
+        $class = "info ";
+        if (string_contains($keys, "licence_recheck")) {
+            $icon = "refresh fa-1_05x margined-left--2";
+        } elsif (string_contains($keys, "licence_manager_goto")) {
+            $class = "warning ";
+            $icon = " fa2 fa2-key fa-1_15x margined-left--1";
+        }
+        if (string_contains($keys, "licence_manager_change") ||
+            string_contains($keys, "licence_manager_setup")) {
+            $class = "success ";
+            $icon = "unlock fa-1_15x margined-left--2";
+        }
+        if (string_contains($keys, "licence_manager_deregister")) {
+            $class = "grey ";
+            $icon = "lock fa-1_15x margined-left--2";
+        }
+    } elsif (string_contains($keys, "user_createover")) {
+        $class = "warning ";
+        $icon  = "user-switch fa-1_10x";
     } elsif (string_contains($keys, "check_updatenow")) {
         $class = "warning ";
         $icon  = "refresh";
@@ -1021,9 +1073,11 @@ sub get_button_style
     } elsif (string_contains($keys, "mail_delete")) {
         $icon  = "times-circle";
         $class = "danger ";
-    } elsif (string_contains($keys, "mail_forward")) {
+    } elsif (string_contains($keys, "mail_forward") ||
+             string_contains($keys, "view_forward")) {
         $icon = "forward";
-    } elsif (string_contains($keys, "view_quick_all")) {
+    } elsif (string_contains($keys, "view_quick_all") ||
+             string_contains($keys, "view_reply2")) { 
         $icon = "reply-all";
     } elsif (string_contains($keys, "view_reply")) {
         $icon  = "reply";
@@ -1114,16 +1168,23 @@ sub get_button_style
     } elsif (string_contains($keys, "disable_ok") || string_contains($keys, "jail_block")) {
         $class = "warning ";
         $icon  = "lock";
+    } elsif (string_contains($keys, "scripts_kit") && string_contains($keys, "_login")) {
+        $class = "success ";
+        $icon  = "unlock fa-1_05x";
     } elsif (string_contains($keys, "enable_ok") || string_contains($keys, "jail_unblock")) {
         $class = "success ";
         $icon  = "unlock";
     } elsif (string_contains($keys, "twofactor_enable")) {
         $class = "info ";
         $icon  = "lock";
+    } elsif (string_contains($keys, "blockip")) {
+        $class = "grey ";
+        $icon  = " fa2 fa2-not-interested fa-1_10x margined-left--2";
     } elsif (string_contains($keys, "twofactor_disable")) {
         $class = "warning ";
         $icon  = "unlock";
-    } elsif (string_contains($keys, "zonekey")) {
+    } elsif (string_contains($keys, "zonekey") ||
+             string_contains($keys, "dt_zone_resign")) {
         if ($keys eq "zonekey_disable") {
             $class = "danger ";
             $icon  = " fa2 fa2-key-minus fa-1_15x";
@@ -1134,6 +1195,7 @@ sub get_button_style
              (string_contains($keys, "install")     ||
               string_contains($keys, "recsok")      ||
               string_contains($keys, "scripts_iok") ||
+              string_contains($keys, "cert_newok") ||
               string_contains($keys, "missing_now") ||
               string_contains($keys, "right_upok")
              ) &&
@@ -1141,9 +1203,17 @@ sub get_button_style
     {
         $class = "success ";
         $icon  = "package-install fa-1_25x";
+    } elsif (string_contains($keys, "user_priv_create_view") ||
+             string_contains($keys, "dbase_addview")) {
+        $class = "success ";
+        $icon = "list";
+    } elsif (string_contains($keys, "dbase_add")) {
+        $class = "success ";
+        $icon  = "database-plus fa-1_25x";
     } elsif (string_contains($keys, "uninstall") ||
              string_contains($keys, "edit_uninst") ||
              string_contains($keys, "scripts_uok") ||
+             string_contains($keys, "scripts_utitle") ||
              string_contains($keys, "drecs_ok"))
     {
         $class = "danger ";
@@ -1154,6 +1224,9 @@ sub get_button_style
     } elsif (string_contains($keys, "cert_copyall2")) {
         $class = "info ";
         $icon  = " fa2 fa2-certificate-global";
+    } elsif (string_contains($keys, "newtmpl_setdef") ||
+             string_contains($keys, "plans_setdefault")) {
+        $icon  = " fa2 fa-0_85x fa2-check-double";
     } elsif (string_contains($keys, "cert_copyall")) {
         $class = "info ";
         $icon  = " fa2 fa2-certificate-add";
@@ -1175,6 +1248,9 @@ sub get_button_style
              string_contains($keys, "massdomains_enaok"))
     {
         $icon = "toggle-switch  fa-1_25x";
+    } elsif (string_contains($keys, "disable_domain")) {
+        $class = "success ";
+        $icon = "clock";
     } elsif (string_contains($keys, "shutdown")) {
         $icon = "power-off";
     } elsif (string_contains($keys, "index_shut")) {
@@ -1185,7 +1261,9 @@ sub get_button_style
         $class = "warning ";
     } elsif (string_contains($keys, "docker_reg") || string_contains($keys, "wizard_finish")) {
         $icon = "check-circle-o";
-    } elsif (string_contains($keys, "tmpl_nprev") || string_contains($keys, "wizard_prev")) {
+    } elsif (string_contains($keys, "goback") ||
+             string_contains($keys, "tmpl_nprev") ||
+             string_contains($keys, "wizard_prev")) {
         $icon = "arrow-circle-o-left";
     } elsif (string_contains($keys, "tmpl_nnext") ||
              string_contains($keys, "wizard_next") ||
@@ -1233,10 +1311,13 @@ sub get_button_style
         }
 
         if (string_contains($keys, "view_refresh")) {
-            $icon = "refresh-fi fa-1_25x";
+            $icon = "refresh-fi  fa-1_25x";
         } else {
             $icon = "refresh-mdi fa-1_25x";
         }
+    } elsif ($keys eq "view_filter_btn") {
+        $icon = "filter fa-1_10x";
+        $class = "info";
     } elsif (string_contains($keys, "search") ||
              string_contains($keys, "index_broad")    ||
              string_contains($keys, "scripts_findok") ||
@@ -1251,10 +1332,11 @@ sub get_button_style
         $class = "warning ";
         $icon  = " fa2 fa2-transfer";
     } elsif (string_contains($keys, "restart") ||
-             string_contains($keys, "edit_kill") ||
-             string_contains($keys, "licence_recheck"))
+             string_contains($keys, "edit_kill"))
     {
         $class = "warning ";
+        $icon  = "refresh";
+    } elsif (string_contains($keys, "scripts_ureload")) {
         $icon  = "refresh";
     } elsif (string_contains($keys, "ddrop_empty")) {
         $class = "warning ";
@@ -1346,14 +1428,13 @@ sub get_button_style
         $icon = "key";
     } elsif (string_contains($keys, "index_who")) {
         $icon = "sign-in";
-    } elsif (string_contains($keys, "dbase_add") || string_contains($keys, "databases_import")) {
+    } elsif (string_contains($keys, "databases_import")) {
         $class = "success ";
         $icon  = "database-plus fa-1_25x";
     } elsif (
-         (string_contains($keys, "add") && !string_contains($keys, "dbase_addview") && !string_contains($keys, "edit_addinc")
-         ) ||
-         (string_contains($keys, "create") &&
-            !string_contains($keys, "user_priv_create_view")) ||
+         (string_contains($keys, "add") &&
+          !string_contains($keys, "edit_addinc")) ||
+         string_contains($keys, "create") ||
          string_contains($keys, "index_crnow") ||
          string_contains($keys, "view_new")    ||
          string_contains($keys, "mass_ok")     ||
@@ -1559,11 +1640,9 @@ sub theme_version
     my $tversions = getvar('tversion_cached');
 
     if (!$tversions || $nocache) {
-        my %tinfo    = get_theme_info($current_theme);
-        my $version  = $tinfo{'version'};
-        my $mversion = $tinfo{'mversion'};
-        my $bversion = $tinfo{'bversion'};
-
+        my $version           = $theme_info->{'version'};
+        my $mversion          = $theme_info->{'mversion'};
+        my $bversion          = $theme_info->{'bversion'};
         my $is_alpha          = string_contains($version, 'alpha');
         my $is_beta           = string_contains($version, 'beta');
         my $is_rc             = string_contains($version, 'RC');
@@ -1604,9 +1683,13 @@ sub theme_version
 
 sub theme_debug_mode
 {
+    my $mode_cache = getvar('theme-debug-mode');
+    return $mode_cache if (defined($mode_cache));
     if (-r "$ENV{'THEME_ROOT'}/dependencies.pl") {
+        setvar('theme-debug-mode', 1);
         return 1;
     } else {
+        setvar('theme-debug-mode', 0);
         return 0;
     }
 }
@@ -1643,6 +1726,8 @@ sub header_html_data
       theme_debug_mode() .
       '" data-session="' .
       ($remote_user ? '1' : '0') .
+      '" data-session-hash="' .
+      (eval { return &miniserv::hash_session_id($main::session_id) }) .
       '" data-script-name="' .
       ($module ? "/$module/" : get_env('script_name')) . '"' .
       ($skip   ? ''          : ' data-bgs="' . (theme_night_mode() ? 'nightRider' : 'gainsboro') . '"') . '' .
@@ -1659,6 +1744,8 @@ sub header_html_data
       foreign_available("xterm") .
       '" data-shell="' .
       foreign_available("shell") .
+      '" data-upgrade="' .
+      ($theme_config{'settings_upgrade_allowed'} eq 'true' ? '1' : '0') .
       '" data-webmin="' .
       foreign_available("webmin") .
       '" data-usermin="' .
@@ -1981,6 +2068,16 @@ sub get_button_tooltip
         $ctrl_key = '⌃';
         $meta_key = '⌘';
     }
+    my $hot_key_full;
+    if ($hot_key) {
+        $hot_key_full =
+            ($mod_key eq "altKey" ?
+            $alt_key : $mod_key eq "ctrlKey" ?
+            $ctrl_key : $meta_key) . ' + ' . $hot_key;
+        $hot_key_full .= ", $hot_key_full"
+            if ($key =~ /^settings_/ && $key =~ /_dbl$/);
+    }
+
     return (' aria-label="' .
               strip_html($tooltip_text) .
               '" data-container="' .
@@ -1995,12 +2092,7 @@ sub get_button_tooltip
                  .
                  (length $theme_config{'settings_hotkeys_active'} &&
                     $theme_config{'settings_hotkeys_active'} ne 'false' &&
-                    $hot_key ?
-                    " (" .
-                    ($mod_key eq "altKey" ? $alt_key : $mod_key eq "ctrlKey" ? $ctrl_key : $meta_key) . ' + ' .
-                    $hot_key . ")" :
-                    '')
-              ) .
+                    $hot_key ? " ($hot_key_full)" : '')) .
               '"');
 }
 
@@ -2052,7 +2144,7 @@ sub embed_product_branding
 
     return if (get_env('script_name') =~ /password_change\.cgi/);
     return if (getvar('error-fatal'));
-    return if ($theme_config{"settings_embed_product_branding_privileged"} eq 'false');
+    return if ($theme_config{"settings_embed_product_splash_privileged"} eq 'false');
     return &custom_embed_product_branding(@_)
       if (defined(&custom_embed_product_branding));
 
@@ -2103,6 +2195,16 @@ sub embed_product_branding
 "<div tabindex=\"1\" class=\"branding-backdrop $brand_name\"><div class=\"centered\">$brand<br><div class=\"branding-loader\">$loader</div></div></div>";
     $brand .= "<script>page.branding.process()</script>";
     print $brand;
+}
+
+sub navigation_link_clean
+{
+    my ($link) = @_;
+    if ($link) {
+        $link =~ s/\?$xnav&/?/g;
+        $link =~ s/[?|&]$xnav//g;
+    }
+    return $link;
 }
 
 1;

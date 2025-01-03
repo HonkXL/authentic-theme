@@ -3,6 +3,7 @@ body_cpu=CPU naloži povprečje
 body_cpuinfo=Informacije o procesorju
 body_cputemps=Temperature CPU-ja
 body_cputype=$5, $8 jeder
+body_cputype1=$5, $8 jedro
 body_disk=Lokalni prostor na disku
 body_driveerr=$1 napake!
 body_drivefailed=SMART preverjanje ni uspelo!
@@ -99,9 +100,10 @@ settings_right_extensions_title=Obsežna zasnova teme vam omogoča enostavno upr
 
 theme_xhred_settings_right_theme_logos=Tematski logotipi
 theme_xhred_settings_right_theme_logos_title=Tema Logotipi
-settings_right_logos_title=Tu lahko enostavno nastavite tematske logotipe, tako za overjene kot za overjene uporabnike. Priporočena velikost logotipa je <kbd>180x90</kbd> x <kbd>180x90</kbd> slikovnih pik, edina podprta oblika pa je <kbd>.png</kbd>, da se zagotovi preglednost alfa.
+settings_right_logos_title=Logotipe tem lahko preprosto nastavite tukaj, za overjene in neavtenticirane uporabnike. Priporočena velikost logotipa je <em>180 x 90</em> slikovnih pik.
 settings_right_logo_authenticated_users=Logotip za pristne uporabnike
 settings_right_logo_unauthenticated_users=Logotip za nepooblaščene uporabnike
+settings_right_logos_error=Naložena datoteka ni slika
 
 settings_right_current_theme=Trenutna tema
 settings_right_title=Na tej strani lahko konfigurirate možnosti za <a href="https://github.com/authentic-theme/authentic-theme" target="_blank">avtentične teme</a>. Nastavitve bodo shranjene po posodobitvi teme.
@@ -208,15 +210,15 @@ theme_xhred_filemanager_renaming_selected=Preimenovanje je izbrano.
 theme_xhred_filemanager_creating_directory=Ustvarjanje imenika
 theme_xhred_filemanager_creating_file=Ustvarjanje datoteke
 theme_xhred_filemanager_downloading_from=Prenos iz
-theme_xhred_filemanager_setting_permissions=Nastavitev dovoljenj na <strong><em>%value</em></strong> v izbranih datotekah.
-theme_xhred_filemanager_changing_ownership=Spreminjanje lastništva v <strong><em>%value</em></strong> v izbranih datotekah.
+theme_xhred_filemanager_setting_permissions=Nastavitev dovoljenj na <tt>%value</tt> za izbrane datoteke.
+theme_xhred_filemanager_changing_ownership=Spreminjanje lastništva v <tt>%value</tt> na izbranih datotekah.
 theme_xhred_filemanager_compressing_selected=Stiskanje izbrano v ozadju.
 theme_xhred_filemanager_refreshing=Osvežujoča vsebina imenika.
 theme_xhred_filemanager_copying_successful=Kopiranje v odložišče uspešno.
 theme_xhred_filemanager_cutting_successful=Urejanje v odložišče uspešno.
 theme_xhred_filemanager_pasting_successful=Lepljenje iz odložišča je bilo uspešno.
-theme_xhred_filemanager_bookmark_success=<strong><em>%value</em></strong> imenika je bila uspešno dodana med vaše zaznamke.
-theme_xhred_filemanager_searching=Iskanje `<em>%value</em>` datotek imen/datotek.
+theme_xhred_filemanager_bookmark_success=Imenik <tt>%value</tt> je bil uspešno dodan vašim zaznamkom.
+theme_xhred_filemanager_searching=Iskanje <tt>%value</tt>, ki se ujema z imeni datotek /directories.
 theme_xhred_filemanager_search_founds=Najdeno <strong>%value</strong> ujemanje <strong>%value</strong>.
 theme_xhred_filemanager_search_found=Najdeno </strong>1</strong> ujemanje.
 theme_xhred_filemanager_search_no_matches=Zadetkov ni bilo mogoče najti.
@@ -234,8 +236,8 @@ theme_xhred_filemanager_successful_deletion=Brisanje je bilo uspešno.
 theme_xhred_filemanager_successful_permissions=Dovoljenja so bila uspešno spremenjena.
 theme_xhred_filemanager_successful_ownership=Lastništvo je uspešno spremenjeno.
 theme_xhred_filemanager_successful_compression=Stiskanje je uspešno končano.
-theme_xhred_filemanager_successful_directory_creation=Imenik `<strong>%value</strong>` je bil ustvarjen uspešno.
-theme_xhred_filemanager_successful_file_creation=mapa `<strong>%value</strong>` je bil ustvarjen uspešno.
+theme_xhred_filemanager_successful_directory_creation=Imenik <tt>%value</tt> je bil uspešno ustvarjen.
+theme_xhred_filemanager_successful_file_creation=Datoteka <tt>%value</tt> je bila uspešno ustvarjena.
 
 theme_xhred_notifications_packages_updates=Posodobitev paketov
 theme_xhred_notifications_theme_update=Posodobitev teme
@@ -346,7 +348,7 @@ theme_xhred_global_warning=Opozorilo
 theme_xhred_global_close=Zapri
 
 theme_xhred_filemanager__no_bookmarks=Ni shranjenih zaznamkov
-theme_xhred_filemanager_unbookmark_success=<strong><em>%value</em></strong> imenika je bila uspešno odstranjena iz vaših zaznamkov.
+theme_xhred_filemanager_unbookmark_success=Imenik <tt>%value</tt> je bil uspešno odstranjen iz vaših zaznamkov.
 theme_xhred_filemanager_bookmark=Zaznamek trenutni imenik
 theme_xhred_filemanager_unbookmark=Odznak trenutnega imenika
 theme_xhred_filemanager_move_into_self=Ne morete premakniti imenika vase! Ciljni imenik je znotraj izvornega imenika.
@@ -399,6 +401,8 @@ theme_xhred_database_delete_selected_field=Izbriši izbrano polje
 theme_xhred_database_delete_selected_fields=Izbrišite izbrana polja
 theme_xhred_database_object_selected_delete=Izbriši izbrani predmet
 theme_xhred_database_objects_selected_delete=Izbrišite izbrane predmete
+theme_xhred_database_object_selected_delete2=Spustite izbrano tabelo
+theme_xhred_database_objects_selected_delete2=Spustite izbrane tabele
 theme_xhred_database_db_selected_drop=Izpustite izbrano bazo podatkov
 theme_xhred_database_dbs_selected_drop=Izpustite izbrane baze podatkov
 theme_xhred_database_edit_but_not_saved=Podatki tabele so bili urejeni, vendar niso shranjeni.
@@ -426,17 +430,17 @@ theme_xhred_datatable_no_search_results=<span class="h5">Ni najdenih rezultatov<
 
 theme_xhred_filemanager_buffer_error=Ni bilo mogoče prilepiti datotek v medpomnilnik - dovoljenje zavrnjeno.
 
-filemanager_create_object_exists=$3 `<strong><em>$1</em></strong>` že obstaja v `<strong><tt>$2</tt></strong>`
-filemanager_create_object_denied=$3 ni mogoče ustvariti `<strong><em>$1</em></strong>` v `<strong><tt>$2</tt></strong>` - dovoljenje zavrnjeno : $4.
+filemanager_create_object_exists=$3 <tt>$1</tt> že obstaja v <tt>$2</tt>
+filemanager_create_object_denied=Ni mogoče ustvariti $3 <tt>$1</tt> v <tt>$2</tt> - dovoljenje zavrnjeno: $4.
 
 theme_xhred_filemanager_paste_warning=Ciljev ni bilo mogoče prilepiti. Možno je, da bi bili zahtevani predmeti preimenovani, premaknjeni </em>ali</em> izbrisani </em>, preden so bili pred lepljenjem. Drug možen vzrok je, da cilj ni mogoče zapisati. Vredno je preveriti atribute predmetov.
 
 theme_xhred_filemanager_delete_warning=Brisanje je uspešno končano, vendar ne za vse predmete. Možno je, da bi bili zahtevani predmeti pred izbrisom <em>preimenovani</em> ali <em>premaknjeni</em>. Omejeni dovoljenja (atributi) so še en možen vzrok. Obvestilo o napaki:
 
-filemanager_rename_exists=$3 z imenom `<strong><em>$1</em></strong>` že obstaja v `<strong><tt>$2</tt></strong>`
+filemanager_rename_exists=$3 z imenom <tt>$1</tt> že obstaja v <tt>$2</tt>
 filemanager_rename_denied=Ne morem preimenovati $3. To se lahko zgodi, ker je bil vir $3 odstranjen ali zaradi omejenih dovoljenj.
 
-theme_xhred_filemanager_successful_rename=Preimenovanje `<strong><em><s>%from</s></em></strong>` do `<strong><em>%to</em></strong>` je bil uspešen.
+theme_xhred_filemanager_successful_rename=Preimenovanje <tt>%from</tt> v <tt>%to</tt> je bilo uspešno.
 
 filemanager_global_info_total1=Skupaj: datoteka $1 in imenik $2
 filemanager_global_info_total2=Skupaj: datoteke $1 in imenik $2
@@ -452,8 +456,8 @@ theme_xhred_filemanager_search_replace=Zamenjaj rezultate
 theme_xhred_global_find=Najti
 theme_xhred_global_replace=Zamenjati
 
-theme_xhred_filemanager_searching_matching=Iskanje `<em>%value</em>` ujemajočih se imen datotek/imenikov, ki vsebujejo `<em>%text</em>` besedila.
-theme_xhred_filemanager_searching_replacing=Zamenjava tekem `<em>%text</em>` z `<em>%replace</em>` v datotekah z imeni, ki vsebujejo `<em>%value</em>`.
+theme_xhred_filemanager_searching_matching=Iskanje <tt>%value</tt>, ki se ujema z imeni datotek /directories, ki vsebujejo besedilo <tt>%text</tt>.
+theme_xhred_filemanager_searching_replacing=Zamenjava ujema <tt>%text</tt> z <tt>%replace</tt> v datotekah z imeni, ki vsebujejo <tt>%value</tt>.
 
 theme_xhred_filemanager_search_replaced_multi=Najdeno in zamenjano v datotekah <strong>%value</strong>.
 theme_xhred_filemanager_search_replaced=Najdeno in nadomeščeno v datoteki </strong>1</strong>.
@@ -464,8 +468,8 @@ theme_xhred_filemanager_successful_ownership_with_errors=Lastništvo ni bilo usp
 theme_xhred_filemanager_successful_ownership_with_errors_fatal=Lastništva ni mogoče spremeniti zaradi naslednjih napak:
 
 theme_xhred_filemanager_successful_compression_with_errors=Stiskanje se je končalo z naslednjimi napakami:
-theme_xhred_filemanager_successful_compression_bg=Stiskanje je uspešno končano. Stisnjena datoteka `<strong>%file</strong>` se nahaja v imeniku `<strong>%path</strong>`.
-theme_xhred_filemanager_successful_compression_bg_with_errors=Stiskanje se je končalo z napakami. Stisnjena datoteka `<strong>%file</strong>` mora biti v imeniku `<strong>%path</strong>`.
+theme_xhred_filemanager_successful_compression_bg=Stiskanje je uspešno zaključeno. Stisnjena datoteka <tt>%file</tt> se nahaja v imeniku <tt>%path</tt>.
+theme_xhred_filemanager_successful_compression_bg_with_errors=Stiskanje se je končalo z napakami. Stisnjena datoteka <tt>%file</tt> mora biti v imeniku <tt>%path</tt>.
 
 theme_xhred_filemanager_settings_notification_type=Vrsta obvestil za prikaz
 theme_xhred_filemanager_settings_notification_type_inf_warn_err=Informacije, opozorila in napake
@@ -526,12 +530,12 @@ settings_leftmenu_netdata=Pokaži povezavo za spremljanje v realnem času v Netd
 settings_leftmenu_netdata_link=Prednostna povezava strežnika Netdata
 
 theme_xhred_filemanager_context_chattr=Spremenite atribute
-theme_xhred_filemanager_changing_attributes=Nastavitev atributov <strong><em>%value</em></strong> v izbranih datotekah.
+theme_xhred_filemanager_changing_attributes=Nastavitev atributov na <tt>%value</tt> za izbrane datoteke.
 theme_xhred_filemanager_successful_attributes_with_errors=Atributi niso bili uspešno nastavljeni za vse predmete:
 theme_xhred_filemanager_successful_attributes=Atributi so bili uspešno nastavljeni.
 
 theme_xhred_filemanager_context_chcon=Spremenite varnostni kontekst
-theme_xhred_filemanager_changing_secontext=Spreminjanje varnostnega konteksta v <strong><em>%value</em></strong> v izbranih datotekah.
+theme_xhred_filemanager_changing_secontext=Spreminjanje varnostnega konteksta v <tt>%value</tt> na izbranih datotekah.
 theme_xhred_filemanager_successful_secontext_with_errors=Varnostni kontekst ni bil uspešno spremenjen za vse predmete:
 theme_xhred_filemanager_successful_secontext=Varnostni kontekst je bil uspešno spremenjen.
 
@@ -749,8 +753,6 @@ theme_xhred_nice_size_GB=GB
 theme_xhred_nice_size_MB=MB
 theme_xhred_nice_size_kB=kB
 theme_xhred_nice_size_b=bajti
-settings_sysinfo_real_time_status_disk=Omogoči za diske
-settings_sysinfo_real_time_status_disk_description=Morda bi bilo koristno onemogočiti nadzor v realnem času za diske v počasnih/velikih datotečnih sistemih
 theme_xhred_title_locale_non_ui_config=Oblika datuma, ki jo ustvari strežnik
 
 #19.20
@@ -843,7 +845,7 @@ theme_xhred_mail_search_has_attach=Ima navezanost
 
 theme_xhred_settings_right_theme_bgs=Tematske ozadje
 theme_xhred_settings_right_theme_bgs_title=Tematske ozadje
-settings_right_bgs_title=Tu lahko nastavite tematsko ozadje za stran za prijavo. Edina podprta oblika je <kbd>.png</kbd>, da se zagotovi preglednost alfa.
+settings_right_bgs_title=Tematsko ozadje za prijavno stran lahko nastavite tukaj.
 settings_right_bg_unauthenticated_users=Ozadje za nepooblaščene uporabnike
 settings_right_theme_left_background_title=Nadzor ozadja teme
 
@@ -922,7 +924,7 @@ theme_xhred_shell_aborted=Operacija prekinjena
 #19.32
 theme_xhred_connection_reboot=Ponovno zagon
 theme_xhred_connection_reboot_details=Strežnik se ponovno zažene. Prosim počakaj ..
-settings_leftmenu_custom_links_description=V navigacijski meni lahko vstavite dodatne, dodatne povezave. <br><br> Potrebne so tipke <em>naslov</em>, <em>povezava</em> in <em>ikona</em>; neobvezno lahko določite, v katerem načinu za prijavo se bo prikazala povezava, tako da v seznamu, ločenem z vejicami, določite tipko <em>level</em>, ki vsebuje: <br><br> <em>0</em> > - skrbniška prijava; <br><em> 1 </em>- prijava preprodajalca;<br> <em>2</em> - prijava lastnika strežnika; <br><em> 3 </em>- prijava uporabnika;<br> <em>4</em> - prijava lastnika sistema. <br><br> Zahteva, da veljavni objekt JSON posredujete kot niz, kot v spodnjem primeru. <hr><pre> {"extra": [{ "title": "Google Mail", "link": "https://gmail.com/", "ikona": "google", "level": "0,1,2,3,4"}, { "title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": " ovojnica "," pristanišče ":" 20000 "," target ":" _blank "}]} </pre>
+settings_leftmenu_custom_links_description=V navigacijski meni je mogoče dodati dodatne povezave po meri. <br><br> Zahtevani so ključi <em>naslov</em>, <em>povezava</em> in <em>ikona</em>; po želji lahko določite, v katerem načinu prijave bo prikazana povezava, tako da podate ključ <em>nivo</em> z vrednostmi na seznamu, ločenem z vejicami, ki vsebuje: <br><br> <em>0</em > - skrbniška prijava; <br><em>1</em> - prijava prodajalca;<br><em>2</em> - prijava lastnika strežnika;<br><em>3</em> - prijava uporabnika;<br><em>4</em>- prijava lastnika sistema.<br><br> Zahtevalo bo, da posredujete veljaven objekt JSON kot niz, kot v spodnjem primeru.<hr><pre data-json>{"extra":[{"title": "Google Mail", "link": "https://gmail.com/", "icon": "google", "level": "0,1,2,3,4"}, {"title": "BIND DNS Server", "link": "/bind8", "icon": "server"}, {"title": "Usermin", "link": "/", "icon": "envelope", "port": "20000", "target": "_blank"}]}</pre>
 left_favorites_edit=Urejanje priljubljenih
 left_favorites_edit_desc=To stran lahko uporabite za ročno urejanje uporabniške datoteke priljubljenih tem. To je treba storiti previdno, saj sintaksa ali drugo preverjanje veljavnosti vaših sprememb ne bo izvedeno.
 theme_xhred_filemanager_records_for_server_pagination=Privzeto število elementov v imeniku, da začnete prevajanje strani v strežnik
@@ -1049,10 +1051,6 @@ theme_xhred_global_today=Danes
 theme_xhred_global_tomorrow=Jutri
 theme_xhred_mail_composer_scheduled=Pošlji %1 na %2
 theme_global_core=Jedro
-settings_sysinfo_real_time_stored=Omogoči zgodovino statistike
-settings_sysinfo_real_time_stored_description=Če je omogočeno, se prej zbrane statistike shranijo in prikažejo v grafu na nadzorni plošči
-settings_sysinfo_real_time_stored_length=Trajanje zgodovine statistike
-settings_sysinfo_real_time_stored_length_description=Čas, v katerem se hrani zgodovina statistike
 theme_dashboard_accordion_live_stats=Zgodovina statistike
 theme_xhred_live_stats_cpu=CPU
 theme_xhred_live_stats_mem=Spomin
@@ -1147,7 +1145,7 @@ theme_xhred_connection_error_details_ssl=Preverite <a>samopodpisano potrdilo SSL
 #19.71
 settings_sysinfo_hidden_panels_user=Skrite harmonike
 theme_xhred_tooltip_dashboard_panels_disable=Skrij podokno $1 
-theme_xhred_dashboard_panels_disabled_explain=Skrite plošče lahko znova omogočite s pomočjo strani s konfiguracijo teme.
+theme_xhred_dashboard_panels_disabled_explain=Skrito ploščo je mogoče znova omogočiti z uporabo <tt>Theme Configuration: Dashboard and real-time monitoring</tt>.
 settings_right_sysinfo_page_options=Nadzorna plošča in nadzor v realnem času
 settings_right_navigation_menu_options=Navigacijski meni
 settings_right_notification_slider_options=Stranski drsnik
@@ -1169,8 +1167,6 @@ theme_xhred_filemanager_mconfig_columns_acls_disabled=Ta funkcija zahteva, da je
 theme_xhred_global_module_preferences=Nastavitve modula
 
 #19.74
-settings_sysinfo_real_time_status_forced=Da, prisilno
-settings_sysinfo_real_time_status_forced_warn=Omogočanje sprotnega nadzora v prisilnem načinu se odsvetuje, ker se bo zbiranje ozadja izvajalo tudi, če zavihek brskalnika ni osredotočen, kar bi lahko povzročilo preobremenitev strežnika z več zavihki
 theme_xhred_theme_update_available=Nameščena je nova različica avtentične teme
 settings_right_page_keep=Naloži isto stran na stikalo domene
 settings_right_page_keep_description=Ta možnost bo poskusila naložiti isto stran ob izbiri domene, ko jo spremenite s spustnega seznama v navigacijskem meniju
@@ -1374,3 +1370,49 @@ theme_xhred_columns_layout_variation_cannot_horizontal=Vodoravne postavitve ni m
 settings_auto_open_panels_on_proximity=Samodejno odpiranje zaprtih plošč v bližini
 
 theme_xhred_config_portable_module_xterm_render_addon=Omogoči dodatek za upodabljanje WebGL
+
+#21.09.04
+theme_xhred_datatable_filter_and_export=Filtrirajte in izvozite vsebino
+
+#21.10
+settings_hotkey_logout_dbl=Odjava
+theme_xhred_hotkey_emsg=Tipke s poševnico nazaj ni mogoče uporabiti kot bližnjico
+settings_embed_product_splash_privileged=Po prijavi prikažite začetni zaslon blagovne znamke
+dashboard_status_running=tek
+dashboard_status_stopped=ustavil
+
+#21.11
+theme_xhred_global_watching=Gledanje
+theme_xhred_global_connected=Povezan
+theme_xhred_global_disconnected=Prekinjena povezava
+theme_xhred_global_connecting=Povezovanje
+index_mods_missing=Modul Perl <tt>$1</tt> manjka.
+index_noadmin_eaccess=Dostop zavrnjen skrbnikom, ki niso glavni!
+theme_xhred_body_os=Operacijski sistem
+theme_xhred_theme_version=Verodostojna različica teme
+theme_xhred_body_updates=Posodobitve paketov
+
+# 21.20
+theme_xhred_hotkey_switch_theme=Zamenjaj temo
+
+# 21.20.2
+theme_xhred_filemanager_upload_status_ok=Nalaganje uspešno
+theme_xhred_filemanager_upload_status_err=Nalaganje ni uspelo:
+theme_xhred_filemanager_download_status_err=Prenos ni uspel:
+
+# 21.20.7
+theme_xhred_dashboard_chart_disk_read=Preberi
+theme_xhred_dashboard_chart_disk_write=Pišite
+theme_xhred_dashboard_chart_net_read=notri
+theme_xhred_dashboard_chart_net_write=ven
+theme_xhred_tooltip_dashboard_live_stats_offline=Statistika v živo ni na voljo, ko se do sistema dostopa v načinu proxy; prikazani bodo samo predhodno zbrani statistični podatki in le, če so na voljo, stran pa bo treba znova naložiti, da posodobite te statistične podatke
+settings_sysinfo_real_time_status_history1=Da, in shranite statistiko za
+settings_sysinfo_real_time_status_history2=Da, brez shranjevanja statistike
+settings_sysinfo_real_time_status_history_duration1=20 minut
+settings_sysinfo_real_time_status_history_duration2=1 uro
+settings_sysinfo_real_time_status_history_duration3=3 ure
+settings_sysinfo_real_time_status_history_duration4=6 ur
+settings_sysinfo_real_time_status_history_duration5=12 ur
+settings_sysinfo_real_time_status_history_duration6=18 ur
+settings_sysinfo_real_time_status_history_duration7=24 ur
+theme_xhred_license_purchase=Nakup licence
